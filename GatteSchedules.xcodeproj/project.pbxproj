@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36FABE269A1765800AE16EC3 /* Pods_GatteSchedules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */; };
+		56FADEC3351CFD41F7327CF4 /* Pods_GatteSchedulesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E98A763DA7FF1133CC25E0D /* Pods_GatteSchedulesUITests.framework */; };
+		E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */; };
+		E9EAEC8A1DE53F3D00D4646C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC891DE53F3D00D4646C /* ViewController.swift */; };
+		E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */; };
+		E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */; };
+		E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */; };
+		E9EAEC9D1DE53F3D00D4646C /* GatteSchedulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC9C1DE53F3D00D4646C /* GatteSchedulesTests.swift */; };
+		E9EAECA81DE53F3D00D4646C /* GatteSchedulesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */; };
+		F4E9221E1C7FA325B233E0AF /* Pods_GatteSchedulesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9EAEC991DE53F3D00D4646C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9EAEC7C1DE53F3D00D4646C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9EAEC831DE53F3D00D4646C;
+			remoteInfo = GatteSchedules;
+		};
+		E9EAECA41DE53F3D00D4646C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9EAEC7C1DE53F3D00D4646C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9EAEC831DE53F3D00D4646C;
+			remoteInfo = GatteSchedules;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1322186FDEA9C4838CD89865 /* Pods-GatteSchedulesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedulesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedulesUITests/Pods-GatteSchedulesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		367E6C3C30A25864FD8C51DD /* Pods-GatteSchedulesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedulesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedulesTests/Pods-GatteSchedulesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E98A763DA7FF1133CC25E0D /* Pods_GatteSchedulesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedulesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A1988B2ED4EA548427A0EB7 /* Pods-GatteSchedules.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedules.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedules/Pods-GatteSchedules.debug.xcconfig"; sourceTree = "<group>"; };
+		6A39455A45EA369C9D4CC914 /* Pods-GatteSchedulesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedulesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedulesTests/Pods-GatteSchedulesTests.release.xcconfig"; sourceTree = "<group>"; };
+		B22D7019ECFFFB3AAAA918BA /* Pods-GatteSchedulesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedulesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedulesUITests/Pods-GatteSchedulesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedulesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatteSchedules.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E9EAEC891DE53F3D00D4646C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E9EAEC8C1DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9EAEC911DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9EAEC931DE53F3D00D4646C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9EAEC981DE53F3D00D4646C /* GatteSchedulesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatteSchedulesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9EAEC9C1DE53F3D00D4646C /* GatteSchedulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatteSchedulesTests.swift; sourceTree = "<group>"; };
+		E9EAEC9E1DE53F3D00D4646C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9EAECA31DE53F3D00D4646C /* GatteSchedulesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatteSchedulesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatteSchedulesUITests.swift; sourceTree = "<group>"; };
+		E9EAECA91DE53F3D00D4646C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F696509750500FAD20771831 /* Pods-GatteSchedules.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedules.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedules/Pods-GatteSchedules.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9EAEC811DE53F3D00D4646C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36FABE269A1765800AE16EC3 /* Pods_GatteSchedules.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9EAEC951DE53F3D00D4646C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E9221E1C7FA325B233E0AF /* Pods_GatteSchedulesTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9EAECA01DE53F3D00D4646C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56FADEC3351CFD41F7327CF4 /* Pods_GatteSchedulesUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F30B58DA375C49264941853 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A1988B2ED4EA548427A0EB7 /* Pods-GatteSchedules.debug.xcconfig */,
+				F696509750500FAD20771831 /* Pods-GatteSchedules.release.xcconfig */,
+				367E6C3C30A25864FD8C51DD /* Pods-GatteSchedulesTests.debug.xcconfig */,
+				6A39455A45EA369C9D4CC914 /* Pods-GatteSchedulesTests.release.xcconfig */,
+				1322186FDEA9C4838CD89865 /* Pods-GatteSchedulesUITests.debug.xcconfig */,
+				B22D7019ECFFFB3AAAA918BA /* Pods-GatteSchedulesUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C7C9979E1CA70AEB6D23FFC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */,
+				E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */,
+				3E98A763DA7FF1133CC25E0D /* Pods_GatteSchedulesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9EAEC7B1DE53F3D00D4646C = {
+			isa = PBXGroup;
+			children = (
+				E9EAEC861DE53F3D00D4646C /* GatteSchedules */,
+				E9EAEC9B1DE53F3D00D4646C /* GatteSchedulesTests */,
+				E9EAECA61DE53F3D00D4646C /* GatteSchedulesUITests */,
+				E9EAEC851DE53F3D00D4646C /* Products */,
+				2F30B58DA375C49264941853 /* Pods */,
+				C7C9979E1CA70AEB6D23FFC1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E9EAEC851DE53F3D00D4646C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */,
+				E9EAEC981DE53F3D00D4646C /* GatteSchedulesTests.xctest */,
+				E9EAECA31DE53F3D00D4646C /* GatteSchedulesUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9EAEC861DE53F3D00D4646C /* GatteSchedules */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */,
+				E9EAEC891DE53F3D00D4646C /* ViewController.swift */,
+				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
+				E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */,
+				E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */,
+				E9EAEC931DE53F3D00D4646C /* Info.plist */,
+			);
+			path = GatteSchedules;
+			sourceTree = "<group>";
+		};
+		E9EAEC9B1DE53F3D00D4646C /* GatteSchedulesTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAEC9C1DE53F3D00D4646C /* GatteSchedulesTests.swift */,
+				E9EAEC9E1DE53F3D00D4646C /* Info.plist */,
+			);
+			path = GatteSchedulesTests;
+			sourceTree = "<group>";
+		};
+		E9EAECA61DE53F3D00D4646C /* GatteSchedulesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */,
+				E9EAECA91DE53F3D00D4646C /* Info.plist */,
+			);
+			path = GatteSchedulesUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9EAEC831DE53F3D00D4646C /* GatteSchedules */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9EAECAC1DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedules" */;
+			buildPhases = (
+				B92939A5F278881BB0280E7B /* [CP] Check Pods Manifest.lock */,
+				E9EAEC801DE53F3D00D4646C /* Sources */,
+				E9EAEC811DE53F3D00D4646C /* Frameworks */,
+				E9EAEC821DE53F3D00D4646C /* Resources */,
+				A81B4CFE108762705E3515E6 /* [CP] Embed Pods Frameworks */,
+				4B4E7A2160CDD37239BF26A5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GatteSchedules;
+			productName = GatteSchedules;
+			productReference = E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E9EAEC971DE53F3D00D4646C /* GatteSchedulesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9EAECAF1DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedulesTests" */;
+			buildPhases = (
+				BC30D77339F838E5B834CFCD /* [CP] Check Pods Manifest.lock */,
+				E9EAEC941DE53F3D00D4646C /* Sources */,
+				E9EAEC951DE53F3D00D4646C /* Frameworks */,
+				E9EAEC961DE53F3D00D4646C /* Resources */,
+				84D383C0F80576ECAB50E5CE /* [CP] Embed Pods Frameworks */,
+				1A417F679B3794A8450A990A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9EAEC9A1DE53F3D00D4646C /* PBXTargetDependency */,
+			);
+			name = GatteSchedulesTests;
+			productName = GatteSchedulesTests;
+			productReference = E9EAEC981DE53F3D00D4646C /* GatteSchedulesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E9EAECA21DE53F3D00D4646C /* GatteSchedulesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9EAECB21DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedulesUITests" */;
+			buildPhases = (
+				7AC7CFE0C7FFFAB61A6FFE6A /* [CP] Check Pods Manifest.lock */,
+				E9EAEC9F1DE53F3D00D4646C /* Sources */,
+				E9EAECA01DE53F3D00D4646C /* Frameworks */,
+				E9EAECA11DE53F3D00D4646C /* Resources */,
+				3880B1FEC6D97818E4BB629B /* [CP] Embed Pods Frameworks */,
+				3E2983ED9B37C31755290FAD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9EAECA51DE53F3D00D4646C /* PBXTargetDependency */,
+			);
+			name = GatteSchedulesUITests;
+			productName = GatteSchedulesUITests;
+			productReference = E9EAECA31DE53F3D00D4646C /* GatteSchedulesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9EAEC7C1DE53F3D00D4646C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = colbyg;
+				TargetAttributes = {
+					E9EAEC831DE53F3D00D4646C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6BTW725B4B;
+						ProvisioningStyle = Automatic;
+					};
+					E9EAEC971DE53F3D00D4646C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6BTW725B4B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E9EAEC831DE53F3D00D4646C;
+					};
+					E9EAECA21DE53F3D00D4646C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6BTW725B4B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E9EAEC831DE53F3D00D4646C;
+					};
+				};
+			};
+			buildConfigurationList = E9EAEC7F1DE53F3D00D4646C /* Build configuration list for PBXProject "GatteSchedules" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E9EAEC7B1DE53F3D00D4646C;
+			productRefGroup = E9EAEC851DE53F3D00D4646C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9EAEC831DE53F3D00D4646C /* GatteSchedules */,
+				E9EAEC971DE53F3D00D4646C /* GatteSchedulesTests */,
+				E9EAECA21DE53F3D00D4646C /* GatteSchedulesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9EAEC821DE53F3D00D4646C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
+				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
+				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9EAEC961DE53F3D00D4646C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9EAECA11DE53F3D00D4646C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A417F679B3794A8450A990A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatteSchedulesTests/Pods-GatteSchedulesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3880B1FEC6D97818E4BB629B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatteSchedulesUITests/Pods-GatteSchedulesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E2983ED9B37C31755290FAD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatteSchedulesUITests/Pods-GatteSchedulesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B4E7A2160CDD37239BF26A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatteSchedules/Pods-GatteSchedules-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AC7CFE0C7FFFAB61A6FFE6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84D383C0F80576ECAB50E5CE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatteSchedulesTests/Pods-GatteSchedulesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A81B4CFE108762705E3515E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GatteSchedules/Pods-GatteSchedules-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B92939A5F278881BB0280E7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC30D77339F838E5B834CFCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9EAEC801DE53F3D00D4646C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9EAEC8A1DE53F3D00D4646C /* ViewController.swift in Sources */,
+				E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9EAEC941DE53F3D00D4646C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9EAEC9D1DE53F3D00D4646C /* GatteSchedulesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9EAEC9F1DE53F3D00D4646C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9EAECA81DE53F3D00D4646C /* GatteSchedulesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9EAEC9A1DE53F3D00D4646C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9EAEC831DE53F3D00D4646C /* GatteSchedules */;
+			targetProxy = E9EAEC991DE53F3D00D4646C /* PBXContainerItemProxy */;
+		};
+		E9EAECA51DE53F3D00D4646C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9EAEC831DE53F3D00D4646C /* GatteSchedules */;
+			targetProxy = E9EAECA41DE53F3D00D4646C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9EAEC8C1DE53F3D00D4646C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9EAEC911DE53F3D00D4646C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9EAECAA1DE53F3D00D4646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E9EAECAB1DE53F3D00D4646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9EAECAD1DE53F3D00D4646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A1988B2ED4EA548427A0EB7 /* Pods-GatteSchedules.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6BTW725B4B;
+				INFOPLIST_FILE = GatteSchedules/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedules;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E9EAECAE1DE53F3D00D4646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F696509750500FAD20771831 /* Pods-GatteSchedules.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6BTW725B4B;
+				INFOPLIST_FILE = GatteSchedules/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedules;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E9EAECB01DE53F3D00D4646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 367E6C3C30A25864FD8C51DD /* Pods-GatteSchedulesTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6BTW725B4B;
+				INFOPLIST_FILE = GatteSchedulesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedulesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatteSchedules.app/GatteSchedules";
+			};
+			name = Debug;
+		};
+		E9EAECB11DE53F3D00D4646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A39455A45EA369C9D4CC914 /* Pods-GatteSchedulesTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 6BTW725B4B;
+				INFOPLIST_FILE = GatteSchedulesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedulesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GatteSchedules.app/GatteSchedules";
+			};
+			name = Release;
+		};
+		E9EAECB31DE53F3D00D4646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1322186FDEA9C4838CD89865 /* Pods-GatteSchedulesUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6BTW725B4B;
+				INFOPLIST_FILE = GatteSchedulesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedulesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GatteSchedules;
+			};
+			name = Debug;
+		};
+		E9EAECB41DE53F3D00D4646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B22D7019ECFFFB3AAAA918BA /* Pods-GatteSchedulesUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 6BTW725B4B;
+				INFOPLIST_FILE = GatteSchedulesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedulesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = GatteSchedules;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9EAEC7F1DE53F3D00D4646C /* Build configuration list for PBXProject "GatteSchedules" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9EAECAA1DE53F3D00D4646C /* Debug */,
+				E9EAECAB1DE53F3D00D4646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9EAECAC1DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedules" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9EAECAD1DE53F3D00D4646C /* Debug */,
+				E9EAECAE1DE53F3D00D4646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E9EAECAF1DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedulesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9EAECB01DE53F3D00D4646C /* Debug */,
+				E9EAECB11DE53F3D00D4646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E9EAECB21DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedulesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9EAECB31DE53F3D00D4646C /* Debug */,
+				E9EAECB41DE53F3D00D4646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9EAEC7C1DE53F3D00D4646C /* Project object */;
+}
