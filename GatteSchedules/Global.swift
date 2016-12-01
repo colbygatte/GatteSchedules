@@ -13,6 +13,7 @@ struct App {
     static var formatter = DateFormatter()
     static var shiftFormatter = DateFormatter()
     
+    static var loggedInUser: GSUser!
     static var teamUsers: [String: GSUser]!
     static var teamSettings: GSSettings!
 }

@@ -15,6 +15,7 @@ class GSUser {
     
     var teamid: String!
     var name: String!
+    var email: String!
     var positions: [String]!
     var permissions: String!
     
@@ -24,10 +25,30 @@ class GSUser {
         name = values["name"] as! String
         teamid = values["teamid"] as! String
         permissions = values["permissions"] as! String
+        email = values["email"] as! String
         
         positions = []
         for position in values["positions"] as! [String] {
             positions.append(position)
         }
+    }
+    
+    init(uid: String, email: String, name: String, teamid: String, permissions: String, positions: [String]) {
+        self.uid = uid
+        self.name = name
+        self.teamid = teamid
+        self.permissions = permissions
+        self.positions = positions
+    }
+    
+    func toFirebaseObject() -> Any {
+        var userObject: [String: Any] = [:]
+        
+        userObject["name"] = name
+        userObject["permissions"] = permissions
+        userObject["teamid"] = teamid
+        userObject["positions"] = positions
+        
+        return userObject
     }
 }

@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         App.formatter.dateFormat = "yyyy-MM-dd"
-        App.shiftFormatter.dateFormat = "HH:mma"
+        
+        App.shiftFormatter.dateFormat = "hh:mma"
         App.shiftFormatter.amSymbol = "AM"
         App.shiftFormatter.pmSymbol = "PM"
         

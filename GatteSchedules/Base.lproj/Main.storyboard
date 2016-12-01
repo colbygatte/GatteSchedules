@@ -30,11 +30,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYi-Tr-9fz">
-                                <rect key="frame" x="16" y="180" width="87" height="30"/>
+                                <rect key="frame" x="15" y="146" width="87" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit Settings"/>
                                 <connections>
-                                    <segue destination="CVt-0O-FWj" kind="show" id="6B0-o5-R7O"/>
+                                    <segue destination="CVt-0O-FWj" kind="show" identifier="Settings" id="6B0-o5-R7O"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Vy-2D-exg">
@@ -53,6 +53,14 @@
                                     <action selector="logoutButtonPressed" destination="GyY-lD-9vd" eventType="touchUpInside" id="AJb-Pr-BeJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pH-qB-NKy">
+                                <rect key="frame" x="28" y="193" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Users"/>
+                                <connections>
+                                    <segue destination="i5T-in-ReX" kind="show" id="pSb-ea-CFw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -68,7 +76,15 @@
                 <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="Settings" id="CVt-0O-FWj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo0-4S-VkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2522" y="106"/>
+            <point key="canvasLocation" x="2513" y="46"/>
+        </scene>
+        <!--ViewUsers-->
+        <scene sceneID="XXb-RE-MMN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="ViewUsers" id="i5T-in-ReX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Np2-b1-wIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2511" y="118"/>
         </scene>
         <!--ListSchedules-->
         <scene sceneID="jRN-aB-cUO">
@@ -76,7 +92,7 @@
                 <viewControllerPlaceholder storyboardName="ScheduleViewer" referencedIdentifier="ListSchedules" id="QA7-f6-Gi2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKV-se-zDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2523" y="-77"/>
+            <point key="canvasLocation" x="2538" y="-30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7I3-Wf-xbp">

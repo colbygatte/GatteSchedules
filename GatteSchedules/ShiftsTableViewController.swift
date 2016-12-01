@@ -10,86 +10,71 @@ import UIKit
 
 class ShiftsTableViewController: UITableViewController {
 
+    var shiftids: [String]!
+    var addedShiftid: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        begin(again: false)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func begin(again: Bool) {
+        shiftids = Array(App.teamSettings.shifts.keys)
+        if again {
+            tableView.reloadData()
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return shiftids.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let shiftName = App.teamSettings.shiftNames[shiftids[indexPath.row]]
+        cell.textLabel?.text = shiftName
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    @IBAction func addShiftButtonPressed() {
+        let alert = UIAlertController(title: "Add Shift", message: nil, preferredStyle: .alert)
+        let add = UIAlertAction(title: "Add", style: .default) { action in
+            let shiftName = alert.textFields?[0].text
+            let shiftid = alert.textFields?[1].text
+            
+            App.teamSettings.addShift(name: shiftName!, id: shiftid!)
+            self.addedShiftid = shiftid!
+            DB.save(settings: App.teamSettings)
+            self.begin(again: true)
+            
+            self.performSegue(withIdentifier: "EditShift", sender: nil)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addTextField()
+        alert.addTextField()
+        alert.textFields?[0].placeholder = "Shift name"
+        alert.textFields?[1].placeholder = "Shift ID (no spaces"
+        alert.addAction(add)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditShift" {
+            let shiftid: String
+            if addedShiftid == nil {
+                shiftid = shiftids[(tableView.indexPathForSelectedRow?.row)!]
+            } else {
+                shiftid = addedShiftid!
+            }
+            
+            let editShiftViewController = segue.destination as! EditShiftViewController
+            editShiftViewController.shiftid = shiftid
+        }
     }
-    */
-
 }

@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import FirebaseAuth
 import Firebase
 
 class DB {
     static var teamid: String!
-    static var loggedInUser: GSUser!
+    static var loggedInUser: GSUser! // move to "App"
     static var loggedIn: Bool = false
     static var teamRef: FIRDatabaseReference!
     static var usersRef: FIRDatabaseReference!
@@ -46,6 +45,12 @@ class DB {
         })
     }
     
+    static func save(settings: GSSettings) {
+        let settingsRef = DB.teamRef.child("settings")
+        
+        settingsRef.setValue(settings.toFirebaseObject())
+    }
+    
     // Schedules
     static func getSchedules(completion: @escaping (FIRDataSnapshot)->()) {
         DB.teamRef.child("schedules").observeSingleEvent(of: .value, with: { schedulesSnapshot in
@@ -72,6 +77,17 @@ class DB {
     }
     
     // Users
+    static func addUser(email: String, password: String, completion: FIRAuthResultCallback?) {
+        FIRAuth.auth()?.createUser(withEmail: email, password: password) { user, error in
+            completion?(user, error)
+        }
+    }
+    
+    static func save(user: GSUser) {
+        let userRef = DB.usersRef.child(user.uid)
+        userRef.setValue(user.toFirebaseObject())
+    }
+    
     static func getUsers(completion: @escaping (FIRDataSnapshot)->()) {
         DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snapshot in
             completion(snapshot)

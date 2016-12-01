@@ -63,6 +63,13 @@ class MainViewController: UIViewController {
             print("logg out b PRE")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Settings" {
+            let settingsViewController = segue.destination as! SettingsViewController
+            
+        }
+    }
 }
 
 /*
