@@ -1,0 +1,3 @@
+
+Test logging in and logging out
+Should permissions be an enum instead of a string?

@@ -9,13 +9,35 @@
 /* Begin PBXBuildFile section */
 		36FABE269A1765800AE16EC3 /* Pods_GatteSchedules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */; };
 		56FADEC3351CFD41F7327CF4 /* Pods_GatteSchedulesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E98A763DA7FF1133CC25E0D /* Pods_GatteSchedulesUITests.framework */; };
+		E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = E902F5EC1DEE381E00A2326F /* TODO.txt */; };
+		E902F5F01DEF3A0500A2326F /* GSWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5EF1DEF3A0500A2326F /* GSWorker.swift */; };
+		E902F5F21DEF455E00A2326F /* ViewScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */; };
+		E902F5F41DEF4CDC00A2326F /* ViewDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */; };
+		E902F5F61DEF6CD400A2326F /* ViewShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */; };
+		E902F5F81DEFCA9800A2326F /* ScheduleMaker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F71DEFCA9800A2326F /* ScheduleMaker.storyboard */; };
+		E902F5FA1DEFCAB500A2326F /* ScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */; };
+		E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5FB1DEFCB1300A2326F /* Login.storyboard */; };
+		E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F6021DEFDCDD00A2326F /* Settings.storyboard */; };
+		E902F6061DEFDD2000A2326F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6051DEFDD2000A2326F /* SettingsViewController.swift */; };
+		E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6071DEFDE2000A2326F /* PositionsTableViewController.swift */; };
+		E902F60A1DEFDE2900A2326F /* ShiftsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6091DEFDE2900A2326F /* ShiftsTableViewController.swift */; };
 		E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */; };
-		E9EAEC8A1DE53F3D00D4646C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC891DE53F3D00D4646C /* ViewController.swift */; };
 		E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */; };
 		E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */; };
 		E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */; };
 		E9EAEC9D1DE53F3D00D4646C /* GatteSchedulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC9C1DE53F3D00D4646C /* GatteSchedulesTests.swift */; };
 		E9EAECA81DE53F3D00D4646C /* GatteSchedulesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */; };
+		E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECD91DECCBD200D4646C /* DB.swift */; };
+		E9EAECDC1DECCBE400D4646C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECDB1DECCBE400D4646C /* Global.swift */; };
+		E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECDF1DECCC2C00D4646C /* LoginViewController.swift */; };
+		E9EAECE51DECCF2700D4646C /* GSSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECE41DECCF2700D4646C /* GSSchedule.swift */; };
+		E9EAECE71DECCF3500D4646C /* GSDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECE61DECCF3500D4646C /* GSDay.swift */; };
+		E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */; };
+		E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF21DED47E600D4646C /* GSSettings.swift */; };
+		E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF41DEDDF1200D4646C /* GSUser.swift */; };
+		E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF61DEDDF2500D4646C /* GSRequests.swift */; };
+		E9EAECFB1DEDFE4100D4646C /* ListSchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECFA1DEDFE4100D4646C /* ListSchedulesTableViewController.swift */; };
+		E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */; };
 		F4E9221E1C7FA325B233E0AF /* Pods_GatteSchedulesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +67,20 @@
 		B22D7019ECFFFB3AAAA918BA /* Pods-GatteSchedulesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedulesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedulesUITests/Pods-GatteSchedulesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedulesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E902F5EC1DEE381E00A2326F /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TODO.txt; path = GatteSchedules/TODO.txt; sourceTree = "<group>"; };
+		E902F5EF1DEF3A0500A2326F /* GSWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSWorker.swift; sourceTree = "<group>"; };
+		E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewScheduleTableViewController.swift; sourceTree = "<group>"; };
+		E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDayTableViewController.swift; sourceTree = "<group>"; };
+		E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShiftTableViewController.swift; sourceTree = "<group>"; };
+		E902F5F71DEFCA9800A2326F /* ScheduleMaker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleMaker.storyboard; sourceTree = "<group>"; };
+		E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleViewer.storyboard; sourceTree = "<group>"; };
+		E902F5FB1DEFCB1300A2326F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		E902F6021DEFDCDD00A2326F /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		E902F6051DEFDD2000A2326F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E902F6071DEFDE2000A2326F /* PositionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionsTableViewController.swift; sourceTree = "<group>"; };
+		E902F6091DEFDE2900A2326F /* ShiftsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftsTableViewController.swift; sourceTree = "<group>"; };
 		E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatteSchedules.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9EAEC891DE53F3D00D4646C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9EAEC8C1DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9EAEC911DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +91,17 @@
 		E9EAECA31DE53F3D00D4646C /* GatteSchedulesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GatteSchedulesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatteSchedulesUITests.swift; sourceTree = "<group>"; };
 		E9EAECA91DE53F3D00D4646C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9EAECD91DECCBD200D4646C /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		E9EAECDB1DECCBE400D4646C /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E9EAECDF1DECCC2C00D4646C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E9EAECE41DECCF2700D4646C /* GSSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSSchedule.swift; sourceTree = "<group>"; };
+		E9EAECE61DECCF3500D4646C /* GSDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSDay.swift; sourceTree = "<group>"; };
+		E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E9EAECF21DED47E600D4646C /* GSSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSSettings.swift; sourceTree = "<group>"; };
+		E9EAECF41DEDDF1200D4646C /* GSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUser.swift; sourceTree = "<group>"; };
+		E9EAECF61DEDDF2500D4646C /* GSRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSRequests.swift; sourceTree = "<group>"; };
+		E9EAECFA1DEDFE4100D4646C /* ListSchedulesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSchedulesTableViewController.swift; sourceTree = "<group>"; };
+		E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F696509750500FAD20771831 /* Pods-GatteSchedules.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedules.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedules/Pods-GatteSchedules.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,9 +156,46 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E902F5EE1DEE3B2300A2326F /* ScheduleMaker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ScheduleMaker;
+			sourceTree = "<group>";
+		};
+		E902F5FF1DEFCB8400A2326F /* ScheduleViewer */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECFA1DEDFE4100D4646C /* ListSchedulesTableViewController.swift */,
+				E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */,
+				E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */,
+				E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */,
+			);
+			name = ScheduleViewer;
+			sourceTree = "<group>";
+		};
+		E902F6001DEFCB9E00A2326F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECDF1DECCC2C00D4646C /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		E902F6041DEFDD0500A2326F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E902F6051DEFDD2000A2326F /* SettingsViewController.swift */,
+				E902F6071DEFDE2000A2326F /* PositionsTableViewController.swift */,
+				E902F6091DEFDE2900A2326F /* ShiftsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		E9EAEC7B1DE53F3D00D4646C = {
 			isa = PBXGroup;
 			children = (
+				E902F5EC1DEE381E00A2326F /* TODO.txt */,
 				E9EAEC861DE53F3D00D4646C /* GatteSchedules */,
 				E9EAEC9B1DE53F3D00D4646C /* GatteSchedulesTests */,
 				E9EAECA61DE53F3D00D4646C /* GatteSchedulesUITests */,
@@ -137,12 +218,14 @@
 		E9EAEC861DE53F3D00D4646C /* GatteSchedules */ = {
 			isa = PBXGroup;
 			children = (
+				E9EAECD61DECCB5700D4646C /* Storyboard */,
+				E9EAECD71DECCB5F00D4646C /* Controllers */,
+				E9EAECD81DECCB6400D4646C /* Models */,
 				E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */,
-				E9EAEC891DE53F3D00D4646C /* ViewController.swift */,
-				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
 				E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */,
 				E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */,
 				E9EAEC931DE53F3D00D4646C /* Info.plist */,
+				E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */,
 			);
 			path = GatteSchedules;
 			sourceTree = "<group>";
@@ -163,6 +246,53 @@
 				E9EAECA91DE53F3D00D4646C /* Info.plist */,
 			);
 			path = GatteSchedulesUITests;
+			sourceTree = "<group>";
+		};
+		E9EAECD61DECCB5700D4646C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
+				E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */,
+				E902F5F71DEFCA9800A2326F /* ScheduleMaker.storyboard */,
+				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
+				E902F6021DEFDCDD00A2326F /* Settings.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
+				E902F6041DEFDD0500A2326F /* Settings */,
+				E902F6001DEFCB9E00A2326F /* Login */,
+				E902F5FF1DEFCB8400A2326F /* ScheduleViewer */,
+				E902F5EE1DEE3B2300A2326F /* ScheduleMaker */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E9EAECD81DECCB6400D4646C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECE11DECCEDD00D4646C /* GSSchedule */,
+				E9EAECF21DED47E600D4646C /* GSSettings.swift */,
+				E9EAECF61DEDDF2500D4646C /* GSRequests.swift */,
+				E9EAECF41DEDDF1200D4646C /* GSUser.swift */,
+				E9EAECD91DECCBD200D4646C /* DB.swift */,
+				E9EAECDB1DECCBE400D4646C /* Global.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E9EAECE11DECCEDD00D4646C /* GSSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECE41DECCF2700D4646C /* GSSchedule.swift */,
+				E9EAECE61DECCF3500D4646C /* GSDay.swift */,
+				E902F5EF1DEF3A0500A2326F /* GSWorker.swift */,
+			);
+			name = GSSchedule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,9 +414,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
+				E902F5FA1DEFCAB500A2326F /* ScheduleViewer.storyboard in Resources */,
+				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
+				E902F5F81DEFCA9800A2326F /* ScheduleMaker.storyboard in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
+				E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
+				E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,8 +585,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9EAEC8A1DE53F3D00D4646C /* ViewController.swift in Sources */,
+				E902F5F41DEF4CDC00A2326F /* ViewDayTableViewController.swift in Sources */,
+				E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */,
+				E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */,
+				E9EAECE71DECCF3500D4646C /* GSDay.swift in Sources */,
+				E902F60A1DEFDE2900A2326F /* ShiftsTableViewController.swift in Sources */,
+				E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */,
+				E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */,
+				E9EAECDC1DECCBE400D4646C /* Global.swift in Sources */,
+				E902F6061DEFDD2000A2326F /* SettingsViewController.swift in Sources */,
 				E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */,
+				E9EAECFB1DEDFE4100D4646C /* ListSchedulesTableViewController.swift in Sources */,
+				E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */,
+				E9EAECE51DECCF2700D4646C /* GSSchedule.swift in Sources */,
+				E902F5F01DEF3A0500A2326F /* GSWorker.swift in Sources */,
+				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
+				E902F5F61DEF6CD400A2326F /* ViewShiftTableViewController.swift in Sources */,
+				E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */,
+				E902F5F21DEF455E00A2326F /* ViewScheduleTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +859,7 @@
 				E9EAECAE1DE53F3D00D4646C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9EAECAF1DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedulesTests" */ = {
 			isa = XCConfigurationList;
@@ -715,6 +868,7 @@
 				E9EAECB11DE53F3D00D4646C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E9EAECB21DE53F3D00D4646C /* Build configuration list for PBXNativeTarget "GatteSchedulesUITests" */ = {
 			isa = XCConfigurationList;
@@ -723,6 +877,7 @@
 				E9EAECB41DE53F3D00D4646C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

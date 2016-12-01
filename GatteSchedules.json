@@ -1,0 +1,250 @@
+{
+   "users": {
+      "cfJSn9Tg13PHaHJvipGR9Q2ggZ02":{
+         "name":"Brittany",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"normal",
+         "teamid": "777"
+      },
+      "iVwtEiEa9UambFJakq6unM8RyI63":{
+         "name":"Carmen",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"normal",
+         "teamid": "777"
+      },
+      "54Fmu36cKfRa2ctjL83AIBgTZBv2":{
+         "name":"Larry",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"normal",
+         "teamid": "777"
+      },
+      "rvQQliiRjeamK6PW0FDbzsnjdgi2":{
+         "name":"Joey",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"normal",
+         "teamid": "777"
+      },
+      "bj6cx2Sp7YP150QwwAzmAttbuAg2":{
+         "name":"Cindy",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"normal",
+         "teamid": "777"
+      },
+      "LOgh8Yb36RZYvsLcjZNvh3n97yl1":{
+         "name":"Colby",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"manager",
+         "teamid": "777"
+      },
+      "CM2CGemTdNgF0xRXoGg3pWSF3zf2":{
+         "name":"Matilda",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"manager",
+         "teamid": "123"
+      },
+      "WyqmmjHwtITp5WDj5sYz0eNDjGo1":{
+         "name":"Pat",
+         "positions":[
+            "cashier"
+         ],
+         "permissions":"normal",
+         "teamid": "123"
+      }
+   },
+   "teams": {
+      "777":{
+         "requests": {
+            "2016-11-22":{
+               "54Fmu36cKfRa2ctjL83AIBgTZBv2": {
+                  "requesting":"off",
+                  "shifts":[
+                     "all-day"
+                  ],
+                  "reason":"Dr.'s Appointment"
+               }
+            }
+         },
+         "settings":{
+            "teamid":"777",
+            "teamName":"Grocery Glaze",
+            "shifts":{
+               "morning-shift":[
+                  "9:00AM",
+                  "4:00PM"
+               ],
+               "night-shift":[
+                  "4:00PM",
+                  "9:00PM"
+               ],
+               "midday-to-close-shift":[
+                  "1:00AM",
+                  "9:00PM"
+               ]
+            },
+            "positions":{
+               "cashier":"Cashier",
+               "waitstaff":"Waitstaff"
+            }
+         },
+         "schedules":{
+            "2016-11-20": {
+               "info":{
+                  "createdBy":"LOgh8Yb36RZYvsLcjZNvh3n97yl1",
+                  "dateCreated":"2016-11-17",
+                  "lastEdited":"2016-11-20",
+                  "locked":"false"
+               },
+               "days": {
+                  "2016-11-20":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  },
+                  "2016-11-21":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  },
+                  "2016-11-22":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  },
+                  "2016-11-23":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  },
+                  "2016-11-24":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  },
+                  "2016-11-25":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  },
+                  "2016-11-26":{
+                     "notes": "nil",
+                     "workers": {
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
+                           "shift": "morning-shift",
+                           "position": "cashier",
+                           "notes": "asked to leave early"
+                        },
+                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
+                           "shift": "night-shift",
+                           "position": "cashier",
+                           "notes": "nil"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "123":{
+         "requests": {
+         },
+         "settings":{
+            "teamid":"123",
+            "teamName":"MatildaPies",
+            "shifts":{
+               "morning-shift":[
+                  "9:00AM",
+                  "4:00PM"
+               ],
+               "night-shift":[
+                  "4:00PM",
+                  "9:00PM"
+               ],
+               "midday-to-close-shift":[
+                  "1:00AM",
+                  "9:00PM"
+               ]
+            },
+            "positions":{
+               "cashier":"Cashier",
+               "baker":"Baker"
+            }
+         },
+         "schedules":{
+         }
+      }
+   }
+}

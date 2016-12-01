@@ -7,6 +7,8 @@ target 'GatteSchedules' do
 
   # Pods for GatteSchedules
   pod 'Firebase'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
   target 'GatteSchedulesTests' do
     inherit! :search_paths
