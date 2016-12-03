@@ -18,3 +18,15 @@ struct App {
     static var team: GSTeam!
     static var teamSettings: GSSettings!
 }
+
+extension String {
+    static func random(length: Int) -> String {
+        let l = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let letters = Array(l.characters)
+        var randString = ""
+        for _ in 1...length {
+            randString += String(letters[Int(arc4random_uniform(62))])
+        }
+        return randString
+    }
+}

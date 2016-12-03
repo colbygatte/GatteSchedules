@@ -28,13 +28,17 @@ class GSUser {
         email = values["email"] as! String
         
         positions = []
-        for position in values["positions"] as! [String] {
-            positions.append(position)
+        let positionsValues = values["positions"] as? [String]
+        if positionsValues != nil {
+            for position in positionsValues! {
+                positions.append(position)
+            }
         }
     }
     
     init(uid: String, email: String, name: String, teamid: String, permissions: String, positions: [String]) {
         self.uid = uid
+        self.email = email
         self.name = name
         self.teamid = teamid
         self.permissions = permissions

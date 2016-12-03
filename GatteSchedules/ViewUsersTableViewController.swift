@@ -36,6 +36,9 @@ class ViewUsersTableViewController: UITableViewController {
             
             let editUserViewController = segue.destination as! EditUserViewController
             editUserViewController.user = App.team.get(user: uids[row])
+        } else if segue.identifier == "CreateUser" {
+            let createUserViewController = segue.destination as! CreateUserViewController
         }
     }
 }
+

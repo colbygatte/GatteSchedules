@@ -51,6 +51,14 @@
                                     <action selector="createTeamButtonPressed:" destination="SrC-xQ-r39" eventType="touchUpInside" id="brQ-w1-diA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OI-4N-Cim">
+                                <rect key="frame" x="132" y="304" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="First Time Login"/>
+                                <connections>
+                                    <segue destination="68r-qM-xdl" kind="show" identifier="FirstTimeLogin" id="rpt-QD-bDS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -62,6 +70,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyc-ns-LK0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="-707.49625187406298"/>
+        </scene>
+        <!--First Time Login View Controller-->
+        <scene sceneID="CJF-SW-Lfw">
+            <objects>
+                <viewController id="68r-qM-xdl" customClass="FirstTimeLoginViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1gs-fQ-Q9K"/>
+                        <viewControllerLayoutGuide type="bottom" id="2h6-2T-YUs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R1x-G8-ehC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nKD-Yx-scB">
+                                <rect key="frame" x="139" y="28" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MT5-af-ZSm">
+                                <rect key="frame" x="139" y="86" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-eh-Qic">
+                                <rect key="frame" x="168" y="206" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonPressed" destination="68r-qM-xdl" eventType="touchUpInside" id="yaV-vY-jQq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeTextField" destination="MT5-af-ZSm" id="V73-mi-qQK"/>
+                        <outlet property="emailTextField" destination="nKD-Yx-scB" id="sRY-Gc-gAS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddW-9Q-QMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="-707"/>
         </scene>
     </scenes>
 </document>

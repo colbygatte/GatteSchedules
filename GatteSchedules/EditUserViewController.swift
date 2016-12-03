@@ -53,7 +53,7 @@ class EditUserViewController: UIViewController {
         user.positions = positions
         
         DB.save(user: user)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
 

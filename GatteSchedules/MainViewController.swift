@@ -13,14 +13,14 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        DB.authListener { auth, user in
+        
+        DB.setAuthListener { auth, user in
             if user != nil {
                 DB.getUserData(uid: (user!.uid)) { userDataSnap in
                     let gsuser = GSUser(snapshot: userDataSnap, uid: (user?.uid)!)
                     App.loggedInUser = gsuser
                     DB.teamid = gsuser.teamid
-                    DB.teamRef = FIRDatabase.database().reference().child("teams").child(DB.teamid)
+                    DB.teamRef = DB.ref.child("teams").child(DB.teamid)
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {
@@ -36,15 +36,16 @@ class MainViewController: UIViewController {
                 self.present(loginViewController, animated: true, completion: nil)
             }
         }
+        DB.startAuthListener()
     }
     
     func begin() {
-        DB.getSettings() { settingsSnap in
+        DB.getSettings { settingsSnap in
             let settings = GSSettings(snapshot: settingsSnap)
             App.teamSettings = settings
         }
         
-        DB.getUsers() { usersSnap in
+        DB.getUsers { usersSnap in
             App.team = GSTeam()
             
             for userData in usersSnap.children {
@@ -59,7 +60,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func logoutButtonPressed() {
-        DB.signOut() {
+        DB.signOut {
             print("logg out b PRE")
         }
     }
@@ -72,7 +73,4 @@ class MainViewController: UIViewController {
     }
 }
 
-/*
- TODO:
- Add progress circle thingy while loggin in and handle errors better
-*/
+

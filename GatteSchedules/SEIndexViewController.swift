@@ -46,7 +46,7 @@ class SEIndexViewController: UIViewController {
             let pickedIndex = datePicker.selectedRow(inComponent: 0)
             let date = App.formatter.date(from: datesForPicker[pickedIndex])
             
-            let scheduleRef = DB.newSchedule(date: date!)
+            let scheduleRef = DB.createSchedule(date: date!)
             let schedule = GSSchedule(firebaseRef: scheduleRef, createdBy: App.loggedInUser.uid)
             
             let scheduleEditorListDayVC = segue.destination as! SEListDaysTableViewController

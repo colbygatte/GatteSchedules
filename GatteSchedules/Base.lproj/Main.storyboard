@@ -61,6 +61,14 @@
                                     <segue destination="i5T-in-ReX" kind="show" id="pSb-ea-CFw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocj-Q6-mDb">
+                                <rect key="frame" x="156" y="193" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pending users"/>
+                                <connections>
+                                    <segue destination="TTO-3T-NcL" kind="show" id="bhv-BL-slo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -76,7 +84,7 @@
                 <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="Settings" id="CVt-0O-FWj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bo0-4S-VkD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2513" y="46"/>
+            <point key="canvasLocation" x="2498" y="46"/>
         </scene>
         <!--ViewUsers-->
         <scene sceneID="XXb-RE-MMN">
@@ -86,13 +94,21 @@
             </objects>
             <point key="canvasLocation" x="2511" y="118"/>
         </scene>
+        <!--ViewPendingUsers-->
+        <scene sceneID="aHE-AL-FBE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="ViewPendingUsers" id="TTO-3T-NcL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gQO-M2-9gm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2549" y="189"/>
+        </scene>
         <!--ListSchedules-->
         <scene sceneID="jRN-aB-cUO">
             <objects>
                 <viewControllerPlaceholder storyboardName="ScheduleViewer" referencedIdentifier="ListSchedules" id="QA7-f6-Gi2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKV-se-zDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2538" y="-30"/>
+            <point key="canvasLocation" x="2526" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7I3-Wf-xbp">

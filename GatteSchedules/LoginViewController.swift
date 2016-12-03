@@ -6,14 +6,27 @@
 //  Copyright © 2016 colbyg. All rights reserved.
 //
 
+// make sure anytime the login views are exited, the auth listener is started
+
 import UIKit
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var loggedInFromFirstTimeLogin: Bool = false
+    
+    // is this a good solution?
+    override func viewWillAppear(_ animated: Bool) {
+        if loggedInFromFirstTimeLogin {
+            loggedInFromFirstTimeLogin = false
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DB.stopAuthListener() // stop in case it's the user's first login, because we need to make the user in user branch if it is there first login and the auth listener needs to get this data
         
     }
     
@@ -23,12 +36,8 @@ class LoginViewController: UIViewController {
         
         DB.signIn(username: username, password: password) { user, error in
             if error == nil {
-                DB.getUserData(uid: (user!.uid)) { userDataSnapshot in
-                    let user = GSUser(snapshot: userDataSnapshot, uid: user!.uid)
-                    App.loggedInUser = user
-                    App.loggedIn = true
-                    self.dismiss(animated: true, completion: nil)
-                }
+                DB.startAuthListener() // the auth listener starts the app (it calls MainViewController.begin())
+                self.dismiss(animated: true, completion: nil)
             } else {
                 print(error.debugDescription)
             }
@@ -36,5 +45,19 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func createTeamButtonPressed(_ sender: Any) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FirstTimeLogin" {
+            let firstTimeLoginViewController = segue.destination as! FirstTimeLoginViewController
+            firstTimeLoginViewController.delegate = self
+        }
+    }
+}
+
+extension LoginViewController: FirstTimeLoginDelegate {
+    func firstTimeLoginSuccess(user: GSUser) {
+        DB.startAuthListener()
+        loggedInFromFirstTimeLogin = true
     }
 }

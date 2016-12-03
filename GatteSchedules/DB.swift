@@ -13,11 +13,32 @@ class DB {
     static var teamid: String!
     static var teamRef: FIRDatabaseReference!
     static var usersRef: FIRDatabaseReference!
+    static var pendingUsersRef: FIRDatabaseReference!
+    static var ref: FIRDatabaseReference!
+    
+    private static var authListenerHandle: FIRAuthStateDidChangeListenerHandle! // @@@@ should probably be optional
+    private static var authListenerBlock: FIRAuthStateDidChangeListenerBlock!
+    static var authListenerIsListening: Bool = false
     
     // Authentication, login, and settings
-    static func authListener(listener: @escaping FIRAuthStateDidChangeListenerBlock) {
-        FIRAuth.auth()?.addStateDidChangeListener(listener)
+    static func setAuthListener(listener: @escaping FIRAuthStateDidChangeListenerBlock) {
+        DB.authListenerBlock = listener
     }
+    
+    static func stopAuthListener() {
+        if DB.authListenerIsListening {
+            FIRAuth.auth()?.removeStateDidChangeListener(DB.authListenerHandle)
+            DB.authListenerIsListening = false
+        }
+    }
+    
+    static func startAuthListener() {
+        if !DB.authListenerIsListening {
+            DB.authListenerHandle = FIRAuth.auth()?.addStateDidChangeListener(DB.authListenerBlock)
+            DB.authListenerIsListening = true
+        }
+    }
+    
     
     static func signIn(username: String, password: String, completion: @escaping FirebaseAuth.FIRAuthResultCallback) {
         FIRAuth.auth()?.signIn(withEmail: username, password: password, completion: completion)
@@ -66,7 +87,7 @@ class DB {
         })
     }
     
-    static func newSchedule(date: Date) -> FIRDatabaseReference {
+    static func createSchedule(date: Date) -> FIRDatabaseReference {
         let dateString = App.formatter.string(from: date)
         let ref = DB.teamRef.child("schedules").child(dateString)
         return ref
@@ -77,7 +98,7 @@ class DB {
     }
     
     // Users
-    static func addUser(email: String, password: String, completion: FIRAuthResultCallback?) {
+    static func createLogin(email: String, password: String, completion: FIRAuthResultCallback?) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { user, error in
             completion?(user, error)
         }
@@ -100,5 +121,36 @@ class DB {
         userDataRef.observeSingleEvent(of: .value, with: { snapshot in
             completion(snapshot)
         })
+    }
+    
+    static func getPendingUsers(completion: @escaping (FIRDataSnapshot)->Void) {
+        DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { pendingUsersSnap in
+            completion(pendingUsersSnap)
+        })
+    }
+    
+    static func createPendingUser(name: String, email: String, teamid: String) {
+        let pendingUserRef = DB.pendingUsersRef.child(String.random(length: 5)) // @@@@ check to see if str exists
+        
+        pendingUserRef.setValue([
+            "name": name,
+            "email": email,
+            "teamid": teamid
+        ])
+    }
+    
+    static func getPendingUser(code: String, completion: @escaping (FIRDataSnapshot)->Void) {
+        DB.ref.child("pendingUsers").child(code).observeSingleEvent(of: .value, with: { pendingUserSnap in
+            completion(pendingUserSnap)
+        })
+    }
+    
+    static func deletePendingUser(code: String) {
+        DB.pendingUsersRef.child(code).setValue(nil)
+    }
+    
+    // this logs in user automatically (firebase does when creating a user)
+    static func createUser(email: String, password: String, completion: FIRAuthResultCallback?) {
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
     }
 }

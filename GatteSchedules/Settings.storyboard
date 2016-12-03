@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Users-->
         <scene sceneID="D3M-4e-Sn6">
             <objects>
                 <tableViewController storyboardIdentifier="ViewUsers" id="RSj-q6-YbZ" customClass="ViewUsersTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kff-7u-WcQ" id="e9i-fk-EAL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -35,18 +35,51 @@
                             <outlet property="delegate" destination="RSj-q6-YbZ" id="brt-0d-RoV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="d7G-bW-MiP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0wv-WG-eYp"/>
+                    <navigationItem key="navigationItem" title="Users" id="d7G-bW-MiP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="0wv-WG-eYp">
+                            <connections>
+                                <segue destination="k7J-JC-ge4" kind="show" identifier="CreateUser" id="Kck-4q-EZK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFp-7e-LZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-802" y="1494"/>
         </scene>
+        <!--Pending Users-->
+        <scene sceneID="VFD-ug-FTl">
+            <objects>
+                <tableViewController storyboardIdentifier="ViewPendingUsers" id="KVT-qo-EzX" customClass="ViewPendingUsersTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lzN-3G-IAY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Ift-Lw-SK9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ift-Lw-SK9" id="mfZ-No-QtQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KVT-qo-EzX" id="HLP-QM-37o"/>
+                            <outlet property="delegate" destination="KVT-qo-EzX" id="hfg-47-TFV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pending Users" id="xAO-dK-Uff"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBC-bA-uhR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-802" y="2310"/>
+        </scene>
         <!--Add User-->
         <scene sceneID="yTo-0F-oaj">
             <objects>
-                <viewController storyboardIdentifier="AddUser" id="zHn-5v-ako" customClass="EditUserViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditUser" id="zHn-5v-ako" customClass="EditUserViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uZ1-IZ-ugu"/>
                         <viewControllerLayoutGuide type="bottom" id="Bun-nv-0Ne"/>
@@ -64,7 +97,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uGm-RT-hmX" id="aRb-7o-rQu">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -112,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lG-nM-nVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="177" y="1494"/>
+            <point key="canvasLocation" x="207" y="1471"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Kmh-mi-kRa">
@@ -151,6 +184,53 @@
             </objects>
             <point key="canvasLocation" x="64.799999999999997" y="169.56521739130437"/>
         </scene>
+        <!--New User-->
+        <scene sceneID="Baq-q9-ujh">
+            <objects>
+                <viewController id="k7J-JC-ge4" customClass="CreateUserViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kr7-aW-S4w"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tut-qu-YEb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tYu-yZ-dyx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AOO-ga-afK">
+                                <rect key="frame" x="16" y="92" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5t-kr-6aK">
+                                <rect key="frame" x="146" y="290" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create User"/>
+                                <connections>
+                                    <action selector="createUserButtonPressed" destination="k7J-JC-ge4" eventType="touchUpInside" id="pSs-pR-QeX"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-LV-HBB">
+                                <rect key="frame" x="16" y="207" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New User" id="gy5-Bo-UhT"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="AOO-ga-afK" id="rfC-Qp-SIV"/>
+                        <outlet property="nameTextField" destination="Yzi-LV-HBB" id="IL5-im-fYQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0P-JT-djM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="1536"/>
+        </scene>
         <!--Shifts-->
         <scene sceneID="wzc-3r-LIV">
             <objects>
@@ -164,7 +244,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nlq-Ms-bCh" id="6gE-eR-mPw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -262,7 +342,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6kd-DU-mPy" id="dfx-97-iyT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -297,6 +377,7 @@
                     <connections>
                         <segue destination="3sN-Qh-Zuh" kind="relationship" relationship="rootViewController" id="0NA-c8-ZtZ"/>
                         <segue destination="RSj-q6-YbZ" kind="show" id="lf5-Sd-VwN"/>
+                        <segue destination="KVT-qo-EzX" kind="show" id="ttc-aw-8ed"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuB-AA-in3" userLabel="First Responder" sceneMemberID="firstResponder"/>

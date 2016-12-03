@@ -29,10 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
     
-        DB.usersRef = FIRDatabase.database().reference().child("users")
+        DB.ref = FIRDatabase.database().reference()
+        DB.usersRef = DB.ref.child("users")
+        DB.pendingUsersRef = DB.ref.child("pendingUsers")
+        
+        
+        DB.signOut()
         
         return true
     }
-    
 }
 
