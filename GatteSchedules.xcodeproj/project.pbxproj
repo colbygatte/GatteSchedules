@@ -14,7 +14,7 @@
 		E902F5F21DEF455E00A2326F /* ViewScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */; };
 		E902F5F41DEF4CDC00A2326F /* ViewDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */; };
 		E902F5F61DEF6CD400A2326F /* ViewShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */; };
-		E902F5F81DEFCA9800A2326F /* ScheduleMaker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F71DEFCA9800A2326F /* ScheduleMaker.storyboard */; };
+		E902F5F81DEFCA9800A2326F /* ScheduleEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F71DEFCA9800A2326F /* ScheduleEditor.storyboard */; };
 		E902F5FA1DEFCAB500A2326F /* ScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */; };
 		E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5FB1DEFCB1300A2326F /* Login.storyboard */; };
 		E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F6021DEFDCDD00A2326F /* Settings.storyboard */; };
@@ -24,6 +24,11 @@
 		E902F60C1DF08E0C00A2326F /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F60B1DF08E0C00A2326F /* EditShiftViewController.swift */; };
 		E902F60E1DF0A3BE00A2326F /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F60D1DF0A3BE00A2326F /* EditUserViewController.swift */; };
 		E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F60F1DF0AD6700A2326F /* ViewUsersTableViewController.swift */; };
+		E902F6121DF0C9FC00A2326F /* SEIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6111DF0C9FC00A2326F /* SEIndexViewController.swift */; };
+		E902F6141DF0EEB700A2326F /* SEListDaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6131DF0EEB700A2326F /* SEListDaysTableViewController.swift */; };
+		E902F6161DF2413500A2326F /* SEEditDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6151DF2413500A2326F /* SEEditDayTableViewController.swift */; };
+		E902F6181DF2450C00A2326F /* SEEditShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6171DF2450C00A2326F /* SEEditShiftTableViewController.swift */; };
+		E902F61A1DF24C6000A2326F /* GSTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6191DF24C6000A2326F /* GSTeam.swift */; };
 		E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */; };
 		E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */; };
 		E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */; };
@@ -31,7 +36,7 @@
 		E9EAEC9D1DE53F3D00D4646C /* GatteSchedulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC9C1DE53F3D00D4646C /* GatteSchedulesTests.swift */; };
 		E9EAECA81DE53F3D00D4646C /* GatteSchedulesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */; };
 		E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECD91DECCBD200D4646C /* DB.swift */; };
-		E9EAECDC1DECCBE400D4646C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECDB1DECCBE400D4646C /* Global.swift */; };
+		E9EAECDC1DECCBE400D4646C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECDB1DECCBE400D4646C /* App.swift */; };
 		E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECDF1DECCC2C00D4646C /* LoginViewController.swift */; };
 		E9EAECE51DECCF2700D4646C /* GSSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECE41DECCF2700D4646C /* GSSchedule.swift */; };
 		E9EAECE71DECCF3500D4646C /* GSDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECE61DECCF3500D4646C /* GSDay.swift */; };
@@ -75,7 +80,7 @@
 		E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewScheduleTableViewController.swift; sourceTree = "<group>"; };
 		E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDayTableViewController.swift; sourceTree = "<group>"; };
 		E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShiftTableViewController.swift; sourceTree = "<group>"; };
-		E902F5F71DEFCA9800A2326F /* ScheduleMaker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleMaker.storyboard; sourceTree = "<group>"; };
+		E902F5F71DEFCA9800A2326F /* ScheduleEditor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleEditor.storyboard; sourceTree = "<group>"; };
 		E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleViewer.storyboard; sourceTree = "<group>"; };
 		E902F5FB1DEFCB1300A2326F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E902F6021DEFDCDD00A2326F /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -85,6 +90,11 @@
 		E902F60B1DF08E0C00A2326F /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
 		E902F60D1DF0A3BE00A2326F /* EditUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		E902F60F1DF0AD6700A2326F /* ViewUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUsersTableViewController.swift; sourceTree = "<group>"; };
+		E902F6111DF0C9FC00A2326F /* SEIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEIndexViewController.swift; sourceTree = "<group>"; };
+		E902F6131DF0EEB700A2326F /* SEListDaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEListDaysTableViewController.swift; sourceTree = "<group>"; };
+		E902F6151DF2413500A2326F /* SEEditDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEEditDayTableViewController.swift; sourceTree = "<group>"; };
+		E902F6171DF2450C00A2326F /* SEEditShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEEditShiftTableViewController.swift; sourceTree = "<group>"; };
+		E902F6191DF24C6000A2326F /* GSTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSTeam.swift; sourceTree = "<group>"; };
 		E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatteSchedules.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9EAEC8C1DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,7 +108,7 @@
 		E9EAECA71DE53F3D00D4646C /* GatteSchedulesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatteSchedulesUITests.swift; sourceTree = "<group>"; };
 		E9EAECA91DE53F3D00D4646C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9EAECD91DECCBD200D4646C /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
-		E9EAECDB1DECCBE400D4646C /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E9EAECDB1DECCBE400D4646C /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		E9EAECDF1DECCC2C00D4646C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E9EAECE41DECCF2700D4646C /* GSSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSSchedule.swift; sourceTree = "<group>"; };
 		E9EAECE61DECCF3500D4646C /* GSDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSDay.swift; sourceTree = "<group>"; };
@@ -162,11 +172,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E902F5EE1DEE3B2300A2326F /* ScheduleMaker */ = {
+		E902F5EE1DEE3B2300A2326F /* ScheduleEditor */ = {
 			isa = PBXGroup;
 			children = (
+				E902F6111DF0C9FC00A2326F /* SEIndexViewController.swift */,
+				E902F6131DF0EEB700A2326F /* SEListDaysTableViewController.swift */,
+				E902F6151DF2413500A2326F /* SEEditDayTableViewController.swift */,
+				E902F6171DF2450C00A2326F /* SEEditShiftTableViewController.swift */,
 			);
-			name = ScheduleMaker;
+			name = ScheduleEditor;
 			sourceTree = "<group>";
 		};
 		E902F5FF1DEFCB8400A2326F /* ScheduleViewer */ = {
@@ -262,7 +276,7 @@
 			children = (
 				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
 				E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */,
-				E902F5F71DEFCA9800A2326F /* ScheduleMaker.storyboard */,
+				E902F5F71DEFCA9800A2326F /* ScheduleEditor.storyboard */,
 				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
 				E902F6021DEFDCDD00A2326F /* Settings.storyboard */,
 			);
@@ -276,7 +290,7 @@
 				E902F6041DEFDD0500A2326F /* Settings */,
 				E902F6001DEFCB9E00A2326F /* Login */,
 				E902F5FF1DEFCB8400A2326F /* ScheduleViewer */,
-				E902F5EE1DEE3B2300A2326F /* ScheduleMaker */,
+				E902F5EE1DEE3B2300A2326F /* ScheduleEditor */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -288,8 +302,9 @@
 				E9EAECF21DED47E600D4646C /* GSSettings.swift */,
 				E9EAECF61DEDDF2500D4646C /* GSRequests.swift */,
 				E9EAECF41DEDDF1200D4646C /* GSUser.swift */,
+				E902F6191DF24C6000A2326F /* GSTeam.swift */,
 				E9EAECD91DECCBD200D4646C /* DB.swift */,
-				E9EAECDB1DECCBE400D4646C /* Global.swift */,
+				E9EAECDB1DECCBE400D4646C /* App.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -427,7 +442,7 @@
 				E902F5FA1DEFCAB500A2326F /* ScheduleViewer.storyboard in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
-				E902F5F81DEFCA9800A2326F /* ScheduleMaker.storyboard in Resources */,
+				E902F5F81DEFCA9800A2326F /* ScheduleEditor.storyboard in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
 				E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
@@ -598,17 +613,22 @@
 				E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */,
 				E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */,
 				E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */,
+				E902F61A1DF24C6000A2326F /* GSTeam.swift in Sources */,
 				E9EAECE71DECCF3500D4646C /* GSDay.swift in Sources */,
 				E902F60A1DEFDE2900A2326F /* ShiftsTableViewController.swift in Sources */,
 				E902F60E1DF0A3BE00A2326F /* EditUserViewController.swift in Sources */,
 				E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */,
 				E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */,
-				E9EAECDC1DECCBE400D4646C /* Global.swift in Sources */,
+				E9EAECDC1DECCBE400D4646C /* App.swift in Sources */,
+				E902F6181DF2450C00A2326F /* SEEditShiftTableViewController.swift in Sources */,
 				E902F6061DEFDD2000A2326F /* SettingsViewController.swift in Sources */,
 				E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */,
 				E9EAECFB1DEDFE4100D4646C /* ListSchedulesTableViewController.swift in Sources */,
+				E902F6141DF0EEB700A2326F /* SEListDaysTableViewController.swift in Sources */,
 				E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */,
 				E9EAECE51DECCF2700D4646C /* GSSchedule.swift in Sources */,
+				E902F6161DF2413500A2326F /* SEEditDayTableViewController.swift in Sources */,
+				E902F6121DF0C9FC00A2326F /* SEIndexViewController.swift in Sources */,
 				E902F5F01DEF3A0500A2326F /* GSWorker.swift in Sources */,
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
 				E902F5F61DEF6CD400A2326F /* ViewShiftTableViewController.swift in Sources */,

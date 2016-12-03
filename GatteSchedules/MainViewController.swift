@@ -16,20 +16,20 @@ class MainViewController: UIViewController {
 
         DB.authListener { auth, user in
             if user != nil {
-                DB.getUserData(uid: (user!.uid)) { userDataSnapshot in
-                    let user = GSUser(snapshot: userDataSnapshot, uid: (user?.uid)!)
-                    DB.loggedInUser = user
-                    DB.teamid = user.teamid
+                DB.getUserData(uid: (user!.uid)) { userDataSnap in
+                    let gsuser = GSUser(snapshot: userDataSnap, uid: (user?.uid)!)
+                    App.loggedInUser = gsuser
+                    DB.teamid = gsuser.teamid
                     DB.teamRef = FIRDatabase.database().reference().child("teams").child(DB.teamid)
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
-                    if DB.loggedIn == false {
-                        DB.loggedIn = true
+                    if App.loggedIn == false {
+                        App.loggedIn = true
                         self.begin()
                     }
                 }
             } else {
-                DB.loggedIn = false
+                App.loggedIn = false
                 
                 let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
                 let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
@@ -45,11 +45,11 @@ class MainViewController: UIViewController {
         }
         
         DB.getUsers() { usersSnap in
-            App.teamUsers = [:]
+            App.team = GSTeam()
             
             for userData in usersSnap.children {
                 let userSnap = userData as! FIRDataSnapshot
-                App.teamUsers[userSnap.key] = GSUser(snapshot: userSnap, uid: userSnap.key)
+                App.team.add(user: GSUser(snapshot: userSnap, uid: userSnap.key))
             }
         }
     }

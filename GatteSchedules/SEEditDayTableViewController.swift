@@ -1,36 +1,34 @@
 //
-//  ViewShiftTableViewController.swift
+//  SEEditDayTableViewController.swift
 //  GatteSchedules
 //
-//  Created by Colby Gatte on 11/30/16.
+//  Created by Colby Gatte on 12/2/16.
 //  Copyright © 2016 colbyg. All rights reserved.
 //
 
 import UIKit
 
-class ViewShiftTableViewController: UITableViewController {
+class SEEditDayTableViewController: UITableViewController {
+    var schedule: GSSchedule!
+    var dayIndex: Int!
+    var shiftNames: [String: String]!
+    var shiftids: [String]!
     
-    var shiftData: [String: String]!
-    var workers: [GSWorker]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = shiftData["shiftid"]
+        shiftNames = App.teamSettings.shiftNames
+        shiftids = Array(shiftNames.keys)
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workers.count
+        return shiftids.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let uid = workers[indexPath.row].uid!
-        let user = App.team.get(user: uid)! // @@@@ doesn't handle error if user doesn't exist
-        
-        cell.textLabel?.text = user.name
-        
+        cell.textLabel?.text = shiftNames[shiftids[indexPath.row]]
         return cell
     }
 }

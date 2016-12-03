@@ -11,8 +11,6 @@ import Firebase
 
 class DB {
     static var teamid: String!
-    static var loggedInUser: GSUser! // move to "App"
-    static var loggedIn: Bool = false
     static var teamRef: FIRDatabaseReference!
     static var usersRef: FIRDatabaseReference!
     
@@ -46,9 +44,7 @@ class DB {
     }
     
     static func save(settings: GSSettings) {
-        let settingsRef = DB.teamRef.child("settings")
-        
-        settingsRef.setValue(settings.toFirebaseObject())
+        DB.teamRef.child("settings").setValue(settings.toFirebaseObject())
     }
     
     // Schedules
@@ -74,6 +70,10 @@ class DB {
         let dateString = App.formatter.string(from: date)
         let ref = DB.teamRef.child("schedules").child(dateString)
         return ref
+    }
+    
+    static func save(schedule: GSSchedule) {
+        schedule.ref.setValue(schedule.toFirebaseObject())
     }
     
     // Users

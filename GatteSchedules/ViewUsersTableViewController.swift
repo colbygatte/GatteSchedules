@@ -15,7 +15,7 @@ class ViewUsersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        uids = Array(App.teamUsers.keys)
+        uids = App.team.allUids
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +25,7 @@ class ViewUsersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = App.teamUsers[uids[indexPath.row]]?.name
+        cell.textLabel?.text = App.team.get(user: uids[indexPath.row])?.name
         
         return cell
     }
@@ -35,7 +35,7 @@ class ViewUsersTableViewController: UITableViewController {
             let row = (tableView.indexPathForSelectedRow?.row)!
             
             let editUserViewController = segue.destination as! EditUserViewController
-            editUserViewController.user = App.teamUsers[uids[row]]
+            editUserViewController.user = App.team.get(user: uids[row])
         }
     }
 }

@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
             if error == nil {
                 DB.getUserData(uid: (user!.uid)) { userDataSnapshot in
                     let user = GSUser(snapshot: userDataSnapshot, uid: user!.uid)
-                    DB.loggedInUser = user
-                    DB.loggedIn = true
+                    App.loggedInUser = user
+                    App.loggedIn = true
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {

@@ -3,3 +3,9 @@ Test logging in and logging out
 Should permissions be an enum instead of a string?
 Use enum for defining the begin and end times on shifts
 Need to be able to delete shifts
+
+
+###
+# reading a file
+let path = Bundle.main.path(forResource: "TODO", ofType: "txt")
+var text = try! String(contentsOfFile: path!, encoding: String.Encoding.utf8)

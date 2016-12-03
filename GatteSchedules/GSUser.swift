@@ -48,6 +48,7 @@ class GSUser {
         userObject["permissions"] = permissions
         userObject["teamid"] = teamid
         userObject["positions"] = positions
+        userObject["email"] = email
         
         return userObject
     }

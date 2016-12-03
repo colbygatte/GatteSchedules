@@ -48,17 +48,12 @@ class EditUserViewController: UIViewController {
             positions.append(positionids[path.row])
         }
         
-        DB.addUser(email: email, password: password) { user, error in
-            if error == nil {
-                let user = GSUser(uid: user!.uid, email: email, name: username, teamid: App.teamSettings.teamid, permissions: permissions, positions: positions)
-                
-                DB.save(user: user)
-                
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                assert(true)
-            }
-        }
+        user.email = email
+        user.name = username
+        user.positions = positions
+        
+        DB.save(user: user)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

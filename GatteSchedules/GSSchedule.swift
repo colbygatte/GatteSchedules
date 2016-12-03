@@ -41,12 +41,13 @@ class GSSchedule: NSObject {
         lastEdited = App.formatter.date(from: info["lastEdited"]!)
     }
     
-    init(firebaseRef: FIRDatabaseReference) {
+    init(firebaseRef: FIRDatabaseReference, createdBy: String) {
         ref = firebaseRef
+        self.createdBy = createdBy
         self.startDate = App.formatter.date(from: firebaseRef.key)
         dateCreated = Date()
         lastEdited = Date()
-        createdBy = "LOgh8Yb36RZYvsLcjZNvh3n97yl1"
+        notes = "nil"
         days = []
         
         // only supports 7 day week schedules for now

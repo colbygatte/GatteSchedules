@@ -38,12 +38,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedules" id="B5G-1Y-F9z">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kc4-Nr-Dxd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kc4-Nr-Dxd">
+                            <connections>
+                                <segue destination="PxQ-fl-N8Q" kind="show" id="LSC-8F-bRI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13G-tN-PZX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4567.1999999999998" y="45.42728635682159"/>
+        </scene>
+        <!--ScheduleEditorIndex-->
+        <scene sceneID="b9C-rE-EhP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ScheduleEditor" referencedIdentifier="ScheduleEditorIndex" id="PxQ-fl-N8Q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ole-HB-Rc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5189" y="-382"/>
         </scene>
         <!--View Schedule-->
         <scene sceneID="Cgt-8r-AU7">
