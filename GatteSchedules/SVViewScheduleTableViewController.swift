@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ViewScheduleTableViewController: UITableViewController {
-
+class SVViewScheduleTableViewController: UITableViewController {
     var schedule: GSSchedule!
     let week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
@@ -17,7 +16,6 @@ class ViewScheduleTableViewController: UITableViewController {
         super.viewDidLoad()
         
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7
@@ -32,9 +30,18 @@ class ViewScheduleTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewDay" {
-            let viewDayTableViewController = segue.destination as! ViewDayTableViewController
-            viewDayTableViewController.day = schedule.days[(tableView.indexPathForSelectedRow?.row)!]
+        if segue.identifier == "SVViewDay" {
+            let row = (tableView.indexPathForSelectedRow?.row)!
+            
+            if schedule.days.count - 1 >= row {
+                let svViewDayTableViewController = segue.destination as! SVViewDayTableViewController
+                svViewDayTableViewController.day = schedule.days[row]
+            } else {
+                print("ERROR")
+            }
+        } else if segue.identifier == "SEListDays" {
+            let seListDaysTableViewController = segue.destination as! SEListDaysTableViewController
+            seListDaysTableViewController.schedule = schedule
         }
     }
     

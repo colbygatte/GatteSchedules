@@ -10,10 +10,9 @@
 		36FABE269A1765800AE16EC3 /* Pods_GatteSchedules.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */; };
 		56FADEC3351CFD41F7327CF4 /* Pods_GatteSchedulesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E98A763DA7FF1133CC25E0D /* Pods_GatteSchedulesUITests.framework */; };
 		E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */ = {isa = PBXBuildFile; fileRef = E902F5EC1DEE381E00A2326F /* TODO.txt */; };
-		E902F5F01DEF3A0500A2326F /* GSWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5EF1DEF3A0500A2326F /* GSWorker.swift */; };
-		E902F5F21DEF455E00A2326F /* ViewScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */; };
-		E902F5F41DEF4CDC00A2326F /* ViewDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */; };
-		E902F5F61DEF6CD400A2326F /* ViewShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */; };
+		E902F5F21DEF455E00A2326F /* SVViewScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F11DEF455E00A2326F /* SVViewScheduleTableViewController.swift */; };
+		E902F5F41DEF4CDC00A2326F /* SVViewDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F31DEF4CDC00A2326F /* SVViewDayTableViewController.swift */; };
+		E902F5F61DEF6CD400A2326F /* SVViewShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F5F51DEF6CD400A2326F /* SVViewShiftTableViewController.swift */; };
 		E902F5F81DEFCA9800A2326F /* ScheduleEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F71DEFCA9800A2326F /* ScheduleEditor.storyboard */; };
 		E902F5FA1DEFCAB500A2326F /* ScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */; };
 		E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E902F5FB1DEFCB1300A2326F /* Login.storyboard */; };
@@ -29,6 +28,7 @@
 		E902F6161DF2413500A2326F /* SEEditDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6151DF2413500A2326F /* SEEditDayTableViewController.swift */; };
 		E902F6181DF2450C00A2326F /* SEEditShiftTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6171DF2450C00A2326F /* SEEditShiftTableViewController.swift */; };
 		E902F61A1DF24C6000A2326F /* GSTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6191DF24C6000A2326F /* GSTeam.swift */; };
+		E9BE77B11DF740B6005DB20C /* UserScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77B01DF740B6005DB20C /* UserScheduleViewer.storyboard */; };
 		E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */; };
 		E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */; };
 		E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */; };
@@ -44,12 +44,16 @@
 		E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF21DED47E600D4646C /* GSSettings.swift */; };
 		E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF41DEDDF1200D4646C /* GSUser.swift */; };
 		E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF61DEDDF2500D4646C /* GSRequests.swift */; };
-		E9EAECFB1DEDFE4100D4646C /* ListSchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECFA1DEDFE4100D4646C /* ListSchedulesTableViewController.swift */; };
+		E9EAECFB1DEDFE4100D4646C /* SVListSchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECFA1DEDFE4100D4646C /* SVListSchedulesTableViewController.swift */; };
 		E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */; };
 		E9F4C03B1DF28344000228D2 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C03A1DF28344000228D2 /* CreateUserViewController.swift */; };
 		E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C03C1DF32E91000228D2 /* FirstTimeLoginViewController.swift */; };
 		E9F4C03F1DF35D12000228D2 /* GSPendingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C03E1DF35D12000228D2 /* GSPendingUser.swift */; };
 		E9F4C0421DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C0411DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift */; };
+		E9F4C0461DF5D9A2000228D2 /* SEEditPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C0451DF5D9A2000228D2 /* SEEditPositionViewController.swift */; };
+		E9F4C0841DF5F683000228D2 /* SVViewPositionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C0831DF5F683000228D2 /* SVViewPositionTableViewController.swift */; };
+		E9F4C0861DF675F4000228D2 /* GSShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C0851DF675F4000228D2 /* GSShift.swift */; };
+		E9F4C0881DF675FC000228D2 /* GSPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C0871DF675FC000228D2 /* GSPosition.swift */; };
 		F4E9221E1C7FA325B233E0AF /* Pods_GatteSchedulesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,10 +84,9 @@
 		C04EFF83C5086B5929B41FDB /* Pods_GatteSchedules.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedules.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DCC84BE0D3CEC46EA3C4C9 /* Pods_GatteSchedulesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GatteSchedulesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E902F5EC1DEE381E00A2326F /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TODO.txt; path = GatteSchedules/TODO.txt; sourceTree = "<group>"; };
-		E902F5EF1DEF3A0500A2326F /* GSWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSWorker.swift; sourceTree = "<group>"; };
-		E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewScheduleTableViewController.swift; sourceTree = "<group>"; };
-		E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDayTableViewController.swift; sourceTree = "<group>"; };
-		E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewShiftTableViewController.swift; sourceTree = "<group>"; };
+		E902F5F11DEF455E00A2326F /* SVViewScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVViewScheduleTableViewController.swift; sourceTree = "<group>"; };
+		E902F5F31DEF4CDC00A2326F /* SVViewDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVViewDayTableViewController.swift; sourceTree = "<group>"; };
+		E902F5F51DEF6CD400A2326F /* SVViewShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVViewShiftTableViewController.swift; sourceTree = "<group>"; };
 		E902F5F71DEFCA9800A2326F /* ScheduleEditor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleEditor.storyboard; sourceTree = "<group>"; };
 		E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleViewer.storyboard; sourceTree = "<group>"; };
 		E902F5FB1DEFCB1300A2326F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		E902F6151DF2413500A2326F /* SEEditDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEEditDayTableViewController.swift; sourceTree = "<group>"; };
 		E902F6171DF2450C00A2326F /* SEEditShiftTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEEditShiftTableViewController.swift; sourceTree = "<group>"; };
 		E902F6191DF24C6000A2326F /* GSTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSTeam.swift; sourceTree = "<group>"; };
+		E9BE77B01DF740B6005DB20C /* UserScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserScheduleViewer.storyboard; sourceTree = "<group>"; };
 		E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatteSchedules.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9EAEC8C1DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,12 +124,16 @@
 		E9EAECF21DED47E600D4646C /* GSSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSSettings.swift; sourceTree = "<group>"; };
 		E9EAECF41DEDDF1200D4646C /* GSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUser.swift; sourceTree = "<group>"; };
 		E9EAECF61DEDDF2500D4646C /* GSRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSRequests.swift; sourceTree = "<group>"; };
-		E9EAECFA1DEDFE4100D4646C /* ListSchedulesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSchedulesTableViewController.swift; sourceTree = "<group>"; };
+		E9EAECFA1DEDFE4100D4646C /* SVListSchedulesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVListSchedulesTableViewController.swift; sourceTree = "<group>"; };
 		E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E9F4C03A1DF28344000228D2 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		E9F4C03C1DF32E91000228D2 /* FirstTimeLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeLoginViewController.swift; sourceTree = "<group>"; };
 		E9F4C03E1DF35D12000228D2 /* GSPendingUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPendingUser.swift; sourceTree = "<group>"; };
 		E9F4C0411DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPendingUsersTableViewController.swift; sourceTree = "<group>"; };
+		E9F4C0451DF5D9A2000228D2 /* SEEditPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEEditPositionViewController.swift; sourceTree = "<group>"; };
+		E9F4C0831DF5F683000228D2 /* SVViewPositionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVViewPositionTableViewController.swift; sourceTree = "<group>"; };
+		E9F4C0851DF675F4000228D2 /* GSShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSShift.swift; sourceTree = "<group>"; };
+		E9F4C0871DF675FC000228D2 /* GSPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPosition.swift; sourceTree = "<group>"; };
 		F696509750500FAD20771831 /* Pods-GatteSchedules.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GatteSchedules.release.xcconfig"; path = "Pods/Target Support Files/Pods-GatteSchedules/Pods-GatteSchedules.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +195,7 @@
 				E902F6131DF0EEB700A2326F /* SEListDaysTableViewController.swift */,
 				E902F6151DF2413500A2326F /* SEEditDayTableViewController.swift */,
 				E902F6171DF2450C00A2326F /* SEEditShiftTableViewController.swift */,
+				E9F4C0451DF5D9A2000228D2 /* SEEditPositionViewController.swift */,
 			);
 			name = ScheduleEditor;
 			sourceTree = "<group>";
@@ -194,10 +203,11 @@
 		E902F5FF1DEFCB8400A2326F /* ScheduleViewer */ = {
 			isa = PBXGroup;
 			children = (
-				E9EAECFA1DEDFE4100D4646C /* ListSchedulesTableViewController.swift */,
-				E902F5F11DEF455E00A2326F /* ViewScheduleTableViewController.swift */,
-				E902F5F31DEF4CDC00A2326F /* ViewDayTableViewController.swift */,
-				E902F5F51DEF6CD400A2326F /* ViewShiftTableViewController.swift */,
+				E9EAECFA1DEDFE4100D4646C /* SVListSchedulesTableViewController.swift */,
+				E902F5F11DEF455E00A2326F /* SVViewScheduleTableViewController.swift */,
+				E902F5F31DEF4CDC00A2326F /* SVViewDayTableViewController.swift */,
+				E902F5F51DEF6CD400A2326F /* SVViewShiftTableViewController.swift */,
+				E9F4C0831DF5F683000228D2 /* SVViewPositionTableViewController.swift */,
 			);
 			name = ScheduleViewer;
 			sourceTree = "<group>";
@@ -286,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
+				E9BE77B01DF740B6005DB20C /* UserScheduleViewer.storyboard */,
 				E902F5F91DEFCAB500A2326F /* ScheduleViewer.storyboard */,
 				E902F5F71DEFCA9800A2326F /* ScheduleEditor.storyboard */,
 				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
@@ -324,7 +335,8 @@
 			children = (
 				E9EAECE41DECCF2700D4646C /* GSSchedule.swift */,
 				E9EAECE61DECCF3500D4646C /* GSDay.swift */,
-				E902F5EF1DEF3A0500A2326F /* GSWorker.swift */,
+				E9F4C0851DF675F4000228D2 /* GSShift.swift */,
+				E9F4C0871DF675FC000228D2 /* GSPosition.swift */,
 			);
 			name = Schedule;
 			sourceTree = "<group>";
@@ -458,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BE77B11DF740B6005DB20C /* UserScheduleViewer.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
 				E902F5FA1DEFCAB500A2326F /* ScheduleViewer.storyboard in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
@@ -629,7 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E902F5F41DEF4CDC00A2326F /* ViewDayTableViewController.swift in Sources */,
+				E902F5F41DEF4CDC00A2326F /* SVViewDayTableViewController.swift in Sources */,
 				E9F4C0421DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift in Sources */,
 				E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */,
 				E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */,
@@ -642,23 +655,26 @@
 				E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */,
 				E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */,
 				E9EAECDC1DECCBE400D4646C /* App.swift in Sources */,
+				E9F4C0861DF675F4000228D2 /* GSShift.swift in Sources */,
 				E902F6181DF2450C00A2326F /* SEEditShiftTableViewController.swift in Sources */,
 				E902F6061DEFDD2000A2326F /* SettingsViewController.swift in Sources */,
 				E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */,
 				E9F4C03B1DF28344000228D2 /* CreateUserViewController.swift in Sources */,
-				E9EAECFB1DEDFE4100D4646C /* ListSchedulesTableViewController.swift in Sources */,
+				E9EAECFB1DEDFE4100D4646C /* SVListSchedulesTableViewController.swift in Sources */,
 				E902F6141DF0EEB700A2326F /* SEListDaysTableViewController.swift in Sources */,
 				E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */,
 				E9EAECE51DECCF2700D4646C /* GSSchedule.swift in Sources */,
+				E9F4C0881DF675FC000228D2 /* GSPosition.swift in Sources */,
 				E902F6161DF2413500A2326F /* SEEditDayTableViewController.swift in Sources */,
+				E9F4C0461DF5D9A2000228D2 /* SEEditPositionViewController.swift in Sources */,
 				E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */,
 				E902F6121DF0C9FC00A2326F /* SEIndexViewController.swift in Sources */,
-				E902F5F01DEF3A0500A2326F /* GSWorker.swift in Sources */,
+				E9F4C0841DF5F683000228D2 /* SVViewPositionTableViewController.swift in Sources */,
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
-				E902F5F61DEF6CD400A2326F /* ViewShiftTableViewController.swift in Sources */,
+				E902F5F61DEF6CD400A2326F /* SVViewShiftTableViewController.swift in Sources */,
 				E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */,
 				E902F60C1DF08E0C00A2326F /* EditShiftViewController.swift in Sources */,
-				E902F5F21DEF455E00A2326F /* ViewScheduleTableViewController.swift in Sources */,
+				E902F5F21DEF455E00A2326F /* SVViewScheduleTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

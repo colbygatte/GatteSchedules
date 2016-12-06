@@ -10,7 +10,8 @@ import UIKit
 
 class SEEditDayTableViewController: UITableViewController {
     var schedule: GSSchedule!
-    var dayIndex: Int!
+    var day: GSDay!
+    
     var shiftNames: [String: String]!
     var shiftids: [String]!
     
@@ -30,5 +31,17 @@ class SEEditDayTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = shiftNames[shiftids[indexPath.row]]
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SEEditShift" {
+            let row = (tableView.indexPathForSelectedRow?.row)!
+            let selectedShift = shiftids[row]
+            
+            let seEditShiftTableViewController = segue.destination as! SEEditShiftTableViewController
+            seEditShiftTableViewController.schedule = schedule
+            seEditShiftTableViewController.day = day
+            seEditShiftTableViewController.shift = day.get(shift: selectedShift)
+        }
     }
 }

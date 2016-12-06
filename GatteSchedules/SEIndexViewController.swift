@@ -42,7 +42,7 @@ class SEIndexViewController: UIViewController {
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ScheduleMakerViewDays" {
+        if segue.identifier == "ScheduleEditorViewDays" {
             let pickedIndex = datePicker.selectedRow(inComponent: 0)
             let date = App.formatter.date(from: datesForPicker[pickedIndex])
             

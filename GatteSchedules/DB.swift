@@ -80,7 +80,7 @@ class DB {
         
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if snapshot.childrenCount == 0 {
-                assert(true, "snapshot.childrenCount == 0")
+                assert(false, "snapshot.childrenCount == 0")
             } else {
                 completion(snapshot)
             }

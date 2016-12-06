@@ -120,109 +120,11 @@
                   "locked":"false"
                },
                "days": {
-                  "2016-11-20":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
-                     }
-                  },
-                  "2016-11-21":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
-                     }
-                  },
-                  "2016-11-22":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
-                     }
-                  },
-                  "2016-11-23":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
-                     }
-                  },
-                  "2016-11-24":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
-                     }
-                  },
-                  "2016-11-25":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
-                     }
-                  },
-                  "2016-11-26":{
-                     "notes": "nil",
-                     "workers": {
-                        "bj6cx2Sp7YP150QwwAzmAttbuAg2": {
-                           "shift": "morning-shift",
-                           "position": "cashier",
-                           "notes": "asked to leave early"
-                        },
-                        "LOgh8Yb36RZYvsLcjZNvh3n97yl1": {
-                           "shift": "night-shift",
-                           "position": "cashier",
-                           "notes": "nil"
-                        }
+                  "2016-11-20": {
+                     "morning-shift": {
+                        "cashier": [
+                           "bj6cx2Sp7YP150QwwAzmAttbuAg2"
+                        ]
                      }
                   }
                }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct App {
     static var formatter = DateFormatter()
     static var shiftFormatter = DateFormatter()

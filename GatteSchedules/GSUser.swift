@@ -9,8 +9,7 @@
 import Foundation
 import Firebase
 
-
-class GSUser {
+class GSUser: NSObject {
     var uid: String!
     
     var teamid: String!
@@ -55,5 +54,9 @@ class GSUser {
         userObject["email"] = email
         
         return userObject
+    }
+    
+    func canDo(position: String) -> Bool {
+        return positions.contains(position)
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ListSchedulesTableViewController: UITableViewController {
+class SVListSchedulesTableViewController: UITableViewController {
     var schedules: [GSSchedule]!
     
     override func viewDidLoad() {
@@ -37,7 +37,13 @@ class ListSchedulesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let schedule = schedules[indexPath.row]
-        let dateText = App.formatter.string(from: schedule.days[0].date)
+        let day = schedule.day(0)
+        let dateText: String
+        if day != nil {
+            dateText = App.formatter.string(from: (schedule.day(0)?.date)!)
+        } else {
+            dateText = App.formatter.string(from: schedule.startDate)
+        }
         
         cell.textLabel?.text = dateText
         
@@ -45,10 +51,10 @@ class ListSchedulesTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewSchedule" {
-            let viewScheduleTableViewController = segue.destination as! ViewScheduleTableViewController
+        if segue.identifier == "SVViewSchedule" {
+            let svViewScheduleTableViewController = segue.destination as! SVViewScheduleTableViewController
             let schedule = schedules[(tableView.indexPathForSelectedRow?.row)!]
-            viewScheduleTableViewController.schedule = schedule
+            svViewScheduleTableViewController.schedule = schedule
         }
     }
 }

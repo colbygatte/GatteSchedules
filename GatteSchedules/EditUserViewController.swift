@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class EditUserViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
@@ -27,12 +26,6 @@ class EditUserViewController: UIViewController {
         
         emailTextField.text = user.email
         usernameTextField.text = user.name
-        
-        for userPosition in user.positions {
-            let index = positionids.index(of: userPosition)
-            let indexPath = IndexPath(row: index!, section: 0)
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.none)
-        }
     }
     
     @IBAction func saveButtonPressed() {
@@ -64,6 +57,11 @@ extension EditUserViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let positionid = positionids[indexPath.row]
+        if user.canDo(position: positionid) {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
         
         cell.textLabel?.text = App.teamSettings.getPosition(id: positionids[indexPath.row])
         
