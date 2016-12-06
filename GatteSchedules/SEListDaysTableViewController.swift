@@ -9,17 +9,24 @@
 import UIKit
 
 class SEListDaysTableViewController: UITableViewController {
+    var originalScheduleObject: Any!
     var schedule: GSSchedule!
     var week: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        originalScheduleObject = schedule.toFirebaseObject() // keep a copy of the schedule
+        
         week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
         
         navigationItem.hidesBackButton = true
         let customBackButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed(sender:)))
         navigationItem.leftBarButtonItem = customBackButton
+    }
+    
+    @IBAction func saveButtonPressed() {
+        DB.save(schedule: schedule)
     }
     
     // Table
@@ -42,9 +49,10 @@ class SEListDaysTableViewController: UITableViewController {
     // Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SEEditDay" {
+            let row = (tableView.indexPathForSelectedRow?.row)!
             let seEditDayTableViewController = segue.destination as! SEEditDayTableViewController
             seEditDayTableViewController.schedule = schedule
-            seEditDayTableViewController.dayIndex = (tableView.indexPathForSelectedRow?.row)!
+            seEditDayTableViewController.day = schedule.day(row)
         }
     }
 }

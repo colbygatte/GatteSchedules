@@ -1,3 +1,7 @@
+WORK NEXT:
+1) Schedule Editor
+2) Permissions
+
 
 Test logging in and logging out
 Should permissions be an enum instead of a string?
@@ -5,6 +9,8 @@ Use enum for defining the begin and end times on shifts
 Need to be able to delete shifts
 Add progress circles when loading is happening
 
+
+Clean up the way information is passed between segues
 
 ###
 # reading a file

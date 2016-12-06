@@ -19,6 +19,10 @@ class GSTeam: NSObject {
         return Array(teamUsers.keys)
     }
     
+    func get(nameFromUid uid: String) -> String {
+        return teamUsers[uid]!.name // @@@@ better error handling
+    }
+    
     func add(user: GSUser) {
         teamUsers[user.uid] = user
     }

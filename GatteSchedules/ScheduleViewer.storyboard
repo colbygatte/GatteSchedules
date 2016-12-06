@@ -12,7 +12,7 @@
         <!--Schedules-->
         <scene sceneID="JD6-k1-vBp">
             <objects>
-                <tableViewController storyboardIdentifier="ListSchedules" id="NZm-vy-5dU" customClass="ListSchedulesTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListSchedules" id="NZm-vy-5dU" customClass="SVListSchedulesTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EMc-fU-MJs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,11 +22,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="20o-n4-F3s" id="YzH-bR-f8Q">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="GyM-nr-kDq" kind="show" identifier="ViewSchedule" id="KWp-pn-Eub">
+                                    <segue destination="GyM-nr-kDq" kind="show" identifier="SVViewSchedule" id="KWp-pn-Eub">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -60,7 +60,7 @@
         <!--View Schedule-->
         <scene sceneID="Cgt-8r-AU7">
             <objects>
-                <tableViewController id="GyM-nr-kDq" customClass="ViewScheduleTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="GyM-nr-kDq" customClass="SVViewScheduleTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YIi-dD-ut2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,11 +70,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JgB-0d-y7z" id="zqL-e7-UWx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qbE-BX-Yeb" kind="show" identifier="ViewDay" id="yp8-Xm-kl2">
+                                    <segue destination="qbE-BX-Yeb" kind="show" identifier="SVViewDay" id="yp8-Xm-kl2">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -85,16 +85,30 @@
                             <outlet property="delegate" destination="GyM-nr-kDq" id="vqD-id-7Qg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="View Schedule" id="qDf-BZ-LXQ"/>
+                    <navigationItem key="navigationItem" title="View Schedule" id="qDf-BZ-LXQ">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7Ci-e3-We2">
+                            <connections>
+                                <segue destination="2a7-76-pQf" kind="show" identifier="SEListDays" id="sZO-rv-aiY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7o-Pj-Gco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5460" y="45.42728635682159"/>
         </scene>
+        <!--ScheduleEditorListDays-->
+        <scene sceneID="MsD-VT-5t2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ScheduleEditor" referencedIdentifier="ScheduleEditorListDays" id="2a7-76-pQf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Oc-1C-d3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6063" y="-397"/>
+        </scene>
         <!--View Day-->
         <scene sceneID="MGb-bf-saC">
             <objects>
-                <tableViewController id="qbE-BX-Yeb" customClass="ViewDayTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qbE-BX-Yeb" customClass="SVViewDayTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BeE-wP-CxR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,11 +118,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vc0-vw-w7A" id="A1o-sK-YkF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="maM-pR-l5d" kind="show" identifier="ViewShift" id="fX5-4v-zmM">
+                                    <segue destination="maM-pR-l5d" kind="show" identifier="SVViewShift" id="fX5-4v-zmM">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -125,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="6263.1999999999998" y="44.527736131934034"/>
         </scene>
-        <!--View Shift Workers-->
+        <!--View Shift-->
         <scene sceneID="XNl-OK-jG2">
             <objects>
-                <tableViewController id="maM-pR-l5d" customClass="ViewShiftTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="maM-pR-l5d" customClass="SVViewShiftTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fb1-tZ-FcO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,9 +152,12 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cy8-G7-WoX" id="glv-LP-pIP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JRn-NE-jMR" kind="show" identifier="SVViewPosition" id="VIF-cT-fIP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -148,11 +165,40 @@
                             <outlet property="delegate" destination="maM-pR-l5d" id="M2N-zC-yZf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="View Shift Workers" id="M7r-aa-biW"/>
+                    <navigationItem key="navigationItem" title="View Shift" id="M7r-aa-biW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5d-ik-oTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7172" y="46.326836581709152"/>
+        </scene>
+        <!--View Position Workers-->
+        <scene sceneID="egz-eM-RRL">
+            <objects>
+                <tableViewController id="JRn-NE-jMR" customClass="SVViewPositionTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="s1i-vS-nSb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="okA-EO-Q7W">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="okA-EO-Q7W" id="nxt-XD-54W">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JRn-NE-jMR" id="XIR-Qv-Iuq"/>
+                            <outlet property="delegate" destination="JRn-NE-jMR" id="jZY-wB-X3R"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="View Position Workers" id="FSc-9R-4Wt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1v-Ui-krC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8070" y="46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7UG-O0-Zkx">

@@ -30,7 +30,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Schedule"/>
                                 <connections>
-                                    <segue destination="VCA-bx-Uxc" kind="show" identifier="ScheduleMakerViewDays" id="4Iy-h9-rKB"/>
+                                    <segue destination="VCA-bx-Uxc" kind="show" identifier="ScheduleEditorViewDays" id="4Iy-h9-rKB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,13 +71,19 @@
                             <outlet property="delegate" destination="VCA-bx-Uxc" id="xf3-7z-2wL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Days" id="Soj-tL-aaE"/>
+                    <navigationItem key="navigationItem" title="Days" id="Soj-tL-aaE">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="iox-oo-5Sp">
+                            <connections>
+                                <action selector="saveButtonPressed" destination="VCA-bx-Uxc" id="qAz-zb-h3a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQf-C2-Plw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="893"/>
         </scene>
-        <!--Edit Day Table View Controller-->
+        <!--Shifts-->
         <scene sceneID="Put-k8-RqH">
             <objects>
                 <tableViewController id="P8J-zb-Vnx" customClass="SEEditDayTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +100,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="yjl-O1-Zmy" kind="show" identifier="SEEditShift" id="pBd-JE-fgg"/>
+                                    <segue destination="ZaS-wG-XPn" kind="show" identifier="SEEditShift" id="RN6-Mx-lZd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -103,38 +109,82 @@
                             <outlet property="delegate" destination="P8J-zb-Vnx" id="Fwo-Xl-HRZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Shifts" id="80t-nF-kIa"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSJ-A7-z8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="893"/>
+            <point key="canvasLocation" x="1967" y="893"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="jb1-bB-12H">
+        <!--Positions-->
+        <scene sceneID="YjI-xz-mQf">
             <objects>
-                <tableViewController id="yjl-O1-Zmy" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QnJ-mM-edT">
+                <tableViewController id="ZaS-wG-XPn" customClass="SEEditShiftTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="flb-HY-c06">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="AWV-mf-sWE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oyH-j8-MAr">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AWV-mf-sWE" id="kJh-Kg-7bb">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oyH-j8-MAr" id="YWE-d2-YV1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="JTW-CA-xws" kind="show" identifier="SEEditPosition" id="vOF-ev-ckA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="yjl-O1-Zmy" id="YAe-vN-JrO"/>
-                            <outlet property="delegate" destination="yjl-O1-Zmy" id="ogN-Wa-iNa"/>
+                            <outlet property="dataSource" destination="ZaS-wG-XPn" id="RKY-Ob-zOp"/>
+                            <outlet property="delegate" destination="ZaS-wG-XPn" id="EAr-gK-62g"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Positions" id="T6A-4g-u6s"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hAj-LU-qyA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GME-Np-kGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="893"/>
+            <point key="canvasLocation" x="2887" y="893"/>
+        </scene>
+        <!--Edit Shift Position-->
+        <scene sceneID="Idz-3h-ADA">
+            <objects>
+                <viewController id="JTW-CA-xws" customClass="SEEditPositionViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v8U-07-Tga"/>
+                        <viewControllerLayoutGuide type="bottom" id="j2M-tD-rdP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yGZ-qo-gIL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UsH-5k-yST">
+                                <rect key="frame" x="16" y="72" width="343" height="513"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="4SF-Id-95A">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4SF-Id-95A" id="TrV-iE-glQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Shift Position" id="lSl-1G-Gze"/>
+                    <connections>
+                        <outlet property="tableView" destination="UsH-5k-yST" id="vM6-JH-z3w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dzb-ZG-lQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3775" y="893"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RT2-5X-X0D">

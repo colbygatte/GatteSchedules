@@ -8,16 +8,16 @@
 
 import UIKit
 
-class ViewDayTableViewController: UITableViewController {
-
+class SVViewDayTableViewController: UITableViewController {
+    var schedule: GSSchedule!
     var day: GSDay!
-    var shifts: [String: [GSWorker]]!
+    var shifts: [String: String]!
     var shiftids: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shifts = day.getShifts()
+        shifts = App.teamSettings.getShiftNames()
         shiftids = Array(shifts.keys)
     }
     
@@ -34,12 +34,14 @@ class ViewDayTableViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ViewShift" {
-            let viewShiftTableViewController = segue.destination as! ViewShiftTableViewController
+        if segue.identifier == "SVViewShift" {
+            let svViewShiftTableViewController = segue.destination as! SVViewShiftTableViewController
             let row = (tableView.indexPathForSelectedRow?.row)!
             
-            viewShiftTableViewController.shiftData = ["shiftid": shiftids[row]]
-            viewShiftTableViewController.workers = shifts[shiftids[row]]
+            svViewShiftTableViewController.shiftid = shiftids[row]
+            svViewShiftTableViewController.schedule = schedule
+            svViewShiftTableViewController.day = day
+            
         }
     }
 }

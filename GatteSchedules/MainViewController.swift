@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Settings" {
-            let settingsViewController = segue.destination as! SettingsViewController
+            _ = segue.destination as! SettingsViewController
             
         }
     }

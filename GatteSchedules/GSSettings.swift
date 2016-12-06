@@ -84,6 +84,10 @@ class GSSettings: NSObject {
         shifts[id]?[1] = dates.end
     }
     
+    func getShiftNames() -> [String: String] {
+        return shiftNames
+    }
+    
     func getShiftDates(id: String) -> GSShiftDates {
         let begin = shifts[id]?[0]
         let end = shifts[id]?[1]

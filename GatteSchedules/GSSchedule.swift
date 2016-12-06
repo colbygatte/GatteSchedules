@@ -25,23 +25,33 @@ class GSSchedule: NSObject {
         days = []
         
         if snapshot.childrenCount == 0 {
-            assert(true, "error")
+            print("error!")
         }
-        
-        let daysSnapshot = snapshot.childSnapshot(forPath: "days")
-        for daySnapshot in daysSnapshot.children {
-            let day = GSDay(snapshot: daySnapshot as! FIRDataSnapshot, belongsToSchedule: self)
-            days.append(day)
-        }
-        sortDays()
         
         let info = snapshot.childSnapshot(forPath: "info").value as! [String: String]
         createdBy = info["createdBy"]
         dateCreated = App.formatter.date(from: info["dateCreated"]!)
         lastEdited = App.formatter.date(from: info["lastEdited"]!)
+        
+        createDays(starting: startDate)
+        
+        let daysSnapshot = snapshot.childSnapshot(forPath: "days")
+        for dayData in daysSnapshot.children {
+            let daySnap = dayData as! FIRDataSnapshot
+            let dayIndex = days.index(where: { day in
+                App.formatter.string(from: day.date) == daySnap.key
+            })
+            let day = days[dayIndex!]
+            
+            day.addDataFrom(snapshot: daySnap)
+        }
+        
+        sortDays()
     }
     
     init(firebaseRef: FIRDatabaseReference, createdBy: String) {
+        super.init()
+        
         ref = firebaseRef
         self.createdBy = createdBy
         self.startDate = App.formatter.date(from: firebaseRef.key)
@@ -50,10 +60,14 @@ class GSSchedule: NSObject {
         notes = "nil"
         days = []
         
+        createDays(starting: startDate)
+    }
+    
+    func createDays(starting: Date) {
         // only supports 7 day week schedules for now
         for i in 0...6 {
             let add = 60 * 60 * 24 * i
-            let day = GSDay(date: startDate.addingTimeInterval(TimeInterval(add)))
+            let day = GSDay(date: starting.addingTimeInterval(TimeInterval(add)))
             days.append(day)
         }
     }
@@ -79,6 +93,14 @@ class GSSchedule: NSObject {
     func sortDays() {
         days.sort { (day1, day2) in
             day1.date.compare(day2.date) == ComparisonResult.orderedAscending
+        }
+    }
+    
+    func day(_ index: Int) -> GSDay? {
+        if days.count - 1 >= index {
+            return days[index]
+        } else {
+            return nil
         }
     }
 }

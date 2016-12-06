@@ -33,9 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DB.usersRef = DB.ref.child("users")
         DB.pendingUsersRef = DB.ref.child("pendingUsers")
         
-        
-        DB.signOut()
-        
         return true
     }
 }
