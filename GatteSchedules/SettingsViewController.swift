@@ -16,14 +16,5 @@ class SettingsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier! {
-        case "ViewPositions":
-            let positionsTableViewController = segue.destination as! PositionsTableViewController
-            break
-        case "ViewShifts":
-            break
-        default:
-            break
-        }
     }
 }

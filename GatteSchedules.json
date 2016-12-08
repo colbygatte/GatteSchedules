@@ -111,23 +111,16 @@
                "waitstaff":"Waitstaff"
             }
          },
-         "schedules": {
+         "days": {
             "2016-11-20": {
-               "info":{
-                  "createdBy":"LOgh8Yb36RZYvsLcjZNvh3n97yl1",
-                  "dateCreated":"2016-11-17",
-                  "lastEdited":"2016-11-20",
-                  "locked":"false"
-               },
-               "days": {
-                  "2016-11-20": {
-                     "morning-shift": {
-                        "cashier": [
-                           "bj6cx2Sp7YP150QwwAzmAttbuAg2"
-                        ]
-                     }
+               "shifts": {
+                  "morning-shift": {
+                     "cashier": [
+                        "bj6cx2Sp7YP150QwwAzmAttbuAg2"
+                     ]
                   }
-               }
+               },
+               "published": "yes"
             }
          }
       },

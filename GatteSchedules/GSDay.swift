@@ -10,9 +10,9 @@ import UIKit
 import Firebase
 
 class GSDay: NSObject {
-    var schedule: GSSchedule!
     var date: Date!
     var notes: String!
+    var published: Bool!
     var shifts: [String: GSShift]!
     
     func loadShifts() {
@@ -22,20 +22,50 @@ class GSDay: NSObject {
         }
     }
     
-    init(snapshot: FIRDataSnapshot, belongsToSchedule: GSSchedule) {
+    init(snapshot: FIRDataSnapshot) {
         super.init()
-        schedule = belongsToSchedule
         date = App.formatter.date(from: snapshot.key)
         shifts = [:]
         loadShifts()
         
-        for shiftData in snapshot.children {
+        for shiftData in snapshot.childSnapshot(forPath: "shifts").children {
             let shiftSnap = shiftData as! FIRDataSnapshot
             let shiftid = shiftSnap.key
             
             let shift = GSShift(snapshot: shiftSnap)
             shifts[shiftid] = shift
         }
+        
+        let publishedString = snapshot.childSnapshot(forPath: "published").value as? String
+        
+        if publishedString == "yes" {
+            published = true
+        } else {
+            published = false
+        }
+    }
+    
+    init(date: Date) {
+        super.init()
+        self.date = date
+        notes = "nil"
+        shifts = [:]
+        published = false
+        loadShifts()
+    }
+    
+    func toFirebaseObject() -> Any {
+        var dayObject: [String: Any] = [:]
+        
+        dayObject["published"] = published == true ? "yes" : "no"
+        
+        var shiftsObject: [String: Any] = [:]
+        for (shiftid, shift) in shifts {
+            shiftsObject[shiftid] = shift.toFirebaseObject()
+        }
+        dayObject["shifts"] = shiftsObject
+        
+        return dayObject
     }
     
     func addDataFrom(snapshot: FIRDataSnapshot) {
@@ -50,24 +80,7 @@ class GSDay: NSObject {
             shifts[shiftid] = shift
         }
     }
-    
-    init(date: Date) {
-        super.init()
-        self.date = date
-        notes = "nil"
-        shifts = [:]
-        loadShifts()
-    }
 
-    func toFirebaseObject() -> Any {
-        var dayObject: [String: Any] = [:]
-        
-        for (shiftid, shift) in shifts {
-            dayObject[shiftid] = shift.toFirebaseObject()
-        }
-        
-        return dayObject
-    }
     
     func get(shift: String) -> GSShift {
         return shifts[shift]! // @@@@ handle errors here

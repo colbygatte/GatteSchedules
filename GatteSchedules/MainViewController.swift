@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
                     App.loggedInUser = gsuser
                     DB.teamid = gsuser.teamid
                     DB.teamRef = DB.ref.child("teams").child(DB.teamid)
+                    DB.daysRef = DB.teamRef.child("days")
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {
@@ -50,13 +51,17 @@ class MainViewController: UIViewController {
             
             for userData in usersSnap.children {
                 let userSnap = userData as! FIRDataSnapshot
-                App.team.add(user: GSUser(snapshot: userSnap, uid: userSnap.key))
+                let user: GSUser!
+                if userSnap.key == App.loggedInUser.uid {
+                    user = App.loggedInUser
+                } else {
+                    user = GSUser(snapshot: userSnap, uid: userSnap.key)
+                }
+                App.team.add(user: user)
             }
         }
-    }
-    
-    @IBAction func testClick() {
-        begin()
+        
+        _gtest()
     }
     
     @IBAction func logoutButtonPressed() {
@@ -66,10 +71,6 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Settings" {
-            _ = segue.destination as! SettingsViewController
-            
-        }
     }
 }
 

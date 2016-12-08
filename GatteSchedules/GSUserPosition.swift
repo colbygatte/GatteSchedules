@@ -9,5 +9,11 @@
 import UIKit
 
 class GSUserPosition: NSObject {
-
+    var userDay: GSUserDay!
+    var userShift: GSUserShift!
+    var positionid: String!
+    
+    init(positionid: String) {
+        self.positionid = positionid
+    }
 }
