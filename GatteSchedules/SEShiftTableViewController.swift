@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SEShiftTableViewController: UITableViewController {
+class SEShiftTableViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     var day: GSDay!
     var shift: GSShift!
     
@@ -17,22 +18,11 @@ class SEShiftTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         
         positions = App.teamSettings.positions
         positionids = Array(positions.keys)
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return positionids.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        let text = positions[positionids[row]]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = text
-        return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,5 +36,21 @@ class SEShiftTableViewController: UITableViewController {
             sePositionTableViewController.shift = shift
             sePositionTableViewController.position = position
         }
+    }
+}
+
+extension SEShiftTableViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return positionids.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let text = positions[positionids[row]]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = text
+        return cell
     }
 }

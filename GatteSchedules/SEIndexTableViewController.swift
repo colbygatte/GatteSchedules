@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SEIndexTableViewController: UITableViewController {
+class SEIndexTableViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var publishedSwitch: UISwitch!
     var day: GSDay!
     
     var shifts: [String: GSShift]!
@@ -17,29 +19,29 @@ class SEIndexTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         
         shifts = day.shifts
         shiftNames = App.teamSettings.shiftNames
         shiftids = Array(shifts.keys)
+        
+        if day.published == true {
+            publishedSwitch.isOn = true
+        } else {
+            publishedSwitch.isOn = false
+        }
     }
     
     @IBAction func saveButtonPressed() {
+        if publishedSwitch.isOn {
+            day.published = true
+        } else {
+            day.published = false
+        }
         DB.save(day: day)
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shiftids.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        let shiftName = shiftNames[shiftids[row]]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = shiftName
-        return cell
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SEShiftSegue" {
             let row = (tableView.indexPathForSelectedRow?.row)!
@@ -51,3 +53,20 @@ class SEIndexTableViewController: UITableViewController {
         }
     }
 }
+
+extension SEIndexTableViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shiftids.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let shiftName = shiftNames[shiftids[row]]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = shiftName
+        return cell
+    }
+}
+
+

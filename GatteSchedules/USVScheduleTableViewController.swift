@@ -10,7 +10,7 @@ import UIKit
 
 class USVScheduleTableViewController: UITableViewController {
     var now: Date!
-    var dateStart: Int = 1
+    var dateStart: Int = 0
     var totalSections: Int = 20
     var days: [GSUserDay]!
     var isDoneLoading: Bool = false

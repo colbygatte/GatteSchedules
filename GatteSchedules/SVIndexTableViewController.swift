@@ -10,6 +10,7 @@ import UIKit
 
 class SVIndexTableViewController: UITableViewController {
     var now: Date!
+    var dayStart: Int = 0
     var dayOffset: Int = -5
     var totalRows = 20
     
@@ -22,7 +23,7 @@ class SVIndexTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        dayOffset += -5
+        dayStart += dayOffset
         totalRows += 5
         tableView.reloadData()
         refreshControl.endRefreshing()
@@ -33,7 +34,7 @@ class SVIndexTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let timeInterval = 60 * 60 * 24 * (indexPath.row + dayOffset)
+        let timeInterval = 60 * 60 * 24 * (indexPath.row + dayStart)
         let date = now.addingTimeInterval(TimeInterval(timeInterval))
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -43,7 +44,7 @@ class SVIndexTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let row = (tableView.indexPathForSelectedRow?.row)! + dayOffset
+        let row = (tableView.indexPathForSelectedRow?.row)! + dayStart
         
         if segue.identifier == "SVDaySegue" {
             let svDayTableViewController = segue.destination as! SVDayTableViewController
