@@ -33,7 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DB.usersRef = DB.ref.child("users")
         DB.pendingUsersRef = DB.ref.child("pendingUsers")
         
+        // Configure root view controller
+        App.containerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerView") as! ContainerViewController
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = App.containerViewController
+        window?.makeKeyAndVisible()
+        
+        setupTheme()
+        
         return true
+    }
+    
+    func setupTheme() {
+        let shared = UIApplication.shared
+        shared.delegate?.window??.tintColor = UIColor.purple
+        
+        UINavigationBar.appearance().backgroundColor = UIColor.brown
     }
 }
 

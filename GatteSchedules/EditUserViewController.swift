@@ -37,8 +37,10 @@ class EditUserViewController: UIViewController {
         let permissions = "normal"
         
         var positions: [String] = []
-        for path in indexPaths! {
-            positions.append(positionids[path.row])
+        if indexPaths != nil {
+            for path in indexPaths! {
+                positions.append(positionids[path.row])
+            }
         }
         
         user.email = email

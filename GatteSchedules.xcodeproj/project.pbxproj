@@ -39,7 +39,10 @@
 		E9BE77E21DF89004005DB20C /* USVScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77E01DF89004005DB20C /* USVScheduleTableViewCell.xib */; };
 		E9BE77E51DF90607005DB20C /* LoadMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77E31DF90607005DB20C /* LoadMoreTableViewCell.swift */; };
 		E9BE77E61DF90607005DB20C /* LoadMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77E41DF90607005DB20C /* LoadMoreTableViewCell.xib */; };
-		E9BE77EA1DF9E5AB005DB20C /* NavigationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77E91DF9E5AB005DB20C /* NavigationTableViewController.swift */; };
+		E9BE78101DFA3763005DB20C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */; };
+		E9BE78121DFA3775005DB20C /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE78111DFA3775005DB20C /* MenuTableViewController.swift */; };
+		E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */; };
+		E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */; };
 		E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */; };
 		E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */; };
 		E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */; };
@@ -120,7 +123,10 @@
 		E9BE77E01DF89004005DB20C /* USVScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = USVScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		E9BE77E31DF90607005DB20C /* LoadMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadMoreTableViewCell.swift; sourceTree = "<group>"; };
 		E9BE77E41DF90607005DB20C /* LoadMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreTableViewCell.xib; sourceTree = "<group>"; };
-		E9BE77E91DF9E5AB005DB20C /* NavigationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTableViewController.swift; sourceTree = "<group>"; };
+		E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		E9BE78111DFA3775005DB20C /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatteSchedules.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9EAEC8C1DE53F3D00D4646C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -342,6 +348,7 @@
 				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
 				E902F6021DEFDCDD00A2326F /* Settings.storyboard */,
 				E9BE77E41DF90607005DB20C /* LoadMoreTableViewCell.xib */,
+				E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -349,11 +356,13 @@
 		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E9BE77B21DF741C0005DB20C /* UserScheduleViewer */,
-				E9BE77C11DF7ABAA005DB20C /* Test.swift */,
-				E9BE77E31DF90607005DB20C /* LoadMoreTableViewCell.swift */,
+				E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */,
+				E9BE78111DFA3775005DB20C /* MenuTableViewController.swift */,
+				E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */,
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
-				E9BE77E91DF9E5AB005DB20C /* NavigationTableViewController.swift */,
+				E9BE77E31DF90607005DB20C /* LoadMoreTableViewCell.swift */,
+				E9BE77C11DF7ABAA005DB20C /* Test.swift */,
+				E9BE77B21DF741C0005DB20C /* UserScheduleViewer */,
 				E9BE77CF1DF86FFD005DB20C /* ScheduleEditor */,
 				E9BE77C61DF7C4AA005DB20C /* ScheduleViewer */,
 				E902F6041DEFDD0500A2326F /* Settings */,
@@ -523,6 +532,7 @@
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
 				E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */,
+				E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
 				E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */,
 				E9BE77C51DF7C461005DB20C /* ScheduleViewer.storyboard in Resources */,
@@ -691,6 +701,7 @@
 			files = (
 				E9BE77D11DF870A6005DB20C /* SEIndexTableViewController.swift in Sources */,
 				E9F4C0421DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift in Sources */,
+				E9BE78121DFA3775005DB20C /* MenuTableViewController.swift in Sources */,
 				E9BE77DC1DF88FA8005DB20C /* USVScheduleTableViewController.swift in Sources */,
 				E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */,
 				E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */,
@@ -701,6 +712,7 @@
 				E9BE77D91DF87BD8005DB20C /* SEPositionTableViewController.swift in Sources */,
 				E9EAECE71DECCF3500D4646C /* GSDay.swift in Sources */,
 				E902F60A1DEFDE2900A2326F /* ShiftsTableViewController.swift in Sources */,
+				E9BE78101DFA3763005DB20C /* ContainerViewController.swift in Sources */,
 				E902F60E1DF0A3BE00A2326F /* EditUserViewController.swift in Sources */,
 				E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */,
 				E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */,
@@ -721,10 +733,10 @@
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
 				E9BE77B41DF741E0005DB20C /* USVIndexViewController.swift in Sources */,
 				E9BE77D51DF8720D005DB20C /* SVPositionTableViewController.swift in Sources */,
+				E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */,
 				E9BE77D71DF87AEB005DB20C /* SEShiftTableViewController.swift in Sources */,
 				E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */,
 				E902F60C1DF08E0C00A2326F /* EditShiftViewController.swift in Sources */,
-				E9BE77EA1DF9E5AB005DB20C /* NavigationTableViewController.swift in Sources */,
 				E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */,
 				E9BE77CC1DF7CD63005DB20C /* SVDayTableViewController.swift in Sources */,
 			);

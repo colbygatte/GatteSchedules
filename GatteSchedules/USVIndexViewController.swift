@@ -12,6 +12,5 @@ class USVIndexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }

@@ -10,9 +10,19 @@ import UIKit
 import Firebase
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let mb1 = MenuCellData(text: "Settings", block: {
+            let sb = UIStoryboard(name: "Settings", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "Settings")
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
+        App.menuCells.append(mb1)
+        
+        App.refreshMenu()
         
         DB.setAuthListener { auth, user in
             if user != nil {
@@ -60,18 +70,24 @@ class MainViewController: UIViewController {
                 App.team.add(user: user)
             }
         }
-        
-        _gtest()
+//        
+//        let tomorrowDate = App.getDateFromNow(1)
+//        DB.get(day: tomorrowDate) { tomorrowSnap in
+//            let tomorrow = GSDay(snapshot: tomorrowSnap)
+//            let userTomorrow = GSUserDay(from: tomorrow, user: App.loggedInUser)
+//            
+//            
+//        }
+    }
+    
+    @IBAction func menuButtonPressed() {
+        App.toggleMenu()
     }
     
     @IBAction func logoutButtonPressed() {
         DB.signOut {
-            print("logg out b PRE")
+            App.loggedIn = false
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    }
 }
-
 

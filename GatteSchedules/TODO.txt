@@ -17,3 +17,6 @@ In ScheduleEditor, filter the users down to only the ones who can work a positio
 # reading a file
 let path = Bundle.main.path(forResource: "TODO", ofType: "txt")
 var text = try! String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+
+NAVIGATION
+eventually implement a scroll view instead of just a moving view
