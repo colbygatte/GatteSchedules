@@ -29,6 +29,16 @@ class GSPosition: NSObject {
         return positionData
     }
     
+    func getWorkersDictionary() -> [String: GSUser] {
+        var workersDic: [String: GSUser] = [:]
+        
+        for worker in workers {
+            workersDic[worker.uid] = worker
+        }
+        
+        return workersDic
+    }
+    
     func add(worker: GSUser, notes: String = "nil") {
         let uid = worker.uid
         workers.append(worker)

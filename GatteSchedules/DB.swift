@@ -14,6 +14,7 @@ class DB {
     static var teamRef: FIRDatabaseReference!
     static var usersRef: FIRDatabaseReference!
     static var pendingUsersRef: FIRDatabaseReference!
+    static var daysRef: FIRDatabaseReference!
     static var ref: FIRDatabaseReference!
     
     private static var authListenerHandle: FIRAuthStateDidChangeListenerHandle! // @@@@ should probably be optional
@@ -69,32 +70,17 @@ class DB {
     }
     
     // Schedules
-    static func getSchedules(completion: @escaping (FIRDataSnapshot)->()) {
-        DB.teamRef.child("schedules").observeSingleEvent(of: .value, with: { schedulesSnapshot in
-            completion(schedulesSnapshot)
+    //
+    static func get(day: Date, completion: @escaping (FIRDataSnapshot)->()) {
+        let dateString = App.formatter.string(from: day)
+        DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+            completion(snap)
         })
     }
     
-    static func getSchedule(schedule: String, completion: @escaping (FIRDataSnapshot)->()) {
-        let ref = DB.teamRef.child("schedules").child(schedule)
-        
-        ref.observeSingleEvent(of: .value, with: { snapshot in
-            if snapshot.childrenCount == 0 {
-                assert(false, "snapshot.childrenCount == 0")
-            } else {
-                completion(snapshot)
-            }
-        })
-    }
-    
-    static func createSchedule(date: Date) -> FIRDatabaseReference {
-        let dateString = App.formatter.string(from: date)
-        let ref = DB.teamRef.child("schedules").child(dateString)
-        return ref
-    }
-    
-    static func save(schedule: GSSchedule) {
-        schedule.ref.setValue(schedule.toFirebaseObject())
+    static func save(day: GSDay) {
+        let dateString = App.formatter.string(from: day.date)
+        DB.daysRef.child(dateString).setValue(day.toFirebaseObject())
     }
     
     // Users

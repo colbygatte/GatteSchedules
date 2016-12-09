@@ -10,7 +10,8 @@ Need to be able to delete shifts
 Add progress circles when loading is happening
 
 
-Clean up the way information is passed between segues
+In ScheduleEditor, filter the users down to only the ones who can work a position
+
 
 ###
 # reading a file

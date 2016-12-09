@@ -1,34 +1,40 @@
 //
-//  ViewShiftPositionTableViewController.swift
+//  SVPositionTableViewController.swift
 //  GatteSchedules
 //
-//  Created by Colby Gatte on 12/5/16.
+//  Created by Colby Gatte on 12/7/16.
 //  Copyright © 2016 colbyg. All rights reserved.
 //
 
 import UIKit
 
-class SVViewPositionTableViewController: UITableViewController {
-    var schedule: GSSchedule!
+class SVPositionTableViewController: UITableViewController {
     var day: GSDay!
-    var shiftid: String!
-    var positionid: String!
+    var shift: GSShift!
+    var position: GSPosition!
     
-    var workers: [GSUser]!
+    var workers: [String: GSUser]!
+    var uids: [String]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        workers = day.getWorkers(forShift: shiftid, position: positionid)
+        workers = position.getWorkersDictionary()
+        uids = Array(workers.keys)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workers.count
+        return uids.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let uid = uids[row]
+        let worker = workers[uid]!
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = workers[indexPath.row].name
+        cell.textLabel?.text = worker.name
         return cell
     }
 }

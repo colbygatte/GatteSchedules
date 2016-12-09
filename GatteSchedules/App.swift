@@ -16,6 +16,13 @@ struct App {
     static var loggedInUser: GSUser!
     static var team: GSTeam!
     static var teamSettings: GSSettings!
+    
+    static var now: Date = Date()
+    
+    static func getDateFromNow(_ days: Int) -> Date {
+        return App.now.addingTimeInterval(TimeInterval(60 * 60 * 24 * days))
+    }
+    
 }
 
 extension String {

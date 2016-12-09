@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseDatabase
 
 class ViewPendingUsersTableViewController: UITableViewController {
     var pendingUsers: [GSPendingUser]!
