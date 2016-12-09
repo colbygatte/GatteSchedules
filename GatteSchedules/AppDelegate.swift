@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         App.shiftFormatter.amSymbol = "AM"
         App.shiftFormatter.pmSymbol = "PM"
         
+        App.scheduleDisplayFormatter.dateFormat = "E MMM d, y"
+        
         FIRApp.configure()
     
         DB.ref = FIRDatabase.database().reference()

@@ -111,26 +111,36 @@ class MainViewController: UIViewController {
     
     func makeMenu() {
         App.clearMenu()
-        let mb1 = MenuCellData(text: "Settings", block: {
-            let sb = UIStoryboard(name: "Settings", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "Settings")
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
-        App.menuCells.append(mb1)
-    
+        
+        if App.loggedInUser.permissions == App.Permissions.manager {
+            let userMb = MenuCellData(text: "Team users", block: { 
+                let sb = UIStoryboard(name: "Settings", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "ViewUsers")
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(userMb)
+            
+            let mb1 = MenuCellData(text: "Team settings", block: {
+                let sb = UIStoryboard(name: "Settings", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "Settings")
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(mb1)
+            
+            let scheduleAdminButton = MenuCellData(text: "Schedule admin", block: {
+                let sb = UIStoryboard(name: "ScheduleViewer", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "SVIndex")
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(scheduleAdminButton)
+        }
+        
         let logoutMenuButton = MenuCellData(text: "Logout", block: {
             DB.signOut {
                 App.loggedIn = false
             }
         })
         App.menuCells.append(logoutMenuButton)
-        
-        let scheduleAdminButton = MenuCellData(text: "Schedule admin", block: {
-            let sb = UIStoryboard(name: "ScheduleViewer", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "SVIndex")
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
-        App.menuCells.append(scheduleAdminButton)
         
         App.refreshMenu()
     }
@@ -163,7 +173,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let day = days[section]
-        return App.formatter.string(from: day.date)
+        return App.scheduleDisplayFormatter.string(from: day.date)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

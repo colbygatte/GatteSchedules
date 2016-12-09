@@ -11,6 +11,7 @@ import Foundation
 struct App {
     static var formatter = DateFormatter()
     static var shiftFormatter = DateFormatter()
+    static var scheduleDisplayFormatter = DateFormatter()
     
     static var loggedIn: Bool = false
     static var loggedInUser: GSUser!
@@ -38,6 +39,11 @@ struct App {
     
     static func clearMenu() {
         App.menuCells = []
+    }
+    
+    struct Permissions {
+        static var manager = "manager"
+        static var normal = "normal"
     }
     
     enum Controllers {

@@ -10,9 +10,6 @@ import UIKit
 
 class EditUserViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var usernameTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
     
     var positionids: [String]!
     var user: GSUser!
@@ -23,18 +20,10 @@ class EditUserViewController: UIViewController {
         positionids = App.teamSettings.getPositionids()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        emailTextField.text = user.email
-        usernameTextField.text = user.name
     }
     
     @IBAction func saveButtonPressed() {
         let indexPaths = tableView.indexPathsForSelectedRows
-        
-        let email = emailTextField.text!
-        let username = usernameTextField.text!
-        let password = passwordTextField.text!
-        let permissions = "normal"
         
         var positions: [String] = []
         if indexPaths != nil {
@@ -43,8 +32,6 @@ class EditUserViewController: UIViewController {
             }
         }
         
-        user.email = email
-        user.name = username
         user.positions = positions
         
         DB.save(user: user)
