@@ -21,7 +21,10 @@ class SEPositionTableViewController: UITableViewController {
         super.viewDidLoad()
         
         workers = position.getWorkersDictionary()
-        allUsers = App.team.teamUsers!
+        allUsers = [:]
+        for user in App.team.getUsersWhoCanWork(position: position.positionid) {
+            allUsers[user.uid] = user
+        }
         allUids = Array(allUsers.keys)
     }
     

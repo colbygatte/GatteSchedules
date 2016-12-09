@@ -1,15 +1,16 @@
 //
-//  LoadMoreTableViewCell.swift
+//  MenuTableViewCell.swift
 //  GatteSchedules
 //
-//  Created by Colby Gatte on 12/7/16.
+//  Created by Colby Gatte on 12/8/16.
 //  Copyright © 2016 colbyg. All rights reserved.
 //
 
 import UIKit
 
-class LoadMoreTableViewCell: UITableViewCell {
-
+class MenuTableViewCell: UITableViewCell {
+    var shouldToggle: Bool = true
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

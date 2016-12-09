@@ -19,10 +19,29 @@ struct App {
     
     static var now: Date = Date()
     
+    static var containerViewController: ContainerViewController!
+    
     static func getDateFromNow(_ days: Int) -> Date {
         return App.now.addingTimeInterval(TimeInterval(60 * 60 * 24 * days))
     }
     
+    static var menuCells: [MenuCellData] = []
+    
+    static func toggleMenu() {
+        App.containerViewController.toggleMenu()
+    }
+    
+    static func refreshMenu() {
+        App.containerViewController.menuTableViewController.tableView.reloadData()
+    }
+    
+    enum Controllers {
+        case settings
+    }
+    
+    struct Theme {
+        
+    }
 }
 
 extension String {

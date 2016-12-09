@@ -30,4 +30,14 @@ class GSTeam: NSObject {
     func get(user: String) -> GSUser? { // @@@@ doesn't check to see if user exists
         return teamUsers[user]
     }
+    
+    func getUsersWhoCanWork(position: String) -> [GSUser] {
+        var users: [GSUser] = []
+        for (_, user) in teamUsers {
+            if user.canDo(position: position) {
+                users.append(user)
+            }
+        }
+        return users
+    }
 }

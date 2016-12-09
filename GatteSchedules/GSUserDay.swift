@@ -15,6 +15,12 @@ class GSUserDay: NSObject {
     var published: Bool!
     var shifts: [GSUserShift]!
     
+//    var state: State!
+//    enum State {
+//        case off, unpublished, working
+//    }
+    
+    
     var isOff: Bool {
         return shifts.count == 0
     }
