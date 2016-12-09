@@ -46,9 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupTheme() {
         let shared = UIApplication.shared
-        shared.delegate?.window??.tintColor = UIColor.purple
+        shared.delegate?.window??.tintColor = UIColor.gray
         
-        UINavigationBar.appearance().backgroundColor = UIColor.brown
+        //UINavigationBar.appearance().backgroundColor = UIColor.brown
     }
 }
 

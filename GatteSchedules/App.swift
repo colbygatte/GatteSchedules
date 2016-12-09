@@ -25,6 +25,7 @@ struct App {
         return App.now.addingTimeInterval(TimeInterval(60 * 60 * 24 * days))
     }
     
+    // Menu
     static var menuCells: [MenuCellData] = []
     
     static func toggleMenu() {
@@ -33,6 +34,10 @@ struct App {
     
     static func refreshMenu() {
         App.containerViewController.menuTableViewController.tableView.reloadData()
+    }
+    
+    static func clearMenu() {
+        App.menuCells = []
     }
     
     enum Controllers {

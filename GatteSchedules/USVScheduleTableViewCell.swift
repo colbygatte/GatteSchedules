@@ -33,17 +33,17 @@ class USVScheduleTableViewCell: UITableViewCell {
         text += ": "
         text += shift.position.positionid
         
-        label.textColor = UIColor.black
+        label.textColor = UIColor.gray
         label.text = text
     }
     
     func setIsOff() {
-        label.textColor = UIColor.red
+        label.textColor = UIColor.gray
         label.text = "OFF"
     }
     
     func setIsNotPublished() {
-        label.textColor = UIColor.blue
+        label.textColor = UIColor.gray
         label.text = "not published"
     }
 }

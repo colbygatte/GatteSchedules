@@ -13,30 +13,35 @@ struct MenuCellData {
     var block: ()->()
 }
 
-class MenuTableViewController: UITableViewController {
+class MenuViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         let menuCellNib = UINib(nibName: "MenuTableViewCell", bundle: nil)
         tableView.register(menuCellNib, forCellReuseIdentifier: "MenuCell")
     }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return App.menuCells.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let menuCellData = App.menuCells[indexPath.row]
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuTableViewCell
+        let menuCellData = App.menuCells[indexPath.row]
         cell.textLabel?.textAlignment = .right
         cell.textLabel?.text = menuCellData.text
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         App.menuCells[indexPath.row].block()
         App.toggleMenu()
     }

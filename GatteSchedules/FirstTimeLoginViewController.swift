@@ -81,4 +81,8 @@ class FirstTimeLoginViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    @IBAction func backButtonPressed() {
+        dismiss(animated: true, completion: nil)
+    }
 }

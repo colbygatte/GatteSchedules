@@ -11,7 +11,7 @@ import UIKit
 class ContainerViewController: UIViewController {
     var containerNavigationController: UINavigationController!
     var mainViewController: MainViewController!
-    var menuTableViewController: MenuTableViewController!
+    var menuTableViewController: MenuViewController!
     
     var menuIsShowing: Bool = false
     var toggleMenuBarButtonItem: UIBarButtonItem!
@@ -30,7 +30,7 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
 
         mainViewController = storyboard?.instantiateViewController(withIdentifier: "MainView") as! MainViewController
-        menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableView") as! MenuTableViewController
+        menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuView") as! MenuViewController
         
         containerNavigationController = UINavigationController(rootViewController: mainViewController)
         
