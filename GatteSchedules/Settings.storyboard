@@ -79,7 +79,7 @@
         <!--Edit User-->
         <scene sceneID="yTo-0F-oaj">
             <objects>
-                <viewController storyboardIdentifier="EditUser" id="zHn-5v-ako" customClass="EditUserViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditUser" automaticallyAdjustsScrollViewInsets="NO" id="zHn-5v-ako" customClass="EditUserViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uZ1-IZ-ugu"/>
                         <viewControllerLayoutGuide type="bottom" id="Bun-nv-0Ne"/>
@@ -124,7 +124,7 @@
         <!--Settings View Controller-->
         <scene sceneID="Kmh-mi-kRa">
             <objects>
-                <viewController storyboardIdentifier="Settings" id="3sN-Qh-Zuh" customClass="SettingsViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings" automaticallyAdjustsScrollViewInsets="NO" id="3sN-Qh-Zuh" customClass="SettingsViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Vs-eK-Xip"/>
                         <viewControllerLayoutGuide type="bottom" id="yoj-EE-ihG"/>
@@ -243,9 +243,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJF-au-dEW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="574"/>
+            <point key="canvasLocation" x="1948" y="573.46326836581716"/>
         </scene>
-        <!--Edit Shift View Controller-->
+        <!--Title-->
         <scene sceneID="xv6-nS-CYZ">
             <objects>
                 <viewController id="jba-tC-NRo" customClass="EditShiftViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
@@ -264,30 +264,22 @@
                                     <!--2016-12-01 17:27:00 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Begin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-oj-got">
-                                <rect key="frame" x="166" y="93" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-oj-got">
+                                <rect key="frame" x="138" y="87" width="87" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5U-WA-R6o">
-                                <rect key="frame" x="166" y="353" width="30" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5U-WA-R6o">
+                                <rect key="frame" x="140" y="356" width="82" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gly-6d-6Px">
-                                <rect key="frame" x="164" y="637" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveButtonPressed" destination="jba-tC-NRo" eventType="touchUpInside" id="oEB-Oz-UbI"/>
-                                </connections>
-                            </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="amV-Yr-Da2">
-                                <rect key="frame" x="0.0" y="396" width="375" height="216"/>
+                                <rect key="frame" x="-6" y="396" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="502306053.08726901">
                                     <!--2016-12-01 17:27:33 +0000-->
@@ -296,6 +288,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="vaQ-5j-Qo2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Lt6-hW-tSV">
+                            <connections>
+                                <action selector="saveButtonPressed" destination="jba-tC-NRo" id="iYq-A2-Pls"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="beginDatePicker" destination="RL5-cL-Lb3" id="bU0-Au-tAO"/>
                         <outlet property="endDatePicker" destination="amV-Yr-Da2" id="XvB-g9-fe3"/>
@@ -303,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n8T-bM-HNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="573"/>
+            <point key="canvasLocation" x="2820" y="572.56371814092961"/>
         </scene>
         <!--Positions-->
         <scene sceneID="4IB-3j-bcc">
@@ -359,6 +358,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JuB-AA-in3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-801" y="170"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BJo-FI-2Xb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qCR-5u-Yz5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fh4-9z-8nc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Wa-H4-bp4" kind="relationship" relationship="rootViewController" id="iFn-8Z-Ad3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nrb-BA-bnP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.8" y="573.46326836581716"/>
         </scene>
     </scenes>
 </document>

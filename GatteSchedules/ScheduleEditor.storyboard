@@ -12,7 +12,7 @@
         <!--Title-->
         <scene sceneID="msD-ue-zEy">
             <objects>
-                <viewController storyboardIdentifier="SEIndex" id="uE5-Mv-vI5" customClass="SEIndexTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SEIndex" automaticallyAdjustsScrollViewInsets="NO" id="uE5-Mv-vI5" customClass="SEIndexTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TJk-p5-GUi"/>
                         <viewControllerLayoutGuide type="bottom" id="Ba7-tN-enO"/>
@@ -40,14 +40,14 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Publish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JII-VQ-6s7">
-                                <rect key="frame" x="16" y="112" width="56" height="21"/>
+                                <rect key="frame" x="16" y="102" width="56" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r5O-mL-exL">
-                                <rect key="frame" x="110" y="102" width="51" height="31"/>
+                                <rect key="frame" x="110" y="97" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                         </subviews>
@@ -77,7 +77,7 @@
         <!--Shift Table View Controller-->
         <scene sceneID="Wr1-Bn-JqZ">
             <objects>
-                <viewController id="fTY-Ek-x5y" customClass="SEShiftTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fTY-Ek-x5y" customClass="SEShiftTableViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BXD-i9-VEv"/>
                         <viewControllerLayoutGuide type="bottom" id="KB6-bR-adm"/>

@@ -6,7 +6,7 @@
 //  Copyright © 2016 colbyg. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct App {
     static var formatter = DateFormatter()

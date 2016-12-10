@@ -51,4 +51,9 @@ class GSPosition: NSObject {
             workers.remove(at: index!)
         }
     }
+    
+    // @@@@ finish
+    func isWorking(user: GSUser) {
+        
+    }
 }
