@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SEIndex-->
+        <scene sceneID="ssB-KD-QTt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ScheduleEditor" referencedIdentifier="SEIndex" id="hXD-yA-Bwj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XLW-sY-vdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="-224"/>
+        </scene>
         <!--Index View Controller-->
         <scene sceneID="p68-t2-0j4">
             <objects>
@@ -34,7 +42,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="32V-z2-ZEe" kind="show" identifier="DDWorkers" id="uyd-j5-OJR"/>
+                                            <segue destination="a4g-W7-b6p" kind="show" identifier="DDWorkers" id="Na0-8C-H0Y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -52,6 +60,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="yp2-sJ-mqE">
                         <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="jS6-tK-Sc6">
+                            <connections>
+                                <segue destination="hXD-yA-Bwj" kind="show" identifier="DDEdit" id="BYj-Tc-b0b"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="YCO-fY-8tE" id="vw0-4Y-Dtj"/>
@@ -60,6 +73,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgW-1Y-tIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1471.2" y="-144.3778110944528"/>
+        </scene>
+        <!--Schedule For Position View Controller-->
+        <scene sceneID="xAZ-mA-Mci">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="a4g-W7-b6p" customClass="DDScheduleForPositionViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QnK-Oe-H0h"/>
+                        <viewControllerLayoutGuide type="bottom" id="8z0-22-eZQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BAc-ov-fi2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DOx-yp-f0S">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="1Za-ic-F6u">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Za-ic-F6u" id="E6T-eQ-CTd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="DOx-yp-f0S" id="4Rs-3a-VS0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0cX-Wb-vpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2420" y="-144.3778110944528"/>
         </scene>
         <!--Request View Controller-->
         <scene sceneID="XAL-pg-Qba">
@@ -85,38 +136,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="requestDayOffCheckbox" destination="plO-j1-fr7" id="x81-He-E9q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bXf-Q2-Utu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1471" y="609"/>
-        </scene>
-        <!--Workers View Controller-->
-        <scene sceneID="wlc-Cs-Ftl">
-            <objects>
-                <viewController storyboardIdentifier="DDWorkers" automaticallyAdjustsScrollViewInsets="NO" id="32V-z2-ZEe" customClass="DDWorkersViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="K8C-f5-0LN"/>
-                        <viewControllerLayoutGuide type="bottom" id="agV-D7-o1m"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hYN-fR-89k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-P8-zJU">
-                                <rect key="frame" x="0.0" y="107" width="375" height="560"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRV-Be-EeW">
+                                <rect key="frame" x="0.0" y="188" width="375" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KQo-Vf-NST">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="bOj-ny-o12">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KQo-Vf-NST" id="0ZR-jQ-9us">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOj-ny-o12" id="cSJ-UC-AWU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -127,12 +155,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="ajb-P8-zJU" id="V2X-rA-Olo"/>
+                        <outlet property="requestDayOffCheckbox" destination="plO-j1-fr7" id="x81-He-E9q"/>
+                        <outlet property="tableView" destination="KRV-Be-EeW" id="mWt-A8-LBJ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J15-b1-s2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXf-Q2-Utu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2432.8000000000002" y="-144.3778110944528"/>
+            <point key="canvasLocation" x="1469.5999999999999" y="608.54572713643188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="70O-tq-fWZ">

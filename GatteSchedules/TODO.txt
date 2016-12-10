@@ -20,3 +20,6 @@ var text = try! String(contentsOfFile: path!, encoding: String.Encoding.utf8)
 
 NAVIGATION
 eventually implement a scroll view instead of just a moving view
+
+####
+Make into a printable spreadsheet file?

@@ -9,27 +9,61 @@
 import UIKit
 
 class DDScheduleForPositionViewController: UIViewController {
-
+    @IBOutlet weak var tableView: UITableView!
+    var userDay: GSUserDay!
+    var positionid: String!
+    
+    var day: GSDay?
+    var shiftNames: [String: String]!
+    var shiftids: [String]!
+    var workers: [String: [GSUser]]! // shiftid: users
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        
+        shiftNames = App.teamSettings.shiftNames
+        shiftids = Array(shiftNames.keys)
+        workers = [:]
+        
+        DB.get(day: userDay.date) { snap in
+            self.day = GSDay(snapshot: snap)
+            for shiftid in self.shiftids {
+                let shift = self.day!.get(shift: shiftid)
+                let thisPosition = shift.get(position: self.positionid)
+                let workers = thisPosition.workers
+                
+                self.workers[shiftid] = workers
+            }
+            self.tableView.reloadData()
+        }
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension DDScheduleForPositionViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return shiftids.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return shiftNames[shiftids[section]]
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let shiftid = shiftids[section]
+        if day == nil {
+            return 0
+        } else {
+            return (workers[shiftid]?.count)! // @@@@ error handle this
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let shiftid = shiftids[indexPath.section]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = workers[shiftid]?[indexPath.row].name
+        return cell
+    }
 }
+

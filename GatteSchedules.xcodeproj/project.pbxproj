@@ -21,8 +21,8 @@
 		E902F61A1DF24C6000A2326F /* GSTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6191DF24C6000A2326F /* GSTeam.swift */; };
 		E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E930879A1DFB58A00003CC84 /* DayDetail.storyboard */; };
 		E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */; };
-		E93087A01DFC56120003CC84 /* DDWorkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879F1DFC56120003CC84 /* DDWorkersViewController.swift */; };
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
+		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
 		E9BE77B81DF74231005DB20C /* UserScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77B71DF74231005DB20C /* UserScheduleViewer.storyboard */; };
 		E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */; };
 		E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */; };
@@ -106,8 +106,8 @@
 		E902F6191DF24C6000A2326F /* GSTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSTeam.swift; sourceTree = "<group>"; };
 		E930879A1DFB58A00003CC84 /* DayDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DayDetail.storyboard; sourceTree = "<group>"; };
 		E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDIndexViewController.swift; sourceTree = "<group>"; };
-		E930879F1DFC56120003CC84 /* DDWorkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDWorkersViewController.swift; sourceTree = "<group>"; };
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
+		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
 		E9BE77B71DF74231005DB20C /* UserScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserScheduleViewer.storyboard; sourceTree = "<group>"; };
 		E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDay.swift; sourceTree = "<group>"; };
 		E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserShift.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */,
-				E930879F1DFC56120003CC84 /* DDWorkersViewController.swift */,
+				E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */,
 				E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */,
 			);
 			name = DayDetail;
@@ -706,6 +706,7 @@
 				E9BE77D11DF870A6005DB20C /* SEIndexTableViewController.swift in Sources */,
 				E9F4C0421DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift in Sources */,
 				E9BE78121DFA3775005DB20C /* MenuViewController.swift in Sources */,
+				E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */,
 				E9EAECF31DED47E600D4646C /* GSSettings.swift in Sources */,
 				E9EAECF71DEDDF2500D4646C /* GSRequests.swift in Sources */,
 				E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */,
@@ -735,7 +736,6 @@
 				E9F4C0881DF675FC000228D2 /* GSPosition.swift in Sources */,
 				E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */,
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
-				E93087A01DFC56120003CC84 /* DDWorkersViewController.swift in Sources */,
 				E9BE77D51DF8720D005DB20C /* SVPositionTableViewController.swift in Sources */,
 				E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */,
 				E9BE77D71DF87AEB005DB20C /* SEShiftTableViewController.swift in Sources */,

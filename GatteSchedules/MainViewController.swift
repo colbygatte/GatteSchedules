@@ -201,10 +201,9 @@ class MainViewController: UIViewController {
     }
 }
 
-// MARK: Table View
+// MARK: Table View Data Source
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
-    
+extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if App.loggedIn == true {
             return totalSections + 1
@@ -257,7 +256,11 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-    
+}
+
+// MARK: Table View Delegate
+
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let userDay = userDays[section]
@@ -265,12 +268,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let sb = UIStoryboard(name: "DayDetail", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DDIndex") as! DDIndexViewController
         vc.userDay = userDay
-        
-        DB.get(day: userDay.date) { snap in
-            let day = GSDay(snapshot: snap)
-            vc.day = day
-            vc.didLoadDay()
-        }
         
         navigationController?.pushViewController(vc, animated: true)
     }
