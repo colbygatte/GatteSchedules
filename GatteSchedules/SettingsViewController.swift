@@ -36,6 +36,8 @@ class SettingsViewController: UIViewController {
     }
 }
 
+// MARK: Table View
+
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
@@ -55,4 +57,5 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: cellData.storyboarId)
         navigationController?.pushViewController(vc!, animated: true)
     }
+    
 }

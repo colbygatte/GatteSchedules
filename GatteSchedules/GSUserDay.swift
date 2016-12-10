@@ -13,13 +13,7 @@ class GSUserDay: NSObject {
     var date: Date!
     var notes: String!
     var published: Bool!
-    var shifts: [GSUserShift]!
-    
-//    var state: State!
-//    enum State {
-//        case off, unpublished, working
-//    }
-    
+    var shifts: [GSUserShift]! // This holds only shifts the user is working
     
     var isOff: Bool {
         return shifts.count == 0
@@ -52,6 +46,7 @@ class GSUserDay: NSObject {
             for position in shift.positions.values {
                 if position.workers.contains(user) {
                     let shift = GSUserShift(shiftid: shift.shiftid, positionid: position.positionid)
+                    shift.userDay = self
                     shifts.append(shift)
                 }
             }

@@ -56,7 +56,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="First Time Login"/>
                                 <connections>
-                                    <segue destination="68r-qM-xdl" kind="show" identifier="FirstTimeLogin" id="rpt-QD-bDS"/>
+                                    <segue destination="68r-qM-xdl" kind="presentation" identifier="FirstTimeLogin" id="rpt-QD-bDS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gatte Schedules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsR-V6-G6d">

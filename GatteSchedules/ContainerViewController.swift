@@ -13,7 +13,9 @@ class ContainerViewController: UIViewController {
     var mainViewController: MainViewController!
     var menuTableViewController: MenuViewController!
     
+    var swipeLeftGesturesOn: Bool = false // turn on manually in view controller
     var menuIsShowing: Bool = false
+    var isMoving: Bool = false
     var toggleMenuBarButtonItem: UIBarButtonItem!
     
     // Gesture variables
@@ -22,9 +24,9 @@ class ContainerViewController: UIViewController {
     var xVelocity: [Float]!
     var yVelocity: [Float]!
     
-    var isMoving: Bool = false
-    
     var closeMenuTap: UITapGestureRecognizer!
+    var swipeLeftOnContainer: UIPanGestureRecognizer!
+    var swipeLeftOnMenu: UIPanGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,13 +118,24 @@ class ContainerViewController: UIViewController {
     func setupGestures() {
         closeMenuTap = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         
-        let swipeLeft = UIPanGestureRecognizer(target: self, action: #selector(handleSwipeLeft(recognizer:)))
-        swipeLeft.maximumNumberOfTouches = 1
-        containerNavigationController.view.addGestureRecognizer(swipeLeft)
+        swipeLeftOnContainer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipeLeft(recognizer:)))
+        swipeLeftOnContainer.maximumNumberOfTouches = 1
+        swipeLeftOnMenu = UIPanGestureRecognizer(target: self, action: #selector(handleSwipeLeft(recognizer:)))
+        swipeLeftOnMenu.maximumNumberOfTouches = 1
         
-        let swipeLeft2 = UIPanGestureRecognizer(target: self, action: #selector(handleSwipeLeft(recognizer:)))
-        swipeLeft2.maximumNumberOfTouches = 1
-        menuTableViewController.view.addGestureRecognizer(swipeLeft2)
+        setSwipeLeftGesture(on: true) // Activate!
+    }
+    
+    func setSwipeLeftGesture(on: Bool) {
+        if on && !swipeLeftGesturesOn { // if gestures are off and we want to turn them on, add gestures
+            swipeLeftGesturesOn = true
+            containerNavigationController.view.addGestureRecognizer(swipeLeftOnContainer)
+            menuTableViewController.view.addGestureRecognizer(swipeLeftOnMenu)
+        } else if !on && swipeLeftGesturesOn { // if gestures are on and we want to turn them off, remove them
+            swipeLeftGesturesOn = false
+            containerNavigationController.view.removeGestureRecognizer(swipeLeftOnContainer)
+            menuTableViewController.view.removeGestureRecognizer(swipeLeftOnMenu)
+        }
     }
 }
 

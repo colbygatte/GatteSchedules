@@ -9,6 +9,7 @@ target 'GatteSchedules' do
   pod 'Firebase'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'BEMCheckBox'
 
   target 'GatteSchedulesTests' do
     inherit! :search_paths

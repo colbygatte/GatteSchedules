@@ -18,16 +18,15 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         
         let menuCellNib = UINib(nibName: "MenuTableViewCell", bundle: nil)
         tableView.register(menuCellNib, forCellReuseIdentifier: "MenuCell")
     }
 }
 
-extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
-
+extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return App.menuCells.count
     }
@@ -40,7 +39,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
+}
+
+extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         App.menuCells[indexPath.row].block()
         App.toggleMenu()
