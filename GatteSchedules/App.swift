@@ -41,6 +41,12 @@ struct App {
         App.menuCells = []
     }
     
+    static func mustBeManager(_ viewController: UIViewController?) {
+        if App.loggedInUser.permissions != App.Permissions.manager {
+            _ = viewController?.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     struct Permissions {
         static var manager = "manager"
         static var normal = "normal"

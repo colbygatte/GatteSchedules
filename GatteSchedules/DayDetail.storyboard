@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OuG-U4-6kx" id="OLm-iI-h6j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -95,7 +95,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Za-ic-F6u" id="E6T-eQ-CTd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="2420" y="-144.3778110944528"/>
         </scene>
-        <!--Request View Controller-->
+        <!--Title-->
         <scene sceneID="XAL-pg-Qba">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="B9e-yR-dCp" customClass="DDRequestViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,7 +145,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOj-ny-o12" id="cSJ-UC-AWU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -154,6 +154,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="HsT-l4-86S">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" style="done" id="t9M-Tw-kcD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="requestDayOffCheckbox" destination="plO-j1-fr7" id="x81-He-E9q"/>
                         <outlet property="tableView" destination="KRV-Be-EeW" id="mWt-A8-LBJ"/>

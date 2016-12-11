@@ -90,11 +90,11 @@ class GSDay: NSObject {
         return (shifts[forShift]?.positions[position]?.workers)!
     }
     
-    func addWorker(toShift: String, position: String) {
-        
+    func add(worker: GSUser, toShift: String, position: String) {
+        get(shift: toShift).add(worker: worker, toPosition: position)
     }
     
-    func removeWorker(fromShift: String, position: String) {
-        
+    func remove(worker: GSUser, fromShift: String, position: String) {
+        get(shift: fromShift).remove(worker: worker, fromPosition: position)
     }
 }

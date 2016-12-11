@@ -21,6 +21,9 @@ class DDIndexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        if App.loggedInUser.permissions != App.Permissions.manager {
+            navigationItem.setRightBarButton(nil, animated: false)
+        }
         
         shiftNames = App.teamSettings.shiftNames
         shiftids = Array(shiftNames.keys)

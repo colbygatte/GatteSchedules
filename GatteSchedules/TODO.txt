@@ -23,3 +23,7 @@ eventually implement a scroll view instead of just a moving view
 
 ####
 Make into a printable spreadsheet file?
+
+
+####
+Do workable positions, like workable shifts are done

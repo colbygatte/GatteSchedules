@@ -17,8 +17,14 @@ class DDRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestDayOffCheckbox.delegate = self
+        requestDayOffCheckbox.onAnimationType = .fill
+        requestDayOffCheckbox.offAnimationType = .fill
         tableView.dataSource = self
         tableView.delegate = self
+        
+    }
+    
+    @IBAction func submitButtonPressed() {
         
     }
 }

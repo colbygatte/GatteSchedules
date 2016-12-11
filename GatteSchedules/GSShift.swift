@@ -63,6 +63,10 @@ class GSShift: NSObject {
         positions[toPosition]!.add(worker: worker, notes: notes)
     }
     
+    func remove(worker: GSUser, fromPosition: String) {
+        positions[fromPosition]!.remove(worker: worker)
+    }
+    
     func get(position: String) -> GSPosition {
         return positions[position]!
     }

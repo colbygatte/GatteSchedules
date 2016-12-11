@@ -152,13 +152,6 @@ class MainViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             App.menuCells.append(mb1)
-            
-            let scheduleAdminButton = MenuCellData(text: "Schedule admin", block: {
-                let sb = UIStoryboard(name: "ScheduleViewer", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "SVIndex")
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-            App.menuCells.append(scheduleAdminButton)
         }
         
         let logoutMenuButton = MenuCellData(text: "Logout", block: {

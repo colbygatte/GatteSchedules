@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController {
 
 // MARK: Table View
 
-extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
     }
@@ -50,7 +50,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = cellData.text
         return cell
     }
-    
+}
+
+extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellData = cells[indexPath.row]
         

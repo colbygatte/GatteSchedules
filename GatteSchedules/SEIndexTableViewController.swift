@@ -7,34 +7,37 @@
 //
 
 import UIKit
+import BEMCheckBox
 
 class SEIndexTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var publishedSwitch: UISwitch!
+    @IBOutlet weak var publishedCheckbox: BEMCheckBox!
     var day: GSDay!
     
-    var shifts: [String: GSShift]!
-    var shiftNames: [String: String]!
-    var shiftids: [String]!
+    var positionNames: [String: String]!
+    var positionids: [String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        App.mustBeManager(self)
+        publishedCheckbox.onAnimationType = .fill
+        publishedCheckbox.offAnimationType = .fill
+        
         tableView.dataSource = self
         tableView.delegate = self
         
-        shifts = day.shifts
-        shiftNames = App.teamSettings.shiftNames
-        shiftids = Array(shifts.keys)
+        positionNames = App.teamSettings.positions
+        positionids = Array(positionNames.keys)
         
         if day.published == true {
-            publishedSwitch.isOn = true
+            publishedCheckbox.on = true
         } else {
-            publishedSwitch.isOn = false
+            publishedCheckbox.on = false
         }
     }
     
     @IBAction func saveButtonPressed() {
-        if publishedSwitch.isOn {
+        if publishedCheckbox.on {
             day.published = true
         } else {
             day.published = false
@@ -43,28 +46,28 @@ class SEIndexTableViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SEShiftSegue" {
+        if segue.identifier == "SEPosition" {
             let row = (tableView.indexPathForSelectedRow?.row)!
-            let shift = shifts[shiftids[row]]
+            let positionid = positionids[row]
             
-            let seShiftTableViewController = segue.destination as! SEShiftTableViewController
-            seShiftTableViewController.day = day
-            seShiftTableViewController.shift = shift
+            let vc = segue.destination as! SEPositionViewController
+            vc.day = day
+            vc.positionid = positionid
         }
     }
 }
 
 extension SEIndexTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shiftids.count
+        return positionids.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let shiftName = shiftNames[shiftids[row]]
+        let positionName = positionNames[positionids[row]]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = shiftName
+        cell.textLabel?.text = positionName
         return cell
     }
 }
