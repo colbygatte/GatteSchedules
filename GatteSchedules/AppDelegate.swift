@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DB.ref = FIRDatabase.database().reference()
         DB.usersRef = DB.ref.child("users")
         DB.pendingUsersRef = DB.ref.child("pendingUsers")
+        DB.requestsRef = DB.ref.child("requests")
         
         // Configure root view controller
         App.containerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerView") as! ContainerViewController

@@ -24,7 +24,9 @@
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
 		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
 		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
-		E968C5841DFD209800A9736F /* GSUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserRequest.swift */; };
+		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
+		E9A0D2911DFE722F00A896C9 /* DDRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */; };
+		E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */; };
 		E9BE77B81DF74231005DB20C /* UserScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77B71DF74231005DB20C /* UserScheduleViewer.storyboard */; };
 		E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */; };
 		E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */; };
@@ -104,7 +106,9 @@
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
 		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
-		E968C5831DFD209800A9736F /* GSUserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserRequest.swift; sourceTree = "<group>"; };
+		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
+		E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestTableViewCell.swift; sourceTree = "<group>"; };
+		E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDRequestTableViewCell.xib; sourceTree = "<group>"; };
 		E9BE77B71DF74231005DB20C /* UserScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserScheduleViewer.storyboard; sourceTree = "<group>"; };
 		E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDay.swift; sourceTree = "<group>"; };
 		E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserShift.swift; sourceTree = "<group>"; };
@@ -230,8 +234,17 @@
 				E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */,
 				E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */,
 				E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */,
+				E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */,
 			);
 			name = DayDetail;
+			sourceTree = "<group>";
+		};
+		E9A0D2941DFE74B900A896C9 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				E9EAECD91DECCBD200D4646C /* DB.swift */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 		E9BE77C31DF7B1EE005DB20C /* UserSchedule */ = {
@@ -329,6 +342,7 @@
 				E902F6021DEFDCDD00A2326F /* Settings.storyboard */,
 				E9BE77E41DF90607005DB20C /* LoadMoreTableViewCell.xib */,
 				E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */,
+				E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -358,8 +372,8 @@
 				E9F4C0401DF36B01000228D2 /* UsersAndTeams */,
 				E9EAECF21DED47E600D4646C /* GSSettings.swift */,
 				E9EAECF61DEDDF2500D4646C /* GSDayRequests.swift */,
-				E968C5831DFD209800A9736F /* GSUserRequest.swift */,
-				E9EAECD91DECCBD200D4646C /* DB.swift */,
+				E968C5831DFD209800A9736F /* GSUserDayRequest.swift */,
+				E9A0D2941DFE74B900A896C9 /* DB */,
 				E9EAECDB1DECCBE400D4646C /* App.swift */,
 			);
 			name = Models;
@@ -509,6 +523,7 @@
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
 				E9BE77CE1DF86E25005DB20C /* ScheduleEditor.storyboard in Resources */,
+				E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
@@ -702,6 +717,7 @@
 				E9F4C0861DF675F4000228D2 /* GSShift.swift in Sources */,
 				E902F6061DEFDD2000A2326F /* SettingsViewController.swift in Sources */,
 				E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */,
+				E9A0D2911DFE722F00A896C9 /* DDRequestTableViewCell.swift in Sources */,
 				E9BE77C01DF7537B005DB20C /* GSUserPosition.swift in Sources */,
 				E9F4C03B1DF28344000228D2 /* CreateUserViewController.swift in Sources */,
 				E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */,
@@ -712,7 +728,7 @@
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
 				E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */,
 				E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */,
-				E968C5841DFD209800A9736F /* GSUserRequest.swift in Sources */,
+				E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */,
 				E902F60C1DF08E0C00A2326F /* EditShiftViewController.swift in Sources */,
 				E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */,
 			);

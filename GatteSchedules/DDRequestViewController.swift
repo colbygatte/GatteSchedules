@@ -14,6 +14,9 @@ class DDRequestViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var day: GSDay!
     
+    var dayRequests: GSDayRequests!
+    var userDayRequest: GSUserDayRequest!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         requestDayOffCheckbox.delegate = self
@@ -21,11 +24,17 @@ class DDRequestViewController: UIViewController {
         requestDayOffCheckbox.offAnimationType = .fill
         tableView.dataSource = self
         tableView.delegate = self
-        
+        tableView.register(UINib(nibName: "DDRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "DDRequestTableViewCell")
     }
     
     @IBAction func submitButtonPressed() {
+        let requests = GSDayRequests()
+        requests.date = Date()
         
+        let userRequest = GSUserDayRequest()
+        userRequest.status = .pending
+        let requestData = GSUserRequestData(shiftid: "morning-shift", requesting: .off)
+        userRequest.requests.append(requestData)
     }
 }
 
@@ -45,8 +54,9 @@ extension DDRequestViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "hi"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DDRequestTableViewCell", for: indexPath) as! DDRequestTableViewCell
+        cell.shiftNameLabel.text = "ho"
+        cell.requestingLabel.text = "lo"
         return cell
     }
 }

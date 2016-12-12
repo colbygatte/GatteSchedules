@@ -51,19 +51,11 @@ struct App {
         static var manager = "manager"
         static var normal = "normal"
     }
-    
-    enum Controllers {
-        case settings
-    }
-    
-    struct Theme {
-        
-    }
 }
 
 extension String {
     static func random(length: Int) -> String {
-        let l = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let l = "0123456789abcdefghijklmnopqrstuvwxyz" // only lowercase, we want case insensitive
         let letters = Array(l.characters)
         var randString = ""
         for _ in 1...length {

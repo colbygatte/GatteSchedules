@@ -11,11 +11,13 @@ import Firebase
 
 class DB {
     static var teamid: String!
+    static var ref: FIRDatabaseReference!
     static var teamRef: FIRDatabaseReference!
+    // Branches of the team:
     static var usersRef: FIRDatabaseReference!
     static var pendingUsersRef: FIRDatabaseReference!
     static var daysRef: FIRDatabaseReference!
-    static var ref: FIRDatabaseReference!
+    static var requestsRef: FIRDatabaseReference!
     
     private static var authListenerHandle: FIRAuthStateDidChangeListenerHandle! // @@@@ should probably be optional
     private static var authListenerBlock: FIRAuthStateDidChangeListenerBlock!
@@ -138,5 +140,13 @@ class DB {
     // this logs in user automatically (firebase does when creating a user)
     static func createUser(email: String, password: String, completion: FIRAuthResultCallback?) {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
+    }
+    
+    // @@@@ ---- currently working on getting requests from the database
+    // MARK: Requests
+    static func get(requests: Date, completion: @escaping (FIRDataSnapshot)->Void) {
+        DB.requestsRef.child(App.formatter.string(from: requests)).observeSingleEvent(of: .value, with: { snap in
+            
+        })
     }
 }
