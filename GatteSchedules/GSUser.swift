@@ -15,7 +15,8 @@ class GSUser: NSObject {
     var teamid: String!
     var name: String!
     var email: String!
-    var positions: [String]!
+    var positions: [String]! // workable positions
+    var shifts: [String]! // workable shifts
     var permissions: String!
     
     init(snapshot: FIRDataSnapshot, uid: String) {
@@ -33,15 +34,24 @@ class GSUser: NSObject {
                 positions.append(position)
             }
         }
+        
+        shifts = []
+        let shiftsValues = values["shifts"] as? [String]
+        if shiftsValues != nil {
+            for shift in shiftsValues! {
+                shifts.append(shift)
+            }
+        }
     }
     
-    init(uid: String, email: String, name: String, teamid: String, permissions: String, positions: [String]) {
+    init(uid: String, email: String, name: String, teamid: String, permissions: String, positions: [String], shifts: [String]) {
         self.uid = uid
         self.email = email
         self.name = name
         self.teamid = teamid
         self.permissions = permissions
         self.positions = positions
+        self.shifts = shifts
     }
     
     func toFirebaseObject() -> Any {
@@ -51,6 +61,7 @@ class GSUser: NSObject {
         userObject["permissions"] = permissions
         userObject["teamid"] = teamid
         userObject["positions"] = positions
+        userObject["shifts"] = shifts
         userObject["email"] = email
         
         return userObject
@@ -58,5 +69,9 @@ class GSUser: NSObject {
     
     func canDo(position: String) -> Bool {
         return positions.contains(position)
+    }
+    
+    func canDo(shift: String) -> Bool {
+        return shifts.contains(shift)
     }
 }

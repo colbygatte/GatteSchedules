@@ -26,27 +26,14 @@ class ShiftsTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shiftids.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let shiftName = App.teamSettings.shiftNames[shiftids[indexPath.row]]
-        cell.textLabel?.text = shiftName
-        
-        return cell
-    }
-    
     @IBAction func addShiftButtonPressed() {
         let alert = UIAlertController(title: "Add Shift", message: nil, preferredStyle: .alert)
         let add = UIAlertAction(title: "Add", style: .default) { action in
             let shiftName = alert.textFields?[0].text
-            let shiftid = alert.textFields?[1].text
+            let shiftid = DB.teamRef.child("settings/shifts").childByAutoId().key
             
-            App.teamSettings.addShift(name: shiftName!, id: shiftid!)
-            self.addedShiftid = shiftid!
+            App.teamSettings.addShift(name: shiftName!, id: shiftid)
+            self.addedShiftid = shiftid
             DB.save(settings: App.teamSettings)
             self.begin(again: true)
             
@@ -55,9 +42,7 @@ class ShiftsTableViewController: UITableViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addTextField()
-        alert.addTextField()
         alert.textFields?[0].placeholder = "Shift name"
-        alert.textFields?[1].placeholder = "Shift ID (no spaces"
         alert.addAction(add)
         alert.addAction(cancel)
         
@@ -76,5 +61,18 @@ class ShiftsTableViewController: UITableViewController {
             let editShiftViewController = segue.destination as! EditShiftViewController
             editShiftViewController.shiftid = shiftid
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return shiftids.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let shiftName = App.teamSettings.shiftNames[shiftids[indexPath.row]]
+        cell.textLabel?.text = shiftName
+        
+        return cell
     }
 }

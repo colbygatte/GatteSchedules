@@ -100,6 +100,15 @@ class GSDay: NSObject {
         return nil
     }
     
+    func checkOverlappingShifts() {
+        for (worker, shiftsData) in allWorkers {
+            for shift in shiftsData {
+                let shiftDates = App.teamSettings.getShiftDates(id: shift.shiftid)
+                
+            }
+        }
+    }
+    
     func get(shift: String) -> GSShift {
         return shifts[shift]! // @@@@ handle errors here
     }

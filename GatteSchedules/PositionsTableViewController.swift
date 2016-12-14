@@ -45,7 +45,7 @@ class PositionsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Add Position", message: nil, preferredStyle: .alert)
         let save = UIAlertAction(title: "Save", style: .default) { action in
             let positionName = alert.textFields![0].text!
-            let positionid = DB.teamRef.child("settings").childByAutoId().key
+            let positionid = DB.teamRef.child("settings/positions").childByAutoId().key
             
             App.teamSettings.addPosition(name: positionName, id: positionid)
             DB.save(settings: App.teamSettings)

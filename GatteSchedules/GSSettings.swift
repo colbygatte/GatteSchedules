@@ -94,7 +94,15 @@ class GSSettings: NSObject {
         return GSShiftDates(begin: begin!, end: end!)
     }
     
-    func getPositionids() -> [String] {
+    func getShiftIds() -> [String] {
+        return Array(shiftNames.keys)
+    }
+    
+    func getShift(id: String) -> String? {
+        return shiftNames[id]
+    }
+    
+    func getPositionIds() -> [String] {
         return Array(positions.keys)
     }
     
@@ -102,7 +110,7 @@ class GSSettings: NSObject {
         positions[id] = name
     }
     
-    func getPosition(id: String) -> String {
-        return positions[id]!
+    func getPosition(id: String) -> String? {
+        return positions[id]
     }
 }

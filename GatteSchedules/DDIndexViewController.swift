@@ -17,12 +17,15 @@ class DDIndexViewController: UIViewController {
     var shiftids: [String]!
     var positionNames: [String: String]!
     var positionids: [String]!
+    var showEditCell = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        if App.loggedInUser.permissions != App.Permissions.manager {
-            navigationItem.setRightBarButton(nil, animated: false)
+        tableView.alwaysBounceVertical = false
+        
+        if App.loggedInUser.permissions == App.Permissions.manager {
+            showEditCell = true
         }
         
         shiftNames = App.teamSettings.shiftNames
@@ -40,9 +43,20 @@ class DDIndexViewController: UIViewController {
         if identifier == "DDRequest" {
             if day != nil {
                 return true
-            } else {
+            }
+            return false
+        } else if identifier == "DDWorkers" {
+            let indexPath = (tableView.indexPathForSelectedRow)!
+            if indexPath.row == 0 && showEditCell {
+                let sb = UIStoryboard(name: "ScheduleEditor", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "SEIndex") as! SEIndexTableViewController
+                if day != nil {
+                    vc.day = day!
+                    navigationController?.pushViewController(vc, animated: true)
+                }
                 return false
             }
+            return true
         }
         return true
     }
@@ -50,11 +64,19 @@ class DDIndexViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DDWorkers" {
             let indexPath = (tableView.indexPathForSelectedRow)!
-            let positionid = positionids[indexPath.row]
+            
+            var row: Int
+            if showEditCell {
+                row = indexPath.row - 1
+            } else {
+                row = indexPath.row
+            }
+            let positionid = positionids[row]
             
             let vc = segue.destination as! DDScheduleForPositionViewController
             vc.positionid = positionid
             vc.userDay = userDay
+            
         } else if segue.identifier == "DDEdit" {
             let vc = segue.destination as! SEIndexTableViewController
             vc.day = day! // @@@@ error handle, check for day first
@@ -69,13 +91,34 @@ class DDIndexViewController: UIViewController {
 
 extension DDIndexViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if showEditCell {
+            return positionids.count + 1
+        }
         return positionids.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let positionName = positionNames[positionids[indexPath.row]]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = positionName
+        var row: Int
+        if showEditCell {
+            row = indexPath.row - 1
+        } else {
+            row = indexPath.row
+        }
+        
+        if indexPath.row == 0 && showEditCell {
+            cell.textLabel?.text = "Edit day"
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
+            cell.textLabel?.textColor = UIColor.black
+            cell.selectionStyle = .none
+        } else {
+            let positionName = positionNames[positionids[row]]
+            cell.textLabel?.text = positionName
+        }
         return cell
     }
+}
+
+extension DDIndexViewController: UITableViewDelegate {
+    
 }

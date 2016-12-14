@@ -8,52 +8,91 @@
 
 import UIKit
 
+
+// Section 0 of table view: positions
+// Section 1 of table view: shifts
 class EditUserViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var positionids: [String]!
+    var shiftids: [String]!
     var user: GSUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        positionids = App.teamSettings.getPositionids()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "EditUserTableViewCell", bundle: nil), forCellReuseIdentifier: "EditUserCell")
+        positionids = App.teamSettings.getPositionIds()
+        shiftids = App.teamSettings.getShiftIds()
     }
     
     @IBAction func saveButtonPressed() {
         let indexPaths = tableView.indexPathsForSelectedRows
         
         var positions: [String] = []
+        var shifts: [String] = []
         if indexPaths != nil {
             for path in indexPaths! {
-                positions.append(positionids[path.row])
+                if path.section == 0 {
+                    positions.append(positionids[path.row])
+                } else {
+                    shifts.append(shiftids[path.row])
+                }
             }
         }
         
         user.positions = positions
+        user.shifts = shifts
         
         DB.save(user: user)
         _ = self.navigationController?.popViewController(animated: true)
     }
 }
 
-extension EditUserViewController: UITableViewDelegate, UITableViewDataSource {
+extension EditUserViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Workable positions"
+        } else {
+            return "Workable shifts"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return positionids.count
+        if section == 0 {
+            return positionids.count
+        } else {
+            return shiftids.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EditUserCell", for: indexPath) as! EditUserTableViewCell
         
-        let positionid = positionids[indexPath.row]
-        if user.canDo(position: positionid) {
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        if indexPath.section == 0 {
+            let positionid = positionids[indexPath.row]
+            if user.canDo(position: positionid) {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+            cell.customLabel.text = App.teamSettings.getPosition(id: positionid)
+        } else {
+            let shiftid = shiftids[indexPath.row]
+            if user.canDo(shift: shiftid) {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+            cell.customLabel.text = App.teamSettings.getShift(id: shiftid)
         }
-        
-        cell.textLabel?.text = App.teamSettings.getPosition(id: positionids[indexPath.row])
+        cell.customLabel.sizeToFit()
         
         return cell
     }
+}
+
+extension EditUserViewController: UITableViewDelegate {
+    
 }

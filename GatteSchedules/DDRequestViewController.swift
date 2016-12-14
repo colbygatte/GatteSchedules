@@ -32,6 +32,8 @@ class DDRequestViewController: UIViewController {
         shiftNames = App.teamSettings.shiftNames
         shiftids = Array(shiftNames.keys)
         
+        
+        
         DB.get(requests: day.date) { snap in
             self.dayRequests = GSDayRequests(snapshot: snap)
             self.begin()

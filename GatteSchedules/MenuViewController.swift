@@ -23,6 +23,12 @@ class MenuViewController: UIViewController {
         
         let menuCellNib = UINib(nibName: "MenuTableViewCell", bundle: nil)
         tableView.register(menuCellNib, forCellReuseIdentifier: "MenuCell")
+        
+        tableView.backgroundColor = App.Theme.menuBackgroundColor
+        tableView.separatorColor = App.Theme.menuSeparatorColor
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)) // hides separator lines
+        
+        view.backgroundColor  = App.Theme.menuBackgroundColor
     }
 }
 

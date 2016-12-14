@@ -9,7 +9,9 @@
 import UIKit
 
 class USVScheduleTableViewCell: UITableViewCell {
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var shiftLabel: UILabel!
+    @IBOutlet weak var positionLabel: UILabel!
+    
     var day: GSUserDay!
     var shift: GSUserShift!
     
@@ -33,17 +35,29 @@ class USVScheduleTableViewCell: UITableViewCell {
         text += ": "
         text += shift.position.positionid
         
-        label.textColor = UIColor.gray
-        label.text = text
+        shiftLabel.textColor = UIColor.gray
+        shiftLabel.text = App.teamSettings.getShift(id: shift.shiftid)
+        positionLabel.text = App.teamSettings.getPosition(id: shift.position.positionid)
+        
+        resizeLabels()
     }
     
     func setIsOff() {
-        label.textColor = UIColor.gray
-        label.text = "OFF"
+        shiftLabel.textColor = UIColor.gray
+        shiftLabel.text = "OFF"
+        positionLabel.text = ""
+        resizeLabels()
     }
     
     func setIsNotPublished() {
-        label.textColor = UIColor.gray
-        label.text = "not published"
+        shiftLabel.textColor = UIColor.gray
+        shiftLabel.text = "unpublished"
+        positionLabel.text = ""
+        resizeLabels()
+    }
+    
+    func resizeLabels() {
+        shiftLabel.sizeToFit()
+        positionLabel.sizeToFit()
     }
 }

@@ -18,6 +18,7 @@ class SEPositionViewController: UIViewController {
     var shiftids: [String]!
     var workers: [String: [GSUser]]! // shiftid: users
     var possibleWorkers: [GSUser]! // all workers who can work this shift
+    var possibleShiftWorkers: [String: [GSUser]]! // users who can work a particular shift
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class SEPositionViewController: UIViewController {
         tableView.delegate = self
         tableView.register(UINib(nibName: "DDPositionTableViewCell", bundle: nil), forCellReuseIdentifier: "DDPositionCell")
         tableView.rowHeight = 55.0
+        tableView.alwaysBounceVertical = false
         
         possibleWorkers = App.team.getUsersWhoCanWork(position: positionid)
         shiftNames = App.teamSettings.shiftNames
@@ -66,6 +68,7 @@ extension SEPositionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = possibleWorkers[indexPath.row]
         let shiftid = shiftids[indexPath.section]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "DDPositionCell", for: indexPath) as! DDPositionTableViewCell
         
         if let userRequest = dayRequests.getRequest(forUser: user.uid) {
@@ -82,6 +85,10 @@ extension SEPositionViewController: UITableViewDataSource {
                 cell.workingLabel.text = "Working \(userShiftData.positionid)"
                 cell.canSelect = false
             }
+        }
+        
+        if !user.canDo(shift: shiftid) {
+            cell.backgroundColor = UIColor.blue
         }
         
         cell.nameLabel.text = user.name

@@ -58,6 +58,8 @@
 		E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF41DEDDF1200D4646C /* GSUser.swift */; };
 		E9EAECF71DEDDF2500D4646C /* GSDayRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECF61DEDDF2500D4646C /* GSDayRequests.swift */; };
 		E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */; };
+		E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9EF53371E01E15500CDE712 /* EditUserTableViewCell.xib */; };
+		E9EF533A1E01E16C00CDE712 /* EditUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EF53391E01E16C00CDE712 /* EditUserTableViewCell.swift */; };
 		E9F4C03B1DF28344000228D2 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C03A1DF28344000228D2 /* CreateUserViewController.swift */; };
 		E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C03C1DF32E91000228D2 /* FirstTimeLoginViewController.swift */; };
 		E9F4C03F1DF35D12000228D2 /* GSPendingUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F4C03E1DF35D12000228D2 /* GSPendingUser.swift */; };
@@ -148,6 +150,8 @@
 		E9EAECF41DEDDF1200D4646C /* GSUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUser.swift; sourceTree = "<group>"; };
 		E9EAECF61DEDDF2500D4646C /* GSDayRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSDayRequests.swift; sourceTree = "<group>"; };
 		E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E9EF53371E01E15500CDE712 /* EditUserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUserTableViewCell.xib; sourceTree = "<group>"; };
+		E9EF53391E01E16C00CDE712 /* EditUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserTableViewCell.swift; sourceTree = "<group>"; };
 		E9F4C03A1DF28344000228D2 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		E9F4C03C1DF32E91000228D2 /* FirstTimeLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeLoginViewController.swift; sourceTree = "<group>"; };
 		E9F4C03E1DF35D12000228D2 /* GSPendingUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPendingUser.swift; sourceTree = "<group>"; };
@@ -227,6 +231,7 @@
 				E902F60F1DF0AD6700A2326F /* ViewUsersTableViewController.swift */,
 				E9F4C03A1DF28344000228D2 /* CreateUserViewController.swift */,
 				E902F60D1DF0A3BE00A2326F /* EditUserViewController.swift */,
+				E9EF53391E01E16C00CDE712 /* EditUserTableViewCell.swift */,
 				E9F4C0411DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift */,
 			);
 			name = Settings;
@@ -337,6 +342,7 @@
 				E9BE77CD1DF86E25005DB20C /* ScheduleEditor.storyboard */,
 				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
 				E902F6021DEFDCDD00A2326F /* Settings.storyboard */,
+				E9EF53371E01E15500CDE712 /* EditUserTableViewCell.xib */,
 				E9BE77E41DF90607005DB20C /* LoadMoreTableViewCell.xib */,
 				E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */,
 				E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */,
@@ -518,6 +524,7 @@
 			files = (
 				E9BE77E61DF90607005DB20C /* LoadMoreTableViewCell.xib in Resources */,
 				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
+				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
 				E9BE77B81DF74231005DB20C /* UserScheduleViewer.storyboard in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
@@ -703,6 +710,7 @@
 				E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */,
 				E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */,
 				E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */,
+				E9EF533A1E01E16C00CDE712 /* EditUserTableViewCell.swift in Sources */,
 				E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */,
 				E902F61A1DF24C6000A2326F /* GSTeam.swift in Sources */,
 				E9F4C03F1DF35D12000228D2 /* GSPendingUser.swift in Sources */,

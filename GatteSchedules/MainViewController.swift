@@ -24,10 +24,14 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         App.containerViewController.setSwipeLeftGesture(on: true)
         
-        let selectedIndexPath = tableView.indexPathForSelectedRow
-        if selectedIndexPath != nil {
-            tableView.deselectRow(at: selectedIndexPath!, animated: true)
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            let section = selectedIndexPath.section
+            loadUserDay(index: section)
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+            
         }
+        
+        tableView.rowHeight = 55.0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -122,7 +126,6 @@ class MainViewController: UIViewController {
                 if self.nextWorkingDay == nil {
                     if !day.isOff && day.published == true {
                         self.nextWorkingDay = day
-                        self.updateWelcomeMessage()
                     }
                 }
                 
@@ -132,6 +135,18 @@ class MainViewController: UIViewController {
                         self.isDoneLoading = true
                     }
                 }
+            }
+        }
+    }
+    
+    func loadUserDay(index: Int) {
+        let day = userDays[index]
+        DB.get(day: day.date) { snap in
+            let gsDay = GSDay(snapshot: snap)
+            day.addData(day: gsDay)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadSections(IndexSet(integer: index), with: .none)
             }
         }
     }
@@ -162,25 +177,6 @@ class MainViewController: UIViewController {
         })
         App.menuCells.append(logoutMenuButton)
         App.refreshMenu()
-    }
-    
-    func updateWelcomeMessage() {
-        if nextWorkingDay != nil {
-            let shifts = nextWorkingDay!.shifts!
-            
-            shifts.sorted(by: { (shift1, shift2) in
-                let time1 = App.teamSettings.getShiftDates(id: shift1.shiftid)
-                let time2 = App.teamSettings.getShiftDates(id: shift2.shiftid)
-                return time1.begin.compare(time2.begin) == ComparisonResult.orderedAscending
-            })
-            
-            let firstShift = shifts[0]
-            let time = App.teamSettings.getShiftDates(id: firstShift.shiftid)
-            let hourString = App.shiftFormatter.string(from: time.begin)
-            let dateString = App.formatter.string(from: firstShift.userDay.date)
-            
-            welcomeLabel.text = "The next time you work is at \(hourString) on \(dateString)."
-        }
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
@@ -231,7 +227,6 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == totalSections {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadMoreCell", for: indexPath)
-            cell.textLabel?.text = "Load More"
             return cell
         } else {
             let day = userDays[indexPath.section]
@@ -270,8 +265,9 @@ extension MainViewController: UITableViewDelegate {
         if isDoneLoading {
             if cell.reuseIdentifier == "LoadMoreCell" {
                 totalSections += 5
-                loadUserDays() // @@@@ is this good?
+                loadUserDays()
             }
         }
     }
 }
+

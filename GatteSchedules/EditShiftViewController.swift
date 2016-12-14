@@ -29,6 +29,25 @@ class EditShiftViewController: UIViewController {
         
         DB.save(settings: App.teamSettings)
         
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func renameButtonPressed() {
+        let alert = UIAlertController(title: "Update Shift", message: nil, preferredStyle: .alert)
+        let update = UIAlertAction(title: "Update", style: .default) { action in
+            let shiftName = alert.textFields![0].text!
+            
+            App.teamSettings.shiftNames[self.shiftid] = shiftName
+            DB.save(settings: App.teamSettings)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addTextField()
+        alert.textFields?[0].placeholder = "Shift title"
+        alert.textFields?[0].text = App.teamSettings.shiftNames[shiftid]
+        alert.addAction(update)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
     }
 }
