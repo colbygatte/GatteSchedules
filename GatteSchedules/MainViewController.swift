@@ -49,6 +49,7 @@ class MainViewController: UIViewController {
                     DB.teamid = gsuser.teamid
                     DB.teamRef = DB.ref.child("teams").child(DB.teamid)
                     DB.daysRef = DB.teamRef.child("days")
+                    DB.requestsRef = DB.teamRef.child("requests")
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {

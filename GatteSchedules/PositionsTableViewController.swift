@@ -31,6 +31,7 @@ class PositionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.selectionStyle = .none
         
         let positionid = positionids[indexPath.row]
         let position = App.teamSettings.positions[positionid]
@@ -44,7 +45,7 @@ class PositionsTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Add Position", message: nil, preferredStyle: .alert)
         let save = UIAlertAction(title: "Save", style: .default) { action in
             let positionName = alert.textFields![0].text!
-            let positionid = alert.textFields![1].text!
+            let positionid = DB.teamRef.child("settings").childByAutoId().key
             
             App.teamSettings.addPosition(name: positionName, id: positionid)
             DB.save(settings: App.teamSettings)
@@ -53,10 +54,30 @@ class PositionsTableViewController: UITableViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addTextField()
+        alert.textFields?[0].placeholder = "Position title"
+        alert.addAction(save)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let positionid = positionids[indexPath.row]
+        
+        let alert = UIAlertController(title: "Update Position", message: nil, preferredStyle: .alert)
+        let update = UIAlertAction(title: "Update", style: .default) { action in
+            let positionName = alert.textFields![0].text!
+            
+            App.teamSettings.addPosition(name: positionName, id: positionid)
+            DB.save(settings: App.teamSettings)
+            self.begin(again: true)
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        
         alert.addTextField()
         alert.textFields?[0].placeholder = "Position title"
-        alert.textFields?[1].placeholder = "Position ID"
-        alert.addAction(save)
+        alert.textFields?[0].text = App.teamSettings.positions[positionid]
+        alert.addAction(update)
         alert.addAction(cancel)
         
         present(alert, animated: true)
@@ -68,7 +89,7 @@ class PositionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("DELETION!")
+            
         }
     }
 }

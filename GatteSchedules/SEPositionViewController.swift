@@ -11,6 +11,7 @@ import UIKit
 class SEPositionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var day: GSDay!
+    var dayRequests: GSDayRequests!
     var positionid: String!
     
     var shiftNames: [String: String]!
@@ -22,6 +23,8 @@ class SEPositionViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "DDPositionTableViewCell", bundle: nil), forCellReuseIdentifier: "DDPositionCell")
+        tableView.rowHeight = 55.0
         
         possibleWorkers = App.team.getUsersWhoCanWork(position: positionid)
         shiftNames = App.teamSettings.shiftNames
@@ -61,8 +64,29 @@ extension SEPositionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = possibleWorkers[indexPath.row].name
+        let user = possibleWorkers[indexPath.row]
+        let shiftid = shiftids[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DDPositionCell", for: indexPath) as! DDPositionTableViewCell
+        
+        if let userRequest = dayRequests.getRequest(forUser: user.uid) {
+            let request = userRequest.requestFor(shift: shiftid)
+            if request == "off" {
+                cell.requestLabel.text = "Wants off"
+            } else if request == "work" {
+                cell.requestLabel.text = "Wants to work"
+            }
+        }
+        
+        if let userShiftData = day.isWorking(uid: user.uid, shift: shiftid) {
+            if userShiftData.positionid != positionid {
+                cell.workingLabel.text = "Working \(userShiftData.positionid)"
+                cell.canSelect = false
+            }
+        }
+        
+        cell.nameLabel.text = user.name
+        cell.nameLabel.sizeToFit()
+        
         return cell
     }
 }
@@ -74,6 +98,14 @@ extension SEPositionViewController: UITableViewDelegate {
         
         day.add(worker: user, toShift: shiftid, position: positionid)
         workers[shiftid]?.append(user)
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let cell = tableView.cellForRow(at: indexPath) as! DDPositionTableViewCell
+        if cell.canSelect {
+            return indexPath
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

@@ -9,12 +9,18 @@
 import UIKit
 
 class GSPosition: NSObject {
+    var day: GSDay!
+    var shift: GSShift!
     var positionid: String!
+    var shiftid: String!
     var workers: [GSUser]!
     var notes: [String: String]!
     
-    init(positionid: String) {
+    init(positionid: String, shift: GSShift, day: GSDay) {
+        self.shift = shift
+        self.day = day
         self.positionid = positionid
+        
         notes = [:]
         workers = []
     }
@@ -40,20 +46,31 @@ class GSPosition: NSObject {
     }
     
     func add(worker: GSUser, notes: String = "nil") {
-        let uid = worker.uid
+        if day.allWorkers[worker.uid] == nil {
+            day.allWorkers[worker.uid] = []
+        }
+        day.allWorkers[worker.uid]!.append(GSDayShiftData(positionid: positionid, shiftid: shift.shiftid))
+        
+        //let uid = worker.uid
         workers.append(worker)
+        
         //notes[uid!] = notes // @@@@< why is this giving an error?
     }
     
     func remove(worker: GSUser) {
-        let index = workers.index { $0 === worker }
+        if day.allWorkers[worker.uid] != nil {
+            let index = day!.allWorkers[worker.uid]?.index(where: { (shiftData: GSDayShiftData) in
+                (shiftData.positionid == positionid && shiftData.shiftid == shift.shiftid)
+            })
+            
+            if index != nil {
+                day.allWorkers[worker.uid]!.remove(at: index!)
+            }
+        }
+        
+        let index = workers.index(of: worker)
         if index != nil {
             workers.remove(at: index!)
         }
-    }
-    
-    // @@@@ finish
-    func isWorking(user: GSUser) {
-        
     }
 }

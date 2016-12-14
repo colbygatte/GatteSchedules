@@ -142,11 +142,18 @@ class DB {
         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: completion)
     }
     
-    // @@@@ ---- currently working on getting requests from the database
     // MARK: Requests
+    // @@@@ add a function to save an individual user day request
+    
     static func get(requests: Date, completion: @escaping (FIRDataSnapshot)->Void) {
-        DB.requestsRef.child(App.formatter.string(from: requests)).observeSingleEvent(of: .value, with: { snap in
-            
+        let dateString = App.formatter.string(from: requests)
+        DB.requestsRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+            completion(snap)
         })
+    }
+    
+    static func save(dayRequests: GSDayRequests) {
+        let dateString = App.formatter.string(from: dayRequests.date)
+        DB.requestsRef.child(dateString).setValue(dayRequests.toFirebaseObject())
     }
 }

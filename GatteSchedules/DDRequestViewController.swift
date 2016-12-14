@@ -12,10 +12,13 @@ import BEMCheckBox
 class DDRequestViewController: UIViewController {
     @IBOutlet weak var requestDayOffCheckbox: BEMCheckBox!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notesText: UITextView!
     var day: GSDay!
     
     var dayRequests: GSDayRequests!
-    var userDayRequest: GSUserDayRequest!
+    var userDayRequest: GSUserDayRequest?
+    var shiftids: [String]!
+    var shiftNames: [String: String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,42 +28,94 @@ class DDRequestViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "DDRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "DDRequestTableViewCell")
+        
+        shiftNames = App.teamSettings.shiftNames
+        shiftids = Array(shiftNames.keys)
+        
+        DB.get(requests: day.date) { snap in
+            self.dayRequests = GSDayRequests(snapshot: snap)
+            self.begin()
+        }
+    }
+    
+    func begin() {
+        var request = dayRequests.getRequest(forUser: App.loggedInUser.uid)
+        if request == nil {
+            request = GSUserDayRequest()
+            request!.uid = App.loggedInUser.uid
+        }
+        userDayRequest = request!
+        dayRequests.addUserRequest(uid: App.loggedInUser.uid, request: userDayRequest!)
+        
+        if userDayRequest!.requestDayOff {
+            requestDayOffCheckbox.on = true
+            tableView.alpha = 0.0
+        }
+        
+        tableView.reloadData()
     }
     
     @IBAction func submitButtonPressed() {
-        let requests = GSDayRequests()
-        requests.date = Date()
+        for i in 0..<shiftids.count {
+            let shiftid = shiftids[i]
+            let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! DDRequestTableViewCell
+            
+            var requestData = GSUserRequestData(shiftid: shiftid, requesting: "")
+            if cell.requesting == "off" {
+                requestData.requesting = "off"
+            } else if cell.requesting == "work" {
+                requestData.requesting = "work"
+            }
+            
+            if requestData.requesting != "" {
+                userDayRequest?.requests.append(requestData)
+            }
+        }
         
-        let userRequest = GSUserDayRequest()
-        userRequest.status = .pending
-        let requestData = GSUserRequestData(shiftid: "morning-shift", requesting: .off)
-        userRequest.requests.append(requestData)
+        // @@@@ change to save an individual user day
+        DB.save(dayRequests: dayRequests)
     }
 }
 
 extension DDRequestViewController: BEMCheckBoxDelegate {
     func didTap(_ checkBox: BEMCheckBox) {
-        print("Tapped")
-    }
-    
-    func animationDidStop(for checkBox: BEMCheckBox) {
-        
+        if checkBox.on {
+            tableView.alpha = 0.0
+            userDayRequest?.requestDayOff = true
+        } else {
+            tableView.alpha = 1.0
+            userDayRequest?.requestDayOff = false
+        }
     }
 }
 
 extension DDRequestViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if userDayRequest == nil {
+            return 0
+        }
+        return shiftids.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let shiftid = shiftids[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DDRequestTableViewCell", for: indexPath) as! DDRequestTableViewCell
-        cell.shiftNameLabel.text = "ho"
-        cell.requestingLabel.text = "lo"
+        cell.shiftNameLabel.text = shiftNames[shiftid]
+        
+        let requesting = userDayRequest!.requestFor(shift: shiftid)
+    
+        if requesting != nil {
+            cell.setRequest(to: requesting!)
+        }
+        
         return cell
     }
 }
 
 extension DDRequestViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! DDRequestTableViewCell
+        cell.toggleRequest()
+        
+    }
 }

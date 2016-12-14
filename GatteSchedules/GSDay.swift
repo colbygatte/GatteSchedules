@@ -9,21 +9,28 @@
 import UIKit
 import Firebase
 
+struct GSDayShiftData {
+    var positionid: String
+    var shiftid: String
+}
+
 class GSDay: NSObject {
     var date: Date!
     var notes: String!
     var published: Bool!
     var shifts: [String: GSShift]!
+    var allWorkers: [String: [GSDayShiftData]]! // [uid: []]
     
     func loadShifts() {
         for shiftData in App.teamSettings.shiftNames {
-            let shift = GSShift(shiftid: shiftData.key, shiftName: shiftData.value)
+            let shift = GSShift(shiftid: shiftData.key, day: self)
             shifts[shiftData.key] = shift
         }
     }
     
     init(snapshot: FIRDataSnapshot) {
         super.init()
+        allWorkers = [:]
         date = App.formatter.date(from: snapshot.key)
         shifts = [:]
         loadShifts()
@@ -32,7 +39,7 @@ class GSDay: NSObject {
             let shiftSnap = shiftData as! FIRDataSnapshot
             let shiftid = shiftSnap.key
             
-            let shift = GSShift(snapshot: shiftSnap)
+            let shift = GSShift(snapshot: shiftSnap, day: self)
             shifts[shiftid] = shift
         }
         
@@ -46,6 +53,7 @@ class GSDay: NSObject {
     }
     
     init(date: Date) {
+        allWorkers = [:]
         super.init()
         self.date = date
         notes = "nil"
@@ -76,11 +84,21 @@ class GSDay: NSObject {
             let shiftSnap = shiftData as! FIRDataSnapshot
             let shiftid = shiftSnap.key
             
-            let shift = GSShift(snapshot: shiftSnap)
+            let shift = GSShift(snapshot: shiftSnap, day: self)
             shifts[shiftid] = shift
         }
     }
 
+    func isWorking(uid: String, shift: String) -> GSDayShiftData? {
+        if let userShiftsData = allWorkers[uid] {
+            for userShiftData in userShiftsData {
+                if userShiftData.shiftid == shift {
+                    return userShiftData
+                }
+            }
+        }
+        return nil
+    }
     
     func get(shift: String) -> GSShift {
         return shifts[shift]! // @@@@ handle errors here

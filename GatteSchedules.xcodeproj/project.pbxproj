@@ -25,6 +25,8 @@
 		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
 		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
 		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
+		E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */; };
+		E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */; };
 		E9A0D2911DFE722F00A896C9 /* DDRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */; };
 		E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */; };
 		E9BE77B81DF74231005DB20C /* UserScheduleViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77B71DF74231005DB20C /* UserScheduleViewer.storyboard */; };
@@ -107,6 +109,8 @@
 		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
+		E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDPositionTableViewCell.xib; sourceTree = "<group>"; };
+		E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPositionTableViewCell.swift; sourceTree = "<group>"; };
 		E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestTableViewCell.swift; sourceTree = "<group>"; };
 		E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDRequestTableViewCell.xib; sourceTree = "<group>"; };
 		E9BE77B71DF74231005DB20C /* UserScheduleViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserScheduleViewer.storyboard; sourceTree = "<group>"; };
@@ -239,14 +243,6 @@
 			name = DayDetail;
 			sourceTree = "<group>";
 		};
-		E9A0D2941DFE74B900A896C9 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				E9EAECD91DECCBD200D4646C /* DB.swift */,
-			);
-			name = DB;
-			sourceTree = "<group>";
-		};
 		E9BE77C31DF7B1EE005DB20C /* UserSchedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +258,7 @@
 			children = (
 				E9BE77D01DF870A6005DB20C /* SEIndexTableViewController.swift */,
 				E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */,
+				E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */,
 			);
 			name = DayEditor;
 			sourceTree = "<group>";
@@ -343,6 +340,7 @@
 				E9BE77E41DF90607005DB20C /* LoadMoreTableViewCell.xib */,
 				E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */,
 				E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */,
+				E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -367,26 +365,26 @@
 		E9EAECD81DECCB6400D4646C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E9EAECE11DECCEDD00D4646C /* Schedule */,
+				E9EAECE11DECCEDD00D4646C /* Day */,
 				E9BE77C31DF7B1EE005DB20C /* UserSchedule */,
 				E9F4C0401DF36B01000228D2 /* UsersAndTeams */,
 				E9EAECF21DED47E600D4646C /* GSSettings.swift */,
 				E9EAECF61DEDDF2500D4646C /* GSDayRequests.swift */,
 				E968C5831DFD209800A9736F /* GSUserDayRequest.swift */,
-				E9A0D2941DFE74B900A896C9 /* DB */,
+				E9EAECD91DECCBD200D4646C /* DB.swift */,
 				E9EAECDB1DECCBE400D4646C /* App.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		E9EAECE11DECCEDD00D4646C /* Schedule */ = {
+		E9EAECE11DECCEDD00D4646C /* Day */ = {
 			isa = PBXGroup;
 			children = (
 				E9EAECE61DECCF3500D4646C /* GSDay.swift */,
 				E9F4C0851DF675F4000228D2 /* GSShift.swift */,
 				E9F4C0871DF675FC000228D2 /* GSPosition.swift */,
 			);
-			name = Schedule;
+			name = Day;
 			sourceTree = "<group>";
 		};
 		E9F4C0401DF36B01000228D2 /* UsersAndTeams */ = {
@@ -519,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BE77E61DF90607005DB20C /* LoadMoreTableViewCell.xib in Resources */,
+				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
 				E9BE77B81DF74231005DB20C /* UserScheduleViewer.storyboard in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
@@ -724,6 +723,7 @@
 				E9BE77E11DF89004005DB20C /* USVScheduleTableViewCell.swift in Sources */,
 				E9BE77E51DF90607005DB20C /* LoadMoreTableViewCell.swift in Sources */,
 				E9F4C0881DF675FC000228D2 /* GSPosition.swift in Sources */,
+				E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */,
 				E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */,
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
 				E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */,

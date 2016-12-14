@@ -36,6 +36,17 @@ class DDIndexViewController: UIViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "DDRequest" {
+            if day != nil {
+                return true
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DDWorkers" {
             let indexPath = (tableView.indexPathForSelectedRow)!
@@ -47,6 +58,9 @@ class DDIndexViewController: UIViewController {
         } else if segue.identifier == "DDEdit" {
             let vc = segue.destination as! SEIndexTableViewController
             vc.day = day! // @@@@ error handle, check for day first
+        } else if segue.identifier == "DDRequest" {
+            let vc = segue.destination as! DDRequestViewController
+            vc.day  = day!
         }
     }
 }

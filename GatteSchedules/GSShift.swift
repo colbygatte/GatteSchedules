@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class GSShift: NSObject {
+    var day: GSDay!
     var shiftid: String!
     var positions: [String: GSPosition]!
     
@@ -17,13 +18,16 @@ class GSShift: NSObject {
         positions = [:]
         let positionsData = App.teamSettings.positions
         for (positionid, _) in positionsData {
-            let position = GSPosition(positionid: positionid)
+            let position = GSPosition(positionid: positionid, shift: self, day: day)
+            position.day = day
+            position.shift = self
             positions[positionid] = position
         }
     }
     
-    init(snapshot: FIRDataSnapshot) {
+    init(snapshot: FIRDataSnapshot, day: GSDay) {
         super.init()
+        self.day = day
         
         let shiftid = snapshot.key
         loadPositions()
@@ -42,13 +46,13 @@ class GSShift: NSObject {
         }
     }
     
-    init(shiftid: String, shiftName: String) {
+    init(shiftid: String, day: GSDay) {
         super.init()
-        
+        self.day = day
         self.shiftid = shiftid
         loadPositions()
     }
-    
+
     func toFirebaseObject() -> Any {
         var shiftData: [String: Any] = [:]
         

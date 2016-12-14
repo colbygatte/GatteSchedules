@@ -14,6 +14,7 @@ class SEIndexTableViewController: UIViewController {
     @IBOutlet weak var publishedCheckbox: BEMCheckBox!
     var day: GSDay!
     
+    var dayRequests: GSDayRequests?
     var positionNames: [String: String]!
     var positionids: [String]!
     
@@ -34,6 +35,10 @@ class SEIndexTableViewController: UIViewController {
         } else {
             publishedCheckbox.on = false
         }
+        
+        DB.get(requests: day.date) { snap in
+            self.dayRequests = GSDayRequests(snapshot: snap)
+        }
     }
     
     @IBAction func saveButtonPressed() {
@@ -53,6 +58,9 @@ class SEIndexTableViewController: UIViewController {
             let vc = segue.destination as! SEPositionViewController
             vc.day = day
             vc.positionid = positionid
+            if dayRequests != nil {
+                vc.dayRequests = dayRequests!
+            }
         }
     }
 }

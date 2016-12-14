@@ -13,42 +13,54 @@ enum GSUserRequestStatus {
     case pending, granted, denied
 }
 
-enum GSUserRequesting {
-    case on, off
-}
-
 struct GSUserRequestData {
     var shiftid: String
-    var requesting: GSUserRequesting
+    var requesting: String
 }
 
 class GSUserDayRequest: NSObject {
     var status: GSUserRequestStatus!
-    var user: GSUser!
+    var uid: String!
     var requests: [GSUserRequestData]!
+    var requestDayOff: Bool = false
 
     override init() {
-        
+        requests = []
     }
     
     init(snapshot: FIRDataSnapshot) {
+        requests = []
+        uid = snapshot.key
+        let values = snapshot.value as? [String: String]
         
+        if values != nil { // @@@@ check to see if this works
+            if values!["all-day"] != nil {
+                requestDayOff = true
+            }
+            
+            for userRequestShiftData in values! {
+                let userRequestData = GSUserRequestData(shiftid: userRequestShiftData.key, requesting: userRequestShiftData.value)
+                requests.append(userRequestData)
+            }
+        }
+    }
+    
+    func requestFor(shift: String) -> String? {
+        for request in requests {
+            if request.shiftid == shift {
+                return request.requesting
+            }
+        }
+        return nil
     }
     
     func toFirebaseObject() -> Any {
         var userRequestObject = [String: String]()
         for userRequest in requests {
-            let requesting: String
-            switch userRequest.requesting {
-            case .on:
-                requesting = "on"
-                break;
-            case .off:
-                requesting = "off"
-                break;
-            }
-            
-            userRequestObject[userRequest.shiftid] = requesting
+            userRequestObject[userRequest.shiftid] = userRequest.requesting
+        }
+        if requestDayOff {
+            userRequestObject["all-day"] = "off"
         }
         return userRequestObject
     }
