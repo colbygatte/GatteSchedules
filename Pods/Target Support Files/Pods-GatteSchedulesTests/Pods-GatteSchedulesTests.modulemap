@@ -1,0 +1,6 @@
+framework module Pods_GatteSchedulesTests {
+  umbrella header "Pods-GatteSchedulesTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
