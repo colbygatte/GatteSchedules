@@ -70,29 +70,32 @@ extension SEPositionViewController: UITableViewDataSource {
         let shiftid = shiftids[indexPath.section]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DDPositionCell", for: indexPath) as! DDPositionTableViewCell
-        
-        if let userRequest = dayRequests.getRequest(forUser: user.uid) {
-            let request = userRequest.requestFor(shift: shiftid)
-            if request == "off" {
-                cell.subLabel.text = "Wants off"
-            } else if request == "work" {
-                cell.subLabel.text = "Wants to work"
-            }
-        }
+        var texts: [String] = []
         
         if let userShiftData = day.isWorking(uid: user.uid, shift: shiftid) {
             if userShiftData.positionid != positionid {
                 if let positionName = App.teamSettings.getPosition(id: userShiftData.positionid) {
-                    cell.subLabel.text = "Working \(positionName)"
+                    texts.append("Working \(positionName)")
                 } else {
-                    cell.subLabel.text = "Working another position"
+                    texts.append("Working another position")
                 }
                 cell.canSelect = false
             }
         }
         
+        if let userRequest = dayRequests.getRequest(forUser: user.uid) {
+            let request = userRequest.requestFor(shift: shiftid)
+            if request == "off" {
+                texts.append("Wants off")
+            } else if request == "work" {
+                texts.append("Wants to work")
+            }
+        }
+        
+        cell.subLabel.text = texts.joined(separator: " - ")
+        
         if !user.canDo(shift: shiftid) {
-            cell.backgroundColor = UIColor.gray
+            cell.nameLabel.textColor = UIColor.lightGray
         }
         
         cell.nameLabel.text = user.name

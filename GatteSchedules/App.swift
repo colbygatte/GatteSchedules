@@ -60,8 +60,8 @@ struct App {
         static var menuSeparatorColor = UIColor.hexString(hex: "FFFFFF")
         static var menuTextColor = UIColor.hexString(hex: "FFFFFF")
         
-        static var bemCheckboxOnColor = UIColor.gray
-        static var bemCheckboxOffColor = UIColor.brown
+        static var bemCheckboxOffColor = UIColor.gray
+        static var bemCheckboxOnColor = UIColor.hexString(hex: "2C3849")
         
         
     }
@@ -73,7 +73,7 @@ extension String {
         let letters = Array(l.characters)
         var randString = ""
         for _ in 1...length {
-            randString += String(letters[Int(arc4random_uniform(62))])
+            randString += String(letters[Int(arc4random_uniform(36))])
         }
         return randString
     }

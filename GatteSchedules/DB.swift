@@ -42,6 +42,12 @@ class DB {
         }
     }
     
+    static func create(team: String) -> String {
+        let ref = DB.ref.child("teams").childByAutoId()
+        ref.child("settings").setValue(["teamName": team])
+        return ref.key
+    }
+    
     
     static func signIn(username: String, password: String, completion: @escaping FirebaseAuth.FIRAuthResultCallback) {
         FIRAuth.auth()?.signIn(withEmail: username, password: password, completion: completion)
@@ -60,7 +66,7 @@ class DB {
         
         ref.observeSingleEvent(of: .value, with: { snapshot in
             if snapshot.childrenCount == 0 {
-                assert(true, "snapshot childrenCount == 0 for settings")
+                assert(false, "snapshot childrenCount == 0 for settings")
             } else {
                 completion(snapshot)
             }
@@ -98,8 +104,8 @@ class DB {
     }
     
     static func getUsers(completion: @escaping (FIRDataSnapshot)->()) {
-        DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snapshot in
-            completion(snapshot)
+        DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snap in
+            completion(snap)
         })
     }
     

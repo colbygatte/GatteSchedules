@@ -23,16 +23,12 @@ class DDRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestDayOffCheckbox.delegate = self
-        requestDayOffCheckbox.onAnimationType = .fill
-        requestDayOffCheckbox.offAnimationType = .fill
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "DDRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "DDRequestTableViewCell")
         
         shiftNames = App.teamSettings.shiftNames
         shiftids = Array(shiftNames.keys)
-        
-        
         
         DB.get(requests: day.date) { snap in
             self.dayRequests = GSDayRequests(snapshot: snap)
@@ -58,6 +54,8 @@ class DDRequestViewController: UIViewController {
     }
     
     @IBAction func submitButtonPressed() {
+        userDayRequest?.requests = []
+        
         for i in 0..<shiftids.count {
             let shiftid = shiftids[i]
             let cell = tableView.cellForRow(at: IndexPath(row: i, section: 0)) as! DDRequestTableViewCell
@@ -82,11 +80,15 @@ class DDRequestViewController: UIViewController {
 extension DDRequestViewController: BEMCheckBoxDelegate {
     func didTap(_ checkBox: BEMCheckBox) {
         if checkBox.on {
-            tableView.alpha = 0.0
-            userDayRequest?.requestDayOff = true
+            UIView.animate(withDuration: TimeInterval(0.3), animations: { 
+                self.tableView.alpha = 0.0
+                self.userDayRequest?.requestDayOff = true
+            })
         } else {
-            tableView.alpha = 1.0
-            userDayRequest?.requestDayOff = false
+            UIView.animate(withDuration: TimeInterval(0.3), animations: { 
+                self.tableView.alpha = 1.0
+                self.userDayRequest?.requestDayOff = false
+            })
         }
     }
 }

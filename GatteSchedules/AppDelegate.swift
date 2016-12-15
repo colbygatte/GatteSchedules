@@ -57,6 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BEMCheckBox.appearance().onTintColor = App.Theme.bemCheckboxOnColor
         BEMCheckBox.appearance().onCheckColor = App.Theme.bemCheckboxOnColor
         
+        BEMCheckBox.appearance().onAnimationType = .fill
+        BEMCheckBox.appearance().offAnimationType = .fill
+        
         UINavigationBar.appearance().barTintColor = App.Theme.navBarColor
 
     }

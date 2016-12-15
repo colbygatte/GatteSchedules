@@ -20,16 +20,18 @@ class DDRequestTableViewCell: UITableViewCell {
     }
     
     func toggleRequest() {
-        if requesting == "" {
-            requesting = "off"
-            requestingLabel.text = "Off"
-        } else if requesting == "off" {
-            requesting = "work"
-            requestingLabel.text = "Work"
-        } else {
-            requesting = ""
-            requestingLabel.text = ""
-        }
+        UIView.animate(withDuration: TimeInterval(0.3), animations: {
+            if self.requesting == "" {
+                self.requesting = "off"
+                self.requestingLabel.text = "Off"
+            } else if self.requesting == "off" {
+                self.requesting = "work"
+                self.requestingLabel.text = "Work"
+            } else {
+                self.requesting = ""
+                self.requestingLabel.text = ""
+            }
+        })
     }
     
     func setRequest(to: String) {

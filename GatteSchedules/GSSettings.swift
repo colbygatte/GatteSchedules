@@ -30,19 +30,24 @@ class GSSettings: NSObject {
         let settingsObject = snapshot.value as! [String: Any]
         
         teamName = settingsObject["teamName"] as! String
-        teamid = settingsObject["teamid"] as! String
+        teamid = DB.teamRef.key
         
-        let positionsObject = settingsObject["positions"] as! [String: String]
-        for (positionid, positionTitle) in positionsObject {
-            positions[positionid] = positionTitle
+        
+        if snapshot.hasChild("positions") {
+            let positionsObject = settingsObject["positions"] as! [String: String]
+            for (positionid, positionTitle) in positionsObject {
+                positions[positionid] = positionTitle
+            }
         }
         
-        let shiftsObject = settingsObject["shifts"] as! [String: [String: String]]
-        for (shiftid, shiftData) in shiftsObject {
-            let date1 = App.shiftFormatter.date(from: shiftData["begin"]!)
-            let date2 = App.shiftFormatter.date(from: shiftData["end"]!)
-            shifts[shiftid] = [date1!, date2!]
-            shiftNames[shiftid] = shiftData["name"]
+        if snapshot.hasChild("shifts") {
+            let shiftsObject = settingsObject["shifts"] as! [String: [String: String]]
+            for (shiftid, shiftData) in shiftsObject {
+                let date1 = App.shiftFormatter.date(from: shiftData["begin"]!)
+                let date2 = App.shiftFormatter.date(from: shiftData["end"]!)
+                shifts[shiftid] = [date1!, date2!]
+                shiftNames[shiftid] = shiftData["name"]
+            }
         }
     }
     

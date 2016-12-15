@@ -51,6 +51,9 @@ class LoginViewController: UIViewController {
         if segue.identifier == "FirstTimeLogin" {
             let firstTimeLoginViewController = segue.destination as! FirstTimeLoginViewController
             firstTimeLoginViewController.delegate = self
+        } else if segue.identifier == "CreateNewTeam" {
+            let createnewTeamViewController = segue.destination as! CreateNewTeamViewController
+            createnewTeamViewController.delegate = self
         }
     }
 }

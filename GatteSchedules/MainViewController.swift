@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        //DB.signOut()
+        
         App.containerViewController.setSwipeLeftGesture(on: true)
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -76,26 +78,25 @@ class MainViewController: UIViewController {
         DB.getSettings { settingsSnap in
             let settings = GSSettings(snapshot: settingsSnap)
             App.teamSettings = settings
-        }
-        
-        DB.getUsers { usersSnap in
             App.team = GSTeam()
             
-            for userData in usersSnap.children {
-                let userSnap = userData as! FIRDataSnapshot
-                let user: GSUser!
-                if userSnap.key == App.loggedInUser.uid {
-                    user = App.loggedInUser
-                } else {
-                    user = GSUser(snapshot: userSnap, uid: userSnap.key)
+            DB.getUsers { usersSnap in
+                for userData in usersSnap.children {
+                    let userSnap = userData as! FIRDataSnapshot
+                    let user: GSUser!
+                    if userSnap.key == App.loggedInUser.uid {
+                        user = App.loggedInUser
+                    } else {
+                        user = GSUser(snapshot: userSnap, uid: userSnap.key)
+                    }
+                    App.team.add(user: user)
+                    
+                    // Moved load user days in here because
+                    // we are comparing users to the App.team users, and above
+                    // we set the logged in user's GSUser to it's respective place in
+                    // App.team
+                    self.loadUserDays()
                 }
-                App.team.add(user: user)
-                
-                // Moved load user days in here because
-                // we are comparing users to the App.team users, and above
-                // we set the logged in user's GSUser to it's respective place in
-                // App.team
-                self.loadUserDays()
             }
         }
         
@@ -195,7 +196,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if App.loggedIn == true {
-            return totalSections + 1
+            return totalSections
         } else {
             return 0
         }
@@ -211,12 +212,9 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == totalSections {
-            return 1
-        }
         let shiftNumber = userDays[section].shifts.count
         
-        if shiftNumber == 0 {
+        if shiftNumber == 0 || !userDays[section].published { // if there are no shifts or the day is unpublished
             return 1
         } else {
             return userDays[section].shifts.count
@@ -224,25 +222,20 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == totalSections {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadMoreCell", for: indexPath)
-            return cell
+        let day = userDays[indexPath.section]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "USVScheduleTableViewCell", for: indexPath) as! USVScheduleTableViewCell
+        
+        if !day.published {
+            cell.setIsNotPublished()
+        } else if day.isOff {
+            cell.setIsOff()
         } else {
-            let day = userDays[indexPath.section]
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "USVScheduleTableViewCell", for: indexPath) as! USVScheduleTableViewCell
-            
-            if !day.published {
-                cell.setIsNotPublished()
-            } else if day.isOff {
-                cell.setIsOff()
-            } else {
-                cell.set(day: day, shift: day.shifts[indexPath.row])
-            }
-            
-            cell.selectionStyle = .none
-            return cell
+            cell.set(day: day, shift: day.shifts[indexPath.row])
         }
+        
+        cell.selectionStyle = .none
+        return cell
     }
 }
 
@@ -262,7 +255,7 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if isDoneLoading {
-            if cell.reuseIdentifier == "LoadMoreCell" {
+            if indexPath.section + 1 == tableView.numberOfSections {
                 totalSections += 5
                 loadUserDays()
             }

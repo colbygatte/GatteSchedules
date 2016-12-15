@@ -61,6 +61,10 @@ class GSUserDayRequest: NSObject {
         }
         if requestDayOff {
             userRequestObject["all-day"] = "off"
+        } else {
+            if let _ = userRequestObject["all-day"] {
+                userRequestObject["all-day"] = nil
+            }
         }
         return userRequestObject
     }
