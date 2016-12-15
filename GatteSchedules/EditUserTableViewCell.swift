@@ -15,13 +15,16 @@ class EditUserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        bringSubview(toFront: contentView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        checkbox.on = selected
+        
+        checkbox.setOn(selected, animated: true)
     }
-
 }
+
+extension EditUserTableViewCell: BEMCheckBoxDelegate {
+}
+

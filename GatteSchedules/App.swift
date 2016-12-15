@@ -53,10 +53,17 @@ struct App {
     }
     
     struct Theme {
+        static var tintColor = UIColor.hexString(hex: "3D434E")
         static var navBarColor = UIColor.hexString(hex: "AEBCC9")
+        
         static var menuBackgroundColor = UIColor.hexString(hex: "86919D")
         static var menuSeparatorColor = UIColor.hexString(hex: "FFFFFF")
         static var menuTextColor = UIColor.hexString(hex: "FFFFFF")
+        
+        static var bemCheckboxOnColor = UIColor.gray
+        static var bemCheckboxOffColor = UIColor.brown
+        
+        
     }
 }
 

@@ -121,14 +121,6 @@ class MainViewController: UIViewController {
                 let gsDay = GSDay(snapshot: snap)
                 day.addData(day: gsDay)
                 
-                // We get this to inform the user of the next time they work
-                // @@@@
-                if self.nextWorkingDay == nil {
-                    if !day.isOff && day.published == true {
-                        self.nextWorkingDay = day
-                    }
-                }
-                
                 DispatchQueue.main.async {
                     if i == self.dateStart + self.totalSections {
                         self.tableView.reloadData()
@@ -155,14 +147,21 @@ class MainViewController: UIViewController {
         App.clearMenu()
         
         if App.loggedInUser.permissions == App.Permissions.manager {
-            let userMb = MenuCellData(text: "Team users", block: { 
+            let userMb = MenuCellData(text: "Users", block: {
                 let sb = UIStoryboard(name: "Settings", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "ViewUsers")
                 self.navigationController?.pushViewController(vc, animated: true)
             })
             App.menuCells.append(userMb)
             
-            let mb1 = MenuCellData(text: "Team settings", block: {
+            let pendingUsersMb = MenuCellData(text: "Pending users", block: {
+                let sb = UIStoryboard(name: "Settings", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "ViewPendingUsers")
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(pendingUsersMb)
+            
+            let mb1 = MenuCellData(text: "Settings", block: {
                 let sb = UIStoryboard(name: "Settings", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "Settings")
                 self.navigationController?.pushViewController(vc, animated: true)

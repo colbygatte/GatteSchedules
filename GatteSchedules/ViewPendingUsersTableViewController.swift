@@ -34,8 +34,11 @@ class ViewPendingUsersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let pendingUser = pendingUsers[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = pendingUsers[indexPath.row].name
+        cell.textLabel?.text = pendingUser.name
+        cell.detailTextLabel?.text = pendingUser.code
         return cell
     }
 }

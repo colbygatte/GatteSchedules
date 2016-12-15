@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class GSShift: NSObject {
+    var copyDay: GSDay?
     var day: GSDay!
     var shiftid: String!
     var positions: [String: GSPosition]!
@@ -75,4 +76,18 @@ class GSShift: NSObject {
         return positions[position]!
     }
     
+}
+
+extension GSShift: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = GSShift(shiftid: shiftid, day: copyDay!)
+        
+        for (positionid, position) in positions {
+            position.copyDay = copyDay
+            position.copyShift = copy
+            copy.positions[positionid] = (position.copy() as! GSPosition)
+        }
+        
+        return copy
+    }
 }

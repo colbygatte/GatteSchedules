@@ -9,6 +9,8 @@
 import UIKit
 
 class GSPosition: NSObject {
+    var copyShift: GSShift?
+    var copyDay: GSDay?
     var day: GSDay!
     var shift: GSShift!
     var positionid: String!
@@ -72,5 +74,12 @@ class GSPosition: NSObject {
         if index != nil {
             workers.remove(at: index!)
         }
+    }
+}
+
+extension GSPosition: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = GSPosition(positionid: positionid, shift: copyShift!, day: copyDay!)
+        return copy
     }
 }

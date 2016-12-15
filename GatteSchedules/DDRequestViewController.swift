@@ -102,6 +102,7 @@ extension DDRequestViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let shiftid = shiftids[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DDRequestTableViewCell", for: indexPath) as! DDRequestTableViewCell
+        cell.selectionStyle = .none
         cell.shiftNameLabel.text = shiftNames[shiftid]
         
         let requesting = userDayRequest!.requestFor(shift: shiftid)

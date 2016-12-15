@@ -36,7 +36,7 @@ class EditUserViewController: UIViewController {
             for path in indexPaths! {
                 if path.section == 0 {
                     positions.append(positionids[path.row])
-                } else {
+                } else if path.section == 1 {
                     shifts.append(shiftids[path.row])
                 }
             }
@@ -52,27 +52,32 @@ class EditUserViewController: UIViewController {
 
 extension EditUserViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Workable positions"
-        } else {
+        } else if section == 1 {
             return "Workable shifts"
+        } else {
+            return "Other"
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return positionids.count
-        } else {
+        } else if section == 1 {
             return shiftids.count
+        } else {
+            return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditUserCell", for: indexPath) as! EditUserTableViewCell
+        cell.selectionStyle = .none
         
         if indexPath.section == 0 {
             let positionid = positionids[indexPath.row]
@@ -80,12 +85,17 @@ extension EditUserViewController: UITableViewDataSource {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             }
             cell.customLabel.text = App.teamSettings.getPosition(id: positionid)
-        } else {
+        } else if indexPath.section == 1 {
             let shiftid = shiftids[indexPath.row]
             if user.canDo(shift: shiftid) {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             }
             cell.customLabel.text = App.teamSettings.getShift(id: shiftid)
+        } else {
+            if user.permissions == App.Permissions.manager {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+            cell.customLabel.text = "Grant administrative permissions"
         }
         cell.customLabel.sizeToFit()
         
@@ -94,5 +104,15 @@ extension EditUserViewController: UITableViewDataSource {
 }
 
 extension EditUserViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 && indexPath.row == 0 {
+            user.permissions = App.Permissions.manager
+        }
+    }
     
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 && indexPath.row == 0 {
+            user.permissions = App.Permissions.normal
+        }
+    }
 }

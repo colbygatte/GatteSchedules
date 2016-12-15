@@ -28,15 +28,17 @@ class FirstTimeLoginViewController: UIViewController {
     
     // step 1: get pending user, check if email matches
     @IBAction func loginButtonPressed() {
-        let code = codeTextField.text!
-        let email = emailTextField.text!
         
-        DB.getPendingUser(code: code) { pendingUserSnap in
-            self.pendingUser = GSPendingUser(snapshot: pendingUserSnap)
-            
-            if self.pendingUser!.email == email {
-                self.getPassword()
+        if let code = codeTextField.text?.lowercased(), let email = emailTextField.text?.lowercased() {
+            DB.getPendingUser(code: code) { pendingUserSnap in
+                self.pendingUser = GSPendingUser(snapshot: pendingUserSnap)
+                
+                if self.pendingUser!.email == email {
+                    self.getPassword()
+                }
             }
+        } else {
+            // error
         }
     }
     

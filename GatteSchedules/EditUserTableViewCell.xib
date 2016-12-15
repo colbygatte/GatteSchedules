@@ -18,19 +18,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6GT-zH-6ZR" customClass="BEMCheckBox">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6GT-zH-6ZR" customClass="BEMCheckBox">
                         <rect key="frame" x="8" y="4" width="35" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="C3m-jy-Y5j"/>
+                            <constraint firstAttribute="width" constant="35" id="tF0-89-Y74"/>
+                        </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbR-zA-nBa">
-                        <rect key="frame" x="61" y="5" width="69" height="32"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbR-zA-nBa">
+                        <rect key="frame" x="53" y="11" width="42" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="6GT-zH-6ZR" firstAttribute="leading" secondItem="UBA-Rx-TDk" secondAttribute="leading" constant="8" id="HUc-Ur-7Su"/>
+                    <constraint firstItem="6GT-zH-6ZR" firstAttribute="centerY" secondItem="UBA-Rx-TDk" secondAttribute="centerY" id="K3M-OF-cVR"/>
+                    <constraint firstItem="SbR-zA-nBa" firstAttribute="centerY" secondItem="UBA-Rx-TDk" secondAttribute="centerY" id="iTv-uC-0rq"/>
+                    <constraint firstItem="SbR-zA-nBa" firstAttribute="leading" secondItem="6GT-zH-6ZR" secondAttribute="trailing" constant="10" id="zo8-Mt-RDv"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="checkbox" destination="6GT-zH-6ZR" id="MUl-Vo-fNC"/>

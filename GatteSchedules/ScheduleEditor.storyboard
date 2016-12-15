@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3qT-Z0-diG" id="K3f-ei-xLa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -73,6 +73,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xvT-fx-NpX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Y4c-ML-tW3">
+                            <connections>
+                                <action selector="cancelButtonPressed" destination="uE5-Mv-vI5" id="mC8-20-fqi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="x2y-Us-CT0">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LfG-Ix-l9X">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -113,7 +118,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5hd-Ok-c6P" id="SDw-jR-8rB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -134,12 +139,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58M-ho-OUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680.8000000000002" y="499.70014992503752"/>
+            <point key="canvasLocation" x="2429" y="500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R76-tO-bqI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ToU-bQ-vcc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DayEditorNC" automaticallyAdjustsScrollViewInsets="NO" id="ToU-bQ-vcc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RJt-eY-ahR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -152,7 +157,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpH-oy-XlZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847.20000000000005" y="499.70014992503752"/>
+            <point key="canvasLocation" x="1189" y="500"/>
         </scene>
     </scenes>
 </document>

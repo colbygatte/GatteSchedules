@@ -10,8 +10,7 @@ import UIKit
 
 class DDPositionTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var requestLabel: UILabel!
-    @IBOutlet weak var workingLabel: UILabel!
+    @IBOutlet weak var subLabel: UILabel!
     
     var canSelect = true
     
@@ -22,6 +21,5 @@ class DDPositionTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 }

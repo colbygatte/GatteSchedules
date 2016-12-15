@@ -74,25 +74,30 @@ extension SEPositionViewController: UITableViewDataSource {
         if let userRequest = dayRequests.getRequest(forUser: user.uid) {
             let request = userRequest.requestFor(shift: shiftid)
             if request == "off" {
-                cell.requestLabel.text = "Wants off"
+                cell.subLabel.text = "Wants off"
             } else if request == "work" {
-                cell.requestLabel.text = "Wants to work"
+                cell.subLabel.text = "Wants to work"
             }
         }
         
         if let userShiftData = day.isWorking(uid: user.uid, shift: shiftid) {
             if userShiftData.positionid != positionid {
-                cell.workingLabel.text = "Working \(userShiftData.positionid)"
+                if let positionName = App.teamSettings.getPosition(id: userShiftData.positionid) {
+                    cell.subLabel.text = "Working \(positionName)"
+                } else {
+                    cell.subLabel.text = "Working another position"
+                }
                 cell.canSelect = false
             }
         }
         
         if !user.canDo(shift: shiftid) {
-            cell.backgroundColor = UIColor.blue
+            cell.backgroundColor = UIColor.gray
         }
         
         cell.nameLabel.text = user.name
         cell.nameLabel.sizeToFit()
+        cell.subLabel.sizeToFit()
         
         return cell
     }

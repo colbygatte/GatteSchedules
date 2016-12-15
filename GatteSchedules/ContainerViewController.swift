@@ -42,7 +42,6 @@ class ContainerViewController: UIViewController {
         
         toggleMenuBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(ContainerViewController.toggleMenu))
         
-        containerNavigationController.navigationBar.barTintColor = App.Theme.navBarColor
         
         setupGestures()
     }
@@ -141,11 +140,8 @@ class ContainerViewController: UIViewController {
     }
 }
 
-protocol FloatType {
-}
-extension Float: FloatType {
-}
-
+protocol FloatType {}
+extension Float: FloatType {}
 extension Array where Element: FloatType {
     func average() -> Float {
         let total = self.count

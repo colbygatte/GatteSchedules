@@ -100,14 +100,14 @@ class GSDay: NSObject {
         return nil
     }
     
-    func checkOverlappingShifts() {
+/*    func checkOverlappingShifts() {
         for (worker, shiftsData) in allWorkers {
             for shift in shiftsData {
                 let shiftDates = App.teamSettings.getShiftDates(id: shift.shiftid)
                 
             }
         }
-    }
+    }*/
     
     func get(shift: String) -> GSShift {
         return shifts[shift]! // @@@@ handle errors here
@@ -123,5 +123,20 @@ class GSDay: NSObject {
     
     func remove(worker: GSUser, fromShift: String, position: String) {
         get(shift: fromShift).remove(worker: worker, fromPosition: position)
+    }
+}
+
+extension GSDay: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = GSDay(date: date)
+        copy.allWorkers = allWorkers
+        copy.published = published
+        
+        for (shiftid, shift) in shifts {
+            shift.copyDay = copy
+            copy.shifts[shiftid] = (shift.copy() as! GSShift)
+        }
+        
+        return copy
     }
 }

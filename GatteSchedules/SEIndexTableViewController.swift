@@ -9,18 +9,31 @@
 import UIKit
 import BEMCheckBox
 
+// DayChangedDelegate is needed because the day editor changes the GSDay instance
+// If the user cancels the changes, we need to assign a copy of the GSDay instance back to the DDIndexViewController's GSDay
+protocol DayChangedDelegate {
+    func dayChanged(newDay: GSDay)
+}
+
 class SEIndexTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var publishedCheckbox: BEMCheckBox!
     var day: GSDay!
+    var dayCopy: GSDay!
+    var dayChangedDelegate: DayChangedDelegate?
     
     var dayRequests: GSDayRequests?
     var positionNames: [String: String]!
     var positionids: [String]!
+    var changesMade = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         App.mustBeManager(self)
+        dayCopy = day.copy() as! GSDay
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.setHidesBackButton(true, animated: false)
+        
         publishedCheckbox.onAnimationType = .fill
         publishedCheckbox.offAnimationType = .fill
         
@@ -48,11 +61,28 @@ class SEIndexTableViewController: UIViewController {
             day.published = false
         }
         DB.save(day: day)
+        changesMade = false
         _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func cancelButtonPressed() {
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to exit? All unsaved changes will be lost.", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .cancel, handler: { alert in
+            self.dayChangedDelegate?.dayChanged(newDay: self.dayCopy)
+            _ = self.navigationController?.popViewController(animated: true)
+        })
+        let no = UIAlertAction(title: "No", style: .default, handler: nil)
+        
+        alert.addAction(yes)
+        alert.addAction(no)
+        
+        present(alert, animated: true, completion: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SEPosition" {
+            changesMade = true
+            
             let row = (tableView.indexPathForSelectedRow?.row)!
             let positionid = positionids[row]
             

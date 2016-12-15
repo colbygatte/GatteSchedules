@@ -52,6 +52,7 @@ class DDIndexViewController: UIViewController {
                 let vc = sb.instantiateViewController(withIdentifier: "SEIndex") as! SEIndexTableViewController
                 if day != nil {
                     vc.day = day!
+                    vc.dayChangedDelegate = self
                     navigationController?.pushViewController(vc, animated: true)
                 }
                 return false
@@ -77,9 +78,10 @@ class DDIndexViewController: UIViewController {
             vc.positionid = positionid
             vc.userDay = userDay
             
-        } else if segue.identifier == "DDEdit" {
-            let vc = segue.destination as! SEIndexTableViewController
-            vc.day = day! // @@@@ error handle, check for day first
+        //} else if segue.identifier == "DDEdit" {
+          //  let vc = segue.destination as! SEIndexTableViewController
+            //vc.day = day! // @@@@ error handle, check for day first
+            //vc.dayChangedDelegate = self
         } else if segue.identifier == "DDRequest" {
             let vc = segue.destination as! DDRequestViewController
             vc.day  = day!
@@ -91,6 +93,10 @@ class DDIndexViewController: UIViewController {
 
 extension DDIndexViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if userDay.published == false && App.loggedInUser.permissions != App.Permissions.manager {
+            return 0
+        }
+        
         if showEditCell {
             return positionids.count + 1
         }
@@ -121,4 +127,10 @@ extension DDIndexViewController: UITableViewDataSource {
 
 extension DDIndexViewController: UITableViewDelegate {
     
+}
+
+extension DDIndexViewController: DayChangedDelegate {
+    func dayChanged(newDay: GSDay) {
+        day = newDay
+    }
 }

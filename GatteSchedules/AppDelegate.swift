@@ -14,6 +14,7 @@
 
 import UIKit
 import Firebase
+import BEMCheckBox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,9 +49,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupTheme() {
         let shared = UIApplication.shared
-        shared.delegate?.window??.tintColor = UIColor.gray
         
-        //UINavigationBar.appearance().backgroundColor = UIColor.brown
+        shared.delegate?.window??.tintColor = App.Theme.tintColor
+        
+        BEMCheckBox.appearance().tintColor = App.Theme.bemCheckboxOffColor
+        
+        BEMCheckBox.appearance().onTintColor = App.Theme.bemCheckboxOnColor
+        BEMCheckBox.appearance().onCheckColor = App.Theme.bemCheckboxOnColor
+        
+        UINavigationBar.appearance().barTintColor = App.Theme.navBarColor
+
     }
 }
 
