@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -124,47 +123,11 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="GyY-lD-9vd" kind="relationship" relationship="rootViewController" id="DOc-wV-c5E"/>
-                        <segue destination="Ngd-rS-Dv0" kind="show" id="3Al-vf-rgb"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rb-M4-e7k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="878" y="-109"/>
-        </scene>
-        <!--Message View Controller-->
-        <scene sceneID="dqR-Dx-1O7">
-            <objects>
-                <viewController id="Ngd-rS-Dv0" customClass="MessageViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dPo-6l-G2n"/>
-                        <viewControllerLayoutGuide type="bottom" id="DJp-3P-xhr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7r2-D8-gvt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eud-GE-xdD">
-                                <rect key="frame" x="26" y="74" width="323" height="583"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Eud-GE-xdD" firstAttribute="leading" secondItem="7r2-D8-gvt" secondAttribute="leadingMargin" constant="10" id="0T4-Ti-v9c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Eud-GE-xdD" secondAttribute="trailing" constant="10" id="9Me-ak-GTK"/>
-                            <constraint firstItem="DJp-3P-xhr" firstAttribute="top" secondItem="Eud-GE-xdD" secondAttribute="bottom" constant="10" id="f19-d1-FQN"/>
-                            <constraint firstItem="Eud-GE-xdD" firstAttribute="top" secondItem="dPo-6l-G2n" secondAttribute="bottom" constant="10" id="fLa-J1-5iu"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="message" destination="Eud-GE-xdD" id="knT-03-nAK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="koD-uJ-vq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="877.60000000000002" y="633.73313343328346"/>
         </scene>
     </scenes>
 </document>

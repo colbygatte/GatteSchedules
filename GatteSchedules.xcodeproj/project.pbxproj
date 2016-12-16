@@ -24,6 +24,7 @@
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
 		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
 		E9626F171E0356C300483710 /* CellGripper.png in Resources */ = {isa = PBXBuildFile; fileRef = E9626F161E0356C300483710 /* CellGripper.png */; };
+		E9626F191E037BBF00483710 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9626F181E037BBF00483710 /* Popup.xib */; };
 		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
 		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
 		E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */; };
@@ -41,7 +42,6 @@
 		E9BE78121DFA3775005DB20C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE78111DFA3775005DB20C /* MenuViewController.swift */; };
 		E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */; };
 		E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */; };
-		E9E274A21E0257E100B14AE2 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E274A11E0257E100B14AE2 /* MessageViewController.swift */; };
 		E9E274A41E02F71600B14AE2 /* CreateNewTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E274A31E02F71600B14AE2 /* CreateNewTeamViewController.swift */; };
 		E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */; };
 		E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */; };
@@ -110,6 +110,7 @@
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
 		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
 		E9626F161E0356C300483710 /* CellGripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellGripper.png; sourceTree = "<group>"; };
+		E9626F181E037BBF00483710 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
 		E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDPositionTableViewCell.xib; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		E9BE78111DFA3775005DB20C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 		E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		E9E274A11E0257E100B14AE2 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		E9E274A31E02F71600B14AE2 /* CreateNewTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewTeamViewController.swift; sourceTree = "<group>"; };
 		E9EAEC841DE53F3D00D4646C /* GatteSchedules.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GatteSchedules.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				E9BE77E01DF89004005DB20C /* USVScheduleTableViewCell.xib */,
+				E9626F181E037BBF00483710 /* Popup.xib */,
 			);
 			name = UserScheduleViewer;
 			sourceTree = "<group>";
@@ -359,7 +360,6 @@
 				E9BE78111DFA3775005DB20C /* MenuViewController.swift */,
 				E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */,
 				E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */,
-				E9E274A11E0257E100B14AE2 /* MessageViewController.swift */,
 				E930879E1DFB58D00003CC84 /* DayDetail */,
 				E9BE77CF1DF86FFD005DB20C /* DayEditor */,
 				E902F6041DEFDD0500A2326F /* Settings */,
@@ -536,6 +536,7 @@
 				E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
 				E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */,
+				E9626F191E037BBF00483710 /* Popup.xib in Resources */,
 				E9BE77E21DF89004005DB20C /* USVScheduleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,7 +734,6 @@
 				E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */,
 				E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */,
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
-				E9E274A21E0257E100B14AE2 /* MessageViewController.swift in Sources */,
 				E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */,
 				E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */,
 				E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */,

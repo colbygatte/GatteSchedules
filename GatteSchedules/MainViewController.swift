@@ -90,26 +90,26 @@ class MainViewController: UIViewController {
             let settings = GSSettings(snapshot: settingsSnap)
             App.teamSettings = settings
             App.team = GSTeam()
+        }
+        
+        DB.getUsers { usersSnap in
+            App.team = GSTeam()
             
-            DB.getUsers { usersSnap in
-                App.team = GSTeam()
-                
-                for userData in usersSnap.children {
-                    let userSnap = userData as! FIRDataSnapshot
-                    let user: GSUser!
-                    if userSnap.key == App.loggedInUser.uid {
-                        user = App.loggedInUser
-                    } else {
-                        user = GSUser(snapshot: userSnap, uid: userSnap.key)
-                    }
-                    App.team.add(user: user)
-                    
-                    // Moved load user days in here because
-                    // we are comparing users to the App.team users, and above
-                    // we set the logged in user's GSUser to it's respective place in
-                    // App.team
-                    self.loadUserDays()
+            for userData in usersSnap.children {
+                let userSnap = userData as! FIRDataSnapshot
+                let user: GSUser!
+                if userSnap.key == App.loggedInUser.uid {
+                    user = App.loggedInUser
+                } else {
+                    user = GSUser(snapshot: userSnap, uid: userSnap.key)
                 }
+                App.team.add(user: user)
+                
+                // Moved load user days in here because
+                // we are comparing users to the App.team users, and above
+                // we set the logged in user's GSUser to it's respective place in
+                // App.team
+                self.loadUserDays()
             }
         }
         
@@ -145,6 +145,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    // @@@@ is this needed?
     func loadUserDay(index: Int) {
         let day = userDays[index]
         DB.get(day: day.date) { snap in
@@ -266,14 +267,15 @@ extension MainViewController: UITableViewDelegate {
             vc.userDay = userDay
             navigationController?.pushViewController(vc, animated: true)
         } else if App.loggedInUser.permissions == App.Permissions.manager {
-            DB.get(day: userDay.date) { snap in
+            // These need to be done better
+            DB.getSingleEvent(day: userDay.date) { snap in
                 let sb = UIStoryboard(name: "ScheduleEditor", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "SEIndex") as! SEIndexTableViewController
                 vc.day = GSDay(snapshot: snap)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            DB.get(day: userDay.date) { snap in
+            DB.getSingleEvent(day: userDay.date) { snap in
                 let sb = UIStoryboard(name: "DayDetail", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
                 vc.day = GSDay(snapshot: snap)

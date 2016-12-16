@@ -91,6 +91,15 @@ class DB {
         })
     }
     
+    static func getSingleEvent(day: Date, completion: @escaping (FIRDataSnapshot)->()) {
+        let dateString = App.formatter.string(from: day)
+        
+        //DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+        DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+            completion(snap)
+        })
+    }
+    
     static func save(day: GSDay) {
         let dateString = App.formatter.string(from: day.date)
         DB.daysRef.child(dateString).setValue(day.toFirebaseObject())
