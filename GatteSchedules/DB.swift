@@ -119,6 +119,14 @@ class DB {
     
     static func getUsers(completion: @escaping (FIRDataSnapshot)->()) {
         DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snap in
+        //DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observe(.value, with: { snap in
+            completion(snap)
+        })
+    }
+    
+    static func getUsersValue(completion: @escaping (FIRDataSnapshot)->()) {
+        //DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snap in
+        DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observe(.value, with: { snap in
             completion(snap)
         })
     }
@@ -135,24 +143,37 @@ class DB {
         let ref = DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid)
         
         ref.observeSingleEvent(of: .value, with: { pendingUsersSnap in
-        //ref.observe(.value, with: { pendingUsersSnap in // don't want this, we only want to get a single instance
+            //ref.observe(.value, with: { pendingUsersSnap in // don't want this, we only want to get a single instance
             completion(pendingUsersSnap)
         })
     }
     
-    static func createPendingUser(name: String, email: String, teamid: String) {
-        let pendingUserRef = DB.pendingUsersRef.child(String.random(length: 5)) // @@@@ check to see if str exists
+    static func getPendingUsersValue(completion: @escaping (FIRDataSnapshot)->Void) {
+        let ref = DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid)
+        
+        //ref.observeSingleEvent(of: .value, with: { pendingUsersSnap in
+        ref.observe(.value, with: { pendingUsersSnap in
+            completion(pendingUsersSnap)
+        })
+    }
+    
+    
+    static func createPendingUser(name: String, email: String, teamid: String) -> String {
+        let code = String.random(length: 5)
+        let pendingUserRef = DB.pendingUsersRef.child(code) // @@@@ check to see if str exists
         
         pendingUserRef.setValue([
             "name": name,
             "email": email,
             "teamid": teamid
         ])
+        
+        return code
     }
     
     static func getPendingUser(code: String, completion: @escaping (FIRDataSnapshot)->Void) {
-        //DB.ref.child("pendingUsers").child(code).observeSingleEvent(of: .value, with: { pendingUserSnap in
-        DB.ref.child("pendingUsers").child(code).observe(.value, with: { pendingUserSnap in
+        DB.ref.child("pendingUsers").child(code).observeSingleEvent(of: .value, with: { pendingUserSnap in
+        //DB.ref.child("pendingUsers").child(code).observe(.value, with: { pendingUserSnap in
             completion(pendingUserSnap)
         })
     }

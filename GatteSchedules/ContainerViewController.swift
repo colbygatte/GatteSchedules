@@ -42,7 +42,6 @@ class ContainerViewController: UIViewController {
         
         toggleMenuBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(ContainerViewController.toggleMenu))
         
-        
         setupGestures()
     }
     

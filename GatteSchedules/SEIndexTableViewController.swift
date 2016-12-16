@@ -28,6 +28,12 @@ class SEIndexTableViewController: UIViewController {
     var changesMade = false
     var ddPositionViewController: SEPositionViewController?
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         App.mustBeManager(self)
@@ -43,6 +49,8 @@ class SEIndexTableViewController: UIViewController {
         
         positionNames = App.teamSettings.positions
         positionids = Array(positionNames.keys)
+        
+        title = "Edit " + App.formatter.string(from: day.date)
         
         if day.published == true {
             publishedCheckbox.on = true

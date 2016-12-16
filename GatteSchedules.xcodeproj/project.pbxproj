@@ -23,7 +23,9 @@
 		E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */; };
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
 		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
-		E9626F171E0356C300483710 /* CellGripper.png in Resources */ = {isa = PBXBuildFile; fileRef = E9626F161E0356C300483710 /* CellGripper.png */; };
+		E938EB361E037ED500181590 /* GSPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938EB351E037ED500181590 /* GSPopup.swift */; };
+		E938EB7C1E039D4900181590 /* CellGripper.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7B1E039D4900181590 /* CellGripper.png */; };
+		E938EB801E03A16D00181590 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7F1E03A16D00181590 /* Logo.png */; };
 		E9626F191E037BBF00483710 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9626F181E037BBF00483710 /* Popup.xib */; };
 		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
 		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
@@ -109,7 +111,9 @@
 		E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDIndexViewController.swift; sourceTree = "<group>"; };
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
 		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
-		E9626F161E0356C300483710 /* CellGripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellGripper.png; sourceTree = "<group>"; };
+		E938EB351E037ED500181590 /* GSPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPopup.swift; sourceTree = "<group>"; };
+		E938EB7B1E039D4900181590 /* CellGripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellGripper.png; sourceTree = "<group>"; };
+		E938EB7F1E03A16D00181590 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		E9626F181E037BBF00483710 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
@@ -309,7 +313,8 @@
 				E9EAECD81DECCB6400D4646C /* Models */,
 				E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */,
 				E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */,
-				E9626F161E0356C300483710 /* CellGripper.png */,
+				E938EB7B1E039D4900181590 /* CellGripper.png */,
+				E938EB7F1E03A16D00181590 /* Logo.png */,
 				E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */,
 				E9EAEC931DE53F3D00D4646C /* Info.plist */,
 				E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */,
@@ -355,6 +360,7 @@
 		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E938EB351E037ED500181590 /* GSPopup.swift */,
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
 				E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */,
 				E9BE78111DFA3775005DB20C /* MenuViewController.swift */,
@@ -525,13 +531,14 @@
 				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
 				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
-				E9626F171E0356C300483710 /* CellGripper.png in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
 				E9BE77CE1DF86E25005DB20C /* ScheduleEditor.storyboard in Resources */,
 				E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
+				E938EB7C1E039D4900181590 /* CellGripper.png in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
+				E938EB801E03A16D00181590 /* Logo.png in Resources */,
 				E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */,
 				E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
@@ -738,6 +745,7 @@
 				E9EAECDA1DECCBD200D4646C /* DB.swift in Sources */,
 				E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */,
 				E902F60C1DF08E0C00A2326F /* EditShiftViewController.swift in Sources */,
+				E938EB361E037ED500181590 /* GSPopup.swift in Sources */,
 				E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,12 +14,19 @@ class CreateNewTeamViewController: UIViewController {
     @IBOutlet weak var pw1TextField: UITextField!
     @IBOutlet weak var pw2TextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     var delegate: FirstTimeLoginDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let logo = UIImage(named: "Logo.png")
+        logoImageView.image = logo
+    }
+    
+    @IBAction func backButtonPressed() {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func createTeamButtonPressed() {

@@ -13,6 +13,7 @@ import UIKit
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var logoImageView: UIImageView!
     var loggedInFromFirstTimeLogin: Bool = false
     
     // is this a good solution?
@@ -28,6 +29,8 @@ class LoginViewController: UIViewController {
         
         DB.stopAuthListener() // stop in case it's the user's first login, because we need to make the user in user branch if it is there first login and the auth listener needs to get this data
         
+        let logo = UIImage(named: "Logo.png")
+        logoImageView.image = logo
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {

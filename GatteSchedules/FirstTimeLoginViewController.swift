@@ -18,12 +18,15 @@ protocol FirstTimeLoginDelegate {
 class FirstTimeLoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var logoImageView: UIImageView!
     var pendingUser: GSPendingUser?
     var delegate: FirstTimeLoginDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logo = UIImage(named: "Logo.png")
+        logoImageView.image = logo
     }
     
     // step 1: get pending user, check if email matches
@@ -58,7 +61,10 @@ class FirstTimeLoginViewController: UIViewController {
                 alert.message = "Passwords do not match."
             }
         })
+        
         alert.addAction(done)
+        alert.textFields![0].isSecureTextEntry = true
+        alert.textFields![1].isSecureTextEntry = true
         
         present(alert, animated: true)
     }

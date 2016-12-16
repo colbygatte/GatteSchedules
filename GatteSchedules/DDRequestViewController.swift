@@ -74,6 +74,8 @@ class DDRequestViewController: UIViewController {
         
         // @@@@ change to save an individual user day
         DB.save(dayRequests: dayRequests)
+        
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 

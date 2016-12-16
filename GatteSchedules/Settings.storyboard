@@ -198,33 +198,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AOO-ga-afK">
-                                <rect key="frame" x="16" y="92" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AOO-ga-afK">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jPf-v4-Ftf"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-LV-HBB">
+                                <rect key="frame" x="20" y="134" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mer-W7-Lj5"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yzi-LV-HBB">
-                                <rect key="frame" x="16" y="143" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5t-kr-6aK">
-                                <rect key="frame" x="146" y="204" width="82" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5t-kr-6aK">
+                                <rect key="frame" x="20" y="184" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qWJ-4u-WLc"/>
+                                </constraints>
                                 <state key="normal" title="Create User"/>
                                 <connections>
                                     <action selector="createUserButtonPressed" destination="k7J-JC-ge4" eventType="touchUpInside" id="pSs-pR-QeX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGG-f5-e2P">
+                                <rect key="frame" x="20" y="234" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YxK-JZ-o7c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AOO-ga-afK" secondAttribute="trailing" constant="20" id="02A-Tp-d79"/>
+                            <constraint firstItem="yGG-f5-e2P" firstAttribute="leading" secondItem="tYu-yZ-dyx" secondAttribute="leading" constant="20" id="0Zo-Pt-Y9T"/>
+                            <constraint firstAttribute="trailing" secondItem="yGG-f5-e2P" secondAttribute="trailing" constant="20" id="3Cr-Fn-j3m"/>
+                            <constraint firstItem="Yzi-LV-HBB" firstAttribute="top" secondItem="AOO-ga-afK" secondAttribute="bottom" constant="20" id="6JP-h8-oht"/>
+                            <constraint firstAttribute="trailing" secondItem="f5t-kr-6aK" secondAttribute="trailing" constant="20" id="Bam-KK-TEi"/>
+                            <constraint firstItem="yGG-f5-e2P" firstAttribute="top" secondItem="f5t-kr-6aK" secondAttribute="bottom" constant="20" id="a40-zc-dEJ"/>
+                            <constraint firstItem="AOO-ga-afK" firstAttribute="top" secondItem="kr7-aW-S4w" secondAttribute="bottom" constant="20" id="cb9-gs-PzH"/>
+                            <constraint firstItem="f5t-kr-6aK" firstAttribute="leading" secondItem="tYu-yZ-dyx" secondAttribute="leading" constant="20" id="euX-UE-OHh"/>
+                            <constraint firstAttribute="trailing" secondItem="Yzi-LV-HBB" secondAttribute="trailing" constant="20" id="h46-49-rCb"/>
+                            <constraint firstItem="Yzi-LV-HBB" firstAttribute="leading" secondItem="tYu-yZ-dyx" secondAttribute="leading" constant="20" id="u1k-B0-PPo"/>
+                            <constraint firstItem="AOO-ga-afK" firstAttribute="leading" secondItem="tYu-yZ-dyx" secondAttribute="leading" constant="20" id="uux-Hq-2Yr"/>
+                            <constraint firstItem="f5t-kr-6aK" firstAttribute="top" secondItem="Yzi-LV-HBB" secondAttribute="bottom" constant="20" id="zTa-wd-bLM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New User" id="gy5-Bo-UhT"/>
                     <connections>
+                        <outlet property="codeLabel" destination="yGG-f5-e2P" id="slJ-QF-v9w"/>
+                        <outlet property="createUserButton" destination="f5t-kr-6aK" id="zbr-b5-6K2"/>
                         <outlet property="emailTextField" destination="AOO-ga-afK" id="rfC-Qp-SIV"/>
                         <outlet property="nameTextField" destination="Yzi-LV-HBB" id="IL5-im-fYQ"/>
                     </connections>

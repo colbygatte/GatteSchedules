@@ -11,6 +11,8 @@ import UIKit
 class CreateUserViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var createUserButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,12 +20,16 @@ class CreateUserViewController: UIViewController {
     }
     
     @IBAction func createUserButtonPressed() {
+        createUserButton.isEnabled = false
+        
         let email = emailTextField.text! // @@@@ validate data
         let name = nameTextField.text!
         let teamid = App.teamSettings.teamid // @@@@ why does this have to be unwrapped below?
         
-        DB.createPendingUser(name: name, email: email, teamid: teamid!)
+        let code = DB.createPendingUser(name: name, email: email, teamid: teamid!)
         
-        _ = navigationController?.popViewController(animated: true)
+        codeLabel.text = "Code for \(name): \(code)"
+        
+        //_ = navigationController?.popViewController(animated: true)
     }
 }

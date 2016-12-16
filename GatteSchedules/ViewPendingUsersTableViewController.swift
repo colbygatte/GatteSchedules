@@ -16,7 +16,8 @@ class ViewPendingUsersTableViewController: UITableViewController {
         super.viewDidLoad()
         
         pendingUsers = []
-        DB.getPendingUsers { pendingUsersSnap in
+        DB.getPendingUsersValue { pendingUsersSnap in
+            self.pendingUsers = []
             for pendingUserData in pendingUsersSnap.children {
                 let pendingUserSnap = pendingUserData as! FIRDataSnapshot
                 let pendingUser = GSPendingUser(snapshot: pendingUserSnap)

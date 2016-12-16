@@ -20,6 +20,12 @@ class DDIndexViewController: UIViewController {
     var positionids: [String]!
     var showEditCell = false
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self

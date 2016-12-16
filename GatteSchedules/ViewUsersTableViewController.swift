@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewUsersTableViewController: UITableViewController {
 
     var uids: [String]!
+    var team: GSTeam!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        uids = []
         
-        uids = App.team.allUids
+        DB.getUsersValue { snap in
+            self.team = GSTeam()
+            for userData in snap.children {
+                let userSnap = userData as! FIRDataSnapshot
+                let user = GSUser(snapshot: userSnap, uid: userSnap.key)
+                self.team.add(user: user)
+            }
+            
+            self.uids = self.team.allUids
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,7 +38,7 @@ class ViewUsersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = App.team.get(user: uids[indexPath.row])?.name
+        cell.textLabel?.text = team.get(user: uids[indexPath.row])?.name
         
         return cell
     }
@@ -35,7 +48,7 @@ class ViewUsersTableViewController: UITableViewController {
             let row = (tableView.indexPathForSelectedRow?.row)!
             
             let editUserViewController = segue.destination as! EditUserViewController
-            editUserViewController.user = App.team.get(user: uids[row])
+            editUserViewController.user = team.get(user: uids[row])
         } else if segue.identifier == "CreateUser" {
             let createUserViewController = segue.destination as! CreateUserViewController
         }

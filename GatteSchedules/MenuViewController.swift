@@ -15,6 +15,7 @@ struct MenuCellData {
 
 class MenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

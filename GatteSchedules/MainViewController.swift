@@ -31,7 +31,23 @@ class MainViewController: UIViewController {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
         
-        tableView.rowHeight = 55.0
+        DB.getUsers { snap in
+            App.team = GSTeam()
+            for userData in snap.children {
+                let userSnap = userData as! FIRDataSnapshot
+                let user: GSUser!
+                if userSnap.key == App.loggedInUser.uid {
+                    user = App.loggedInUser
+                } else {
+                    user = GSUser(snapshot: userSnap, uid: userSnap.key)
+                }
+                App.team.add(user: user)
+            }
+            
+            self.tableView.reloadData()
+        }
+        
+        tableView.rowHeight = 70.0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -40,6 +56,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //DB.signOut()
         
         let menuButtonImage = UIImage(named: "CellGripper.png")
         let button = UIButton()
@@ -61,6 +78,9 @@ class MainViewController: UIViewController {
             if user != nil {
                 DB.getUserData(uid: (user!.uid)) { userDataSnap in
                     let gsuser = GSUser(snapshot: userDataSnap, uid: (user?.uid)!)
+                    App.containerViewController.menuTableViewController.label.text = "Hello, \(gsuser.name!)!"
+                    App.containerViewController.menuTableViewController.label.font = UIFont.boldSystemFont(ofSize: 22.0)
+                    
                     App.loggedInUser = gsuser
                     DB.teamid = gsuser.teamid
                     DB.teamRef = DB.ref.child("teams").child(DB.teamid)
@@ -89,7 +109,6 @@ class MainViewController: UIViewController {
         DB.getSettings { settingsSnap in
             let settings = GSSettings(snapshot: settingsSnap)
             App.teamSettings = settings
-            App.team = GSTeam()
         }
         
         DB.getUsers { usersSnap in
@@ -222,7 +241,12 @@ extension MainViewController: UITableViewDataSource {
         }
         
         let day = userDays[section]
-        return App.scheduleDisplayFormatter.string(from: day.date)
+        
+        if App.formatter.string(from: day.date) == App.formatter.string(from: App.now) {
+            return App.scheduleDisplayFormatter.string(from: day.date) + " - Today"
+        } else {
+            return App.scheduleDisplayFormatter.string(from: day.date)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
