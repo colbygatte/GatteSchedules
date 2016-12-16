@@ -26,6 +26,7 @@ class SEIndexTableViewController: UIViewController {
     var positionNames: [String: String]!
     var positionids: [String]!
     var changesMade = false
+    var ddPositionViewController: SEPositionViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +37,9 @@ class SEIndexTableViewController: UIViewController {
         
         publishedCheckbox.onAnimationType = .fill
         publishedCheckbox.offAnimationType = .fill
+        publishedCheckbox.delegate = self
         
         tableView.dataSource = self
-        tableView.delegate = self
         
         positionNames = App.teamSettings.positions
         positionids = Array(positionNames.keys)
@@ -51,6 +52,8 @@ class SEIndexTableViewController: UIViewController {
         
         DB.get(requests: day.date) { snap in
             self.dayRequests = GSDayRequests(snapshot: snap)
+            self.ddPositionViewController?.dayRequests = self.dayRequests // Why do I have to do this?
+            self.ddPositionViewController?.tableView.reloadData()
         }
     }
     
@@ -65,21 +68,33 @@ class SEIndexTableViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func requestButtonPressed() {
+        let sb = UIStoryboard(name: "DayDetail", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
+        vc.day = day
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func cancelButtonPressed() {
-        let alert = UIAlertController(title: nil, message: "Are you sure you want to exit? All unsaved changes will be lost.", preferredStyle: .alert)
-        let yes = UIAlertAction(title: "Yes", style: .cancel, handler: { alert in
-            self.dayChangedDelegate?.dayChanged(newDay: self.dayCopy)
+        if changesMade {
+            let alert = UIAlertController(title: nil, message: "Are you sure you want to exit? All unsaved changes will be lost.", preferredStyle: .alert)
+            let yes = UIAlertAction(title: "Yes", style: .cancel, handler: { alert in
+                self.dayChangedDelegate?.dayChanged(newDay: self.dayCopy)
+                _ = self.navigationController?.popViewController(animated: true)
+            })
+            let no = UIAlertAction(title: "No", style: .default, handler: nil)
+            
+            alert.addAction(yes)
+            alert.addAction(no)
+            
+            present(alert, animated: true, completion: nil)
+        } else {
             _ = self.navigationController?.popViewController(animated: true)
-        })
-        let no = UIAlertAction(title: "No", style: .default, handler: nil)
-        
-        alert.addAction(yes)
-        alert.addAction(no)
-        
-        present(alert, animated: true, completion: nil)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        changesMade = true
         if segue.identifier == "SEPosition" {
             changesMade = true
             
@@ -87,6 +102,8 @@ class SEIndexTableViewController: UIViewController {
             let positionid = positionids[row]
             
             let vc = segue.destination as! SEPositionViewController
+            self.ddPositionViewController = vc
+            
             vc.day = day
             vc.positionid = positionid
             if dayRequests != nil {
@@ -96,7 +113,7 @@ class SEIndexTableViewController: UIViewController {
     }
 }
 
-extension SEIndexTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension SEIndexTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return positionids.count
     }
@@ -108,6 +125,12 @@ extension SEIndexTableViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = positionName
         return cell
+    }
+}
+
+extension SEIndexTableViewController: BEMCheckBoxDelegate {
+    func didTap(_ checkBox: BEMCheckBox) {
+        changesMade = true
     }
 }
 

@@ -23,6 +23,7 @@
 		E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */; };
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
 		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
+		E9626F171E0356C300483710 /* CellGripper.png in Resources */ = {isa = PBXBuildFile; fileRef = E9626F161E0356C300483710 /* CellGripper.png */; };
 		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
 		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
 		E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */; };
@@ -108,6 +109,7 @@
 		E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDIndexViewController.swift; sourceTree = "<group>"; };
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
 		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
+		E9626F161E0356C300483710 /* CellGripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellGripper.png; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
 		E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDPositionTableViewCell.xib; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				E9EAECD81DECCB6400D4646C /* Models */,
 				E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */,
 				E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */,
+				E9626F161E0356C300483710 /* CellGripper.png */,
 				E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */,
 				E9EAEC931DE53F3D00D4646C /* Info.plist */,
 				E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */,
@@ -522,6 +525,7 @@
 				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
 				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
+				E9626F171E0356C300483710 /* CellGripper.png in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
 				E9BE77CE1DF86E25005DB20C /* ScheduleEditor.storyboard in Resources */,
 				E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */,

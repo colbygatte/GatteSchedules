@@ -10,6 +10,7 @@ import UIKit
 
 class DDIndexViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    
     var userDay: GSUserDay!
     var day: GSDay?
     
@@ -78,10 +79,6 @@ class DDIndexViewController: UIViewController {
             vc.positionid = positionid
             vc.userDay = userDay
             
-        //} else if segue.identifier == "DDEdit" {
-          //  let vc = segue.destination as! SEIndexTableViewController
-            //vc.day = day! // @@@@ error handle, check for day first
-            //vc.dayChangedDelegate = self
         } else if segue.identifier == "DDRequest" {
             let vc = segue.destination as! DDRequestViewController
             vc.day  = day!

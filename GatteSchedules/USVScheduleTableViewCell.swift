@@ -51,7 +51,13 @@ class USVScheduleTableViewCell: UITableViewCell {
     
     func setIsNotPublished() {
         shiftLabel.textColor = UIColor.gray
-        shiftLabel.text = "unpublished"
+        
+        if App.loggedInUser.permissions == App.Permissions.manager {
+            shiftLabel.text = "Edit day/Put in a request"
+        } else {
+            shiftLabel.text = "Put in a request"
+        }
+        
         positionLabel.text = ""
         resizeLabels()
     }

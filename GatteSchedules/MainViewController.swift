@@ -12,6 +12,7 @@ import Firebase
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
 
     var now: Date!
     var dateStart: Int = 0
@@ -22,15 +23,12 @@ class MainViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        //DB.signOut()
-        
         App.containerViewController.setSwipeLeftGesture(on: true)
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             let section = selectedIndexPath.section
             loadUserDay(index: section)
             tableView.deselectRow(at: selectedIndexPath, animated: true)
-            
         }
         
         tableView.rowHeight = 55.0
@@ -42,6 +40,18 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let menuButtonImage = UIImage(named: "CellGripper.png")
+        let button = UIButton()
+        button.setImage(menuButtonImage, for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.addTarget(self, action: #selector(MainViewController.menuButtonPressed), for: .touchUpInside)
+        menuButton.customView = button
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Home"
+        navigationItem.backBarButtonItem = backItem
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = UIRefreshControl()
@@ -56,6 +66,7 @@ class MainViewController: UIViewController {
                     DB.teamRef = DB.ref.child("teams").child(DB.teamid)
                     DB.daysRef = DB.teamRef.child("days")
                     DB.requestsRef = DB.teamRef.child("requests")
+                    DB.changesRef = DB.teamRef.child("changes")
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {
@@ -81,6 +92,8 @@ class MainViewController: UIViewController {
             App.team = GSTeam()
             
             DB.getUsers { usersSnap in
+                App.team = GSTeam()
+                
                 for userData in usersSnap.children {
                     let userSnap = userData as! FIRDataSnapshot
                     let user: GSUser!
@@ -123,8 +136,8 @@ class MainViewController: UIViewController {
                 day.addData(day: gsDay)
                 
                 DispatchQueue.main.async {
+                    self.tableView.reloadData()
                     if i == self.dateStart + self.totalSections {
-                        self.tableView.reloadData()
                         self.isDoneLoading = true
                     }
                 }
@@ -246,11 +259,27 @@ extension MainViewController: UITableViewDelegate {
         let section = indexPath.section
         let userDay = userDays[section]
         
-        let sb = UIStoryboard(name: "DayDetail", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "DDIndex") as! DDIndexViewController
-        vc.userDay = userDay
         
-        navigationController?.pushViewController(vc, animated: true)
+        if userDay.published == true {
+            let sb = UIStoryboard(name: "DayDetail", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "DDIndex") as! DDIndexViewController
+            vc.userDay = userDay
+            navigationController?.pushViewController(vc, animated: true)
+        } else if App.loggedInUser.permissions == App.Permissions.manager {
+            DB.get(day: userDay.date) { snap in
+                let sb = UIStoryboard(name: "ScheduleEditor", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "SEIndex") as! SEIndexTableViewController
+                vc.day = GSDay(snapshot: snap)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        } else {
+            DB.get(day: userDay.date) { snap in
+                let sb = UIStoryboard(name: "DayDetail", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
+                vc.day = GSDay(snapshot: snap)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

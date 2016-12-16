@@ -13,11 +13,13 @@ class DB {
     static var teamid: String!
     static var ref: FIRDatabaseReference!
     static var teamRef: FIRDatabaseReference!
+    
     // Branches of the team:
     static var usersRef: FIRDatabaseReference!
     static var pendingUsersRef: FIRDatabaseReference!
     static var daysRef: FIRDatabaseReference!
     static var requestsRef: FIRDatabaseReference!
+    static var changesRef: FIRDatabaseReference!
     
     private static var authListenerHandle: FIRAuthStateDidChangeListenerHandle! // @@@@ should probably be optional
     private static var authListenerBlock: FIRAuthStateDidChangeListenerBlock!
@@ -64,11 +66,12 @@ class DB {
     static func getSettings(completion: @escaping (FIRDataSnapshot)->()) {
         let ref = DB.teamRef.child("settings")
         
-        ref.observeSingleEvent(of: .value, with: { snapshot in
-            if snapshot.childrenCount == 0 {
+        //ref.observeSingleEvent(of: .value, with: { snapshot in
+        ref.observe(.value, with: { snap in
+            if snap.childrenCount == 0 {
                 assert(false, "snapshot childrenCount == 0 for settings")
             } else {
-                completion(snapshot)
+                completion(snap)
             }
         })
     }
@@ -81,7 +84,9 @@ class DB {
     //
     static func get(day: Date, completion: @escaping (FIRDataSnapshot)->()) {
         let dateString = App.formatter.string(from: day)
-        DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+        
+        //DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+        DB.daysRef.child(dateString).observe(.value, with: { snap in
             completion(snap)
         })
     }
@@ -118,7 +123,10 @@ class DB {
     }
     
     static func getPendingUsers(completion: @escaping (FIRDataSnapshot)->Void) {
-        DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { pendingUsersSnap in
+        let ref = DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid)
+        
+        ref.observeSingleEvent(of: .value, with: { pendingUsersSnap in
+        //ref.observe(.value, with: { pendingUsersSnap in // don't want this, we only want to get a single instance
             completion(pendingUsersSnap)
         })
     }
@@ -134,7 +142,8 @@ class DB {
     }
     
     static func getPendingUser(code: String, completion: @escaping (FIRDataSnapshot)->Void) {
-        DB.ref.child("pendingUsers").child(code).observeSingleEvent(of: .value, with: { pendingUserSnap in
+        //DB.ref.child("pendingUsers").child(code).observeSingleEvent(of: .value, with: { pendingUserSnap in
+        DB.ref.child("pendingUsers").child(code).observe(.value, with: { pendingUserSnap in
             completion(pendingUserSnap)
         })
     }
@@ -150,10 +159,11 @@ class DB {
     
     // MARK: Requests
     // @@@@ add a function to save an individual user day request
-    
     static func get(requests: Date, completion: @escaping (FIRDataSnapshot)->Void) {
         let dateString = App.formatter.string(from: requests)
-        DB.requestsRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+        
+        //DB.requestsRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
+        DB.requestsRef.child(dateString).observe(.value, with: { snap in
             completion(snap)
         })
     }

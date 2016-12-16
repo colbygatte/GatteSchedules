@@ -18,7 +18,6 @@ class SEPositionViewController: UIViewController {
     var shiftids: [String]!
     var workers: [String: [GSUser]]! // shiftid: users
     var possibleWorkers: [GSUser]! // all workers who can work this shift
-    var possibleShiftWorkers: [String: [GSUser]]! // users who can work a particular shift
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +27,10 @@ class SEPositionViewController: UIViewController {
         tableView.rowHeight = 55.0
         tableView.alwaysBounceVertical = false
         
+        begin()
+    }
+    
+    func begin() {
         possibleWorkers = App.team.getUsersWhoCanWork(position: positionid)
         shiftNames = App.teamSettings.shiftNames
         shiftids = Array(shiftNames.keys)

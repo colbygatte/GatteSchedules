@@ -37,7 +37,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OuG-U4-6kx" id="OLm-iI-h6j">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -58,11 +58,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="yp2-sJ-mqE">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" title="Request" id="ZKL-My-QCf">
-                            <connections>
-                                <segue destination="B9e-yR-dCp" kind="show" identifier="DDRequest" id="tvr-Jm-pAu"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -93,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Za-ic-F6u" id="E6T-eQ-CTd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -119,7 +114,7 @@
         <!--Title-->
         <scene sceneID="XAL-pg-Qba">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="B9e-yR-dCp" customClass="DDRequestViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DDRequest" automaticallyAdjustsScrollViewInsets="NO" id="B9e-yR-dCp" customClass="DDRequestViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4E7-1I-bhp"/>
                         <viewControllerLayoutGuide type="bottom" id="QSW-4B-Vdg"/>
@@ -129,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KRV-Be-EeW">
-                                <rect key="frame" x="0.0" y="115" width="375" height="252"/>
+                                <rect key="frame" x="0.0" y="71" width="375" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="252" id="Zub-Gt-QFR"/>
@@ -139,7 +134,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOj-ny-o12" id="cSJ-UC-AWU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -160,7 +155,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plO-j1-fr7" customClass="BEMCheckBox">
-                                <rect key="frame" x="8" y="74" width="36" height="36"/>
+                                <rect key="frame" x="8" y="30" width="36" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="EEf-oO-zcC"/>
@@ -168,7 +163,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request day off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhU-EA-luh">
-                                <rect key="frame" x="52" y="82" width="121" height="21"/>
+                                <rect key="frame" x="52" y="38" width="121" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

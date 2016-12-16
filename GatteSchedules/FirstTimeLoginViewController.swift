@@ -74,13 +74,17 @@ class FirstTimeLoginViewController: UIViewController {
         
         DB.createUser(email: pendingUser.email, password: password) { firUser, error in
             // all these optionals and unwrapping, do better here:
-            let gsUser = GSUser(uid: (firUser?.uid)!, email: (self.pendingUser?.email)!, name: (self.pendingUser?.name)!, teamid: (self.pendingUser?.teamid)!, permissions: "normal", positions: [], shifts: [])
-            DB.save(user: gsUser)
-            
-            DB.deletePendingUser(code: (self.pendingUser?.code)!)
-            
-            self.delegate?.firstTimeLoginSuccess(user: gsUser)
-            self.dismiss(animated: true, completion: nil)
+            if error == nil {
+                let gsUser = GSUser(uid: (firUser?.uid)!, email: (self.pendingUser?.email)!, name: (self.pendingUser?.name)!, teamid: (self.pendingUser?.teamid)!, permissions: "normal", positions: [], shifts: [])
+                DB.save(user: gsUser)
+                
+                DB.deletePendingUser(code: (self.pendingUser?.code)!)
+                
+                self.delegate?.firstTimeLoginSuccess(user: gsUser)
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
         }
     }
     

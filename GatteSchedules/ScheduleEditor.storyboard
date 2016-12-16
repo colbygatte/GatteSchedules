@@ -54,6 +54,14 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWo-Z0-uJl">
+                                        <rect key="frame" x="235" y="10" width="108" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Put in a request"/>
+                                        <connections>
+                                            <action selector="requestButtonPressed" destination="uE5-Mv-vI5" eventType="touchUpInside" id="Cyr-xj-z3B"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -78,7 +86,11 @@
                                 <action selector="cancelButtonPressed" destination="uE5-Mv-vI5" id="mC8-20-fqi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="x2y-Us-CT0"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="x2y-Us-CT0">
+                            <connections>
+                                <action selector="saveButtonPressed" destination="uE5-Mv-vI5" id="nex-Nh-7cp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="publishedCheckbox" destination="i2E-RF-Vns" id="vzy-oR-3Go"/>
