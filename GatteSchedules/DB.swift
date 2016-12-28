@@ -118,9 +118,8 @@ class DB {
         userRef.setValue(user.toFirebaseObject())
     }
     
-    static func saveToken(user: GSUser) {
-        let token = user.apnToken
-        DB.tokensRef.setValue([user.uid: token])
+    static func saveTokens(user: GSUser) {
+        DB.tokensRef.setValue([user.uid: user.apnTokens])
     }
     
     static func getUsers(completion: @escaping (FIRDataSnapshot)->()) {

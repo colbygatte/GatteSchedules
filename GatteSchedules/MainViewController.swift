@@ -92,11 +92,12 @@ class MainViewController: UIViewController {
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {
-                        if App.loggedInUser.apnToken != App.apnToken {
-                            App.loggedInUser.apnToken = App.apnToken
+                        if App.apnToken != nil && !App.loggedInUser.apnTokens.contains(App.apnToken!) {
+                            App.loggedInUser.apnTokens.append(App.apnToken!)
                             DB.save(user: App.loggedInUser)
-                            DB.saveToken(user: App.loggedInUser)
+                            DB.saveTokens(user: App.loggedInUser)
                         }
+                        
                         App.loggedIn = true
                         self.begin()
                     }

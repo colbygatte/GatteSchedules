@@ -17,8 +17,6 @@ struct GSPushNotifications {
         var url = URLComponents(string: "http://colbygatte.com/whatever/apn.cgi")
         url?.queryItems = [itemTeamid, itemMessage]
         
-        
-        
         let task = URLSession.shared.dataTask(with: (url?.url)!) { data, response, error in
             if error == nil {
                 print("success!")
@@ -26,7 +24,6 @@ struct GSPushNotifications {
                 print(error ?? "error occured")
             }
         }
-        
         task.resume()
     }
 }
