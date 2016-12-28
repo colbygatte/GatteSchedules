@@ -28,7 +28,7 @@
 		E938EB801E03A16D00181590 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7F1E03A16D00181590 /* Logo.png */; };
 		E94E13771E138AD9008D6727 /* GSPushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E13761E138AD9008D6727 /* GSPushNotifications.swift */; };
 		E9626F191E037BBF00483710 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9626F181E037BBF00483710 /* Popup.xib */; };
-		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
+		E968C5821DFCB4AD00A9736F /* DEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */; };
 		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
 		E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */; };
 		E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */; };
@@ -37,8 +37,8 @@
 		E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */; };
 		E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */; };
 		E9BE77C01DF7537B005DB20C /* GSUserPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BF1DF7537B005DB20C /* GSUserPosition.swift */; };
-		E9BE77CE1DF86E25005DB20C /* ScheduleEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77CD1DF86E25005DB20C /* ScheduleEditor.storyboard */; };
-		E9BE77D11DF870A6005DB20C /* SEIndexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77D01DF870A6005DB20C /* SEIndexTableViewController.swift */; };
+		E9BE77CE1DF86E25005DB20C /* DayEditor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77CD1DF86E25005DB20C /* DayEditor.storyboard */; };
+		E9BE77D11DF870A6005DB20C /* DEIndexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77D01DF870A6005DB20C /* DEIndexTableViewController.swift */; };
 		E9BE77E11DF89004005DB20C /* USVScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */; };
 		E9BE77E21DF89004005DB20C /* USVScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE77E01DF89004005DB20C /* USVScheduleTableViewCell.xib */; };
 		E9BE78101DFA3763005DB20C /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */; };
@@ -117,7 +117,7 @@
 		E938EB7F1E03A16D00181590 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		E94E13761E138AD9008D6727 /* GSPushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPushNotifications.swift; sourceTree = "<group>"; };
 		E9626F181E037BBF00483710 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
-		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
+		E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
 		E96C81991E0F14EB006FD8E9 /* GatteSchedules.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GatteSchedules.entitlements; sourceTree = "<group>"; };
 		E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDPositionTableViewCell.xib; sourceTree = "<group>"; };
@@ -127,8 +127,8 @@
 		E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDay.swift; sourceTree = "<group>"; };
 		E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserShift.swift; sourceTree = "<group>"; };
 		E9BE77BF1DF7537B005DB20C /* GSUserPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserPosition.swift; sourceTree = "<group>"; };
-		E9BE77CD1DF86E25005DB20C /* ScheduleEditor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleEditor.storyboard; sourceTree = "<group>"; };
-		E9BE77D01DF870A6005DB20C /* SEIndexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEIndexTableViewController.swift; sourceTree = "<group>"; };
+		E9BE77CD1DF86E25005DB20C /* DayEditor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DayEditor.storyboard; sourceTree = "<group>"; };
+		E9BE77D01DF870A6005DB20C /* DEIndexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEIndexTableViewController.swift; sourceTree = "<group>"; };
 		E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = USVScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		E9BE77E01DF89004005DB20C /* USVScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = USVScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 		E9BE77CF1DF86FFD005DB20C /* DayEditor */ = {
 			isa = PBXGroup;
 			children = (
-				E9BE77D01DF870A6005DB20C /* SEIndexTableViewController.swift */,
-				E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */,
+				E9BE77D01DF870A6005DB20C /* DEIndexTableViewController.swift */,
+				E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */,
 				E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */,
 			);
 			name = DayEditor;
@@ -350,7 +350,7 @@
 				E9BE77DE1DF88FB3005DB20C /* UserScheduleViewer */,
 				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
 				E930879A1DFB58A00003CC84 /* DayDetail.storyboard */,
-				E9BE77CD1DF86E25005DB20C /* ScheduleEditor.storyboard */,
+				E9BE77CD1DF86E25005DB20C /* DayEditor.storyboard */,
 				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
 				E902F6021DEFDCDD00A2326F /* Settings.storyboard */,
 				E9EF53371E01E15500CDE712 /* EditUserTableViewCell.xib */,
@@ -545,7 +545,7 @@
 				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
-				E9BE77CE1DF86E25005DB20C /* ScheduleEditor.storyboard in Resources */,
+				E9BE77CE1DF86E25005DB20C /* DayEditor.storyboard in Resources */,
 				E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
 				E938EB7C1E039D4900181590 /* CellGripper.png in Resources */,
@@ -721,7 +721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9E274A41E02F71600B14AE2 /* CreateNewTeamViewController.swift in Sources */,
-				E9BE77D11DF870A6005DB20C /* SEIndexTableViewController.swift in Sources */,
+				E9BE77D11DF870A6005DB20C /* DEIndexTableViewController.swift in Sources */,
 				E9F4C0421DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift in Sources */,
 				E9BE78121DFA3775005DB20C /* MenuViewController.swift in Sources */,
 				E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */,
@@ -729,7 +729,7 @@
 				E9EAECF71DEDDF2500D4646C /* GSDayRequests.swift in Sources */,
 				E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */,
 				E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */,
-				E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */,
+				E968C5821DFCB4AD00A9736F /* DEPositionViewController.swift in Sources */,
 				E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */,
 				E9EF533A1E01E16C00CDE712 /* EditUserTableViewCell.swift in Sources */,
 				E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */,

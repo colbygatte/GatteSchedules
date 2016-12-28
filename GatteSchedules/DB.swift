@@ -65,10 +65,7 @@ class DB {
     }
     
     static func getSettings(completion: @escaping (FIRDataSnapshot)->()) {
-        let ref = DB.teamRef.child("settings")
-        
-        //ref.observeSingleEvent(of: .value, with: { snapshot in
-        ref.observe(.value, with: { snap in
+        DB.teamRef.child("settings").observeSingleEvent(of: .value, with: { snap in
             if snap.childrenCount == 0 {
                 assert(false, "snapshot childrenCount == 0 for settings")
             } else {
@@ -86,16 +83,6 @@ class DB {
     static func get(day: Date, completion: @escaping (FIRDataSnapshot)->()) {
         let dateString = App.formatter.string(from: day)
         
-        //DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
-        DB.daysRef.child(dateString).observe(.value, with: { snap in
-            completion(snap)
-        })
-    }
-    
-    static func getSingleEvent(day: Date, completion: @escaping (FIRDataSnapshot)->()) {
-        let dateString = App.formatter.string(from: day)
-        
-        //DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
         DB.daysRef.child(dateString).observeSingleEvent(of: .value, with: { snap in
             completion(snap)
         })
@@ -124,14 +111,6 @@ class DB {
     
     static func getUsers(completion: @escaping (FIRDataSnapshot)->()) {
         DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snap in
-        //DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observe(.value, with: { snap in
-            completion(snap)
-        })
-    }
-    
-    static func getUsersValue(completion: @escaping (FIRDataSnapshot)->()) {
-        //DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observeSingleEvent(of: .value, with: { snap in
-        DB.usersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid).observe(.value, with: { snap in
             completion(snap)
         })
     }
@@ -148,20 +127,9 @@ class DB {
         let ref = DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid)
         
         ref.observeSingleEvent(of: .value, with: { pendingUsersSnap in
-            //ref.observe(.value, with: { pendingUsersSnap in // don't want this, we only want to get a single instance
             completion(pendingUsersSnap)
         })
     }
-    
-    static func getPendingUsersValue(completion: @escaping (FIRDataSnapshot)->Void) {
-        let ref = DB.pendingUsersRef.queryOrdered(byChild: "teamid").queryEqual(toValue: DB.teamid)
-        
-        //ref.observeSingleEvent(of: .value, with: { pendingUsersSnap in
-        ref.observe(.value, with: { pendingUsersSnap in
-            completion(pendingUsersSnap)
-        })
-    }
-    
     
     static func createPendingUser(name: String, email: String, teamid: String) -> String {
         let code = String.random(length: 5)
@@ -178,7 +146,6 @@ class DB {
     
     static func getPendingUser(code: String, completion: @escaping (FIRDataSnapshot)->Void) {
         DB.ref.child("pendingUsers").child(code).observeSingleEvent(of: .value, with: { pendingUserSnap in
-        //DB.ref.child("pendingUsers").child(code).observe(.value, with: { pendingUserSnap in
             completion(pendingUserSnap)
         })
     }

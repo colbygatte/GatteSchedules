@@ -30,24 +30,6 @@ class MainViewController: UIViewController {
             loadUserDay(index: section)
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
-        
-        DB.getUsers { snap in
-            App.team = GSTeam()
-            for userData in snap.children {
-                let userSnap = userData as! FIRDataSnapshot
-                let user: GSUser!
-                if userSnap.key == App.loggedInUser.uid {
-                    user = App.loggedInUser
-                } else {
-                    user = GSUser(snapshot: userSnap, uid: userSnap.key)
-                }
-                App.team.add(user: user)
-            }
-            
-            self.tableView.reloadData()
-        }
-        
-        tableView.rowHeight = 70.0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,6 +38,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 70.0
         
         let menuButtonImage = UIImage(named: "CellGripper.png")
         let button = UIButton()
@@ -71,6 +54,13 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = UIRefreshControl()
+        
+        tableView.refreshControl?.addTarget(self, action: #selector(MainViewController.handleRefresh(refreshControl:)), for: .valueChanged)
+        let cellNib = UINib(nibName: "USVScheduleTableViewCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "USVScheduleTableViewCell")
+        let loadMoreNib = UINib(nibName: "LoadMoreTableViewCell", bundle: nil)
+        tableView.register(loadMoreNib, forCellReuseIdentifier: "LoadMoreCell")
+        
         now = Date()
         
         // Auth listener is used to get the logged in user and update the APN token if it changes.
@@ -79,16 +69,11 @@ class MainViewController: UIViewController {
             if user != nil {
                 DB.getUserData(uid: (user!.uid)) { userDataSnap in
                     let gsuser = GSUser(snapshot: userDataSnap, uid: (user?.uid)!)
-                    App.containerViewController.menuTableViewController.label.text = "Hello, \(gsuser.name!)!"
-                    App.containerViewController.menuTableViewController.label.font = UIFont.boldSystemFont(ofSize: 22.0)
+                    
+                    App.welcomeMessage = "Hello, \(gsuser.name!)!"
                     
                     App.loggedInUser = gsuser
-                    DB.teamid = gsuser.teamid
-                    DB.teamRef = DB.ref.child("teams").child(DB.teamid)
-                    DB.daysRef = DB.teamRef.child("days")
-                    DB.requestsRef = DB.teamRef.child("requests")
-                    DB.changesRef = DB.teamRef.child("changes")
-                    DB.tokensRef = DB.teamRef.child("tokens")
+                    App.setRefs(withTeamId: gsuser.teamid)
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {
@@ -105,9 +90,8 @@ class MainViewController: UIViewController {
             } else {
                 App.loggedIn = false
                 
-                let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-                let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
-                self.present(loginViewController, animated: true, completion: nil)
+                let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                self.present(vc, animated: true, completion: nil)
             }
         }
         DB.startAuthListener()
@@ -140,12 +124,6 @@ class MainViewController: UIViewController {
             }
         }
         
-        tableView.refreshControl?.addTarget(self, action: #selector(MainViewController.handleRefresh(refreshControl:)), for: .valueChanged)
-        let cellNib = UINib(nibName: "USVScheduleTableViewCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "USVScheduleTableViewCell")
-        let loadMoreNib = UINib(nibName: "LoadMoreTableViewCell", bundle: nil)
-        tableView.register(loadMoreNib, forCellReuseIdentifier: "LoadMoreCell")
-        
         App.makeMenu()
     }
     
@@ -172,7 +150,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    // @@@@ is this needed?
+    // used to reload a specific day, used after an admin has changed a day
     func loadUserDay(index: Int) {
         let day = userDays[index]
         DB.get(day: day.date) { snap in
@@ -209,10 +187,6 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == totalSections {
-            return nil
-        }
-        
         let day = userDays[section]
         
         if App.formatter.string(from: day.date) == App.formatter.string(from: App.now) {
@@ -265,14 +239,14 @@ extension MainViewController: UITableViewDelegate {
             navigationController?.pushViewController(vc, animated: true)
         } else if App.loggedInUser.permissions == App.Permissions.manager {
             // These need to be done better
-            DB.getSingleEvent(day: userDay.date) { snap in
-                let sb = UIStoryboard(name: "ScheduleEditor", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "SEIndex") as! SEIndexTableViewController
+            DB.get(day: userDay.date) { snap in
+                let sb = UIStoryboard(name: "DayEditor", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "DEIndex") as! DEIndexTableViewController
                 vc.day = GSDay(snapshot: snap)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            DB.getSingleEvent(day: userDay.date) { snap in
+            DB.get(day: userDay.date) { snap in
                 let sb = UIStoryboard(name: "DayDetail", bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
                 vc.day = GSDay(snapshot: snap)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SEPositionViewController: UIViewController {
+class DEPositionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var day: GSDay!
     var dayRequests: GSDayRequests!
@@ -55,7 +55,7 @@ class SEPositionViewController: UIViewController {
     }
 }
 
-extension SEPositionViewController: UITableViewDataSource {
+extension DEPositionViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return shiftids.count
     }
@@ -109,7 +109,7 @@ extension SEPositionViewController: UITableViewDataSource {
     }
 }
 
-extension SEPositionViewController: UITableViewDelegate {
+extension DEPositionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let shiftid = shiftids[indexPath.section]
         let user = possibleWorkers[indexPath.row]

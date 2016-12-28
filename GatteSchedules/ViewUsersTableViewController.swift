@@ -18,7 +18,11 @@ class ViewUsersTableViewController: UITableViewController {
         super.viewDidLoad()
         uids = []
         
-        DB.getUsersValue { snap in
+        loadUsers()
+    }
+    
+    func loadUsers() {
+        DB.getUsers() { snap in
             self.team = GSTeam()
             for userData in snap.children {
                 let userSnap = userData as! FIRDataSnapshot
@@ -37,7 +41,6 @@ class ViewUsersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
         cell.textLabel?.text = team.get(user: uids[indexPath.row])?.name
         
         return cell
@@ -49,8 +52,6 @@ class ViewUsersTableViewController: UITableViewController {
             
             let editUserViewController = segue.destination as! EditUserViewController
             editUserViewController.user = team.get(user: uids[row])
-        } else if segue.identifier == "CreateUser" {
-            let createUserViewController = segue.destination as! CreateUserViewController
         }
     }
 }

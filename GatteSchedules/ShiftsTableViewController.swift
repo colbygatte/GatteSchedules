@@ -68,9 +68,9 @@ class ShiftsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
         let shiftName = App.teamSettings.shiftNames[shiftids[indexPath.row]]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = shiftName
         
         return cell

@@ -55,8 +55,8 @@ class DDIndexViewController: UIViewController {
         } else if identifier == "DDWorkers" {
             let indexPath = (tableView.indexPathForSelectedRow)!
             if indexPath.row == 0 && showEditCell {
-                let sb = UIStoryboard(name: "ScheduleEditor", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "SEIndex") as! SEIndexTableViewController
+                let sb = UIStoryboard(name: "DayEditor", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "DEIndex") as! DEIndexTableViewController
                 if day != nil {
                     vc.day = day!
                     vc.dayChangedDelegate = self

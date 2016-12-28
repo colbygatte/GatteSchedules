@@ -15,7 +15,7 @@ protocol DayChangedDelegate {
     func dayChanged(newDay: GSDay)
 }
 
-class SEIndexTableViewController: UIViewController {
+class DEIndexTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var publishedCheckbox: BEMCheckBox!
     var day: GSDay!
@@ -26,7 +26,7 @@ class SEIndexTableViewController: UIViewController {
     var positionNames: [String: String]!
     var positionids: [String]!
     var changesMade = false
-    var ddPositionViewController: SEPositionViewController?
+    var ddPositionViewController: DEPositionViewController?
     
     override func viewWillAppear(_ animated: Bool) {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -105,13 +105,13 @@ class SEIndexTableViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         changesMade = true
-        if segue.identifier == "SEPosition" {
+        if segue.identifier == "DEPosition" {
             changesMade = true
             
             let row = (tableView.indexPathForSelectedRow?.row)!
             let positionid = positionids[row]
             
-            let vc = segue.destination as! SEPositionViewController
+            let vc = segue.destination as! DEPositionViewController
             self.ddPositionViewController = vc
             
             vc.day = day
@@ -123,7 +123,7 @@ class SEIndexTableViewController: UIViewController {
     }
 }
 
-extension SEIndexTableViewController: UITableViewDataSource {
+extension DEIndexTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return positionids.count
     }
@@ -138,7 +138,7 @@ extension SEIndexTableViewController: UITableViewDataSource {
     }
 }
 
-extension SEIndexTableViewController: BEMCheckBoxDelegate {
+extension DEIndexTableViewController: BEMCheckBoxDelegate {
     func didTap(_ checkBox: BEMCheckBox) {
         changesMade = true
     }

@@ -23,6 +23,21 @@ struct App {
     static var apnToken: String?
     
     static var containerViewController: ContainerViewController!
+    static var welcomeMessage: String? {
+        didSet {
+            App.containerViewController.menuTableViewController.label.text = welcomeMessage
+            App.containerViewController.menuTableViewController.label.font = UIFont.boldSystemFont(ofSize: 22.0)
+        }
+    }
+    
+    static func setRefs(withTeamId: String) {
+        DB.teamid = withTeamId
+        DB.teamRef = DB.ref.child("teams").child(DB.teamid)
+        DB.daysRef = DB.teamRef.child("days")
+        DB.requestsRef = DB.teamRef.child("requests")
+        DB.changesRef = DB.teamRef.child("changes")
+        DB.tokensRef = DB.teamRef.child("tokens")
+    }
     
     static func getDateFromNow(_ days: Int) -> Date {
         return App.now.addingTimeInterval(TimeInterval(60 * 60 * 24 * days))
@@ -99,6 +114,10 @@ struct App {
         })
         App.menuCells.append(logoutMenuButton)
         App.refreshMenu()
+    }
+    
+    static func loadBasicData() {
+        
     }
 }
 
