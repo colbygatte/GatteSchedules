@@ -68,6 +68,8 @@ class SEIndexTableViewController: UIViewController {
     @IBAction func saveButtonPressed() {
         if publishedCheckbox.on {
             day.published = true
+            let date = App.formatter.string(from: day.date)
+            GSPushNotifications.sendNotification(teamid: App.loggedInUser.teamid, message: "Schedule released for \(date).")
         } else {
             day.published = false
         }

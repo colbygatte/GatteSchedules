@@ -11,6 +11,7 @@ import Firebase
 
 class GSUser: NSObject {
     var uid: String!
+    var apnToken: String?
     
     var teamid: String!
     var name: String!
@@ -26,6 +27,7 @@ class GSUser: NSObject {
         teamid = values["teamid"] as! String
         permissions = values["permissions"] as! String
         email = values["email"] as! String
+        apnToken = values["apnToken"] as? String
         
         positions = []
         let positionsValues = values["positions"] as? [String]
@@ -63,6 +65,7 @@ class GSUser: NSObject {
         userObject["positions"] = positions
         userObject["shifts"] = shifts
         userObject["email"] = email
+        userObject["apnToken"] = apnToken ?? ""
         
         return userObject
     }

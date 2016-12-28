@@ -20,6 +20,7 @@ class DB {
     static var daysRef: FIRDatabaseReference!
     static var requestsRef: FIRDatabaseReference!
     static var changesRef: FIRDatabaseReference!
+    static var tokensRef: FIRDatabaseReference!
     
     private static var authListenerHandle: FIRAuthStateDidChangeListenerHandle! // @@@@ should probably be optional
     private static var authListenerBlock: FIRAuthStateDidChangeListenerBlock!
@@ -115,6 +116,11 @@ class DB {
     static func save(user: GSUser) {
         let userRef = DB.usersRef.child(user.uid)
         userRef.setValue(user.toFirebaseObject())
+    }
+    
+    static func saveToken(user: GSUser) {
+        let token = user.apnToken
+        DB.tokensRef.setValue([user.uid: token])
     }
     
     static func getUsers(completion: @escaping (FIRDataSnapshot)->()) {

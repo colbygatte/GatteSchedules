@@ -56,7 +56,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //DB.signOut()
         
         let menuButtonImage = UIImage(named: "CellGripper.png")
         let button = UIButton()
@@ -74,6 +73,8 @@ class MainViewController: UIViewController {
         tableView.refreshControl = UIRefreshControl()
         now = Date()
         
+        // Auth listener is used to get the logged in user and update the APN token if it changes.
+        // Will present the login view controller if not logged in.
         DB.setAuthListener { auth, user in
             if user != nil {
                 DB.getUserData(uid: (user!.uid)) { userDataSnap in
@@ -87,9 +88,15 @@ class MainViewController: UIViewController {
                     DB.daysRef = DB.teamRef.child("days")
                     DB.requestsRef = DB.teamRef.child("requests")
                     DB.changesRef = DB.teamRef.child("changes")
+                    DB.tokensRef = DB.teamRef.child("tokens")
                     
                     // this is called multiple times, we dont' want the app to begin multiple times
                     if App.loggedIn == false {
+                        if App.loggedInUser.apnToken != App.apnToken {
+                            App.loggedInUser.apnToken = App.apnToken
+                            DB.save(user: App.loggedInUser)
+                            DB.saveToken(user: App.loggedInUser)
+                        }
                         App.loggedIn = true
                         self.begin()
                     }
@@ -138,7 +145,7 @@ class MainViewController: UIViewController {
         let loadMoreNib = UINib(nibName: "LoadMoreTableViewCell", bundle: nil)
         tableView.register(loadMoreNib, forCellReuseIdentifier: "LoadMoreCell")
         
-        makeMenu()
+        App.makeMenu()
     }
     
     func loadUserDays() {
@@ -175,41 +182,6 @@ class MainViewController: UIViewController {
                 self.tableView.reloadSections(IndexSet(integer: index), with: .none)
             }
         }
-    }
-    
-    func makeMenu() {
-        App.clearMenu()
-        
-        if App.loggedInUser.permissions == App.Permissions.manager {
-            let userMb = MenuCellData(text: "Users", block: {
-                let sb = UIStoryboard(name: "Settings", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "ViewUsers")
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-            App.menuCells.append(userMb)
-            
-            let pendingUsersMb = MenuCellData(text: "Pending users", block: {
-                let sb = UIStoryboard(name: "Settings", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "ViewPendingUsers")
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-            App.menuCells.append(pendingUsersMb)
-            
-            let mb1 = MenuCellData(text: "Settings", block: {
-                let sb = UIStoryboard(name: "Settings", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "Settings")
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-            App.menuCells.append(mb1)
-        }
-        
-        let logoutMenuButton = MenuCellData(text: "Logout", block: {
-            DB.signOut {
-                App.loggedIn = false
-            }
-        })
-        App.menuCells.append(logoutMenuButton)
-        App.refreshMenu()
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
@@ -311,7 +283,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if isDoneLoading {
             if indexPath.section + 1 == tableView.numberOfSections {
-                totalSections += 5
+                totalSections += 15
                 loadUserDays()
             }
         }

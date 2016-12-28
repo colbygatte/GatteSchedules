@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct App {
     static var formatter = DateFormatter()
@@ -19,6 +20,7 @@ struct App {
     static var teamSettings: GSSettings!
     
     static var now: Date = Date()
+    static var apnToken: String?
     
     static var containerViewController: ContainerViewController!
     
@@ -62,8 +64,41 @@ struct App {
         
         static var bemCheckboxOffColor = UIColor.gray
         static var bemCheckboxOnColor = UIColor.hexString(hex: "2C3849")
+    }
+    
+    static func makeMenu() {
+        App.clearMenu()
         
+        if App.loggedInUser.permissions == App.Permissions.manager {
+            let userMb = MenuCellData(text: "Users", block: {
+                let sb = UIStoryboard(name: "Settings", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "ViewUsers")
+                App.containerViewController.containerNavigationController.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(userMb)
+            
+            let pendingUsersMb = MenuCellData(text: "Pending users", block: {
+                let sb = UIStoryboard(name: "Settings", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "ViewPendingUsers")
+                App.containerViewController.containerNavigationController.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(pendingUsersMb)
+            
+            let mb1 = MenuCellData(text: "Settings", block: {
+                let sb = UIStoryboard(name: "Settings", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "Settings")
+                App.containerViewController.containerNavigationController.pushViewController(vc, animated: true)
+            })
+            App.menuCells.append(mb1)
+        }
         
+        let logoutMenuButton = MenuCellData(text: "Logout", block: {
+            DB.signOut {
+                App.loggedIn = false
+            }
+        })
+        App.menuCells.append(logoutMenuButton)
+        App.refreshMenu()
     }
 }
 

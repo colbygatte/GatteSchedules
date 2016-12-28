@@ -26,6 +26,7 @@
 		E938EB361E037ED500181590 /* GSPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938EB351E037ED500181590 /* GSPopup.swift */; };
 		E938EB7C1E039D4900181590 /* CellGripper.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7B1E039D4900181590 /* CellGripper.png */; };
 		E938EB801E03A16D00181590 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7F1E03A16D00181590 /* Logo.png */; };
+		E94E13771E138AD9008D6727 /* GSPushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E13761E138AD9008D6727 /* GSPushNotifications.swift */; };
 		E9626F191E037BBF00483710 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9626F181E037BBF00483710 /* Popup.xib */; };
 		E968C5821DFCB4AD00A9736F /* SEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */; };
 		E968C5841DFD209800A9736F /* GSUserDayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5831DFD209800A9736F /* GSUserDayRequest.swift */; };
@@ -114,9 +115,11 @@
 		E938EB351E037ED500181590 /* GSPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPopup.swift; sourceTree = "<group>"; };
 		E938EB7B1E039D4900181590 /* CellGripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellGripper.png; sourceTree = "<group>"; };
 		E938EB7F1E03A16D00181590 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		E94E13761E138AD9008D6727 /* GSPushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPushNotifications.swift; sourceTree = "<group>"; };
 		E9626F181E037BBF00483710 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* SEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEPositionViewController.swift; sourceTree = "<group>"; };
 		E968C5831DFD209800A9736F /* GSUserDayRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDayRequest.swift; sourceTree = "<group>"; };
+		E96C81991E0F14EB006FD8E9 /* GatteSchedules.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GatteSchedules.entitlements; sourceTree = "<group>"; };
 		E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDPositionTableViewCell.xib; sourceTree = "<group>"; };
 		E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPositionTableViewCell.swift; sourceTree = "<group>"; };
 		E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -308,6 +311,7 @@
 		E9EAEC861DE53F3D00D4646C /* GatteSchedules */ = {
 			isa = PBXGroup;
 			children = (
+				E96C81991E0F14EB006FD8E9 /* GatteSchedules.entitlements */,
 				E9EAECD61DECCB5700D4646C /* Storyboard */,
 				E9EAECD71DECCB5F00D4646C /* Controllers */,
 				E9EAECD81DECCB6400D4646C /* Models */,
@@ -360,12 +364,12 @@
 		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E938EB351E037ED500181590 /* GSPopup.swift */,
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
 				E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */,
 				E9BE78111DFA3775005DB20C /* MenuViewController.swift */,
 				E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */,
 				E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */,
+				E938EB351E037ED500181590 /* GSPopup.swift */,
 				E930879E1DFB58D00003CC84 /* DayDetail */,
 				E9BE77CF1DF86FFD005DB20C /* DayEditor */,
 				E902F6041DEFDD0500A2326F /* Settings */,
@@ -385,6 +389,7 @@
 				E968C5831DFD209800A9736F /* GSUserDayRequest.swift */,
 				E9EAECD91DECCBD200D4646C /* DB.swift */,
 				E9EAECDB1DECCBE400D4646C /* App.swift */,
+				E94E13761E138AD9008D6727 /* GSPushNotifications.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -481,13 +486,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = colbyg;
 				TargetAttributes = {
 					E9EAEC831DE53F3D00D4646C = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 6BTW725B4B;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					E9EAEC971DE53F3D00D4646C = {
 						CreatedOnToolsVersion = 8.1;
@@ -733,6 +746,7 @@
 				E902F6061DEFDD2000A2326F /* SettingsViewController.swift in Sources */,
 				E9EAEC881DE53F3D00D4646C /* AppDelegate.swift in Sources */,
 				E9A0D2911DFE722F00A896C9 /* DDRequestTableViewCell.swift in Sources */,
+				E94E13771E138AD9008D6727 /* GSPushNotifications.swift in Sources */,
 				E9BE77C01DF7537B005DB20C /* GSUserPosition.swift in Sources */,
 				E9F4C03B1DF28344000228D2 /* CreateUserViewController.swift in Sources */,
 				E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */,
@@ -819,6 +833,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -869,6 +884,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -899,8 +915,10 @@
 			baseConfigurationReference = 6A1988B2ED4EA548427A0EB7 /* Pods-GatteSchedules.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GatteSchedules/GatteSchedules.entitlements;
 				DEVELOPMENT_TEAM = 6BTW725B4B;
 				INFOPLIST_FILE = GatteSchedules/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedules;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -913,8 +931,10 @@
 			baseConfigurationReference = F696509750500FAD20771831 /* Pods-GatteSchedules.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GatteSchedules/GatteSchedules.entitlements;
 				DEVELOPMENT_TEAM = 6BTW725B4B;
 				INFOPLIST_FILE = GatteSchedules/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colbyg.GatteSchedules;
 				PRODUCT_NAME = "$(TARGET_NAME)";
