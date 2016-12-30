@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     var userDays: [GSUserDay]!
     var isDoneLoading: Bool = false
     var nextWorkingDay: GSUserDay?
-    
+    var cannotRequestBefore: Date!
     
     override func viewWillAppear(_ animated: Bool) {
         App.containerViewController.setSwipeLeftGesture(on: true)
@@ -101,6 +101,7 @@ class MainViewController: UIViewController {
         DB.getSettings { settingsSnap in
             let settings = GSSettings(snapshot: settingsSnap)
             App.teamSettings = settings
+            self.cannotRequestBefore = App.getDateFromNow(App.teamSettings.daysPriorRestriction)
         }
         
         DB.getUsers { usersSnap in
@@ -212,7 +213,11 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "USVScheduleTableViewCell", for: indexPath) as! USVScheduleTableViewCell
         
         if !day.published {
-            cell.setIsNotPublished()
+            if day.date < cannotRequestBefore {
+                cell.setIsNotPublishedAndCannotRequest()
+            } else {
+                cell.setIsNotPublishedAndCanRequest()
+            }
         } else if day.isOff {
             cell.setIsOff()
         } else {
@@ -229,8 +234,8 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
+        let cell = tableView.cellForRow(at: indexPath) as! USVScheduleTableViewCell
         let userDay = userDays[section]
-        
         
         if userDay.published == true {
             let sb = UIStoryboard(name: "DayDetail", bundle: nil)
@@ -246,11 +251,13 @@ extension MainViewController: UITableViewDelegate {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            DB.get(day: userDay.date) { snap in
-                let sb = UIStoryboard(name: "DayDetail", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
-                vc.day = GSDay(snapshot: snap)
-                self.navigationController?.pushViewController(vc, animated: true)
+            if !cell.unpublishedAndCannotRequest {
+                DB.get(day: userDay.date) { snap in
+                    let sb = UIStoryboard(name: "DayDetail", bundle: nil)
+                    let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
+                    vc.day = GSDay(snapshot: snap)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }

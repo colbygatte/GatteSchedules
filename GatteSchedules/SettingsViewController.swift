@@ -21,10 +21,12 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        title = "Settings"
         
         cells = [
-            SettingsCell(storyboarId: "ShiftsView", text: "Edit shifts"),
-            SettingsCell(storyboarId: "PositionsView", text: "Edit positions")
+            SettingsCell(storyboarId: "General", text: "General"),
+            SettingsCell(storyboarId: "ShiftsView", text: "Shifts"),
+            SettingsCell(storyboarId: "PositionsView", text: "Positions")
         ]
     }
     

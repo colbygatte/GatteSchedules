@@ -14,6 +14,7 @@ class USVScheduleTableViewCell: UITableViewCell {
     
     var day: GSUserDay!
     var shift: GSUserShift!
+    var unpublishedAndCannotRequest = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,8 +50,10 @@ class USVScheduleTableViewCell: UITableViewCell {
         resizeLabels()
     }
     
-    func setIsNotPublished() {
+    func setIsNotPublishedAndCanRequest() {
         shiftLabel.textColor = UIColor.gray
+        
+        unpublishedAndCannotRequest = false
         
         if App.loggedInUser.permissions == App.Permissions.manager {
             shiftLabel.text = "Edit day/Put in a request"
@@ -61,6 +64,21 @@ class USVScheduleTableViewCell: UITableViewCell {
         positionLabel.text = ""
         resizeLabels()
     }
+    
+    func setIsNotPublishedAndCannotRequest() {
+        shiftLabel.textColor = UIColor.gray
+        
+        if App.loggedInUser.permissions == App.Permissions.manager {
+            shiftLabel.text = "Edit day/Put in a request"
+        } else {
+            shiftLabel.text = "Unpublished"
+            unpublishedAndCannotRequest = true
+        }
+        
+        positionLabel.text = ""
+        resizeLabels()
+    }
+    
     
     func resizeLabels() {
         shiftLabel.sizeToFit()

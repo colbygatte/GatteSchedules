@@ -20,6 +20,7 @@ class GSSettings: NSObject {
     var positions: [String: String]
     var teamName: String!
     var teamid: String!
+    var daysPriorRestriction: Int!
     
     init(snapshot: FIRDataSnapshot) {
         shifts = [:]
@@ -32,6 +33,11 @@ class GSSettings: NSObject {
         teamName = settingsObject["teamName"] as! String
         teamid = DB.teamRef.key
         
+        if snapshot.hasChild("daysPriorRestriction") {
+            daysPriorRestriction = settingsObject["daysPriorRestriction"] as! Int
+        } else {
+            daysPriorRestriction = 5
+        }
         
         if snapshot.hasChild("positions") {
             let positionsObject = settingsObject["positions"] as! [String: String]
@@ -56,6 +62,7 @@ class GSSettings: NSObject {
         
         settingsObject["teamName"] = teamName
         settingsObject["teamid"] = teamid
+        settingsObject["daysPriorRestriction"] = daysPriorRestriction
         
         var shiftsObject: [String: [String:String]] = [:]
         for (shiftid, shiftTimes) in shifts {

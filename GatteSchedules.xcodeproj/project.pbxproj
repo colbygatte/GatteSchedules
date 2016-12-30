@@ -34,6 +34,7 @@
 		E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */; };
 		E9A0D2911DFE722F00A896C9 /* DDRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */; };
 		E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */; };
+		E9B581871E170FBF00F6E68F /* GeneralSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B581861E170FBF00F6E68F /* GeneralSettingsViewController.swift */; };
 		E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */; };
 		E9BE77BE1DF7534E005DB20C /* GSUserShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */; };
 		E9BE77C01DF7537B005DB20C /* GSUserPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE77BF1DF7537B005DB20C /* GSUserPosition.swift */; };
@@ -124,6 +125,7 @@
 		E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDPositionTableViewCell.swift; sourceTree = "<group>"; };
 		E9A0D2901DFE722F00A896C9 /* DDRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestTableViewCell.swift; sourceTree = "<group>"; };
 		E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DDRequestTableViewCell.xib; sourceTree = "<group>"; };
+		E9B581861E170FBF00F6E68F /* GeneralSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettingsViewController.swift; sourceTree = "<group>"; };
 		E9BE77BB1DF752F2005DB20C /* GSUserDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserDay.swift; sourceTree = "<group>"; };
 		E9BE77BD1DF7534E005DB20C /* GSUserShift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserShift.swift; sourceTree = "<group>"; };
 		E9BE77BF1DF7537B005DB20C /* GSUserPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSUserPosition.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				E902F6051DEFDD2000A2326F /* SettingsViewController.swift */,
+				E9B581861E170FBF00F6E68F /* GeneralSettingsViewController.swift */,
 				E902F6071DEFDE2000A2326F /* PositionsTableViewController.swift */,
 				E902F6091DEFDE2900A2326F /* ShiftsTableViewController.swift */,
 				E902F60B1DF08E0C00A2326F /* EditShiftViewController.swift */,
@@ -365,10 +368,10 @@
 			isa = PBXGroup;
 			children = (
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
+				E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */,
 				E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */,
 				E9BE78111DFA3775005DB20C /* MenuViewController.swift */,
 				E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */,
-				E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */,
 				E938EB351E037ED500181590 /* GSPopup.swift */,
 				E930879E1DFB58D00003CC84 /* DayDetail */,
 				E9BE77CF1DF86FFD005DB20C /* DayEditor */,
@@ -730,6 +733,7 @@
 				E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */,
 				E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */,
 				E968C5821DFCB4AD00A9736F /* DEPositionViewController.swift in Sources */,
+				E9B581871E170FBF00F6E68F /* GeneralSettingsViewController.swift in Sources */,
 				E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */,
 				E9EF533A1E01E16C00CDE712 /* EditUserTableViewCell.swift in Sources */,
 				E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */,
