@@ -67,9 +67,12 @@ class DEIndexTableViewController: UIViewController {
     
     @IBAction func saveButtonPressed() {
         if publishedCheckbox.on {
+            // If the day wasn't already published, send a notification out to the team.
+            if !day.published {
+                let date = App.formatter.string(from: day.date)
+                GSPushNotifications.sendNotification(teamid: App.loggedInUser.teamid, message: "Schedule released for \(date).")
+            }
             day.published = true
-            let date = App.formatter.string(from: day.date)
-            GSPushNotifications.sendNotification(teamid: App.loggedInUser.teamid, message: "Schedule released for \(date).")
         } else {
             day.published = false
         }
