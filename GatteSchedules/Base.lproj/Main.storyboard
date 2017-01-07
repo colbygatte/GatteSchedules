@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="1670" y="-109"/>
         </scene>
-        <!--Title-->
+        <!--Jump-->
         <scene sceneID="y8P-n6-Ypv">
             <objects>
                 <viewController id="Rcn-f5-7Gr" customClass="JumpViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +95,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Ng0-XC-TPb">
+                    <navigationItem key="navigationItem" title="Jump" id="Ng0-XC-TPb">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="OIr-Qh-4bY">
                             <connections>
                                 <action selector="choose" destination="Rcn-f5-7Gr" id="rAg-NU-2Ws"/>
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q13-k0-c4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2572" y="-109"/>
+            <point key="canvasLocation" x="2529" y="-109"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="NDd-Df-6U7">

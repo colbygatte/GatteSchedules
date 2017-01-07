@@ -20,6 +20,10 @@
 		E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F60F1DF0AD6700A2326F /* ViewUsersTableViewController.swift */; };
 		E902F61A1DF24C6000A2326F /* GSTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = E902F6191DF24C6000A2326F /* GSTeam.swift */; };
 		E90BCB721E20C19D00D4842E /* JumpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90BCB711E20C19D00D4842E /* JumpViewController.swift */; };
+		E92348601E21A9340028A3C9 /* GSCheckbox.xib in Resources */ = {isa = PBXBuildFile; fileRef = E923485F1E21A9340028A3C9 /* GSCheckbox.xib */; };
+		E92348621E21A9460028A3C9 /* GSCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92348611E21A9460028A3C9 /* GSCheckbox.swift */; };
+		E92348651E21B2FB0028A3C9 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348631E21B2FB0028A3C9 /* checkmark.png */; };
+		E92348661E21B2FB0028A3C9 /* checkmark_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348641E21B2FB0028A3C9 /* checkmark_background.png */; };
 		E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E930879A1DFB58A00003CC84 /* DayDetail.storyboard */; };
 		E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */; };
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
@@ -111,6 +115,10 @@
 		E902F60F1DF0AD6700A2326F /* ViewUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUsersTableViewController.swift; sourceTree = "<group>"; };
 		E902F6191DF24C6000A2326F /* GSTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSTeam.swift; sourceTree = "<group>"; };
 		E90BCB711E20C19D00D4842E /* JumpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpViewController.swift; sourceTree = "<group>"; };
+		E923485F1E21A9340028A3C9 /* GSCheckbox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSCheckbox.xib; sourceTree = "<group>"; };
+		E92348611E21A9460028A3C9 /* GSCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSCheckbox.swift; sourceTree = "<group>"; };
+		E92348631E21B2FB0028A3C9 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = images/checkmark.png; sourceTree = "<group>"; };
+		E92348641E21B2FB0028A3C9 /* checkmark_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark_background.png; path = images/checkmark_background.png; sourceTree = "<group>"; };
 		E930879A1DFB58A00003CC84 /* DayDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DayDetail.storyboard; sourceTree = "<group>"; };
 		E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDIndexViewController.swift; sourceTree = "<group>"; };
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				E96C81991E0F14EB006FD8E9 /* GatteSchedules.entitlements */,
+				E92348631E21B2FB0028A3C9 /* checkmark.png */,
+				E92348641E21B2FB0028A3C9 /* checkmark_background.png */,
 				E9EAECD61DECCB5700D4646C /* Storyboard */,
 				E9EAECD71DECCB5F00D4646C /* Controllers */,
 				E9EAECD81DECCB6400D4646C /* Models */,
@@ -369,6 +379,8 @@
 		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E923485F1E21A9340028A3C9 /* GSCheckbox.xib */,
+				E92348611E21A9460028A3C9 /* GSCheckbox.swift */,
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
 				E90BCB711E20C19D00D4842E /* JumpViewController.swift */,
 				E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */,
@@ -549,10 +561,12 @@
 			files = (
 				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
 				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
+				E92348601E21A9340028A3C9 /* GSCheckbox.xib in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
 				E9BE77CE1DF86E25005DB20C /* DayEditor.storyboard in Resources */,
 				E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */,
+				E92348661E21B2FB0028A3C9 /* checkmark_background.png in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
 				E938EB7C1E039D4900181590 /* CellGripper.png in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
@@ -564,6 +578,7 @@
 				E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */,
 				E9626F191E037BBF00483710 /* Popup.xib in Resources */,
 				E9BE77E21DF89004005DB20C /* USVScheduleTableViewCell.xib in Resources */,
+				E92348651E21B2FB0028A3C9 /* checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,6 +761,7 @@
 				E902F60A1DEFDE2900A2326F /* ShiftsTableViewController.swift in Sources */,
 				E9BE78101DFA3763005DB20C /* ContainerViewController.swift in Sources */,
 				E902F60E1DF0A3BE00A2326F /* EditUserViewController.swift in Sources */,
+				E92348621E21A9460028A3C9 /* GSCheckbox.swift in Sources */,
 				E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */,
 				E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */,
 				E9EAECDC1DECCBE400D4646C /* App.swift in Sources */,

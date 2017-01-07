@@ -17,7 +17,7 @@ protocol DayChangedDelegate {
 
 class DEIndexTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var publishedCheckbox: BEMCheckBox!
+    @IBOutlet weak var publishedCheckbox: GSCheckbox!
     var day: GSDay!
     var dayCopy: GSDay!
     var dayChangedDelegate: DayChangedDelegate?
@@ -41,9 +41,8 @@ class DEIndexTableViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.setHidesBackButton(true, animated: false)
         
-        publishedCheckbox.onAnimationType = .fill
-        publishedCheckbox.offAnimationType = .fill
         publishedCheckbox.delegate = self
+        publishedCheckbox.setFrame()
         
         tableView.dataSource = self
         
@@ -143,6 +142,12 @@ extension DEIndexTableViewController: UITableViewDataSource {
 
 extension DEIndexTableViewController: BEMCheckBoxDelegate {
     func didTap(_ checkBox: BEMCheckBox) {
+        changesMade = true
+    }
+}
+
+extension DEIndexTableViewController: GSCheckboxDelegate {
+    func toggled(_ checkbox: GSCheckbox) {
         changesMade = true
     }
 }

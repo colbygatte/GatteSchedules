@@ -72,7 +72,7 @@ class ContainerViewController: UIViewController {
             yPoints = []
             xVelocity = []
             yVelocity = []
-            break;
+            break
         case .changed:
             xPoints.append(Float(translation.x))
             yPoints.append(Float(translation.y))
@@ -92,7 +92,7 @@ class ContainerViewController: UIViewController {
                 }
             }
             
-            break;
+            break
         case .ended:
             isMoving = false
             if abs(xOrigin) > 200 {
@@ -102,10 +102,9 @@ class ContainerViewController: UIViewController {
                 menuIsShowing = true
                 toggleMenu()
             }
-            break;
+            break
         default:
-            
-            break;
+            break
         }
     }
     

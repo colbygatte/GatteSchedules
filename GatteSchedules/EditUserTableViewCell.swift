@@ -10,18 +10,20 @@ import UIKit
 import BEMCheckBox
 
 class EditUserTableViewCell: UITableViewCell {
-    @IBOutlet weak var checkbox: BEMCheckBox!
+    @IBOutlet weak var checkbox: GSCheckbox!
     @IBOutlet weak var customLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         bringSubview(toFront: contentView)
+        checkbox.setFrame()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        checkbox.setOn(selected, animated: true)
+        //checkbox.setOn(selected, animated: true)
+        checkbox.on = selected
     }
 }
 
