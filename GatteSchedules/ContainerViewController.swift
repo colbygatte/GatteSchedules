@@ -87,7 +87,7 @@ class ContainerViewController: UIViewController {
                     recognizer.setTranslation(CGPoint(x: 0, y: 0), in: view)
                 }
             } else {
-                if abs(translation.x) > 4 && abs(yVelocity.average()) < 5 {
+                if abs(translation.x) > 4 && abs(yVelocity.average()) < 115 && xPoints.count < 10 {
                     isMoving = true
                 }
             }

@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         App.scheduleDisplayFormatter.dateFormat = "E MMM d, y"
         
+        App.withSecondsFormatter.dateFormat = "hh:mm:ssa yyyy-MM-dd"
+        
         FIRApp.configure()
     
         DB.ref = FIRDatabase.database().reference()

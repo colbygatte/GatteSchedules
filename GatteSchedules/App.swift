@@ -13,6 +13,7 @@ struct App {
     static var formatter = DateFormatter()
     static var shiftFormatter = DateFormatter()
     static var scheduleDisplayFormatter = DateFormatter()
+    static var withSecondsFormatter = DateFormatter()
     
     static var loggedIn: Bool = false
     static var loggedInUser: GSUser!

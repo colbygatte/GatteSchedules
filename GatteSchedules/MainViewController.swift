@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     var dateStart: Int = 0
     var totalSections: Int = 20
     var userDays: [GSUserDay]!
+    var fullDays: [GSDay]!
     var isDoneLoading: Bool = false
     var nextWorkingDay: GSUserDay?
     var cannotRequestBefore: Date!
@@ -26,8 +27,6 @@ class MainViewController: UIViewController {
         App.containerViewController.setSwipeLeftGesture(on: true)
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            let section = selectedIndexPath.section
-            //loadUserDay(index: section)
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
@@ -56,10 +55,7 @@ class MainViewController: UIViewController {
         tableView.refreshControl = UIRefreshControl()
         
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
-        let cellNib = UINib(nibName: "USVScheduleTableViewCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: "USVScheduleTableViewCell")
-        let loadMoreNib = UINib(nibName: "LoadMoreTableViewCell", bundle: nil)
-        tableView.register(loadMoreNib, forCellReuseIdentifier: "LoadMoreCell")
+        tableView.register(UINib(nibName: "USVScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "USVScheduleTableViewCell")
         
         now = Date()
         
@@ -117,13 +113,13 @@ class MainViewController: UIViewController {
                     user = GSUser(snapshot: userSnap, uid: userSnap.key)
                 }
                 App.team.add(user: user)
-                
-                // Moved load user days in here because
-                // we are comparing users to the App.team users, and above
-                // we set the logged in user's GSUser to it's respective place in
-                // App.team
-                self.loadUserDays()
             }
+            
+            // Moved load user days in here because
+            // we are comparing users to the App.team users, and above
+            // we set the logged in user's GSUser to it's respective place in
+            // App.team
+            self.loadUserDays()
         }
         
         App.makeMenu()
@@ -132,16 +128,20 @@ class MainViewController: UIViewController {
     func loadUserDays() {
         DB.teamRef.child("lastChanged").observe(.value, with: { snap in
             self.userDays = []
+            self.fullDays = []
             self.isDoneLoading = false
             
+            print("@1")
             for i in self.dateStart...self.dateStart + self.totalSections {
-                //let date = App.getDateFromNow(i)
+                print("@2")
                 let date = App.getDateFrom(self.now, days: i)
                 let day = GSUserDay(date: date, user: App.loggedInUser)
                 self.userDays.append(day)
                 
                 DB.get(day: day.date) { snap in
+                    print("@3")
                     let gsDay = GSDay(snapshot: snap)
+                    self.fullDays.append(gsDay)
                     day.addData(day: gsDay)
                     
                     DispatchQueue.main.async {
@@ -153,19 +153,6 @@ class MainViewController: UIViewController {
                 }
             }
         })
-    }
-    
-    // used to reload a specific day, used after an admin has changed a day
-    func loadUserDay(index: Int) {
-        let day = userDays[index]
-        DB.get(day: day.date) { snap in
-            let gsDay = GSDay(snapshot: snap)
-            day.addData(day: gsDay)
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadSections(IndexSet(integer: index), with: .none)
-            }
-        }
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
@@ -255,21 +242,16 @@ extension MainViewController: UITableViewDelegate {
             vc.userDay = userDay
             navigationController?.pushViewController(vc, animated: true)
         } else if App.loggedInUser.permissions == App.Permissions.manager {
-            // These need to be done better
-            DB.get(day: userDay.date) { snap in
-                let sb = UIStoryboard(name: "DayEditor", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "DEIndex") as! DEIndexTableViewController
-                vc.day = GSDay(snapshot: snap)
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+            let sb = UIStoryboard(name: "DayEditor", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "DEIndex") as! DEIndexTableViewController
+            vc.day = fullDays[section]
+            self.navigationController?.pushViewController(vc, animated: true)
         } else {
             if !cell.unpublishedAndCannotRequest {
-                DB.get(day: userDay.date) { snap in
-                    let sb = UIStoryboard(name: "DayDetail", bundle: nil)
-                    let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
-                    vc.day = GSDay(snapshot: snap)
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                let sb = UIStoryboard(name: "DayDetail", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
+                vc.day = fullDays[section]
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

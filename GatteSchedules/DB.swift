@@ -90,8 +90,9 @@ class DB {
     
     static func save(day: GSDay) {
         let dateString = App.formatter.string(from: day.date)
+        let secondsDateString = App.withSecondsFormatter.string(from: Date())
         DB.daysRef.child(dateString).setValue(day.toFirebaseObject())
-        DB.teamRef.child("lastChanged").childByAutoId().setValue(0)
+        DB.teamRef.child("lastChanged").child(secondsDateString).setValue(["editedBy": App.loggedInUser.uid, "dayEdited": dateString])
     }
     
     // Users
