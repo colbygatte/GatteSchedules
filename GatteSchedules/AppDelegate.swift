@@ -81,10 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(userInfo)
         
-        let alert = UIAlertController(title: nil, message: "recieved", preferredStyle: .alert)
-        let done = UIAlertAction(title: "Done", style: .cancel, handler: nil)
-        alert.addAction(done)
-        App.containerViewController.containerNavigationController.present(alert, animated: true, completion: nil)
         
     }
     
@@ -96,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let shared = UIApplication.shared
         
         shared.delegate?.window??.tintColor = App.Theme.tintColor
+        UINavigationBar.appearance().barTintColor = App.Theme.navBarColor
         
         BEMCheckBox.appearance().tintColor = App.Theme.bemCheckboxOffColor
         
@@ -105,7 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         BEMCheckBox.appearance().onAnimationType = .fill
         BEMCheckBox.appearance().offAnimationType = .fill
         
-        UINavigationBar.appearance().barTintColor = App.Theme.navBarColor
     }
 }
 

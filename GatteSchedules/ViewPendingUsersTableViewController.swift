@@ -14,6 +14,8 @@ class ViewPendingUsersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(loadPendingUsers), for: .valueChanged)
         
         pendingUsers = []
         loadPendingUsers()
@@ -30,6 +32,7 @@ class ViewPendingUsersTableViewController: UITableViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
             }
         }
     }

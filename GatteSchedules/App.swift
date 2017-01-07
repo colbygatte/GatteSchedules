@@ -43,6 +43,10 @@ struct App {
         return App.now.addingTimeInterval(TimeInterval(60 * 60 * 24 * days))
     }
     
+    static func getDateFrom(_ date: Date, days: Int) -> Date {
+        return date.addingTimeInterval(TimeInterval(60 * 60 * 24 * days))
+    }
+    
     // Menu
     static var menuCells: [MenuCellData] = []
     

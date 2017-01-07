@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             let section = selectedIndexPath.section
-            loadUserDay(index: section)
+            //loadUserDay(index: section)
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.refreshControl = UIRefreshControl()
         
-        tableView.refreshControl?.addTarget(self, action: #selector(MainViewController.handleRefresh(refreshControl:)), for: .valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
         let cellNib = UINib(nibName: "USVScheduleTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "USVScheduleTableViewCell")
         let loadMoreNib = UINib(nibName: "LoadMoreTableViewCell", bundle: nil)
@@ -102,6 +102,7 @@ class MainViewController: UIViewController {
             let settings = GSSettings(snapshot: settingsSnap)
             App.teamSettings = settings
             self.cannotRequestBefore = App.getDateFromNow(App.teamSettings.daysPriorRestriction)
+            
         }
         
         DB.getUsers { usersSnap in
@@ -129,26 +130,29 @@ class MainViewController: UIViewController {
     }
     
     func loadUserDays() {
-        userDays = []
-        isDoneLoading = false
-        
-        for i in dateStart...dateStart + totalSections {
-            let date = App.getDateFromNow(i)
-            let day = GSUserDay(date: date, user: App.loggedInUser)
-            userDays.append(day)
+        DB.teamRef.child("lastChanged").observe(.value, with: { snap in
+            self.userDays = []
+            self.isDoneLoading = false
             
-            DB.get(day: day.date) { snap in
-                let gsDay = GSDay(snapshot: snap)
-                day.addData(day: gsDay)
+            for i in self.dateStart...self.dateStart + self.totalSections {
+                //let date = App.getDateFromNow(i)
+                let date = App.getDateFrom(self.now, days: i)
+                let day = GSUserDay(date: date, user: App.loggedInUser)
+                self.userDays.append(day)
                 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    if i == self.dateStart + self.totalSections {
-                        self.isDoneLoading = true
+                DB.get(day: day.date) { snap in
+                    let gsDay = GSDay(snapshot: snap)
+                    day.addData(day: gsDay)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        if i == self.dateStart + self.totalSections {
+                            self.isDoneLoading = true
+                        }
                     }
                 }
             }
-        }
+        })
     }
     
     // used to reload a specific day, used after an admin has changed a day
@@ -173,6 +177,14 @@ class MainViewController: UIViewController {
     
     @IBAction func menuButtonPressed() {
         App.toggleMenu()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Jump" {
+            let vc = segue.destination as! JumpViewController
+            vc.date = now
+            vc.delegate = self
+        }
     }
 }
 
@@ -269,6 +281,13 @@ extension MainViewController: UITableViewDelegate {
                 loadUserDays()
             }
         }
+    }
+}
+
+extension MainViewController: JumpViewControllerDelegate {
+    func jumperDateChosen(_ dateStart: Date) {
+        now = dateStart
+        loadUserDays()
     }
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2016 colbyg. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct GSPushNotifications {
     

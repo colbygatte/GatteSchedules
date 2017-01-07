@@ -78,7 +78,7 @@ class DB {
         DB.teamRef.child("settings").setValue(settings.toFirebaseObject())
     }
     
-    // Schedules
+    // Days
     //
     static func get(day: Date, completion: @escaping (FIRDataSnapshot)->()) {
         let dateString = App.formatter.string(from: day)
@@ -91,6 +91,7 @@ class DB {
     static func save(day: GSDay) {
         let dateString = App.formatter.string(from: day.date)
         DB.daysRef.child(dateString).setValue(day.toFirebaseObject())
+        DB.teamRef.child("lastChanged").childByAutoId().setValue(0)
     }
     
     // Users
