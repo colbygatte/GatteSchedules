@@ -16,6 +16,8 @@ class ViewPendingUsersTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadPendingUsers), for: .valueChanged)
+        tableView.registerGSSubtitleTableViewCell()
+        tableView.rowHeight = 55.0
         
         pendingUsers = []
         loadPendingUsers()
@@ -44,9 +46,10 @@ class ViewPendingUsersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pendingUser = pendingUsers[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = pendingUser.name
-        cell.detailTextLabel?.text = pendingUser.code
+        let cell = tableView.dequeueGSSubtitleTableViewCell()
+        cell.gsLabel.text = pendingUser.name
+        cell.gsSubLabel.text = pendingUser.code
+        
         return cell
     }
 }

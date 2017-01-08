@@ -24,13 +24,28 @@
 		E92348621E21A9460028A3C9 /* GSCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92348611E21A9460028A3C9 /* GSCheckbox.swift */; };
 		E92348651E21B2FB0028A3C9 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348631E21B2FB0028A3C9 /* checkmark.png */; };
 		E92348661E21B2FB0028A3C9 /* checkmark_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348641E21B2FB0028A3C9 /* checkmark_background.png */; };
+		E92348681E21D1740028A3C9 /* navbarbackgroundimage.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */; };
+		E923486A1E21D2560028A3C9 /* navbarbackgroundimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */; };
+		E923486C1E21D5FA0028A3C9 /* horizredborder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E923486B1E21D5FA0028A3C9 /* horizredborder.jpg */; };
+		E923486E1E22034A0028A3C9 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E923486D1E22034A0028A3C9 /* logo.png */; };
+		E92348701E2208030028A3C9 /* login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E923486F1E2208030028A3C9 /* login_button.png */; };
+		E92348721E2210610028A3C9 /* Open Sans 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */; };
+		E92348771E2219D70028A3C9 /* GSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92348751E2219D70028A3C9 /* GSTableViewCell.swift */; };
+		E92348781E2219D70028A3C9 /* GSTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92348761E2219D70028A3C9 /* GSTableViewCell.xib */; };
+		E923487A1E221C240028A3C9 /* GSSubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92348791E221C240028A3C9 /* GSSubtitleTableViewCell.swift */; };
+		E923487C1E221C9D0028A3C9 /* GSSubtitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E923487B1E221C9D0028A3C9 /* GSSubtitleTableViewCell.xib */; };
+		E923487F1E221FFA0028A3C9 /* Open Sans regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E923487D1E221F8D0028A3C9 /* Open Sans regular.ttf */; };
+		E92348801E221FFA0028A3C9 /* Open Sans 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E923487E1E221F9D0028A3C9 /* Open Sans 600.ttf */; };
+		E92348821E2222260028A3C9 /* MainSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92348811E2222260028A3C9 /* MainSectionHeaderView.xib */; };
+		E92348841E2222330028A3C9 /* MainSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92348831E2222330028A3C9 /* MainSectionHeaderView.swift */; };
+		E92348871E2226930028A3C9 /* sectionheadertop.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348851E2226930028A3C9 /* sectionheadertop.png */; };
+		E92348881E2226930028A3C9 /* sectionheaderbottom.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348861E2226930028A3C9 /* sectionheaderbottom.png */; };
 		E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E930879A1DFB58A00003CC84 /* DayDetail.storyboard */; };
 		E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */; };
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
 		E93087A41DFCA2BC0003CC84 /* DDScheduleForPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */; };
 		E938EB361E037ED500181590 /* GSPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E938EB351E037ED500181590 /* GSPopup.swift */; };
 		E938EB7C1E039D4900181590 /* CellGripper.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7B1E039D4900181590 /* CellGripper.png */; };
-		E938EB801E03A16D00181590 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E938EB7F1E03A16D00181590 /* Logo.png */; };
 		E94E13771E138AD9008D6727 /* GSPushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E13761E138AD9008D6727 /* GSPushNotifications.swift */; };
 		E9626F191E037BBF00483710 /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9626F181E037BBF00483710 /* Popup.xib */; };
 		E968C5821DFCB4AD00A9736F /* DEPositionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */; };
@@ -119,13 +134,28 @@
 		E92348611E21A9460028A3C9 /* GSCheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSCheckbox.swift; sourceTree = "<group>"; };
 		E92348631E21B2FB0028A3C9 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = images/checkmark.png; sourceTree = "<group>"; };
 		E92348641E21B2FB0028A3C9 /* checkmark_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark_background.png; path = images/checkmark_background.png; sourceTree = "<group>"; };
+		E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbarbackgroundimage.png; path = images/navbarbackgroundimage.png; sourceTree = "<group>"; };
+		E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navbarbackgroundimage.jpg; path = images/navbarbackgroundimage.jpg; sourceTree = "<group>"; };
+		E923486B1E21D5FA0028A3C9 /* horizredborder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = horizredborder.jpg; path = images/horizredborder.jpg; sourceTree = "<group>"; };
+		E923486D1E22034A0028A3C9 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = "<group>"; };
+		E923486F1E2208030028A3C9 /* login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_button.png; path = images/login_button.png; sourceTree = "<group>"; };
+		E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Open Sans 300.ttf"; sourceTree = "<group>"; };
+		E92348751E2219D70028A3C9 /* GSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSTableViewCell.swift; sourceTree = "<group>"; };
+		E92348761E2219D70028A3C9 /* GSTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSTableViewCell.xib; sourceTree = "<group>"; };
+		E92348791E221C240028A3C9 /* GSSubtitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSSubtitleTableViewCell.swift; sourceTree = "<group>"; };
+		E923487B1E221C9D0028A3C9 /* GSSubtitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSSubtitleTableViewCell.xib; sourceTree = "<group>"; };
+		E923487D1E221F8D0028A3C9 /* Open Sans regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Open Sans regular.ttf"; sourceTree = "<group>"; };
+		E923487E1E221F9D0028A3C9 /* Open Sans 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Open Sans 600.ttf"; sourceTree = "<group>"; };
+		E92348811E2222260028A3C9 /* MainSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainSectionHeaderView.xib; sourceTree = "<group>"; };
+		E92348831E2222330028A3C9 /* MainSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSectionHeaderView.swift; sourceTree = "<group>"; };
+		E92348851E2226930028A3C9 /* sectionheadertop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionheadertop.png; path = images/sectionheadertop.png; sourceTree = "<group>"; };
+		E92348861E2226930028A3C9 /* sectionheaderbottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionheaderbottom.png; path = images/sectionheaderbottom.png; sourceTree = "<group>"; };
 		E930879A1DFB58A00003CC84 /* DayDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DayDetail.storyboard; sourceTree = "<group>"; };
 		E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDIndexViewController.swift; sourceTree = "<group>"; };
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
 		E93087A31DFCA2BB0003CC84 /* DDScheduleForPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDScheduleForPositionViewController.swift; sourceTree = "<group>"; };
 		E938EB351E037ED500181590 /* GSPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPopup.swift; sourceTree = "<group>"; };
 		E938EB7B1E039D4900181590 /* CellGripper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellGripper.png; sourceTree = "<group>"; };
-		E938EB7F1E03A16D00181590 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		E94E13761E138AD9008D6727 /* GSPushNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GSPushNotifications.swift; sourceTree = "<group>"; };
 		E9626F181E037BBF00483710 /* Popup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
 		E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEPositionViewController.swift; sourceTree = "<group>"; };
@@ -284,6 +314,7 @@
 			children = (
 				E9BE77D01DF870A6005DB20C /* DEIndexTableViewController.swift */,
 				E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */,
+				E923486D1E22034A0028A3C9 /* logo.png */,
 				E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */,
 			);
 			name = DayEditor;
@@ -326,14 +357,21 @@
 			children = (
 				E96C81991E0F14EB006FD8E9 /* GatteSchedules.entitlements */,
 				E92348631E21B2FB0028A3C9 /* checkmark.png */,
+				E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */,
+				E923487D1E221F8D0028A3C9 /* Open Sans regular.ttf */,
+				E923487E1E221F9D0028A3C9 /* Open Sans 600.ttf */,
+				E923486B1E21D5FA0028A3C9 /* horizredborder.jpg */,
 				E92348641E21B2FB0028A3C9 /* checkmark_background.png */,
+				E92348851E2226930028A3C9 /* sectionheadertop.png */,
+				E92348861E2226930028A3C9 /* sectionheaderbottom.png */,
+				E923486F1E2208030028A3C9 /* login_button.png */,
 				E9EAECD61DECCB5700D4646C /* Storyboard */,
 				E9EAECD71DECCB5F00D4646C /* Controllers */,
 				E9EAECD81DECCB6400D4646C /* Models */,
-				E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */,
+				E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */,
+				E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */,
 				E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */,
 				E938EB7B1E039D4900181590 /* CellGripper.png */,
-				E938EB7F1E03A16D00181590 /* Logo.png */,
 				E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */,
 				E9EAEC931DE53F3D00D4646C /* Info.plist */,
 				E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */,
@@ -364,6 +402,7 @@
 			children = (
 				E9BE77DE1DF88FB3005DB20C /* UserScheduleViewer */,
 				E9EAEC8B1DE53F3D00D4646C /* Main.storyboard */,
+				E92348811E2222260028A3C9 /* MainSectionHeaderView.xib */,
 				E930879A1DFB58A00003CC84 /* DayDetail.storyboard */,
 				E9BE77CD1DF86E25005DB20C /* DayEditor.storyboard */,
 				E902F5FB1DEFCB1300A2326F /* Login.storyboard */,
@@ -372,6 +411,8 @@
 				E9BE78131DFA4EDB005DB20C /* MenuTableViewCell.xib */,
 				E9A0D2921DFE725300A896C9 /* DDRequestTableViewCell.xib */,
 				E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */,
+				E92348761E2219D70028A3C9 /* GSTableViewCell.xib */,
+				E923487B1E221C9D0028A3C9 /* GSSubtitleTableViewCell.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -379,9 +420,12 @@
 		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E92348751E2219D70028A3C9 /* GSTableViewCell.swift */,
+				E92348791E221C240028A3C9 /* GSSubtitleTableViewCell.swift */,
 				E923485F1E21A9340028A3C9 /* GSCheckbox.xib */,
 				E92348611E21A9460028A3C9 /* GSCheckbox.swift */,
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
+				E92348831E2222330028A3C9 /* MainSectionHeaderView.swift */,
 				E90BCB711E20C19D00D4842E /* JumpViewController.swift */,
 				E9BE77DF1DF89004005DB20C /* USVScheduleTableViewCell.swift */,
 				E9BE780F1DFA3763005DB20C /* ContainerViewController.swift */,
@@ -407,6 +451,7 @@
 				E968C5831DFD209800A9736F /* GSUserDayRequest.swift */,
 				E9EAECD91DECCBD200D4646C /* DB.swift */,
 				E9EAECDB1DECCBE400D4646C /* App.swift */,
+				E9EAEC871DE53F3D00D4646C /* AppDelegate.swift */,
 				E94E13761E138AD9008D6727 /* GSPushNotifications.swift */,
 			);
 			name = Models;
@@ -559,6 +604,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E923487F1E221FFA0028A3C9 /* Open Sans regular.ttf in Resources */,
+				E92348801E221FFA0028A3C9 /* Open Sans 600.ttf in Resources */,
+				E92348721E2210610028A3C9 /* Open Sans 300.ttf in Resources */,
 				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
 				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
 				E92348601E21A9340028A3C9 /* GSCheckbox.xib in Resources */,
@@ -566,17 +614,26 @@
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
 				E9BE77CE1DF86E25005DB20C /* DayEditor.storyboard in Resources */,
 				E9A0D2931DFE725300A896C9 /* DDRequestTableViewCell.xib in Resources */,
+				E92348821E2222260028A3C9 /* MainSectionHeaderView.xib in Resources */,
 				E92348661E21B2FB0028A3C9 /* checkmark_background.png in Resources */,
+				E92348871E2226930028A3C9 /* sectionheadertop.png in Resources */,
 				E902F5ED1DEE381E00A2326F /* TODO.txt in Resources */,
+				E923487C1E221C9D0028A3C9 /* GSSubtitleTableViewCell.xib in Resources */,
 				E938EB7C1E039D4900181590 /* CellGripper.png in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
+				E92348701E2208030028A3C9 /* login_button.png in Resources */,
+				E923486C1E21D5FA0028A3C9 /* horizredborder.jpg in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
-				E938EB801E03A16D00181590 /* Logo.png in Resources */,
 				E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */,
 				E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
 				E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */,
 				E9626F191E037BBF00483710 /* Popup.xib in Resources */,
+				E92348681E21D1740028A3C9 /* navbarbackgroundimage.png in Resources */,
+				E923486E1E22034A0028A3C9 /* logo.png in Resources */,
+				E923486A1E21D2560028A3C9 /* navbarbackgroundimage.jpg in Resources */,
+				E92348781E2219D70028A3C9 /* GSTableViewCell.xib in Resources */,
+				E92348881E2226930028A3C9 /* sectionheaderbottom.png in Resources */,
 				E9BE77E21DF89004005DB20C /* USVScheduleTableViewCell.xib in Resources */,
 				E92348651E21B2FB0028A3C9 /* checkmark.png in Resources */,
 			);
@@ -752,6 +809,7 @@
 				E9BE77BC1DF752F2005DB20C /* GSUserDay.swift in Sources */,
 				E968C5821DFCB4AD00A9736F /* DEPositionViewController.swift in Sources */,
 				E9B581871E170FBF00F6E68F /* GeneralSettingsViewController.swift in Sources */,
+				E923487A1E221C240028A3C9 /* GSSubtitleTableViewCell.swift in Sources */,
 				E902F6101DF0AD6700A2326F /* ViewUsersTableViewController.swift in Sources */,
 				E9EF533A1E01E16C00CDE712 /* EditUserTableViewCell.swift in Sources */,
 				E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */,
@@ -763,6 +821,7 @@
 				E902F60E1DF0A3BE00A2326F /* EditUserViewController.swift in Sources */,
 				E92348621E21A9460028A3C9 /* GSCheckbox.swift in Sources */,
 				E9EAECE01DECCC2C00D4646C /* LoginViewController.swift in Sources */,
+				E92348841E2222330028A3C9 /* MainSectionHeaderView.swift in Sources */,
 				E9EAECFD1DEDFF9B00D4646C /* MainViewController.swift in Sources */,
 				E9EAECDC1DECCBE400D4646C /* App.swift in Sources */,
 				E9F4C0861DF675F4000228D2 /* GSShift.swift in Sources */,
@@ -775,6 +834,7 @@
 				E9EAECF51DEDDF1200D4646C /* GSUser.swift in Sources */,
 				E9BE77E11DF89004005DB20C /* USVScheduleTableViewCell.swift in Sources */,
 				E90BCB721E20C19D00D4842E /* JumpViewController.swift in Sources */,
+				E92348771E2219D70028A3C9 /* GSTableViewCell.swift in Sources */,
 				E9F4C0881DF675FC000228D2 /* GSPosition.swift in Sources */,
 				E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */,
 				E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */,

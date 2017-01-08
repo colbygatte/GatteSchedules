@@ -21,6 +21,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.registerGSTableViewCell()
+        
         title = "Settings"
         
         cells = [
@@ -28,6 +30,7 @@ class SettingsViewController: UIViewController {
             SettingsCell(storyboarId: "ShiftsView", text: "Shifts"),
             SettingsCell(storyboarId: "PositionsView", text: "Positions")
         ]
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,8 +51,8 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellData = cells[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = cellData.text
+        let cell = tableView.dequeueGSTableViewCell()
+        cell.gsLabel.text = cellData.text
         return cell
     }
 }

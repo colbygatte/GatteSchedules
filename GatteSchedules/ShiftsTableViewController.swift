@@ -13,9 +13,15 @@ class ShiftsTableViewController: UITableViewController {
     var shiftids: [String]!
     var addedShiftid: String?
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.registerGSTableViewCell()
         begin(again: false)
     }
     
@@ -67,11 +73,15 @@ class ShiftsTableViewController: UITableViewController {
         return shiftids.count
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "EditShift", sender: nil)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let shiftName = App.teamSettings.shiftNames[shiftids[indexPath.row]]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = shiftName
+        let cell = tableView.dequeueGSTableViewCell()
+        cell.gsLabel.text = shiftName
         
         return cell
     }

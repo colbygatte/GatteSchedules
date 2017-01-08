@@ -15,6 +15,8 @@ class PositionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.registerGSTableViewCell()
+        
         begin(again: false)
     }
     
@@ -30,13 +32,13 @@ class PositionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueGSTableViewCell()
         cell.selectionStyle = .none
         
         let positionid = positionids[indexPath.row]
         let position = App.teamSettings.positions[positionid]
         
-        cell.textLabel?.text = position
+        cell.gsLabel.text = position
         
         return cell
     }

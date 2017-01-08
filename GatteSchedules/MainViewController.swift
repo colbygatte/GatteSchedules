@@ -11,7 +11,6 @@ import Firebase
 
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
     var now: Date!
@@ -29,6 +28,7 @@ class MainViewController: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,6 +53,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = UIRefreshControl()
+        tableView.sectionHeaderHeight = 25.0
         
         tableView.refreshControl?.addTarget(self, action: #selector(handleRefresh(refreshControl:)), for: .valueChanged)
         tableView.register(UINib(nibName: "USVScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "USVScheduleTableViewCell")
@@ -231,6 +232,27 @@ extension MainViewController: UITableViewDataSource {
 // MARK: Table View Delegate
 
 extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let day = userDays[section]
+        let text: String
+        if App.formatter.string(from: day.date) == App.formatter.string(from: App.now) {
+            text = App.scheduleDisplayFormatter.string(from: day.date) + " - Today"
+        } else {
+            text = App.scheduleDisplayFormatter.string(from: day.date)
+        }
+        
+        let headerView = MainSectionHeaderView()
+        headerView.sectionTitleLabel.text = text
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 25)
+        headerView.setFrame()
+        headerView.clipsToBounds = true
+        
+        return headerView
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
         let cell = tableView.cellForRow(at: indexPath) as! USVScheduleTableViewCell

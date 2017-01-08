@@ -28,6 +28,7 @@ class JumpViewController: UIViewController {
     
     @IBAction func choose() {
         delegate?.jumperDateChosen(datePicker.date)
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 

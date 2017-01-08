@@ -22,7 +22,6 @@ class EditUserTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        //checkbox.setOn(selected, animated: true)
         checkbox.on = selected
     }
 }

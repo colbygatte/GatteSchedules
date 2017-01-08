@@ -11,10 +11,15 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var logoContainerView: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var loginButtonImageView: UIImageView!
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logoImageView: UIImageView!
     var loggedInFromFirstTimeLogin: Bool = false
+    
+    var fontSize: CGFloat = 16.0
     
     // is this a good solution?
     override func viewWillAppear(_ animated: Bool) {
@@ -29,20 +34,41 @@ class LoginViewController: UIViewController {
         
         DB.stopAuthListener() // stop in case it's the user's first login, because we need to make the user in user branch if it is there first login and the auth listener needs to get this data
         
-        let logo = UIImage(named: "Logo.png")
-        logoImageView.image = logo
+        logoContainerView.backgroundColor = UIColor.hexString(hex: "91A7B3")
+        view.backgroundColor = UIColor.hexString(hex: "E3E3E3")
+        
+        let tapEndEditing = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapEndEditing)
+        
+        let loginButtonTap = UITapGestureRecognizer(target: self, action: #selector(loginButtonTapped(recognizer:)))
+        loginButtonImageView.addGestureRecognizer(loginButtonTap)
+        
+        usernameTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+        passwordTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        let username = usernameTextField.text!
-        let password = passwordTextField.text!
-        
-        DB.signIn(username: username, password: password) { user, error in
-            if error == nil {
-                DB.startAuthListener() // the auth listener starts the app (it calls MainViewController.begin())
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                print(error.debugDescription)
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
+    func loginButtonTapped(recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .began {
+            print("began")
+        } else if recognizer.state == .ended {
+            let username = usernameTextField.text!
+            let password = passwordTextField.text!
+            
+            DB.signIn(username: username, password: password) { user, error in
+                if error == nil {
+                    DB.startAuthListener() // the auth listener starts the app (it calls MainViewController.begin())
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print(error.debugDescription)
+                }
             }
         }
     }
@@ -58,6 +84,17 @@ class LoginViewController: UIViewController {
             let createnewTeamViewController = segue.destination as! CreateNewTeamViewController
             createnewTeamViewController.delegate = self
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
     }
 }
 

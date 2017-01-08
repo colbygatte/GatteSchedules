@@ -16,9 +16,12 @@ class USVScheduleTableViewCell: UITableViewCell {
     var shift: GSUserShift!
     var unpublishedAndCannotRequest = false
     
+    var shiftLabelTextColor: UIColor!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        shiftLabelTextColor = UIColor.hexString(hex: "6A6A6A")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,7 +39,7 @@ class USVScheduleTableViewCell: UITableViewCell {
         text += ": "
         text += shift.position.positionid
         
-        shiftLabel.textColor = UIColor.gray
+        //shiftLabel.textColor = UIColor.hexString(hex: "D1D1D1")
         shiftLabel.text = App.teamSettings.getShift(id: shift.shiftid)
         positionLabel.text = App.teamSettings.getPosition(id: shift.position.positionid)
         
@@ -44,14 +47,14 @@ class USVScheduleTableViewCell: UITableViewCell {
     }
     
     func setIsOff() {
-        shiftLabel.textColor = UIColor.gray
+        shiftLabel.textColor = shiftLabelTextColor
         shiftLabel.text = "OFF"
         positionLabel.text = ""
         resizeLabels()
     }
     
     func setIsNotPublishedAndCanRequest() {
-        shiftLabel.textColor = UIColor.gray
+        shiftLabel.textColor = shiftLabelTextColor
         
         unpublishedAndCannotRequest = false
         
@@ -66,7 +69,7 @@ class USVScheduleTableViewCell: UITableViewCell {
     }
     
     func setIsNotPublishedAndCannotRequest() {
-        shiftLabel.textColor = UIColor.gray
+        shiftLabel.textColor = shiftLabelTextColor
         
         if App.loggedInUser.permissions == App.Permissions.manager {
             shiftLabel.text = "Edit day/Put in a request"

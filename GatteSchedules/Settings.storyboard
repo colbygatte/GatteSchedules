@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Kff-7u-WcQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GSCell" id="Kff-7u-WcQ" customClass="GSTableViewCell" customModule="GatteSchedules" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kff-7u-WcQ" id="e9i-fk-EAL">
@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="-945" y="1498"/>
         </scene>
-        <!--Title-->
+        <!--General-->
         <scene sceneID="Ae5-ru-Y4q">
             <objects>
                 <viewController storyboardIdentifier="General" id="AGT-m7-a25" customClass="GeneralSettingsViewController" customModule="GatteSchedules" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="q5a-Cq-rzS">
+                    <navigationItem key="navigationItem" title="General" id="q5a-Cq-rzS">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="F4R-pK-Bxc">
                             <connections>
                                 <action selector="saveButtonPressed" destination="AGT-m7-a25" id="9oi-Bk-I4j"/>
@@ -483,7 +483,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SettingsNC" automaticallyAdjustsScrollViewInsets="NO" id="O3T-s7-mfY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bdz-4T-3eB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bdz-4T-3eB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -45,6 +45,8 @@ class DEIndexTableViewController: UIViewController {
         publishedCheckbox.setFrame()
         
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.registerGSTableViewCell()
         
         positionNames = App.teamSettings.positions
         positionids = Array(positionNames.keys)
@@ -134,15 +136,15 @@ extension DEIndexTableViewController: UITableViewDataSource {
         let row = indexPath.row
         let positionName = positionNames[positionids[row]]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = positionName
+        let cell = tableView.dequeueGSTableViewCell()
+        cell.gsLabel.text = positionName
         return cell
     }
 }
 
-extension DEIndexTableViewController: BEMCheckBoxDelegate {
-    func didTap(_ checkBox: BEMCheckBox) {
-        changesMade = true
+extension DEIndexTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DEPosition", sender: nil)
     }
 }
 

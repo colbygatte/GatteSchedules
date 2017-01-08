@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xsR-jR-yfB" customClass="MenuTableViewCell" customModule="GatteSchedules" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="54" id="xsR-jR-yfB" customClass="MenuTableViewCell" customModule="GatteSchedules" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xsR-jR-yfB" id="Rdd-6p-ftm">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizredborder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DzZ-fB-mKH">
+                        <rect key="frame" x="0.0" y="51.5" width="375" height="2"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="qJI-9S-Rj1"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCc-VP-gsz">
+                        <rect key="frame" x="8" y="8" width="359" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DzZ-fB-mKH" firstAttribute="top" secondItem="zCc-VP-gsz" secondAttribute="bottom" id="20N-2D-htf"/>
+                    <constraint firstAttribute="trailing" secondItem="DzZ-fB-mKH" secondAttribute="trailing" id="9xQ-mq-jY4"/>
+                    <constraint firstItem="zCc-VP-gsz" firstAttribute="leading" secondItem="Rdd-6p-ftm" secondAttribute="leadingMargin" id="BsG-zQ-Ffl"/>
+                    <constraint firstItem="DzZ-fB-mKH" firstAttribute="leading" secondItem="Rdd-6p-ftm" secondAttribute="leading" id="Sdu-V5-6C5"/>
+                    <constraint firstAttribute="bottom" secondItem="DzZ-fB-mKH" secondAttribute="bottom" id="fgA-gI-XXO"/>
+                    <constraint firstItem="zCc-VP-gsz" firstAttribute="trailing" secondItem="Rdd-6p-ftm" secondAttribute="trailingMargin" id="iFQ-b7-7Mf"/>
+                    <constraint firstItem="zCc-VP-gsz" firstAttribute="top" secondItem="Rdd-6p-ftm" secondAttribute="topMargin" id="nM5-JS-OCU"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="58" y="106"/>
+            <connections>
+                <outlet property="customLabel" destination="zCc-VP-gsz" id="UAT-8p-cfd"/>
+            </connections>
+            <point key="canvasLocation" x="126.5" y="102"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="horizredborder.jpg" width="1024" height="3"/>
+    </resources>
 </document>

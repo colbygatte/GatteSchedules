@@ -23,6 +23,12 @@ struct App {
     static var now: Date = Date()
     static var apnToken: String?
     
+    static var fontSize: CGFloat = 16.0
+    
+    static var globalFont = UIFont(name: "OpenSans-Light", size: 16.0)
+    static var globalFontThick = UIFont(name: "OpenSans", size: 16.0)
+    static var globalFontThicker = UIFont(name: "OpenSans-Semibold", size: 16.0)
+    
     static var containerViewController: ContainerViewController!
     static var welcomeMessage: String? {
         didSet {
@@ -75,15 +81,10 @@ struct App {
     }
     
     struct Theme {
-        static var tintColor = UIColor.hexString(hex: "3D434E")
-        static var navBarColor = UIColor.hexString(hex: "AEBCC9")
+        static var tintColor = UIColor.hexString(hex: "414141")
         
-        static var menuBackgroundColor = UIColor.hexString(hex: "86919D")
-        static var menuSeparatorColor = UIColor.hexString(hex: "FFFFFF")
-        static var menuTextColor = UIColor.hexString(hex: "FFFFFF")
-        
-        static var bemCheckboxOffColor = UIColor.gray
-        static var bemCheckboxOnColor = UIColor.hexString(hex: "2C3849")
+        static var menuBackgroundColor = UIColor.hexString(hex: "EAEAEA")
+        static var menuTextColor = UIColor.hexString(hex: "494949")
     }
     
     static func makeMenu() {
@@ -123,6 +124,24 @@ struct App {
     
     static func loadBasicData() {
         
+    }
+}
+
+extension UITableView {
+    func registerGSTableViewCell() {
+        self.register(UINib(nibName: "GSTableViewCell", bundle: nil), forCellReuseIdentifier: "GSCell")
+    }
+    
+    func dequeueGSTableViewCell() -> GSTableViewCell {
+        return self.dequeueReusableCell(withIdentifier: "GSCell") as! GSTableViewCell
+    }
+    
+    func registerGSSubtitleTableViewCell() {
+        self.register(UINib(nibName: "GSSubtitleTableViewCell", bundle: nil), forCellReuseIdentifier: "GSCell")
+    }
+    
+    func dequeueGSSubtitleTableViewCell() -> GSSubtitleTableViewCell {
+        return self.dequeueReusableCell(withIdentifier: "GSCell") as! GSSubtitleTableViewCell
     }
 }
 

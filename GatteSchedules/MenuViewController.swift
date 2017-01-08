@@ -26,8 +26,11 @@ class MenuViewController: UIViewController {
         tableView.register(menuCellNib, forCellReuseIdentifier: "MenuCell")
         
         tableView.backgroundColor = App.Theme.menuBackgroundColor
-        tableView.separatorColor = App.Theme.menuSeparatorColor
+        tableView.separatorStyle = .none
+        
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0)) // hides separator lines
+        
+        label.textColor = App.Theme.menuTextColor
         
         view.backgroundColor  = App.Theme.menuBackgroundColor
     }
@@ -41,8 +44,8 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuTableViewCell
         let menuCellData = App.menuCells[indexPath.row]
-        cell.textLabel?.textAlignment = .right
-        cell.textLabel?.text = menuCellData.text
+        
+        cell.customLabel.text = menuCellData.text
         
         return cell
     }

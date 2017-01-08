@@ -14,10 +14,17 @@ class ViewUsersTableViewController: UITableViewController {
     var uids: [String]!
     var team: GSTeam!
     
+    override func viewWillAppear(_ animated: Bool) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadUsers), for: .valueChanged)
+        tableView.registerGSTableViewCell()
         
         uids = []
         
@@ -44,10 +51,14 @@ class ViewUsersTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = team.get(user: uids[indexPath.row])?.name
+        let cell = tableView.dequeueGSTableViewCell()
+        cell.gsLabel.text = team.get(user: uids[indexPath.row])?.name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "EditUser", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -53,6 +53,26 @@ class DEPositionViewController: UIViewController {
             sectionIndex += 1
         }
     }
+    
+    func verifyCanWorkShift(_ indexPath: IndexPath) {
+        let user = possibleWorkers[indexPath.row]
+        let shiftid = shiftids[indexPath.section]
+        
+        let message = user.name + " is not defined to work " + shiftNames[shiftid]! + ". Schedule anyway?"
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default) { action in
+            self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            self.day.add(worker: user, toShift: shiftid, position: self.positionid)
+            self.workers[shiftid]?.append(user)
+        }
+        let no = UIAlertAction(title: "No", style: .default) { action in
+            
+        }
+        alert.addAction(yes)
+        alert.addAction(no)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 extension DEPositionViewController: UITableViewDataSource {
@@ -97,8 +117,10 @@ extension DEPositionViewController: UITableViewDataSource {
         
         cell.subLabel.text = texts.joined(separator: " - ")
         
+        // Check to see if user can work shift
         if !user.canDo(shift: shiftid) {
             cell.nameLabel.textColor = UIColor.lightGray
+            cell.canWorkShift = false
         }
         
         cell.nameLabel.text = user.name
@@ -121,6 +143,12 @@ extension DEPositionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let cell = tableView.cellForRow(at: indexPath) as! DDPositionTableViewCell
         if cell.canSelect {
+            
+            if !cell.canWorkShift {
+                verifyCanWorkShift(indexPath)
+                return nil
+            }
+            
             return indexPath
         }
         return nil

@@ -10,6 +10,7 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
     var shouldToggle: Bool = true
+    @IBOutlet weak var customLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

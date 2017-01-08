@@ -25,6 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         App.formatter.dateFormat = "yyyy-MM-dd"
         
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
+        
         App.shiftFormatter.dateFormat = "hh:mma"
         App.shiftFormatter.amSymbol = "AM"
         App.shiftFormatter.pmSymbol = "PM"
@@ -94,16 +103,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let shared = UIApplication.shared
         
         shared.delegate?.window??.tintColor = App.Theme.tintColor
-        UINavigationBar.appearance().barTintColor = App.Theme.navBarColor
         
-        BEMCheckBox.appearance().tintColor = App.Theme.bemCheckboxOffColor
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navbarbackgroundimage.jpg"), for: .default)
         
-        BEMCheckBox.appearance().onTintColor = App.Theme.bemCheckboxOnColor
-        BEMCheckBox.appearance().onCheckColor = App.Theme.bemCheckboxOnColor
-        
-        BEMCheckBox.appearance().onAnimationType = .fill
-        BEMCheckBox.appearance().offAnimationType = .fill
-        
+        UILabel.appearance().font = App.globalFont
     }
 }
 
