@@ -22,6 +22,7 @@ class ViewUsersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadUsers), for: .valueChanged)
         tableView.registerGSTableViewCell()

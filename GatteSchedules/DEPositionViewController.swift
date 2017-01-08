@@ -21,6 +21,8 @@ class DEPositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "DDPositionTableViewCell", bundle: nil), forCellReuseIdentifier: "DDPositionCell")

@@ -20,7 +20,12 @@ class DDScheduleForPositionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
+        
         tableView.dataSource = self
+        tableView.registerGSTableViewCell()
+        
+        title = App.teamSettings.getPosition(id: positionid)
         
         shiftNames = App.teamSettings.shiftNames
         shiftids = Array(shiftNames.keys)
@@ -61,8 +66,9 @@ extension DDScheduleForPositionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let shiftid = shiftids[indexPath.section]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = workers[shiftid]?[indexPath.row].name
+        let cell = tableView.dequeueGSTableViewCell()
+        cell.selectionStyle = .none
+        cell.gsLabel.text = workers[shiftid]?[indexPath.row].name
         return cell
     }
 }

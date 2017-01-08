@@ -16,7 +16,7 @@ class EditShiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        gsSetupNavBar()
         let dates = App.teamSettings.getShiftDates(id: shiftid)
         beginDatePicker.date = dates.begin
         endDatePicker.date = dates.end

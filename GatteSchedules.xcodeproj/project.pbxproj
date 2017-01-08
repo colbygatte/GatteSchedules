@@ -26,7 +26,6 @@
 		E92348661E21B2FB0028A3C9 /* checkmark_background.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348641E21B2FB0028A3C9 /* checkmark_background.png */; };
 		E92348681E21D1740028A3C9 /* navbarbackgroundimage.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */; };
 		E923486A1E21D2560028A3C9 /* navbarbackgroundimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */; };
-		E923486C1E21D5FA0028A3C9 /* horizredborder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E923486B1E21D5FA0028A3C9 /* horizredborder.jpg */; };
 		E923486E1E22034A0028A3C9 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E923486D1E22034A0028A3C9 /* logo.png */; };
 		E92348701E2208030028A3C9 /* login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E923486F1E2208030028A3C9 /* login_button.png */; };
 		E92348721E2210610028A3C9 /* Open Sans 300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */; };
@@ -40,6 +39,15 @@
 		E92348841E2222330028A3C9 /* MainSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92348831E2222330028A3C9 /* MainSectionHeaderView.swift */; };
 		E92348871E2226930028A3C9 /* sectionheadertop.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348851E2226930028A3C9 /* sectionheadertop.png */; };
 		E92348881E2226930028A3C9 /* sectionheaderbottom.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348861E2226930028A3C9 /* sectionheaderbottom.png */; };
+		E923488E1E228B0E0028A3C9 /* login_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = E923488D1E228B0E0028A3C9 /* login_button_pressed.png */; };
+		E92348911E228D870028A3C9 /* createteam_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = E923488F1E228D870028A3C9 /* createteam_button_pressed.png */; };
+		E92348921E228D870028A3C9 /* createteam_button.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348901E228D870028A3C9 /* createteam_button.png */; };
+		E92348951E22BBFC0028A3C9 /* Open Sans 600.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92348941E22BBFC0028A3C9 /* Open Sans 600.ttf */; };
+		E92348971E22BC0E0028A3C9 /* horizredborder.png in Resources */ = {isa = PBXBuildFile; fileRef = E92348961E22BC0E0028A3C9 /* horizredborder.png */; };
+		E92348991E22BFE00028A3C9 /* FirstTimeLoginPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92348981E22BFE00028A3C9 /* FirstTimeLoginPopupView.xib */; };
+		E923489B1E22BFF30028A3C9 /* FirstTimeLoginPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923489A1E22BFF30028A3C9 /* FirstTimeLoginPopupView.swift */; };
+		E923489D1E22DF6D0028A3C9 /* JumpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923489C1E22DF6C0028A3C9 /* JumpView.swift */; };
+		E923489F1E22DF750028A3C9 /* JumpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E923489E1E22DF740028A3C9 /* JumpView.xib */; };
 		E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E930879A1DFB58A00003CC84 /* DayDetail.storyboard */; };
 		E930879D1DFB58C60003CC84 /* DDIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */; };
 		E93087A21DFC587D0003CC84 /* DDRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */; };
@@ -136,7 +144,6 @@
 		E92348641E21B2FB0028A3C9 /* checkmark_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark_background.png; path = images/checkmark_background.png; sourceTree = "<group>"; };
 		E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = navbarbackgroundimage.png; path = images/navbarbackgroundimage.png; sourceTree = "<group>"; };
 		E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = navbarbackgroundimage.jpg; path = images/navbarbackgroundimage.jpg; sourceTree = "<group>"; };
-		E923486B1E21D5FA0028A3C9 /* horizredborder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = horizredborder.jpg; path = images/horizredborder.jpg; sourceTree = "<group>"; };
 		E923486D1E22034A0028A3C9 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = images/logo.png; sourceTree = "<group>"; };
 		E923486F1E2208030028A3C9 /* login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_button.png; path = images/login_button.png; sourceTree = "<group>"; };
 		E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Open Sans 300.ttf"; sourceTree = "<group>"; };
@@ -150,6 +157,15 @@
 		E92348831E2222330028A3C9 /* MainSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSectionHeaderView.swift; sourceTree = "<group>"; };
 		E92348851E2226930028A3C9 /* sectionheadertop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionheadertop.png; path = images/sectionheadertop.png; sourceTree = "<group>"; };
 		E92348861E2226930028A3C9 /* sectionheaderbottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sectionheaderbottom.png; path = images/sectionheaderbottom.png; sourceTree = "<group>"; };
+		E923488D1E228B0E0028A3C9 /* login_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_button_pressed.png; path = images/login_button_pressed.png; sourceTree = "<group>"; };
+		E923488F1E228D870028A3C9 /* createteam_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = createteam_button_pressed.png; path = images/createteam_button_pressed.png; sourceTree = "<group>"; };
+		E92348901E228D870028A3C9 /* createteam_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = createteam_button.png; path = images/createteam_button.png; sourceTree = "<group>"; };
+		E92348941E22BBFC0028A3C9 /* Open Sans 600.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Open Sans 600.ttf"; sourceTree = "<group>"; };
+		E92348961E22BC0E0028A3C9 /* horizredborder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = horizredborder.png; path = images/horizredborder.png; sourceTree = "<group>"; };
+		E92348981E22BFE00028A3C9 /* FirstTimeLoginPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTimeLoginPopupView.xib; sourceTree = "<group>"; };
+		E923489A1E22BFF30028A3C9 /* FirstTimeLoginPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTimeLoginPopupView.swift; sourceTree = "<group>"; };
+		E923489C1E22DF6C0028A3C9 /* JumpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpView.swift; sourceTree = "<group>"; };
+		E923489E1E22DF740028A3C9 /* JumpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JumpView.xib; sourceTree = "<group>"; };
 		E930879A1DFB58A00003CC84 /* DayDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DayDetail.storyboard; sourceTree = "<group>"; };
 		E930879C1DFB58C60003CC84 /* DDIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDIndexViewController.swift; sourceTree = "<group>"; };
 		E93087A11DFC587D0003CC84 /* DDRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRequestViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +282,7 @@
 			children = (
 				E9EAECDF1DECCC2C00D4646C /* LoginViewController.swift */,
 				E9F4C03C1DF32E91000228D2 /* FirstTimeLoginViewController.swift */,
+				E923489A1E22BFF30028A3C9 /* FirstTimeLoginPopupView.swift */,
 				E9E274A31E02F71600B14AE2 /* CreateNewTeamViewController.swift */,
 			);
 			name = Login;
@@ -286,6 +303,30 @@
 				E9F4C0411DF37B3E000228D2 /* ViewPendingUsersTableViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		E92348931E22B9EC0028A3C9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E92348631E21B2FB0028A3C9 /* checkmark.png */,
+				E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */,
+				E923487D1E221F8D0028A3C9 /* Open Sans regular.ttf */,
+				E923486D1E22034A0028A3C9 /* logo.png */,
+				E923487E1E221F9D0028A3C9 /* Open Sans 600.ttf */,
+				E92348941E22BBFC0028A3C9 /* Open Sans 600.ttf */,
+				E92348961E22BC0E0028A3C9 /* horizredborder.png */,
+				E92348641E21B2FB0028A3C9 /* checkmark_background.png */,
+				E923488F1E228D870028A3C9 /* createteam_button_pressed.png */,
+				E92348901E228D870028A3C9 /* createteam_button.png */,
+				E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */,
+				E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */,
+				E938EB7B1E039D4900181590 /* CellGripper.png */,
+				E92348851E2226930028A3C9 /* sectionheadertop.png */,
+				E923488D1E228B0E0028A3C9 /* login_button_pressed.png */,
+				E92348861E2226930028A3C9 /* sectionheaderbottom.png */,
+				E923486F1E2208030028A3C9 /* login_button.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		E930879E1DFB58D00003CC84 /* DayDetail */ = {
@@ -314,7 +355,6 @@
 			children = (
 				E9BE77D01DF870A6005DB20C /* DEIndexTableViewController.swift */,
 				E968C5811DFCB4AD00A9736F /* DEPositionViewController.swift */,
-				E923486D1E22034A0028A3C9 /* logo.png */,
 				E979BD021E00FE7200783B08 /* DDPositionTableViewCell.swift */,
 			);
 			name = DayEditor;
@@ -355,23 +395,12 @@
 		E9EAEC861DE53F3D00D4646C /* GatteSchedules */ = {
 			isa = PBXGroup;
 			children = (
+				E92348931E22B9EC0028A3C9 /* Images */,
 				E96C81991E0F14EB006FD8E9 /* GatteSchedules.entitlements */,
-				E92348631E21B2FB0028A3C9 /* checkmark.png */,
-				E92348711E220F9B0028A3C9 /* Open Sans 300.ttf */,
-				E923487D1E221F8D0028A3C9 /* Open Sans regular.ttf */,
-				E923487E1E221F9D0028A3C9 /* Open Sans 600.ttf */,
-				E923486B1E21D5FA0028A3C9 /* horizredborder.jpg */,
-				E92348641E21B2FB0028A3C9 /* checkmark_background.png */,
-				E92348851E2226930028A3C9 /* sectionheadertop.png */,
-				E92348861E2226930028A3C9 /* sectionheaderbottom.png */,
-				E923486F1E2208030028A3C9 /* login_button.png */,
 				E9EAECD61DECCB5700D4646C /* Storyboard */,
 				E9EAECD71DECCB5F00D4646C /* Controllers */,
 				E9EAECD81DECCB6400D4646C /* Models */,
-				E92348671E21D1740028A3C9 /* navbarbackgroundimage.png */,
-				E92348691E21D2560028A3C9 /* navbarbackgroundimage.jpg */,
 				E9EAEC8E1DE53F3D00D4646C /* Assets.xcassets */,
-				E938EB7B1E039D4900181590 /* CellGripper.png */,
 				E9EAEC901DE53F3D00D4646C /* LaunchScreen.storyboard */,
 				E9EAEC931DE53F3D00D4646C /* Info.plist */,
 				E9EAECEC1DECD42900D4646C /* GoogleService-Info.plist */,
@@ -413,6 +442,8 @@
 				E979BD001E00FE5000783B08 /* DDPositionTableViewCell.xib */,
 				E92348761E2219D70028A3C9 /* GSTableViewCell.xib */,
 				E923487B1E221C9D0028A3C9 /* GSSubtitleTableViewCell.xib */,
+				E923485F1E21A9340028A3C9 /* GSCheckbox.xib */,
+				E92348981E22BFE00028A3C9 /* FirstTimeLoginPopupView.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -420,9 +451,10 @@
 		E9EAECD71DECCB5F00D4646C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E923489C1E22DF6C0028A3C9 /* JumpView.swift */,
+				E923489E1E22DF740028A3C9 /* JumpView.xib */,
 				E92348751E2219D70028A3C9 /* GSTableViewCell.swift */,
 				E92348791E221C240028A3C9 /* GSSubtitleTableViewCell.swift */,
-				E923485F1E21A9340028A3C9 /* GSCheckbox.xib */,
 				E92348611E21A9460028A3C9 /* GSCheckbox.swift */,
 				E9EAECFC1DEDFF9B00D4646C /* MainViewController.swift */,
 				E92348831E2222330028A3C9 /* MainSectionHeaderView.swift */,
@@ -432,10 +464,10 @@
 				E9BE78111DFA3775005DB20C /* MenuViewController.swift */,
 				E9BE78151DFA4EF3005DB20C /* MenuTableViewCell.swift */,
 				E938EB351E037ED500181590 /* GSPopup.swift */,
+				E902F6001DEFCB9E00A2326F /* Login */,
 				E930879E1DFB58D00003CC84 /* DayDetail */,
 				E9BE77CF1DF86FFD005DB20C /* DayEditor */,
 				E902F6041DEFDD0500A2326F /* Settings */,
-				E902F6001DEFCB9E00A2326F /* Login */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -609,6 +641,7 @@
 				E92348721E2210610028A3C9 /* Open Sans 300.ttf in Resources */,
 				E979BD011E00FE5000783B08 /* DDPositionTableViewCell.xib in Resources */,
 				E9EF53381E01E15500CDE712 /* EditUserTableViewCell.xib in Resources */,
+				E92348951E22BBFC0028A3C9 /* Open Sans 600.ttf in Resources */,
 				E92348601E21A9340028A3C9 /* GSCheckbox.xib in Resources */,
 				E930879B1DFB58A00003CC84 /* DayDetail.storyboard in Resources */,
 				E902F5FC1DEFCB1300A2326F /* Login.storyboard in Resources */,
@@ -622,15 +655,20 @@
 				E938EB7C1E039D4900181590 /* CellGripper.png in Resources */,
 				E9EAEC921DE53F3D00D4646C /* LaunchScreen.storyboard in Resources */,
 				E92348701E2208030028A3C9 /* login_button.png in Resources */,
-				E923486C1E21D5FA0028A3C9 /* horizredborder.jpg in Resources */,
+				E92348911E228D870028A3C9 /* createteam_button_pressed.png in Resources */,
 				E9EAEC8F1DE53F3D00D4646C /* Assets.xcassets in Resources */,
 				E902F6031DEFDCDD00A2326F /* Settings.storyboard in Resources */,
 				E9BE78141DFA4EDB005DB20C /* MenuTableViewCell.xib in Resources */,
 				E9EAEC8D1DE53F3D00D4646C /* Main.storyboard in Resources */,
+				E92348921E228D870028A3C9 /* createteam_button.png in Resources */,
 				E9EAECED1DECD42900D4646C /* GoogleService-Info.plist in Resources */,
+				E92348971E22BC0E0028A3C9 /* horizredborder.png in Resources */,
 				E9626F191E037BBF00483710 /* Popup.xib in Resources */,
+				E923488E1E228B0E0028A3C9 /* login_button_pressed.png in Resources */,
 				E92348681E21D1740028A3C9 /* navbarbackgroundimage.png in Resources */,
 				E923486E1E22034A0028A3C9 /* logo.png in Resources */,
+				E92348991E22BFE00028A3C9 /* FirstTimeLoginPopupView.xib in Resources */,
+				E923489F1E22DF750028A3C9 /* JumpView.xib in Resources */,
 				E923486A1E21D2560028A3C9 /* navbarbackgroundimage.jpg in Resources */,
 				E92348781E2219D70028A3C9 /* GSTableViewCell.xib in Resources */,
 				E92348881E2226930028A3C9 /* sectionheaderbottom.png in Resources */,
@@ -837,6 +875,8 @@
 				E92348771E2219D70028A3C9 /* GSTableViewCell.swift in Sources */,
 				E9F4C0881DF675FC000228D2 /* GSPosition.swift in Sources */,
 				E979BD031E00FE7200783B08 /* DDPositionTableViewCell.swift in Sources */,
+				E923489B1E22BFF30028A3C9 /* FirstTimeLoginPopupView.swift in Sources */,
+				E923489D1E22DF6D0028A3C9 /* JumpView.swift in Sources */,
 				E9F4C03D1DF32E91000228D2 /* FirstTimeLoginViewController.swift in Sources */,
 				E902F6081DEFDE2000A2326F /* PositionsTableViewController.swift in Sources */,
 				E9BE78161DFA4EF3005DB20C /* MenuTableViewCell.swift in Sources */,

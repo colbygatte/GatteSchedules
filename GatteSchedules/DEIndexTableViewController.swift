@@ -36,6 +36,7 @@ class DEIndexTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
         App.mustBeManager(self)
         dayCopy = day.copy() as! GSDay
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false

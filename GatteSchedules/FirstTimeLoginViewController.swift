@@ -16,57 +16,85 @@ protocol FirstTimeLoginDelegate {
 }
 
 class FirstTimeLoginViewController: UIViewController {
+    @IBOutlet weak var logoContainerView: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var loginButtonImageView: UIImageView!
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var codeTextField: UITextField!
-    @IBOutlet weak var logoImageView: UIImageView!
+    
+    var fontSize: CGFloat = 16.0
+    
     var pendingUser: GSPendingUser?
     var delegate: FirstTimeLoginDelegate?
+    var passwordPopup: FirstTimeLoginPopupView = FirstTimeLoginPopupView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logo = UIImage(named: "Logo.png")
-        logoImageView.image = logo
+        logoContainerView.backgroundColor = UIColor.hexString(hex: "91A7B3")
+        view.backgroundColor = UIColor.hexString(hex: "E3E3E3")
+        
+        let tapEndEditing = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapEndEditing)
+        
+        let loginButtonTap = UILongPressGestureRecognizer(target: self, action: #selector(loginButtonTapped(recognizer:)))
+        loginButtonTap.minimumPressDuration = 0
+        loginButtonImageView.addGestureRecognizer(loginButtonTap)
+        
+        
+        emailTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+        codeTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+        
+        emailTextField.delegate = self
+        codeTextField.delegate = self
+        
+        passwordPopup.delegate = self
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // step 1: get pending user, check if email matches
-    @IBAction func loginButtonPressed() {
-        
-        if let code = codeTextField.text?.lowercased(), let email = emailTextField.text?.lowercased() {
-            DB.getPendingUser(code: code) { pendingUserSnap in
-                self.pendingUser = GSPendingUser(snapshot: pendingUserSnap)
-                
-                if self.pendingUser!.email == email {
-                    self.getPassword()
+    func loginButtonTapped(recognizer: UILongPressGestureRecognizer) {
+        if recognizer.state == .began {
+            print("began")
+            loginButtonImageView.image = UIImage(named: "login_button_pressed.png")
+        } else if recognizer.state == .ended {
+            loginButtonImageView.image = UIImage(named: "login_button.png")
+            
+            // Validate
+            if let code = codeTextField.text?.lowercased(), let email = emailTextField.text?.lowercased() {
+                if code.characters.count != 0 && email.characters.count != 0 {
+                    
+                    DB.getPendingUser(code: code) { pendingUserSnap in
+                        if pendingUserSnap.childrenCount == 0 {
+                            self.quickAlert(title: nil, message: "Invalid information")
+                        } else {
+                            self.pendingUser = GSPendingUser(snapshot: pendingUserSnap)
+                            
+                            if self.pendingUser!.email == email {
+                                self.getPassword()
+                            }
+                        }
+                    }
+                    
+                } else {
+                    self.quickAlert(title: nil, message: "Please fill out all fields.")
                 }
+            } else {
+                self.quickAlert(title: nil, message: "Please fill out all fields.")
             }
-        } else {
-            // error
         }
     }
     
     // step 2: get user password & validate matching to retentered password
     func getPassword() {
-        let alert = UIAlertController(title: "Enter Password", message: nil, preferredStyle: .alert)
-        alert.addTextField(configurationHandler: nil)
-        alert.addTextField(configurationHandler: nil)
-        
-        let done = UIAlertAction(title: "Done", style: .default, handler: { alertAction in
-            let pw1 = alert.textFields![0].text!
-            let pw2 = alert.textFields![1].text!
-            
-            if pw1 == pw2 {
-                self.gotPassword(pw1)
-            } else {
-                alert.message = "Passwords do not match."
-            }
-        })
-        
-        alert.addAction(done)
-        alert.textFields![0].isSecureTextEntry = true
-        alert.textFields![1].isSecureTextEntry = true
-        
-        present(alert, animated: true)
+        passwordPopup.frame = (view.window?.frame)!
+        passwordPopup.setFrame()
+        passwordPopup.show()
+        view.addSubview(passwordPopup)
     }
     
     // step 3: create the user with the email & password
@@ -96,5 +124,31 @@ class FirstTimeLoginViewController: UIViewController {
     
     @IBAction func backButtonPressed() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension FirstTimeLoginViewController: FirstTimeLoginPopupViewDelegate {
+    func loginButtonPressed(pw1: String?, pw2: String?) {
+        if let pw3 = pw1, let pw4 = pw2 {
+            if pw3 == pw4 {
+                passwordPopup.dismiss()
+                gotPassword(pw3)
+                
+            } else {
+                quickAlert(title: nil, message: "Password do not match.")
+            }
+        }
+    }
+}
+
+extension FirstTimeLoginViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.font = nil
+        textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.font = nil
+        textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
     }
 }

@@ -35,6 +35,10 @@ class ContainerViewController: UIViewController {
         menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuView") as! MenuViewController
         
         containerNavigationController = UINavigationController(rootViewController: mainViewController)
+        containerNavigationController.navigationBar.titleTextAttributes = [NSFontAttributeName: App.globalFontThicker?.withSize(19)]
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSFontAttributeName: App.globalFontThick], for: .normal)
+        
         
         view.addSubview(containerNavigationController.view)
         view.addSubview(menuTableViewController.view)

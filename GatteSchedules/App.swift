@@ -5,6 +5,10 @@
 //  Created by Colby Gatte on 11/28/16.
 //  Copyright © 2016 colbyg. All rights reserved.
 //
+/*== OpenSans-Semibold
+    == OpenSans-Light
+    == OpenSans
+*/
 
 import UIKit
 import Firebase
@@ -26,16 +30,17 @@ struct App {
     static var fontSize: CGFloat = 16.0
     
     static var globalFont = UIFont(name: "OpenSans-Light", size: 16.0)
-    static var globalFontThick = UIFont(name: "OpenSans", size: 16.0)
-    static var globalFontThicker = UIFont(name: "OpenSans-Semibold", size: 16.0)
+    static var globalFontThick = UIFont(name: "OpenSans", size: 17.0)
+    static var globalFontThicker = UIFont(name: "OpenSans-Semibold", size: 24.0)
     
     static var containerViewController: ContainerViewController!
     static var welcomeMessage: String? {
         didSet {
             App.containerViewController.menuTableViewController.label.text = welcomeMessage
-            App.containerViewController.menuTableViewController.label.font = UIFont.boldSystemFont(ofSize: 22.0)
+            App.containerViewController.menuTableViewController.label.font = App.globalFontThicker
         }
     }
+    
     
     static func setRefs(withTeamId: String) {
         DB.teamid = withTeamId
@@ -127,6 +132,35 @@ struct App {
     }
 }
 
+extension  UIBarButtonItem {
+    func gsSetFont() {
+        self.setTitleTextAttributes([NSFontAttributeName: App.globalFontThicker?.withSize(17)], for: .normal)
+    }
+}
+
+extension UIViewController {
+    func quickAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default, handler: nil)
+        alert.addAction(okay)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func gsSetupNavBar() {
+        if let bs = navigationItem.leftBarButtonItems {
+            for b in bs {
+                b.gsSetFont()
+            }
+        }
+        
+        if let bs = navigationItem.rightBarButtonItems {
+            for b in bs {
+                b.gsSetFont()
+            }
+        }
+    }
+}
+
 extension UITableView {
     func registerGSTableViewCell() {
         self.register(UINib(nibName: "GSTableViewCell", bundle: nil), forCellReuseIdentifier: "GSCell")
@@ -147,11 +181,11 @@ extension UITableView {
 
 extension String {
     static func random(length: Int) -> String {
-        let l = "0123456789abcdefghijklmnopqrstuvwxyz" // only lowercase, we want case insensitive
+        let l = "0123456789" // only lowercase, we want case insensitive
         let letters = Array(l.characters)
         var randString = ""
         for _ in 1...length {
-            randString += String(letters[Int(arc4random_uniform(36))])
+            randString += String(letters[Int(arc4random_uniform(10))])
         }
         return randString
     }

@@ -14,7 +14,7 @@ class PositionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        gsSetupNavBar()
         tableView.registerGSTableViewCell()
         
         begin(again: false)

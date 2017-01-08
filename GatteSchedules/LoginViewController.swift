@@ -40,8 +40,9 @@ class LoginViewController: UIViewController {
         let tapEndEditing = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapEndEditing)
         
-        let loginButtonTap = UITapGestureRecognizer(target: self, action: #selector(loginButtonTapped(recognizer:)))
+        let loginButtonTap = UILongPressGestureRecognizer(target: self, action: #selector(loginButtonTapped(recognizer:)))
         loginButtonImageView.addGestureRecognizer(loginButtonTap)
+        loginButtonTap.minimumPressDuration = 0
         
         usernameTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
         passwordTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
@@ -55,10 +56,13 @@ class LoginViewController: UIViewController {
     }
     
     
-    func loginButtonTapped(recognizer: UITapGestureRecognizer) {
+    func loginButtonTapped(recognizer: UILongPressGestureRecognizer) {
         if recognizer.state == .began {
             print("began")
+            loginButtonImageView.image = UIImage(named: "login_button_pressed.png")
         } else if recognizer.state == .ended {
+            loginButtonImageView.image = UIImage(named: "login_button.png")
+            
             let username = usernameTextField.text!
             let password = passwordTextField.text!
             
@@ -90,10 +94,12 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.font = nil
         textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.font = nil
         textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
     }
 }

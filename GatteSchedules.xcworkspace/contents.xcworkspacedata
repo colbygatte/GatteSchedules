@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GatteSchedules/Open Sans 600.ttf">
+   </FileRef>
+   <FileRef
       location = "group:GSSubtitleTableViewCell.xib">
    </FileRef>
    <FileRef

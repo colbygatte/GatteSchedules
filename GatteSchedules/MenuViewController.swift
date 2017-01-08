@@ -46,6 +46,7 @@ extension MenuViewController: UITableViewDataSource {
         let menuCellData = App.menuCells[indexPath.row]
         
         cell.customLabel.text = menuCellData.text
+        cell.customLabel.font = App.globalFontThick
         
         return cell
     }

@@ -22,6 +22,8 @@ class DDRequestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
+        
         requestDayOffCheckbox.delegate = self
         tableView.dataSource = self
         tableView.delegate = self

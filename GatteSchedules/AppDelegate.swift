@@ -107,6 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navbarbackgroundimage.jpg"), for: .default)
         
+        
         UILabel.appearance().font = App.globalFont
     }
 }

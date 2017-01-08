@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 
+
 class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var jumpButton: UIBarButtonItem!
 
     var now: Date!
     var dateStart: Int = 0
@@ -37,7 +39,20 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        gsSetupNavBar()
+        
         tableView.rowHeight = 70.0
+        
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
         
         let menuButtonImage = UIImage(named: "CellGripper.png")
         let button = UIButton()

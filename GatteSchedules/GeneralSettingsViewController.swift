@@ -15,7 +15,7 @@ class GeneralSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        gsSetupNavBar()
         stepper.maximumValue = 20
         stepper.minimumValue = 1
         stepper.autorepeat = true

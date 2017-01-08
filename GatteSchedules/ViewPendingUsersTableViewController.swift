@@ -14,6 +14,7 @@ class ViewPendingUsersTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadPendingUsers), for: .valueChanged)
         tableView.registerGSSubtitleTableViewCell()

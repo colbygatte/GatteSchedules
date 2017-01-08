@@ -134,7 +134,7 @@ class DB {
     }
     
     static func createPendingUser(name: String, email: String, teamid: String) -> String {
-        let code = String.random(length: 5)
+        let code = String.random(length: 3)
         let pendingUserRef = DB.pendingUsersRef.child(code) // @@@@ check to see if str exists
         
         pendingUserRef.setValue([

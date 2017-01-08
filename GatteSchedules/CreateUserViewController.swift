@@ -14,9 +14,16 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var createUserButton: UIButton!
     
+    var fontSize: CGFloat = 16.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        gsSetupNavBar()
+        emailTextField.delegate = self
+        nameTextField.delegate = self
+        
+        emailTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+        nameTextField.font = UIFont(name: "OpenSans-Light", size: fontSize)
     }
     
     @IBAction func createUserButtonPressed() {
@@ -31,5 +38,18 @@ class CreateUserViewController: UIViewController {
         codeLabel.text = "Code for \(name): \(code)"
         
         //_ = navigationController?.popViewController(animated: true)
+    }
+}
+
+extension CreateUserViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.font = nil
+        textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.font = nil
+        textField.font = UIFont(name: "OpenSans-Light", size: fontSize)
     }
 }

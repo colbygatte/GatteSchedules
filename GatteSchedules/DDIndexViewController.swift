@@ -28,8 +28,13 @@ class DDIndexViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.alwaysBounceVertical = false
+        tableView.registerGSTableViewCell()
+        
+        title = App.scheduleDisplayFormatter.string(from: userDay.date)
         
         if App.loggedInUser.permissions == App.Permissions.manager {
             showEditCell = true
@@ -107,7 +112,7 @@ extension DDIndexViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueGSTableViewCell()
         var row: Int
         if showEditCell {
             row = indexPath.row - 1
@@ -116,20 +121,23 @@ extension DDIndexViewController: UITableViewDataSource {
         }
         
         if indexPath.row == 0 && showEditCell {
-            cell.textLabel?.text = "Edit day"
-            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
-            cell.textLabel?.textColor = UIColor.black
+            cell.gsLabel.text = "Edit day"
+            cell.gsLabel.font = App.globalFontThick
             cell.selectionStyle = .none
         } else {
             let positionName = positionNames[positionids[row]]
-            cell.textLabel?.text = positionName
+            cell.gsLabel.text = positionName
         }
         return cell
     }
 }
 
 extension DDIndexViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if shouldPerformSegue(withIdentifier: "DDWorkers", sender: nil) {
+            performSegue(withIdentifier: "DDWorkers", sender: nil)
+        }
+    }
 }
 
 extension DDIndexViewController: DayChangedDelegate {

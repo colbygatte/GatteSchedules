@@ -20,6 +20,7 @@ class EditUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gsSetupNavBar()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "EditUserTableViewCell", bundle: nil), forCellReuseIdentifier: "EditUserCell")

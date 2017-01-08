@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizredborder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DzZ-fB-mKH">
-                        <rect key="frame" x="0.0" y="51.5" width="375" height="2"/>
+                    <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizredborder.png" translatesAutoresizingMaskIntoConstraints="NO" id="DzZ-fB-mKH">
+                        <rect key="frame" x="0.0" y="51" width="375" height="2"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="2" id="qJI-9S-Rj1"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCc-VP-gsz">
-                        <rect key="frame" x="8" y="8" width="359" height="43.5"/>
+                        <rect key="frame" x="8" y="8" width="359" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -49,6 +49,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="horizredborder.jpg" width="1024" height="3"/>
+        <image name="horizredborder.png" width="326" height="3"/>
     </resources>
 </document>
