@@ -20,17 +20,16 @@ class JumpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.date = date
-        
+
         gsSetupNavBar()
     }
-    
+
     @IBAction func todayButtonPressed() {
         datePicker.date = Date()
     }
-    
+
     @IBAction func choose() {
         delegate?.jumperDateChosen(datePicker.date)
         _ = navigationController?.popViewController(animated: true)
     }
 }
-

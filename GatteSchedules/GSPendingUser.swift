@@ -11,14 +11,20 @@ import Firebase
 
 class GSPendingUser: NSObject {
     var name: String!
-    var email: String!
-    var teamid: String!
-    var code: String!
     
+    var email: String!
+    
+    var teamid: String!
+    
+    var code: String!
+
     init(snapshot: FIRDataSnapshot) {
         code = snapshot.key
+
+        guard let values = snapshot.value as? [String: String] else {
+            return // TODO: error handling
+        }
         
-        let values = snapshot.value as! [String: String]
         email = values["email"]
         name = values["name"]
         teamid = values["teamid"]

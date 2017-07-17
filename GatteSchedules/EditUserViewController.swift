@@ -8,55 +8,62 @@
 
 import UIKit
 
-
 // Section 0 of table view: positions
 // Section 1 of table view: shifts
 class EditUserViewController: UIViewController {
-    @IBOutlet var tableView: UITableView!
-    
     var positionids: [String]!
+    
     var shiftids: [String]!
+    
     var user: GSUser!
+
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gsSetupNavBar()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "EditUserTableViewCell", bundle: nil), forCellReuseIdentifier: "EditUserCell")
+        
+        setupTableView()
+        
         positionids = App.teamSettings.getPositionIds()
+        
         shiftids = App.teamSettings.getShiftIds()
     }
     
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "EditUserTableViewCell", bundle: nil), forCellReuseIdentifier: "EditUserCell")
+    }
+
     @IBAction func saveButtonPressed() {
-        let indexPaths = tableView.indexPathsForSelectedRows
-        
         var positions: [String] = []
         var shifts: [String] = []
-        if indexPaths != nil {
-            for path in indexPaths! {
-                if path.section == 0 {
-                    positions.append(positionids[path.row])
-                } else if path.section == 1 {
-                    shifts.append(shiftids[path.row])
-                }
+        
+        for path in tableView.indexPathsForVisibleRows ?? [] {
+            if path.section == 0 {
+                positions.append(positionids[path.row])
+            } else if path.section == 1 {
+                shifts.append(shiftids[path.row])
             }
         }
-        
+
         user.positions = positions
         user.shifts = shifts
-        
+
         DB.save(user: user)
-        _ = self.navigationController?.popViewController(animated: true)
+        
+        _ = navigationController?.popViewController(animated: true)
     }
 }
 
 extension EditUserViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         return 3
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+    func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Workable positions"
         } else if section == 1 {
@@ -65,8 +72,8 @@ extension EditUserViewController: UITableViewDataSource {
             return "Other"
         }
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return positionids.count
         } else if section == 1 {
@@ -75,11 +82,11 @@ extension EditUserViewController: UITableViewDataSource {
             return 1
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditUserCell", for: indexPath) as! EditUserTableViewCell
         cell.selectionStyle = .none
-        
+
         if indexPath.section == 0 {
             let positionid = positionids[indexPath.row]
             if user.canDo(position: positionid) {
@@ -98,20 +105,21 @@ extension EditUserViewController: UITableViewDataSource {
             }
             cell.customLabel.text = "Grant administrative permissions"
         }
-        cell.customLabel.sizeToFit()
         
+        cell.customLabel.sizeToFit()
+
         return cell
     }
 }
 
 extension EditUserViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 && indexPath.row == 0 {
             user.permissions = App.Permissions.manager
         }
     }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+
+    func tableView(_: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if indexPath.section == 2 && indexPath.row == 0 {
             user.permissions = App.Permissions.normal
         }

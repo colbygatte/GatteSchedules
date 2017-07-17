@@ -10,12 +10,16 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
     var shouldToggle: Bool = true
-    @IBOutlet weak var customLabel: UILabel!
     
+    @IBOutlet weak var customLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .none
-        self.backgroundColor = App.Theme.menuBackgroundColor
-        self.textLabel?.textColor = App.Theme.menuTextColor
+        
+        selectionStyle = .none
+        
+        backgroundColor = App.Theme.menuBackgroundColor
+        
+        textLabel?.textColor = App.Theme.menuTextColor
     }
 }

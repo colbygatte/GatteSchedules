@@ -12,64 +12,64 @@ class ContainerViewController: UIViewController {
     var containerNavigationController: UINavigationController!
     var mainViewController: MainViewController!
     var menuTableViewController: MenuViewController!
-    
+
     var swipeLeftGesturesOn: Bool = false // turn on manually in view controller
     var menuIsShowing: Bool = false
     var isMoving: Bool = false
     var toggleMenuBarButtonItem: UIBarButtonItem!
-    
+
     // Gesture variables
     var xPoints: [Float]!
     var yPoints: [Float]!
     var xVelocity: [Float]!
     var yVelocity: [Float]!
-    
+
     var closeMenuTap: UITapGestureRecognizer!
     var swipeLeftOnContainer: UIPanGestureRecognizer!
     var swipeLeftOnMenu: UIPanGestureRecognizer!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mainViewController = storyboard?.instantiateViewController(withIdentifier: "MainView") as! MainViewController
         menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuView") as! MenuViewController
-        
+
         containerNavigationController = UINavigationController(rootViewController: mainViewController)
         containerNavigationController.navigationBar.titleTextAttributes = [NSFontAttributeName: App.globalFontThicker?.withSize(19)]
-        
+
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSFontAttributeName: App.globalFontThick], for: .normal)
-        
-        
+
         view.addSubview(containerNavigationController.view)
         view.addSubview(menuTableViewController.view)
         view.bringSubview(toFront: containerNavigationController.view)
-        
+
         toggleMenuBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(ContainerViewController.toggleMenu))
-        
+
         setupGestures()
     }
-    
+
     func toggleMenu() {
         UIView.animate(withDuration: TimeInterval(0.3), animations: {
             if self.menuIsShowing {
-                self.containerNavigationController.view.frame.origin.x = 0
-                self.menuIsShowing = false
-                
                 self.containerNavigationController.view.removeGestureRecognizer(self.closeMenuTap)
             } else {
-                self.containerNavigationController.view.frame.origin.x = -310
-                self.menuIsShowing = true
-                
                 self.containerNavigationController.view.addGestureRecognizer(self.closeMenuTap)
             }
+            
+            self.containerNavigationController.view.frame.origin.x = self.menuIsShowing ? 0 : -310
+            
+            self.menuIsShowing = !self.menuIsShowing
         })
     }
-    
+
+    /**
+     Responsible for handling the swipe & it's bounds
+     */
     func handleSwipeLeft(recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: view)
         let velocity = recognizer.velocity(in: view)
         let xOrigin = containerNavigationController.view.frame.origin.x
-        
+
         switch recognizer.state {
         case .began:
             xPoints = []
@@ -77,16 +77,17 @@ class ContainerViewController: UIViewController {
             xVelocity = []
             yVelocity = []
             break
+            
         case .changed:
             xPoints.append(Float(translation.x))
             yPoints.append(Float(translation.y))
             xVelocity.append(Float(velocity.x))
             yVelocity.append(Float(velocity.y))
-            
+
             if isMoving {
                 let moveTo = translation.x + xOrigin
-                
-                if moveTo > -300 && moveTo < 0 { // bounds
+
+                if moveTo > -300 && moveTo < 0 {
                     containerNavigationController.view.frame.origin.x = moveTo
                     recognizer.setTranslation(CGPoint(x: 0, y: 0), in: view)
                 }
@@ -95,40 +96,37 @@ class ContainerViewController: UIViewController {
                     isMoving = true
                 }
             }
-            
             break
+            
         case .ended:
             isMoving = false
-            if abs(xOrigin) > 200 {
-                menuIsShowing = false
-                toggleMenu()
-            } else {
-                menuIsShowing = true
-                toggleMenu()
-            }
+            
+            menuIsShowing = abs(xOrigin) < 200 ? true : false
+            
+            toggleMenu()
             break
-        default:
-            break
+            
+        default: break
         }
     }
-    
-    func handleTap(recognizer: UITapGestureRecognizer) {
+
+    func handleTap(recognizer _: UITapGestureRecognizer) {
         if menuIsShowing {
             toggleMenu()
         }
     }
-    
+
     func setupGestures() {
         closeMenuTap = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
-        
+
         swipeLeftOnContainer = UIPanGestureRecognizer(target: self, action: #selector(handleSwipeLeft(recognizer:)))
         swipeLeftOnContainer.maximumNumberOfTouches = 1
         swipeLeftOnMenu = UIPanGestureRecognizer(target: self, action: #selector(handleSwipeLeft(recognizer:)))
         swipeLeftOnMenu.maximumNumberOfTouches = 1
-        
+
         setSwipeLeftGesture(on: true) // Activate!
     }
-    
+
     func setSwipeLeftGesture(on: Bool) {
         if on && !swipeLeftGesturesOn { // if gestures are off and we want to turn them on, add gestures
             swipeLeftGesturesOn = true
@@ -142,17 +140,20 @@ class ContainerViewController: UIViewController {
     }
 }
 
-protocol FloatType {}
-extension Float: FloatType {}
+protocol FloatType { }
+
+extension Float: FloatType { }
+
 extension Array where Element: FloatType {
     func average() -> Float {
-        let total = self.count
-        var sum: Float = 0
+        let total = count
         
+        var sum: Float = 0
+
         for int in self {
             sum += int as! Float
         }
-        
+
         return sum / Float(total)
     }
 }

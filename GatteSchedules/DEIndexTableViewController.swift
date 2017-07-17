@@ -21,19 +21,19 @@ class DEIndexTableViewController: UIViewController {
     var day: GSDay!
     var dayCopy: GSDay!
     var dayChangedDelegate: DayChangedDelegate?
-    
+
     var dayRequests: GSDayRequests?
     var positionNames: [String: String]!
     var positionids: [String]!
     var changesMade = false
     var ddPositionViewController: DEPositionViewController?
-    
-    override func viewWillAppear(_ animated: Bool) {
+
+    override func viewWillAppear(_: Bool) {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         gsSetupNavBar()
@@ -41,32 +41,32 @@ class DEIndexTableViewController: UIViewController {
         dayCopy = day.copy() as! GSDay
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.setHidesBackButton(true, animated: false)
-        
+
         publishedCheckbox.delegate = self
         publishedCheckbox.setFrame()
-        
+
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerGSTableViewCell()
-        
+
         positionNames = App.teamSettings.positions
         positionids = Array(positionNames.keys)
-        
+
         title = "Edit " + App.formatter.string(from: day.date)
-        
+
         if day.published == true {
             publishedCheckbox.on = true
         } else {
             publishedCheckbox.on = false
         }
-        
+
         DB.get(requests: day.date) { snap in
             self.dayRequests = GSDayRequests(snapshot: snap)
             self.ddPositionViewController?.dayRequests = self.dayRequests // Why do I have to do this?
             self.ddPositionViewController?.tableView.reloadData()
         }
     }
-    
+
     @IBAction func saveButtonPressed() {
         if publishedCheckbox.on {
             // If the day wasn't already published, send a notification out to the team.
@@ -82,45 +82,48 @@ class DEIndexTableViewController: UIViewController {
         changesMade = false
         _ = navigationController?.popViewController(animated: true)
     }
-    
+
     @IBAction func requestButtonPressed() {
         let sb = UIStoryboard(name: "DayDetail", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DDRequest") as! DDRequestViewController
         vc.day = day
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @IBAction func cancelButtonPressed() {
         if changesMade {
             let alert = UIAlertController(title: nil, message: "Are you sure you want to exit? All unsaved changes will be lost.", preferredStyle: .alert)
-            let yes = UIAlertAction(title: "Yes", style: .cancel, handler: { alert in
+            
+            let yes = UIAlertAction(title: "Yes", style: .cancel, handler: { _ in
                 self.dayChangedDelegate?.dayChanged(newDay: self.dayCopy)
                 _ = self.navigationController?.popViewController(animated: true)
             })
-            let no = UIAlertAction(title: "No", style: .default, handler: nil)
             
+            let no = UIAlertAction(title: "No", style: .default, handler: nil)
+
             alert.addAction(yes)
             alert.addAction(no)
-            
+
             present(alert, animated: true, completion: nil)
         } else {
-            _ = self.navigationController?.popViewController(animated: true)
+            _ = navigationController?.popViewController(animated: true)
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         changesMade = true
         if segue.identifier == "DEPosition" {
             changesMade = true
-            
+
             let row = (tableView.indexPathForSelectedRow?.row)!
             let positionid = positionids[row]
-            
+
             let vc = segue.destination as! DEPositionViewController
-            self.ddPositionViewController = vc
-            
+            ddPositionViewController = vc
+
             vc.day = day
             vc.positionid = positionid
+            
             if dayRequests != nil {
                 vc.dayRequests = dayRequests!
             }
@@ -129,14 +132,14 @@ class DEIndexTableViewController: UIViewController {
 }
 
 extension DEIndexTableViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return positionids.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let positionName = positionNames[positionids[row]]
-        
+
         let cell = tableView.dequeueGSTableViewCell()
         cell.gsLabel.text = positionName
         return cell
@@ -144,15 +147,13 @@ extension DEIndexTableViewController: UITableViewDataSource {
 }
 
 extension DEIndexTableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
         performSegue(withIdentifier: "DEPosition", sender: nil)
     }
 }
 
 extension DEIndexTableViewController: GSCheckboxDelegate {
-    func toggled(_ checkbox: GSCheckbox) {
+    func toggled(_: GSCheckbox) {
         changesMade = true
     }
 }
-
-

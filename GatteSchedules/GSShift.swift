@@ -14,7 +14,7 @@ class GSShift: NSObject {
     var day: GSDay!
     var shiftid: String!
     var positions: [String: GSPosition]!
-    
+
     func loadPositions() {
         positions = [:]
         let positionsData = App.teamSettings.positions
@@ -25,28 +25,28 @@ class GSShift: NSObject {
             positions[positionid] = position
         }
     }
-    
+
     init(snapshot: FIRDataSnapshot, day: GSDay) {
         super.init()
         self.day = day
-        
+
         let shiftid = snapshot.key
         loadPositions()
-        
+
         self.shiftid = shiftid
-        
+
         for positionData in snapshot.children {
             let positionSnap = positionData as! FIRDataSnapshot
             let positionid = positionSnap.key
-            
+
             let uids = positionSnap.value as! [String]
-            
+
             for uid in uids {
                 positions[positionid]?.add(worker: App.team.get(user: uid)!)
             }
         }
     }
-    
+
     init(shiftid: String, day: GSDay) {
         super.init()
         self.day = day
@@ -56,38 +56,38 @@ class GSShift: NSObject {
 
     func toFirebaseObject() -> Any {
         var shiftData: [String: Any] = [:]
-        
+
         for (positionid, position) in positions {
             shiftData[positionid] = position.toFirebaseObject()
         }
-        
+
         return shiftData
     }
-    
+
     func add(worker: GSUser, toPosition: String, notes: String = "nil") {
         positions[toPosition]!.add(worker: worker, notes: notes)
     }
-    
+
     func remove(worker: GSUser, fromPosition: String) {
         positions[fromPosition]!.remove(worker: worker)
     }
-    
+
     func get(position: String) -> GSPosition {
         return positions[position]!
     }
-    
+
 }
 
 extension GSShift: NSCopying {
-    func copy(with zone: NSZone? = nil) -> Any {
+    func copy(with _: NSZone? = nil) -> Any {
         let copy = GSShift(shiftid: shiftid, day: copyDay!)
-        
+
         for (positionid, position) in positions {
             position.copyDay = copyDay
             position.copyShift = copy
             copy.positions[positionid] = (position.copy() as! GSPosition)
         }
-        
+
         return copy
     }
 }

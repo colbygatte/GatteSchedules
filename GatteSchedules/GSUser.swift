@@ -11,47 +11,48 @@ import Firebase
 
 class GSUser: NSObject {
     var uid: String!
-    var apnTokens: [String]!
     
+    var apnTokens = [String]()
+
     var teamid: String!
-    var name: String!
-    var email: String!
-    var positions: [String]! // workable positions
-    var shifts: [String]! // workable shifts
-    var permissions: String!
     
+    var name: String!
+    
+    var email: String!
+    
+    var positions = [String]() // workable positions
+    
+    var shifts = [String]() // workable shifts
+    
+    var permissions: String!
+
     init(snapshot: FIRDataSnapshot, uid: String) {
         let values = snapshot.value as! [String: Any]
+        
         self.uid = uid
+        
         name = values["name"] as! String
         teamid = values["teamid"] as! String
         permissions = values["permissions"] as! String
         email = values["email"] as! String
-        
-        let tokens = values["apnTokens"] as? [String]
-        if tokens != nil {
+
+        if let tokens = values["apnTokens"] as? [String]{
             apnTokens = tokens
-        } else {
-            apnTokens = []
         }
-        
-        positions = []
-        let positionsValues = values["positions"] as? [String]
-        if positionsValues != nil {
-            for position in positionsValues! {
+
+        if let positionsValues = values["positions"] as? [String]{
+            for position in positionsValues {
                 positions.append(position)
             }
         }
-        
-        shifts = []
-        let shiftsValues = values["shifts"] as? [String]
-        if shiftsValues != nil {
-            for shift in shiftsValues! {
+
+        if let shiftsValues = values["shifts"] as? [String] {
+            for shift in shiftsValues {
                 shifts.append(shift)
             }
         }
     }
-    
+
     init(uid: String, email: String, name: String, teamid: String, permissions: String, positions: [String], shifts: [String]) {
         self.uid = uid
         self.email = email
@@ -60,27 +61,24 @@ class GSUser: NSObject {
         self.permissions = permissions
         self.positions = positions
         self.shifts = shifts
-        self.apnTokens = []
     }
-    
+
     func toFirebaseObject() -> Any {
-        var userObject: [String: Any] = [:]
-        
-        userObject["name"] = name
-        userObject["permissions"] = permissions
-        userObject["teamid"] = teamid
-        userObject["positions"] = positions
-        userObject["shifts"] = shifts
-        userObject["email"] = email
-        userObject["apnTokens"] = apnTokens
-        
-        return userObject
+        return [
+            "name": name,
+            "permissions": permissions,
+            "teamid": teamid,
+            "positions": positions,
+            "shifts": shifts,
+            "email": email,
+            "apnTokens": apnTokens
+        ]
     }
-    
+
     func canDo(position: String) -> Bool {
         return positions.contains(position)
     }
-    
+
     func canDo(shift: String) -> Bool {
         return shifts.contains(shift)
     }

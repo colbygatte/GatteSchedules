@@ -16,37 +16,37 @@ class GSCheckbox: UIView {
     var delegate: GSCheckboxDelegate?
     @IBOutlet weak var checkboxView: UIView!
     @IBOutlet weak var checkboxImageView: UIImageView!
-    
+
     var on: Bool = false {
         didSet {
             setCheck()
         }
     }
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         setup()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
+
     func setup() {
         Bundle.main.loadNibNamed("GSCheckbox", owner: self, options: nil)
-        
+
         addSubview(checkboxView)
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(recognizer:)))
         checkboxView.addGestureRecognizer(tap)
     }
-    
+
     func setFrame() {
-        checkboxView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        checkboxImageView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        checkboxView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+        checkboxImageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
     }
-    
-    func tapped(recognizer: UITapGestureRecognizer) {
+
+    func tapped(recognizer _: UITapGestureRecognizer) {
         if on {
             on = false
         } else {
@@ -54,7 +54,7 @@ class GSCheckbox: UIView {
         }
         setCheck()
     }
-    
+
     func setCheck(animation: Bool = true) {
         let timeInterval: Float
         if animation {
@@ -70,5 +70,5 @@ class GSCheckbox: UIView {
             }
         })
     }
-    
+
 }

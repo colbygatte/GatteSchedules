@@ -10,15 +10,16 @@ import UIKit
 
 class DDRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var shiftNameLabel: UILabel!
+    
     @IBOutlet weak var requestingLabel: UILabel!
-    
+
     var requesting: String!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         requesting = ""
     }
-    
+
     func toggleRequest() {
         UIView.animate(withDuration: TimeInterval(0.3), animations: {
             if self.requesting == "" {
@@ -33,7 +34,7 @@ class DDRequestTableViewCell: UITableViewCell {
             }
         })
     }
-    
+
     func setRequest(to: String) {
         if to == "off" {
             requestingLabel.text = "Off"

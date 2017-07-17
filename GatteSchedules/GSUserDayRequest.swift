@@ -27,24 +27,24 @@ class GSUserDayRequest: NSObject {
     override init() {
         requests = []
     }
-    
+
     init(snapshot: FIRDataSnapshot) {
         requests = []
         uid = snapshot.key
         let values = snapshot.value as? [String: String]
-        
+
         if values != nil { // @@@@ check to see if this works
             if values!["all-day"] != nil {
                 requestDayOff = true
             }
-            
+
             for userRequestShiftData in values! {
                 let userRequestData = GSUserRequestData(shiftid: userRequestShiftData.key, requesting: userRequestShiftData.value)
                 requests.append(userRequestData)
             }
         }
     }
-    
+
     func requestFor(shift: String) -> String? {
         for request in requests {
             if request.shiftid == shift {
@@ -53,7 +53,7 @@ class GSUserDayRequest: NSObject {
         }
         return nil
     }
-    
+
     func toFirebaseObject() -> Any {
         var userRequestObject = [String: String]()
         for userRequest in requests {

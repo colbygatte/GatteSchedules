@@ -9,18 +9,19 @@
 import UIKit
 
 class DDPositionTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var subLabel: UILabel!
-    
     var canWorkShift = true
+    
     var canSelect = true
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var subLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
 }

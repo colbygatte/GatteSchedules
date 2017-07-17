@@ -13,14 +13,14 @@ class GSUserShift: NSObject {
     var shiftid: String!
 
     var position: GSUserPosition!
-    
+
     init(shiftid: String, positionid: String) {
         super.init()
-        
+
         position = GSUserPosition(positionid: positionid)
         position.userDay = userDay
         position.userShift = self
-        
+
         self.shiftid = shiftid
     }
 }
