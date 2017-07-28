@@ -13,13 +13,13 @@ class DDIndexViewController: UIViewController {
     
     var day: GSDay?
 
-    var shiftNames: [String: String]!
+    var shiftNames = [String: String]()
     
-    var shiftids: [String]!
+    var shiftids = [String]()
     
-    var positionNames: [String: String]!
+    var positionNames = [String: String]()
     
-    var positionids: [String]!
+    var positionids = [String]()
     
     var showEditCell = false
     

@@ -10,26 +10,34 @@ import UIKit
 import Firebase
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var jumpButton: UIBarButtonItem!
-
     var now: Date!
+    
     var dateStart: Int = 0
+    
     var totalSections: Int = 20
-    var userDays: [GSUserDay]!
-    var fullDays: [GSDay]!
+    
+    var userDays = [GSUserDay]()
+    
+    var fullDays = [GSDay]()
+    
     var isDoneLoading: Bool = false
+    
     var nextWorkingDay: GSUserDay?
+    
     var cannotRequestBefore: Date!
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    @IBOutlet weak var jumpButton: UIBarButtonItem!
+    
     override func viewWillAppear(_: Bool) {
         App.containerViewController.setSwipeLeftGesture(on: true)
 
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
-
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -42,13 +50,6 @@ class MainViewController: UIViewController {
         gsSetupNavBar()
 
         tableView.rowHeight = 70.0
-
-        for family: String in UIFont.familyNames {
-            print("\(family)")
-            for names: String in UIFont.fontNames(forFamilyName: family) {
-                print("== \(names)")
-            }
-        }
 
         let menuButtonImage = UIImage(named: "CellGripper.png")
         let button = UIButton()
@@ -87,11 +88,13 @@ class MainViewController: UIViewController {
                     if App.loggedIn == false {
                         if App.apnToken != nil && !App.loggedInUser.apnTokens.contains(App.apnToken!) {
                             App.loggedInUser.apnTokens.append(App.apnToken!)
+                            
                             DB.save(user: App.loggedInUser)
                             DB.saveTokens(user: App.loggedInUser)
                         }
 
                         App.loggedIn = true
+                        
                         self.begin()
                     }
                 }
@@ -99,66 +102,70 @@ class MainViewController: UIViewController {
                 App.loggedIn = false
 
                 let vc = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                
                 self.present(vc, animated: true, completion: nil)
             }
         }
+        
         DB.startAuthListener()
     }
 
     func begin() {
         DB.getSettings { settingsSnap in
-            let settings = GSSettings(snapshot: settingsSnap)
-            App.teamSettings = settings
+            //let settings = GSSettings(snapshot: settingsSnap)
+            
+            App.teamSettings = GSSettings(snapshot: settingsSnap)
+            
             self.cannotRequestBefore = App.getDateFromNow(App.teamSettings.daysPriorRestriction)
-
         }
 
+        getUsers()
+
+        App.makeMenu()
+    }
+    
+    func getUsers() {
         DB.getUsers { usersSnap in
             App.team = GSTeam()
-
+            
             for userData in usersSnap.children {
                 let userSnap = userData as! FIRDataSnapshot
+                
                 let user: GSUser!
+                
                 if userSnap.key == App.loggedInUser.uid {
                     user = App.loggedInUser
                 } else {
                     user = GSUser(snapshot: userSnap, uid: userSnap.key)
                 }
+                
                 App.team.add(user: user)
             }
-
-            // Moved load user days in here because
-            // we are comparing users to the App.team users, and above
-            // we set the logged in user's GSUser to it's respective place in
-            // App.team
+            
             self.loadUserDays()
         }
-
-        App.makeMenu()
     }
 
     func loadUserDays() {
         DB.teamRef.child("lastChanged").observe(.value, with: { snap in
-            self.userDays = []
-            self.fullDays = []
-            self.isDoneLoading = false
-
-            print("@1")
             for i in self.dateStart ... self.dateStart + self.totalSections {
-                print("@2")
                 let date = App.getDateFrom(self.now, days: i)
+                
                 let day = GSUserDay(date: date, user: App.loggedInUser)
+                
                 self.userDays.append(day)
 
                 DB.get(day: day.date) { snap in
-                    print("@3")
                     let gsDay = GSDay(snapshot: snap)
+                    
                     self.fullDays.append(gsDay)
+                    
                     day.addData(day: gsDay)
 
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
-                        if i == self.dateStart + self.totalSections {
+                        
+                        if i == (self.dateStart + self.totalSections) {
                             self.isDoneLoading = true
                         }
                     }
@@ -169,8 +176,11 @@ class MainViewController: UIViewController {
 
     func handleRefresh(refreshControl: UIRefreshControl) {
         dateStart += -5
+        
         totalSections += 5
+        
         loadUserDays()
+     
         refreshControl.endRefreshing()
     }
 
@@ -191,11 +201,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
-        if App.loggedIn == true {
-            return totalSections
-        } else {
-            return 0
-        }
+        return App.loggedIn ? totalSections : 0
     }
 
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -203,9 +209,9 @@ extension MainViewController: UITableViewDataSource {
 
         if App.formatter.string(from: day.date) == App.formatter.string(from: App.now) {
             return App.scheduleDisplayFormatter.string(from: day.date) + " - Today"
-        } else {
-            return App.scheduleDisplayFormatter.string(from: day.date)
         }
+        
+        return App.scheduleDisplayFormatter.string(from: day.date)
     }
 
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -213,9 +219,9 @@ extension MainViewController: UITableViewDataSource {
 
         if shiftNumber == 0 || !userDays[section].published { // if there are no shifts or the day is unpublished
             return 1
-        } else {
-            return userDays[section].shifts.count
         }
+        
+        return userDays[section].shifts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -236,6 +242,7 @@ extension MainViewController: UITableViewDataSource {
         }
 
         cell.selectionStyle = .none
+        
         return cell
     }
 }
@@ -243,10 +250,11 @@ extension MainViewController: UITableViewDataSource {
 // MARK: Table View Delegate
 
 extension MainViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let day = userDays[section]
+        
         let text: String
+        
         if App.formatter.string(from: day.date) == App.formatter.string(from: App.now) {
             text = App.scheduleDisplayFormatter.string(from: day.date) + " - Today"
         } else {
@@ -265,7 +273,9 @@ extension MainViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = indexPath.section
+        
         let cell = tableView.cellForRow(at: indexPath) as! USVScheduleTableViewCell
+        
         let userDay = userDays[section]
 
         if userDay.published == true {
